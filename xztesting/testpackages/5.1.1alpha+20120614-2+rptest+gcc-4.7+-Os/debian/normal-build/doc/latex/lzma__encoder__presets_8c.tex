@@ -1,0 +1,48 @@
+\section{liblzma/lzma/lzma\-\_\-encoder\-\_\-presets.c File Reference}
+\label{lzma__encoder__presets_8c}\index{liblzma/lzma/lzma\-\_\-encoder\-\_\-presets.\-c@{liblzma/lzma/lzma\-\_\-encoder\-\_\-presets.\-c}}
+
+
+Encoder presets.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-bool} {\bf lzma\-\_\-lzma\-\_\-preset} ({\bf lzma\-\_\-options\-\_\-lzma} $\ast$options, uint32\-\_\-t preset)
+\begin{DoxyCompactList}\small\item\em Set a compression preset to \doxyref{lzma\-\_\-options\-\_\-lzma}{p.}{structlzma__options__lzma} structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encoder presets. 
+
+\subsection{Function Documentation}
+\index{lzma\-\_\-encoder\-\_\-presets.\-c@{lzma\-\_\-encoder\-\_\-presets.\-c}!lzma\-\_\-lzma\-\_\-preset@{lzma\-\_\-lzma\-\_\-preset}}
+\index{lzma\-\_\-lzma\-\_\-preset@{lzma\-\_\-lzma\-\_\-preset}!lzma_encoder_presets.c@{lzma\-\_\-encoder\-\_\-presets.\-c}}
+\subsubsection[{lzma\-\_\-lzma\-\_\-preset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-bool} lzma\-\_\-lzma\-\_\-preset (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-options\-\_\-lzma} $\ast$}]{options, }
+\item[{uint32\-\_\-t}]{preset}
+\end{DoxyParamCaption}
+)}\label{lzma__encoder__presets_8c_a44811d2b250a5eb662eec2d0456a89f8}
+
+
+Set a compression preset to \doxyref{lzma\-\_\-options\-\_\-lzma}{p.}{structlzma__options__lzma} structure. 
+
+0 is the fastest and 9 is the slowest. These match the switches -\/0 .. -\/9 of the xz command line tool. In addition, it is possible to bitwise-\/or flags to the preset. Currently only L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E is supported. The flags are defined in \doxyref{container.\-h}{p.}{container_8h}, because the flags are used also with \doxyref{lzma\-\_\-easy\-\_\-encoder()}{p.}{container_8h_acbdad999c544872f0f5d242f0d1a4ed4}.
+
+The preset values are subject to changes between liblzma versions.
+
+This function is available only if L\-Z\-M\-A1 or L\-Z\-M\-A2 encoder has been enabled when building liblzma.
+
+\begin{DoxyReturn}{Returns}
+On success, false is returned. If the preset is not supported, true is returned. 
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4, L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T, L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L, L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E, and L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K.
+
+
+
+Referenced by lzma\-\_\-easy\-\_\-preset(), and options\-\_\-lzma().
+

@@ -1,0 +1,139 @@
+\section{xz/signals.c File Reference}
+\label{signals_8c}\index{xz/signals.\-c@{xz/signals.\-c}}
+
+
+Handling signals to abort operation.  
+
+
+{\ttfamily \#include \char`\"{}private.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries signal\-\_\-handler} (int sig)\label{signals_8c_ae710b6e1e3475f05843032f73a4dd7a7}
+
+\item 
+void {\bf signals\-\_\-init} (void)
+\item 
+void {\bf signals\-\_\-block} (void)
+\item 
+void {\bf signals\-\_\-unblock} (void)
+\begin{DoxyCompactList}\small\item\em Unblock the signals blocked by \doxyref{signals\-\_\-block()}{p.}{signals_8c_a6c7cbcd4595590670a3784d393770693}. \end{DoxyCompactList}\item 
+void {\bf signals\-\_\-exit} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile sig\-\_\-atomic\-\_\-t {\bf user\-\_\-abort} = false
+\item 
+static volatile sig\-\_\-atomic\-\_\-t {\bf exit\-\_\-signal} = 0
+\item 
+static sigset\-\_\-t {\bf hooked\-\_\-signals}
+\item 
+static bool {\bf signals\-\_\-are\-\_\-initialized} = false
+\item 
+static size\-\_\-t {\bf signals\-\_\-block\-\_\-count} = 0
+\begin{DoxyCompactList}\small\item\em \doxyref{signals\-\_\-block()}{p.}{signals_8c_a6c7cbcd4595590670a3784d393770693} and \doxyref{signals\-\_\-unblock()}{p.}{signals_8c_a55ea2250ff5153a3a4daf1f5a75ea921} can be called recursively. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handling signals to abort operation. 
+
+\subsection{Function Documentation}
+\index{signals.\-c@{signals.\-c}!signals\-\_\-init@{signals\-\_\-init}}
+\index{signals\-\_\-init@{signals\-\_\-init}!signals.c@{signals.\-c}}
+\subsubsection[{signals\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void signals\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{signals_8c_a3719a1754f6e317bbb96770b973d453c}
+Initialize the signal handler, which will set user\-\_\-abort to true when user e.\-g. presses C-\/c. 
+
+References hooked\-\_\-signals, message\-\_\-progress\-\_\-sigs, message\-\_\-signal\-\_\-handler(), and signals\-\_\-are\-\_\-initialized.
+
+\index{signals.\-c@{signals.\-c}!signals\-\_\-block@{signals\-\_\-block}}
+\index{signals\-\_\-block@{signals\-\_\-block}!signals.c@{signals.\-c}}
+\subsubsection[{signals\-\_\-block}]{\setlength{\rightskip}{0pt plus 5cm}void signals\-\_\-block (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{signals_8c_a6c7cbcd4595590670a3784d393770693}
+Block the signals which don't have S\-A\-\_\-\-R\-E\-S\-T\-A\-R\-T and which would just set user\-\_\-abort to true. This is handy when we don't want to handle E\-I\-N\-T\-R and don't want S\-A\-\_\-\-R\-E\-S\-T\-A\-R\-T either. 
+
+References hooked\-\_\-signals, signals\-\_\-are\-\_\-initialized, and signals\-\_\-block\-\_\-count.
+
+
+
+Referenced by io\-\_\-close(), io\-\_\-open\-\_\-dest(), io\-\_\-open\-\_\-src(), io\-\_\-open\-\_\-src\-\_\-real(), message\-\_\-progress\-\_\-update(), and print\-\_\-filename().
+
+\index{signals.\-c@{signals.\-c}!signals\-\_\-unblock@{signals\-\_\-unblock}}
+\index{signals\-\_\-unblock@{signals\-\_\-unblock}!signals.c@{signals.\-c}}
+\subsubsection[{signals\-\_\-unblock}]{\setlength{\rightskip}{0pt plus 5cm}void signals\-\_\-unblock (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{signals_8c_a55ea2250ff5153a3a4daf1f5a75ea921}
+
+
+Unblock the signals blocked by \doxyref{signals\-\_\-block()}{p.}{signals_8c_a6c7cbcd4595590670a3784d393770693}. 
+
+
+
+References hooked\-\_\-signals, signals\-\_\-are\-\_\-initialized, and signals\-\_\-block\-\_\-count.
+
+
+
+Referenced by io\-\_\-close(), io\-\_\-open\-\_\-dest(), io\-\_\-open\-\_\-src(), io\-\_\-open\-\_\-src\-\_\-real(), message\-\_\-progress\-\_\-update(), and print\-\_\-filename().
+
+\index{signals.\-c@{signals.\-c}!signals\-\_\-exit@{signals\-\_\-exit}}
+\index{signals\-\_\-exit@{signals\-\_\-exit}!signals.c@{signals.\-c}}
+\subsubsection[{signals\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}void signals\-\_\-exit (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{signals_8c_abb960c3705a055f596b288b0961e135a}
+If user has sent us a signal earlier to terminate the process, re-\/raise that signal to actually terminate the process. 
+
+References exit\-\_\-signal, and set\-\_\-exit\-\_\-status().
+
+
+
+\subsection{Variable Documentation}
+\index{signals.\-c@{signals.\-c}!user\-\_\-abort@{user\-\_\-abort}}
+\index{user\-\_\-abort@{user\-\_\-abort}!signals.c@{signals.\-c}}
+\subsubsection[{user\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}volatile sig\-\_\-atomic\-\_\-t user\-\_\-abort = false}\label{signals_8c_a190aaf6ae9eaa75671718e1ceed999e6}
+If this is true, we will clean up the possibly incomplete output file, return to main() as soon as practical. That is, the code needs to poll this variable in various places. 
+
+Referenced by coder\-\_\-normal(), coder\-\_\-passthru(), coder\-\_\-run(), io\-\_\-open\-\_\-src\-\_\-real(), and io\-\_\-read().
+
+\index{signals.\-c@{signals.\-c}!exit\-\_\-signal@{exit\-\_\-signal}}
+\index{exit\-\_\-signal@{exit\-\_\-signal}!signals.c@{signals.\-c}}
+\subsubsection[{exit\-\_\-signal}]{\setlength{\rightskip}{0pt plus 5cm}volatile sig\-\_\-atomic\-\_\-t exit\-\_\-signal = 0\hspace{0.3cm}{\ttfamily [static]}}\label{signals_8c_a32f31d825b75591d947a03750cdedda1}
+If we were interrupted by a signal, we store the signal number so that we can raise that signal to kill the program when all cleanups have been done. 
+
+Referenced by signals\-\_\-exit().
+
+\index{signals.\-c@{signals.\-c}!hooked\-\_\-signals@{hooked\-\_\-signals}}
+\index{hooked\-\_\-signals@{hooked\-\_\-signals}!signals.c@{signals.\-c}}
+\subsubsection[{hooked\-\_\-signals}]{\setlength{\rightskip}{0pt plus 5cm}sigset\-\_\-t hooked\-\_\-signals\hspace{0.3cm}{\ttfamily [static]}}\label{signals_8c_ad26b98f4795fd915cf1a761dc572f590}
+Mask of signals for which have have established a signal handler to set user\-\_\-abort to true. 
+
+Referenced by signals\-\_\-block(), signals\-\_\-init(), and signals\-\_\-unblock().
+
+\index{signals.\-c@{signals.\-c}!signals\-\_\-are\-\_\-initialized@{signals\-\_\-are\-\_\-initialized}}
+\index{signals\-\_\-are\-\_\-initialized@{signals\-\_\-are\-\_\-initialized}!signals.c@{signals.\-c}}
+\subsubsection[{signals\-\_\-are\-\_\-initialized}]{\setlength{\rightskip}{0pt plus 5cm}bool signals\-\_\-are\-\_\-initialized = false\hspace{0.3cm}{\ttfamily [static]}}\label{signals_8c_a43e552d0c019958f2cab258d14d99a09}
+True once \doxyref{signals\-\_\-init()}{p.}{signals_8c_a3719a1754f6e317bbb96770b973d453c} has finished. This is used to skip blocking signals (with uninitialized hooked\-\_\-signals) if \doxyref{signals\-\_\-block()}{p.}{signals_8c_a6c7cbcd4595590670a3784d393770693} and \doxyref{signals\-\_\-unblock()}{p.}{signals_8c_a55ea2250ff5153a3a4daf1f5a75ea921} are called before \doxyref{signals\-\_\-init()}{p.}{signals_8c_a3719a1754f6e317bbb96770b973d453c} has been called. 
+
+Referenced by signals\-\_\-block(), signals\-\_\-init(), and signals\-\_\-unblock().
+
+\index{signals.\-c@{signals.\-c}!signals\-\_\-block\-\_\-count@{signals\-\_\-block\-\_\-count}}
+\index{signals\-\_\-block\-\_\-count@{signals\-\_\-block\-\_\-count}!signals.c@{signals.\-c}}
+\subsubsection[{signals\-\_\-block\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t signals\-\_\-block\-\_\-count = 0\hspace{0.3cm}{\ttfamily [static]}}\label{signals_8c_a31d411d04c87eedc3fb64f7c4478d1d3}
+
+
+\doxyref{signals\-\_\-block()}{p.}{signals_8c_a6c7cbcd4595590670a3784d393770693} and \doxyref{signals\-\_\-unblock()}{p.}{signals_8c_a55ea2250ff5153a3a4daf1f5a75ea921} can be called recursively. 
+
+
+
+Referenced by signals\-\_\-block(), and signals\-\_\-unblock().
+

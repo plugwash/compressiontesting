@@ -1,0 +1,67 @@
+\section{lzma\-\_\-filter\-\_\-encoder Struct Reference}
+\label{structlzma__filter__encoder}\index{lzma\-\_\-filter\-\_\-encoder@{lzma\-\_\-filter\-\_\-encoder}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-vli} {\bf id}
+\begin{DoxyCompactList}\small\item\em Filter I\-D. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-init\-\_\-function} {\bf init}
+\item 
+uint64\-\_\-t($\ast$ {\bf memusage} )(const void $\ast$options)
+\item 
+uint64\-\_\-t($\ast$ {\bf block\-\_\-size} )(const void $\ast$options)
+\item 
+{\bf lzma\-\_\-ret}($\ast$ {\bf props\-\_\-size\-\_\-get} )(uint32\-\_\-t $\ast$size, const void $\ast$options)
+\item 
+uint32\-\_\-t {\bfseries props\-\_\-size\-\_\-fixed}\label{structlzma__filter__encoder_ac9aac6677bf72c775bffe1b94d0bfc2b}
+
+\item 
+{\bf lzma\-\_\-ret}($\ast$ {\bf props\-\_\-encode} )(const void $\ast$options, uint8\-\_\-t $\ast$out)
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-filter\-\_\-encoder@{lzma\-\_\-filter\-\_\-encoder}!id@{id}}
+\index{id@{id}!lzma_filter_encoder@{lzma\-\_\-filter\-\_\-encoder}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-filter\-\_\-encoder\-::id}\label{structlzma__filter__encoder_a419041594ea6c2a0e5a9797b7db0f4da}
+
+
+Filter I\-D. 
+
+\index{lzma\-\_\-filter\-\_\-encoder@{lzma\-\_\-filter\-\_\-encoder}!init@{init}}
+\index{init@{init}!lzma_filter_encoder@{lzma\-\_\-filter\-\_\-encoder}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-init\-\_\-function} lzma\-\_\-filter\-\_\-encoder\-::init}\label{structlzma__filter__encoder_af1cf603cb718149fd04b3672a8205555}
+Initializes the filter encoder and calls \doxyref{lzma\-\_\-next\-\_\-filter\-\_\-init()}{p.}{common_8h_a083a413c43195aed33e19b1d2c043f88} for filters + 1. \index{lzma\-\_\-filter\-\_\-encoder@{lzma\-\_\-filter\-\_\-encoder}!memusage@{memusage}}
+\index{memusage@{memusage}!lzma_filter_encoder@{lzma\-\_\-filter\-\_\-encoder}}
+\subsubsection[{memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t($\ast$ lzma\-\_\-filter\-\_\-encoder\-::memusage)(const void $\ast$options)}\label{structlzma__filter__encoder_ae3cfcdee71b8739e7adc2feed32e582c}
+Calculates memory usage of the encoder. If the options are invalid, U\-I\-N\-T64\-\_\-\-M\-A\-X is returned. \index{lzma\-\_\-filter\-\_\-encoder@{lzma\-\_\-filter\-\_\-encoder}!block\-\_\-size@{block\-\_\-size}}
+\index{block\-\_\-size@{block\-\_\-size}!lzma_filter_encoder@{lzma\-\_\-filter\-\_\-encoder}}
+\subsubsection[{block\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t($\ast$ lzma\-\_\-filter\-\_\-encoder\-::block\-\_\-size)(const void $\ast$options)}\label{structlzma__filter__encoder_aee12d626a914ce3216a4b801785a335b}
+Calculates the recommended Uncompressed Size for .xz Blocks to which the input data can be split to make multithreaded encoding possible. If this is N\-U\-L\-L, it is assumed that the encoder is fast enough with single thread. \index{lzma\-\_\-filter\-\_\-encoder@{lzma\-\_\-filter\-\_\-encoder}!props\-\_\-size\-\_\-get@{props\-\_\-size\-\_\-get}}
+\index{props\-\_\-size\-\_\-get@{props\-\_\-size\-\_\-get}!lzma_filter_encoder@{lzma\-\_\-filter\-\_\-encoder}}
+\subsubsection[{props\-\_\-size\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret}($\ast$ lzma\-\_\-filter\-\_\-encoder\-::props\-\_\-size\-\_\-get)(uint32\-\_\-t $\ast$size, const void $\ast$options)}\label{structlzma__filter__encoder_a1546dc01c7ed513a1e62fc0b807214fc}
+Tells the size of the Filter Properties field. If options are invalid, U\-I\-N\-T32\-\_\-\-M\-A\-X is returned. If this is N\-U\-L\-L, props\-\_\-size\-\_\-fixed is used. 
+
+Referenced by lzma\-\_\-properties\-\_\-size().
+
+\index{lzma\-\_\-filter\-\_\-encoder@{lzma\-\_\-filter\-\_\-encoder}!props\-\_\-encode@{props\-\_\-encode}}
+\index{props\-\_\-encode@{props\-\_\-encode}!lzma_filter_encoder@{lzma\-\_\-filter\-\_\-encoder}}
+\subsubsection[{props\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret}($\ast$ lzma\-\_\-filter\-\_\-encoder\-::props\-\_\-encode)(const void $\ast$options, uint8\-\_\-t $\ast$out)}\label{structlzma__filter__encoder_adbaaf406e12224aab5430d857ba2655e}
+Encodes Filter Properties.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Properties encoded successfully.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported options
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Invalid options or not enough output space 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Referenced by lzma\-\_\-properties\-\_\-encode().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/{\bf filter\-\_\-encoder.\-c}\end{DoxyCompactItemize}

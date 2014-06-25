@@ -1,0 +1,49 @@
+\section{lzma\-\_\-options\-\_\-bcj Struct Reference}
+\label{structlzma__options__bcj}\index{lzma\-\_\-options\-\_\-bcj@{lzma\-\_\-options\-\_\-bcj}}
+
+
+Options for B\-C\-J filters.  
+
+
+
+
+{\ttfamily \#include $<$bcj.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t {\bf start\-\_\-offset}
+\begin{DoxyCompactList}\small\item\em Start offset for conversions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Options for B\-C\-J filters. 
+
+The B\-C\-J filters never change the size of the data. Specifying options for them is optional\-: if pointer to options is N\-U\-L\-L, default value is used. You probably never need to specify options to B\-C\-J filters, so just set the options pointer to N\-U\-L\-L and be happy.
+
+If options with non-\/default values have been specified when encoding, the same options must also be specified when decoding.
+
+\begin{DoxyNote}{Note}
+At the moment, none of the B\-C\-J filters support L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H. If L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H is specified, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R will be returned. If there is need, partial support for L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H can be added in future. Partial means that flushing would be possible only at offsets that are multiple of 2, 4, or 16 depending on the filter, except x86 which cannot be made to support L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H predictably. 
+\end{DoxyNote}
+
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-options\-\_\-bcj@{lzma\-\_\-options\-\_\-bcj}!start\-\_\-offset@{start\-\_\-offset}}
+\index{start\-\_\-offset@{start\-\_\-offset}!lzma_options_bcj@{lzma\-\_\-options\-\_\-bcj}}
+\subsubsection[{start\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-options\-\_\-bcj\-::start\-\_\-offset}\label{structlzma__options__bcj_a3f5a3c62cd82ce89433684f12ed096ac}
+
+
+Start offset for conversions. 
+
+This setting is useful only when the same filter is used {\itshape separately} for multiple sections of the same executable file, and the sections contain cross-\/section branch/call/jump instructions. In that case it is beneficial to set the start offset of the non-\/first sections so that the relative addresses of the cross-\/section branch/call/jump instructions will use the same absolute addresses as in the first section.
+
+When the pointer to options is N\-U\-L\-L, the default value (zero) is used. 
+
+Referenced by message\-\_\-filters\-\_\-to\-\_\-str(), and options\-\_\-bcj().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/api/lzma/{\bf bcj.\-h}\end{DoxyCompactItemize}

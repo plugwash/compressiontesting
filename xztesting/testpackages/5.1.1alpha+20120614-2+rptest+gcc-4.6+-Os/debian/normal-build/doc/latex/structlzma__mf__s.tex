@@ -1,0 +1,208 @@
+\section{lzma\-\_\-mf\-\_\-s Struct Reference}
+\label{structlzma__mf__s}\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t $\ast$ {\bf buffer}
+\begin{DoxyCompactList}\small\item\em Pointer to buffer with data to be compressed. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf size}
+\item 
+uint32\-\_\-t {\bf keep\-\_\-size\-\_\-before}
+\item 
+uint32\-\_\-t {\bf keep\-\_\-size\-\_\-after}
+\item 
+uint32\-\_\-t {\bf offset}
+\item 
+uint32\-\_\-t {\bf read\-\_\-pos}
+\item 
+uint32\-\_\-t {\bf read\-\_\-ahead}
+\item 
+uint32\-\_\-t {\bf read\-\_\-limit}
+\item 
+uint32\-\_\-t {\bf write\-\_\-pos}
+\item 
+uint32\-\_\-t {\bf pending}
+\item 
+uint32\-\_\-t($\ast$ {\bf find} )({\bf lzma\-\_\-mf} $\ast$mf, {\bf lzma\-\_\-match} $\ast$matches)
+\item 
+void($\ast$ {\bf skip} )({\bf lzma\-\_\-mf} $\ast$mf, uint32\-\_\-t num)
+\item 
+uint32\-\_\-t $\ast$ {\bfseries hash}\label{structlzma__mf__s_aad22abb3e53cd3fb36a4f61e7098accb}
+
+\item 
+uint32\-\_\-t $\ast$ {\bfseries son}\label{structlzma__mf__s_a6842435bef1e22849c53031d4b186620}
+
+\item 
+uint32\-\_\-t {\bfseries cyclic\-\_\-pos}\label{structlzma__mf__s_a73339f959fc3b78266e8112d5941fd57}
+
+\item 
+uint32\-\_\-t {\bfseries cyclic\-\_\-size}\label{structlzma__mf__s_a362786db7eb9b1a76804d11a4bc83352}
+
+\item 
+uint32\-\_\-t {\bfseries hash\-\_\-mask}\label{structlzma__mf__s_a43cbfb52df0a6cacc73ee052259296b6}
+
+\item 
+uint32\-\_\-t {\bf depth}
+\begin{DoxyCompactList}\small\item\em Maximum number of loops in the match finder. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf nice\-\_\-len}
+\begin{DoxyCompactList}\small\item\em Maximum length of a match that the match finder will try to find. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf match\-\_\-len\-\_\-max}
+\item 
+{\bf lzma\-\_\-action} {\bf action}
+\item 
+uint32\-\_\-t {\bf hash\-\_\-size\-\_\-sum}
+\begin{DoxyCompactList}\small\item\em Number of elements in hash[]. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf sons\-\_\-count}
+\begin{DoxyCompactList}\small\item\em Number of elements in son[]. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!buffer@{buffer}}
+\index{buffer@{buffer}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t$\ast$ lzma\-\_\-mf\-\_\-s\-::buffer}\label{structlzma__mf__s_a432f5747c3af581ca57f59568546151e}
+
+
+Pointer to buffer with data to be compressed. 
+
+
+
+Referenced by fill\-\_\-window(), mf\-\_\-ptr(), mf\-\_\-read(), and move\-\_\-window().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!size@{size}}
+\index{size@{size}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::size}\label{structlzma__mf__s_affdef5bbf8d8ad9aa2567772f6bd5740}
+Total size of the allocated buffer (that is, including all the extra space) 
+
+Referenced by fill\-\_\-window().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!keep\-\_\-size\-\_\-before@{keep\-\_\-size\-\_\-before}}
+\index{keep\-\_\-size\-\_\-before@{keep\-\_\-size\-\_\-before}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{keep\-\_\-size\-\_\-before}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::keep\-\_\-size\-\_\-before}\label{structlzma__mf__s_af5818d3189473465de3942c48924b825}
+Number of bytes that must be kept available in our input history. That is, once keep\-\_\-size\-\_\-before bytes have been processed, buffer[read\-\_\-pos -\/ keep\-\_\-size\-\_\-before] is the oldest byte that must be available for reading. 
+
+Referenced by move\-\_\-window().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!keep\-\_\-size\-\_\-after@{keep\-\_\-size\-\_\-after}}
+\index{keep\-\_\-size\-\_\-after@{keep\-\_\-size\-\_\-after}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{keep\-\_\-size\-\_\-after}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::keep\-\_\-size\-\_\-after}\label{structlzma__mf__s_a876eae4eecf65b4676130823a8eabe9d}
+Number of bytes that must be kept in buffer after read\-\_\-pos. That is, read\-\_\-pos $<$= write\-\_\-pos -\/ keep\-\_\-size\-\_\-after as long as action is L\-Z\-M\-A\-\_\-\-R\-U\-N; when action != L\-Z\-M\-A\-\_\-\-R\-U\-N, read\-\_\-pos is allowed to reach write\-\_\-pos so that the last bytes get encoded too. 
+
+Referenced by fill\-\_\-window().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!offset@{offset}}
+\index{offset@{offset}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{offset}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::offset}\label{structlzma__mf__s_a2f61158f799c0c4e77e6316038757fee}
+Match finders store locations of matches using 32-\/bit integers. To avoid adjusting several megabytes of integers every time the input window is moved with move\-\_\-window, we only adjust the offset of the buffer. Thus, buffer[value\-\_\-in\-\_\-hash\-\_\-table -\/ offset] is the byte pointed by value\-\_\-in\-\_\-hash\-\_\-table. 
+
+Referenced by move\-\_\-pos(), move\-\_\-window(), and normalize().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!read\-\_\-pos@{read\-\_\-pos}}
+\index{read\-\_\-pos@{read\-\_\-pos}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{read\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::read\-\_\-pos}\label{structlzma__mf__s_a2d75d309fc59e61e468fcd9e3a38c150}
+buffer[read\-\_\-pos] is the next byte to run through the match finder. This is incremented in the match finder once the byte has been processed. 
+
+Referenced by fill\-\_\-window(), mf\-\_\-avail(), mf\-\_\-position(), mf\-\_\-ptr(), mf\-\_\-read(), mf\-\_\-unencoded(), move\-\_\-pending(), move\-\_\-pos(), move\-\_\-window(), and normalize().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!read\-\_\-ahead@{read\-\_\-ahead}}
+\index{read\-\_\-ahead@{read\-\_\-ahead}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{read\-\_\-ahead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::read\-\_\-ahead}\label{structlzma__mf__s_ab5d64d7200396c7cd612c1fe3a064f22}
+Number of bytes that have been ran through the match finder, but which haven't been encoded by the L\-Z-\/based encoder yet. 
+
+Referenced by lzma\-\_\-mf\-\_\-find(), mf\-\_\-position(), mf\-\_\-read(), mf\-\_\-skip(), and mf\-\_\-unencoded().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!read\-\_\-limit@{read\-\_\-limit}}
+\index{read\-\_\-limit@{read\-\_\-limit}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{read\-\_\-limit}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::read\-\_\-limit}\label{structlzma__mf__s_aa3d4451f2e846e56b43fa8c1bc106575}
+As long as read\-\_\-pos is less than read\-\_\-limit, there is enough input available in buffer for at least one encoding loop.
+
+Because of the stateful A\-P\-I, read\-\_\-limit may and will get greater than read\-\_\-pos quite often. This is taken into account when calculating the value for keep\-\_\-size\-\_\-after. 
+
+Referenced by fill\-\_\-window(), and move\-\_\-window().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!write\-\_\-pos@{write\-\_\-pos}}
+\index{write\-\_\-pos@{write\-\_\-pos}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{write\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::write\-\_\-pos}\label{structlzma__mf__s_afcc4a74eb85f8942d40a21d9155d948c}
+buffer[write\-\_\-pos] is the first byte that doesn't contain valid uncompressed data; that is, the next input byte will be copied to buffer[write\-\_\-pos]. 
+
+Referenced by fill\-\_\-window(), mf\-\_\-avail(), mf\-\_\-unencoded(), move\-\_\-pending(), move\-\_\-pos(), and move\-\_\-window().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!pending@{pending}}
+\index{pending@{pending}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{pending}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::pending}\label{structlzma__mf__s_af6719fc22695f6e8569969009ba5a727}
+Number of bytes not hashed before read\-\_\-pos. This is needed to restart the match finder after L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H. 
+
+Referenced by fill\-\_\-window(), and move\-\_\-pending().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!find@{find}}
+\index{find@{find}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t($\ast$ lzma\-\_\-mf\-\_\-s\-::find)({\bf lzma\-\_\-mf} $\ast$mf, {\bf lzma\-\_\-match} $\ast$matches)}\label{structlzma__mf__s_a62dbb517d02d31c51feb24ca810c1fa5}
+Find matches. Returns the number of distance-\/length pairs written to the matches array. This is called only via \doxyref{lzma\-\_\-mf\-\_\-find()}{p.}{lz__encoder_8h_a94c058f8f247353725b76b60113205a6}. 
+
+Referenced by lzma\-\_\-mf\-\_\-find().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!skip@{skip}}
+\index{skip@{skip}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{skip}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ lzma\-\_\-mf\-\_\-s\-::skip)({\bf lzma\-\_\-mf} $\ast$mf, uint32\-\_\-t num)}\label{structlzma__mf__s_a3ae339827dfef85a8bdfeafabbf2d73e}
+Skips num bytes. This is like \doxyref{find()}{p.}{structlzma__mf__s_a62dbb517d02d31c51feb24ca810c1fa5} but doesn't make the distance-\/length pairs available, thus being a little faster. This is called only via \doxyref{mf\-\_\-skip()}{p.}{lz__encoder_8h_acc33d04d1238a208efb8bae432085e8a}. 
+
+Referenced by fill\-\_\-window(), and mf\-\_\-skip().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!depth@{depth}}
+\index{depth@{depth}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{depth}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::depth}\label{structlzma__mf__s_a688d8098e2c0c8dce4c5bea554eb6938}
+
+
+Maximum number of loops in the match finder. 
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!nice\-\_\-len@{nice\-\_\-len}}
+\index{nice\-\_\-len@{nice\-\_\-len}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{nice\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::nice\-\_\-len}\label{structlzma__mf__s_aa4291f4276c419e74a95cb8accdf1396}
+
+
+Maximum length of a match that the match finder will try to find. 
+
+
+
+Referenced by lzma\-\_\-mf\-\_\-find().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!match\-\_\-len\-\_\-max@{match\-\_\-len\-\_\-max}}
+\index{match\-\_\-len\-\_\-max@{match\-\_\-len\-\_\-max}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{match\-\_\-len\-\_\-max}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::match\-\_\-len\-\_\-max}\label{structlzma__mf__s_a6fa8887a90423f6833506f298ae76a8d}
+Maximum length of a match supported by the L\-Z-\/based encoder. If the longest match found by the match finder is nice\-\_\-len, \doxyref{mf\-\_\-find()}{p.}{lz__encoder_8h_aeb83884211ce1f2177f7b86c5323cfca} tries to expand it up to match\-\_\-len\-\_\-max bytes. 
+
+Referenced by lzma\-\_\-mf\-\_\-find().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!action@{action}}
+\index{action@{action}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-action} lzma\-\_\-mf\-\_\-s\-::action}\label{structlzma__mf__s_a518ea4d19005bc70141b935a08809f89}
+When running out of input, binary tree match finders need to know if it is due to flushing or finishing. The action is used also by the L\-Z-\/based encoders themselves. 
+
+Referenced by fill\-\_\-window().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!hash\-\_\-size\-\_\-sum@{hash\-\_\-size\-\_\-sum}}
+\index{hash\-\_\-size\-\_\-sum@{hash\-\_\-size\-\_\-sum}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{hash\-\_\-size\-\_\-sum}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::hash\-\_\-size\-\_\-sum}\label{structlzma__mf__s_a148e0e2a9f52595b7d9d2dc93d04c50a}
+
+
+Number of elements in hash[]. 
+
+
+
+Referenced by normalize().
+
+\index{lzma\-\_\-mf\-\_\-s@{lzma\-\_\-mf\-\_\-s}!sons\-\_\-count@{sons\-\_\-count}}
+\index{sons\-\_\-count@{sons\-\_\-count}!lzma_mf_s@{lzma\-\_\-mf\-\_\-s}}
+\subsubsection[{sons\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-s\-::sons\-\_\-count}\label{structlzma__mf__s_ad1e3c68f459903d161ed34a97ff43fdf}
+
+
+Number of elements in son[]. 
+
+
+
+Referenced by normalize().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/lz/{\bf lz\-\_\-encoder.\-h}\end{DoxyCompactItemize}

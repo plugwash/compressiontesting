@@ -1,0 +1,180 @@
+\section{liblzma/lz/lz\-\_\-encoder\-\_\-hash.h File Reference}
+\label{lz__encoder__hash_8h}\index{liblzma/lz/lz\-\_\-encoder\-\_\-hash.\-h@{liblzma/lz/lz\-\_\-encoder\-\_\-hash.\-h}}
+
+
+Hash macros for match finders.  
+
+
+{\ttfamily \#include \char`\"{}check.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries hash\-\_\-table}~{\bf lzma\-\_\-crc32\-\_\-table}[0]\label{lz__encoder__hash_8h_a2376b5aab98fe359d071d7e48d0e942d}
+
+\item 
+\#define {\bfseries H\-A\-S\-H\-\_\-2\-\_\-\-S\-I\-Z\-E}~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 10)\label{lz__encoder__hash_8h_a47e9576ccf51512a660a2b5e1af33c09}
+
+\item 
+\#define {\bfseries H\-A\-S\-H\-\_\-3\-\_\-\-S\-I\-Z\-E}~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 16)\label{lz__encoder__hash_8h_af082dc83659e29389678a357b4210b72}
+
+\item 
+\#define {\bfseries H\-A\-S\-H\-\_\-4\-\_\-\-S\-I\-Z\-E}~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 20)\label{lz__encoder__hash_8h_a3b018ce8da57d501b6375a80312f4705}
+
+\item 
+\#define {\bfseries H\-A\-S\-H\-\_\-2\-\_\-\-M\-A\-S\-K}~(H\-A\-S\-H\-\_\-2\-\_\-\-S\-I\-Z\-E -\/ 1)\label{lz__encoder__hash_8h_a53e9aa7ea2ae54690f8d354c3ed17e62}
+
+\item 
+\#define {\bfseries H\-A\-S\-H\-\_\-3\-\_\-\-M\-A\-S\-K}~(H\-A\-S\-H\-\_\-3\-\_\-\-S\-I\-Z\-E -\/ 1)\label{lz__encoder__hash_8h_aeb4a855156405dca899ad209a7633dae}
+
+\item 
+\#define {\bfseries H\-A\-S\-H\-\_\-4\-\_\-\-M\-A\-S\-K}~(H\-A\-S\-H\-\_\-4\-\_\-\-S\-I\-Z\-E -\/ 1)\label{lz__encoder__hash_8h_ae45735bb29fcec47c5bb078a68640931}
+
+\item 
+\#define {\bfseries F\-I\-X\-\_\-3\-\_\-\-H\-A\-S\-H\-\_\-\-S\-I\-Z\-E}~(H\-A\-S\-H\-\_\-2\-\_\-\-S\-I\-Z\-E)\label{lz__encoder__hash_8h_a5b1c35c794abd8e8f500bb6acc4f091f}
+
+\item 
+\#define {\bfseries F\-I\-X\-\_\-4\-\_\-\-H\-A\-S\-H\-\_\-\-S\-I\-Z\-E}~(H\-A\-S\-H\-\_\-2\-\_\-\-S\-I\-Z\-E + H\-A\-S\-H\-\_\-3\-\_\-\-S\-I\-Z\-E)\label{lz__encoder__hash_8h_ac06dae597c60252db2062da38c5e312e}
+
+\item 
+\#define {\bfseries F\-I\-X\-\_\-5\-\_\-\-H\-A\-S\-H\-\_\-\-S\-I\-Z\-E}~(H\-A\-S\-H\-\_\-2\-\_\-\-S\-I\-Z\-E + H\-A\-S\-H\-\_\-3\-\_\-\-S\-I\-Z\-E + H\-A\-S\-H\-\_\-4\-\_\-\-S\-I\-Z\-E)\label{lz__encoder__hash_8h_a7d528f01009e71bf83c879725fd4db5a}
+
+\item 
+\#define {\bfseries hash\-\_\-2\-\_\-calc}()
+\item 
+\#define {\bfseries hash\-\_\-3\-\_\-calc}()
+\item 
+\#define {\bfseries hash\-\_\-4\-\_\-calc}()
+\item 
+\#define {\bfseries hash\-\_\-5\-\_\-calc}()
+\item 
+\#define {\bfseries hash\-\_\-zip\-\_\-calc}()
+\item 
+\#define {\bfseries mt\-\_\-hash\-\_\-2\-\_\-calc}()
+\item 
+\#define {\bfseries mt\-\_\-hash\-\_\-3\-\_\-calc}()
+\item 
+\#define {\bfseries mt\-\_\-hash\-\_\-4\-\_\-calc}()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hash macros for match finders. 
+
+\subsection{Macro Definition Documentation}
+\index{lz\-\_\-encoder\-\_\-hash.\-h@{lz\-\_\-encoder\-\_\-hash.\-h}!hash\-\_\-2\-\_\-calc@{hash\-\_\-2\-\_\-calc}}
+\index{hash\-\_\-2\-\_\-calc@{hash\-\_\-2\-\_\-calc}!lz_encoder_hash.h@{lz\-\_\-encoder\-\_\-hash.\-h}}
+\subsubsection[{hash\-\_\-2\-\_\-calc}]{\setlength{\rightskip}{0pt plus 5cm}\#define hash\-\_\-2\-\_\-calc(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lz__encoder__hash_8h_a31e055d3d2ab2b538a9b8f5b902dcf28}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{const} uint32\_t hash\_value \(\backslash\)
+                        = (uint32\_t)(cur[0]) | ((uint32\_t)(cur[1]) << 8)
+\end{DoxyCode}
+\index{lz\-\_\-encoder\-\_\-hash.\-h@{lz\-\_\-encoder\-\_\-hash.\-h}!hash\-\_\-3\-\_\-calc@{hash\-\_\-3\-\_\-calc}}
+\index{hash\-\_\-3\-\_\-calc@{hash\-\_\-3\-\_\-calc}!lz_encoder_hash.h@{lz\-\_\-encoder\-\_\-hash.\-h}}
+\subsubsection[{hash\-\_\-3\-\_\-calc}]{\setlength{\rightskip}{0pt plus 5cm}\#define hash\-\_\-3\-\_\-calc(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lz__encoder__hash_8h_a94d6243a41e5cc22431cd692cddeb5fb}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{const} uint32\_t temp = hash\_table[cur[0]] ^ cur[1]; \(\backslash\)
+        const uint32\_t hash\_2\_value = temp & HASH\_2\_MASK; \(\backslash\)
+        const uint32\_t hash\_value \(\backslash\)
+                        = (temp ^ ((uint32\_t)(cur[2]) << 8)) & mf->hash\_mask
+\end{DoxyCode}
+\index{lz\-\_\-encoder\-\_\-hash.\-h@{lz\-\_\-encoder\-\_\-hash.\-h}!hash\-\_\-4\-\_\-calc@{hash\-\_\-4\-\_\-calc}}
+\index{hash\-\_\-4\-\_\-calc@{hash\-\_\-4\-\_\-calc}!lz_encoder_hash.h@{lz\-\_\-encoder\-\_\-hash.\-h}}
+\subsubsection[{hash\-\_\-4\-\_\-calc}]{\setlength{\rightskip}{0pt plus 5cm}\#define hash\-\_\-4\-\_\-calc(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lz__encoder__hash_8h_a16cb0485a027625eb95d744a394e5e55}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{const} uint32\_t temp = hash\_table[cur[0]] ^ cur[1]; \(\backslash\)
+        const uint32\_t hash\_2\_value = temp & HASH\_2\_MASK; \(\backslash\)
+        const uint32\_t hash\_3\_value \(\backslash\)
+                        = (temp ^ ((uint32\_t)(cur[2]) << 8)) & HASH\_3\_MASK; \(\backslash\)
+        const uint32\_t hash\_value = (temp ^ ((uint32\_t)(cur[2]) << 8) \(\backslash\)
+                        ^ (hash\_table[cur[3]] << 5)) & mf->hash\_mask
+\end{DoxyCode}
+\index{lz\-\_\-encoder\-\_\-hash.\-h@{lz\-\_\-encoder\-\_\-hash.\-h}!hash\-\_\-5\-\_\-calc@{hash\-\_\-5\-\_\-calc}}
+\index{hash\-\_\-5\-\_\-calc@{hash\-\_\-5\-\_\-calc}!lz_encoder_hash.h@{lz\-\_\-encoder\-\_\-hash.\-h}}
+\subsubsection[{hash\-\_\-5\-\_\-calc}]{\setlength{\rightskip}{0pt plus 5cm}\#define hash\-\_\-5\-\_\-calc(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lz__encoder__hash_8h_a7666b381a38fd387bb62838449fcc798}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{const} uint32\_t temp = hash\_table[cur[0]] ^ cur[1]; \(\backslash\)
+        const uint32\_t hash\_2\_value = temp & HASH\_2\_MASK; \(\backslash\)
+        const uint32\_t hash\_3\_value \(\backslash\)
+                        = (temp ^ ((uint32\_t)(cur[2]) << 8)) & HASH\_3\_MASK; \(\backslash\)
+        uint32\_t hash\_4\_value = (temp ^ ((uint32\_t)(cur[2]) << 8) ^ \(\backslash\)
+                        ^ hash\_table[cur[3]] << 5); \(\backslash\)
+        const uint32\_t hash\_value \(\backslash\)
+                        = (hash\_4\_value ^ (hash\_table[cur[4]] << 3)) \(\backslash\)
+                                & mf->hash\_mask; \(\backslash\)
+        hash\_4\_value &= HASH\_4\_MASK
+\end{DoxyCode}
+\index{lz\-\_\-encoder\-\_\-hash.\-h@{lz\-\_\-encoder\-\_\-hash.\-h}!hash\-\_\-zip\-\_\-calc@{hash\-\_\-zip\-\_\-calc}}
+\index{hash\-\_\-zip\-\_\-calc@{hash\-\_\-zip\-\_\-calc}!lz_encoder_hash.h@{lz\-\_\-encoder\-\_\-hash.\-h}}
+\subsubsection[{hash\-\_\-zip\-\_\-calc}]{\setlength{\rightskip}{0pt plus 5cm}\#define hash\-\_\-zip\-\_\-calc(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lz__encoder__hash_8h_a4245a8cb3f28493d7d4bbc82f9c6864b}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{const} uint32\_t hash\_value \(\backslash\)
+                        = (((uint32\_t)(cur[2]) | ((uint32\_t)(cur[0]) << 8)) \(\backslash\)
+                                ^ hash\_table[cur[1]]) & 0xFFFF
+\end{DoxyCode}
+\index{lz\-\_\-encoder\-\_\-hash.\-h@{lz\-\_\-encoder\-\_\-hash.\-h}!mt\-\_\-hash\-\_\-2\-\_\-calc@{mt\-\_\-hash\-\_\-2\-\_\-calc}}
+\index{mt\-\_\-hash\-\_\-2\-\_\-calc@{mt\-\_\-hash\-\_\-2\-\_\-calc}!lz_encoder_hash.h@{lz\-\_\-encoder\-\_\-hash.\-h}}
+\subsubsection[{mt\-\_\-hash\-\_\-2\-\_\-calc}]{\setlength{\rightskip}{0pt plus 5cm}\#define mt\-\_\-hash\-\_\-2\-\_\-calc(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lz__encoder__hash_8h_a67cca00eb05b03028048d4afb63a8953}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{const} uint32\_t hash\_2\_value \(\backslash\)
+                        = (hash\_table[cur[0]] ^ cur[1]) & HASH\_2\_MASK
+\end{DoxyCode}
+\index{lz\-\_\-encoder\-\_\-hash.\-h@{lz\-\_\-encoder\-\_\-hash.\-h}!mt\-\_\-hash\-\_\-3\-\_\-calc@{mt\-\_\-hash\-\_\-3\-\_\-calc}}
+\index{mt\-\_\-hash\-\_\-3\-\_\-calc@{mt\-\_\-hash\-\_\-3\-\_\-calc}!lz_encoder_hash.h@{lz\-\_\-encoder\-\_\-hash.\-h}}
+\subsubsection[{mt\-\_\-hash\-\_\-3\-\_\-calc}]{\setlength{\rightskip}{0pt plus 5cm}\#define mt\-\_\-hash\-\_\-3\-\_\-calc(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lz__encoder__hash_8h_ad64b3768fc4a0674490b9c1bb369f285}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{const} uint32\_t temp = hash\_table[cur[0]] ^ cur[1]; \(\backslash\)
+        const uint32\_t hash\_2\_value = temp & HASH\_2\_MASK; \(\backslash\)
+        const uint32\_t hash\_3\_value \(\backslash\)
+                        = (temp ^ ((uint32\_t)(cur[2]) << 8)) & HASH\_3\_MASK
+\end{DoxyCode}
+\index{lz\-\_\-encoder\-\_\-hash.\-h@{lz\-\_\-encoder\-\_\-hash.\-h}!mt\-\_\-hash\-\_\-4\-\_\-calc@{mt\-\_\-hash\-\_\-4\-\_\-calc}}
+\index{mt\-\_\-hash\-\_\-4\-\_\-calc@{mt\-\_\-hash\-\_\-4\-\_\-calc}!lz_encoder_hash.h@{lz\-\_\-encoder\-\_\-hash.\-h}}
+\subsubsection[{mt\-\_\-hash\-\_\-4\-\_\-calc}]{\setlength{\rightskip}{0pt plus 5cm}\#define mt\-\_\-hash\-\_\-4\-\_\-calc(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lz__encoder__hash_8h_a8061231e74e4a3c667ea105a1b1c87eb}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{const} uint32\_t temp = hash\_table[cur[0]] ^ cur[1]; \(\backslash\)
+        const uint32\_t hash\_2\_value = temp & HASH\_2\_MASK; \(\backslash\)
+        const uint32\_t hash\_3\_value \(\backslash\)
+                        = (temp ^ ((uint32\_t)(cur[2]) << 8)) & HASH\_3\_MASK; \(\backslash\)
+        const uint32\_t hash\_4\_value = (temp ^ ((uint32\_t)(cur[2]) << 8) ^ \(\backslash\)
+                        (hash\_table[cur[3]] << 5)) & HASH\_4\_MASK
+\end{DoxyCode}

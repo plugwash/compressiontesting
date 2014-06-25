@@ -1,0 +1,28 @@
+Package: libbz2-dev
+Source: bzip2
+Version: 1.0.6-4+rptest+gcc-4.8+-Os
+Architecture: armhf
+Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
+Installed-Size: 95
+Depends: libbz2-1.0 (= 1.0.6-4+rptest+gcc-4.8+-Os), libc6-dev | libc-dev
+Replaces: bzip2 (<< 0.9.5d-3)
+Section: libdevel
+Priority: optional
+Multi-Arch: same
+Homepage: http://www.bzip.org/
+Description: high-quality block-sorting file compressor library - development
+ Static libraries and include files for the bzip2 compressor library.
+ .
+ bzip2 is a freely available, patent free, high-quality data compressor.
+ It typically compresses files to within 10% to 15% of the best available
+ techniques, whilst being around twice as fast at compression and six
+ times faster at decompression.
+ .
+ bzip2 compresses files using the Burrows-Wheeler block-sorting text
+ compression algorithm, and Huffman coding.  Compression is generally
+ considerably better than that achieved by more conventional
+ LZ77/LZ78-based compressors, and approaches the performance of the PPM
+ family of statistical compressors.
+ .
+ The archive file format of bzip2 (.bz2) is incompatible with that of its
+ predecessor, bzip (.bz).

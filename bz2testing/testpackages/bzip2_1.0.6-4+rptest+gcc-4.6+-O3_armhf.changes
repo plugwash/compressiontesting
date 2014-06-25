@@ -1,0 +1,38 @@
+Format: 1.8
+Date: Thu, 15 May 2014 14:28:04 +0000
+Source: bzip2
+Binary: libbz2-1.0 libbz2-dev bzip2 lib64bz2-1.0 lib64bz2-dev lib32bz2-1.0 lib32bz2-dev bzip2-doc
+Architecture: all armhf
+Version: 1.0.6-4+rptest+gcc-4.6+-O3
+Distribution: wheezy-test
+Urgency: low
+Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
+Changed-By: Peter Michael Green <plugwash@raspbian.org>
+Description: 
+ bzip2      - high-quality block-sorting file compressor - utilities
+ bzip2-doc  - high-quality block-sorting file compressor - documentation
+ lib32bz2-1.0 - high-quality block-sorting file compressor library - 32bit runtim
+ lib32bz2-dev - high-quality block-sorting file compressor library - 32bit develo
+ lib64bz2-1.0 - high-quality block-sorting file compressor library - 64bit runtim
+ lib64bz2-dev - high-quality block-sorting file compressor library - 64bit develo
+ libbz2-1.0 - high-quality block-sorting file compressor library - runtime
+ libbz2-dev - high-quality block-sorting file compressor library - development
+Changes: 
+ bzip2 (1.0.6-4+rptest+gcc-4.6+-O3) wheezy-test; urgency=low
+ .
+   * Switch to gcc-4.6 and -O3 to test impact on performance.
+Checksums-Sha1: 
+ abe4b9f03639253ddc08ac233781f81449ec7ca1 305802 bzip2-doc_1.0.6-4+rptest+gcc-4.6+-O3_all.deb
+ 5770a8e5df2403990d834ea1447d2d54ac46e2b8 49362 libbz2-1.0_1.0.6-4+rptest+gcc-4.6+-O3_armhf.deb
+ ea75ccf64e4f9ab8a32bb08f5e6daba9a6b214f7 36156 libbz2-dev_1.0.6-4+rptest+gcc-4.6+-O3_armhf.deb
+ a4d6c970791898d9c998b8b2bfc9b3182788f4a4 52382 bzip2_1.0.6-4+rptest+gcc-4.6+-O3_armhf.deb
+Checksums-Sha256: 
+ 87068290b255be01597e31755f7c3ddfa3ff885ede196597e08fd078b5ce8768 305802 bzip2-doc_1.0.6-4+rptest+gcc-4.6+-O3_all.deb
+ 634ab33cf9ec45cdec8e37ca9ab5cf6b8842d065fa05fc4da13be74f83e62970 49362 libbz2-1.0_1.0.6-4+rptest+gcc-4.6+-O3_armhf.deb
+ 22d172dedcb54a053c0961adedf1b20189a01e0219290339a045c2c1cbb23d18 36156 libbz2-dev_1.0.6-4+rptest+gcc-4.6+-O3_armhf.deb
+ 3978cad340042947c060adf3ad075afc6f2559a19306c26cf9d28f3b9058f021 52382 bzip2_1.0.6-4+rptest+gcc-4.6+-O3_armhf.deb
+Files: 
+ cf51fb4fe2b6b860c037cf801a4bc7e0 305802 doc optional bzip2-doc_1.0.6-4+rptest+gcc-4.6+-O3_all.deb
+ a65ec7ae42b353d99fa6e368aaf05f15 49362 libs important libbz2-1.0_1.0.6-4+rptest+gcc-4.6+-O3_armhf.deb
+ b51ef9aa07b64a9975730f320d0a9e49 36156 libdevel optional libbz2-dev_1.0.6-4+rptest+gcc-4.6+-O3_armhf.deb
+ 864d3f15ab8378ec0b75519e2401db30 52382 utils standard bzip2_1.0.6-4+rptest+gcc-4.6+-O3_armhf.deb

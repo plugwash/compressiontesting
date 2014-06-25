@@ -1,0 +1,73 @@
+\section{lzma\-\_\-options\-\_\-delta Struct Reference}
+\label{structlzma__options__delta}\index{lzma\-\_\-options\-\_\-delta@{lzma\-\_\-options\-\_\-delta}}
+
+
+Options for the Delta filter.  
+
+
+
+
+{\ttfamily \#include $<$delta.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-delta\-\_\-type} {\bf type}
+\item 
+uint32\-\_\-t {\bf dist}
+\begin{DoxyCompactList}\small\item\em Delta distance. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bfseries reserved\-\_\-int1}\label{structlzma__options__delta_abbe5fee79483b461fa4f1927f41e9158}
+
+\item 
+uint32\-\_\-t {\bfseries reserved\-\_\-int2}\label{structlzma__options__delta_a3058d5a85518e40b8e3ed7d5e64527ec}
+
+\item 
+uint32\-\_\-t {\bfseries reserved\-\_\-int3}\label{structlzma__options__delta_a01e600ee62cd1e82e353c7c8adbe23ea}
+
+\item 
+uint32\-\_\-t {\bfseries reserved\-\_\-int4}\label{structlzma__options__delta_a3c34fcc33c70e225996a34621ab28828}
+
+\item 
+void $\ast$ {\bfseries reserved\-\_\-ptr1}\label{structlzma__options__delta_ad3ffc87036cd62596f384d642e1e5f4d}
+
+\item 
+void $\ast$ {\bfseries reserved\-\_\-ptr2}\label{structlzma__options__delta_ac2cf28cd8660b13324802badf4b0f1f0}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Options for the Delta filter. 
+
+These options are needed by both encoder and decoder. 
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-options\-\_\-delta@{lzma\-\_\-options\-\_\-delta}!type@{type}}
+\index{type@{type}!lzma_options_delta@{lzma\-\_\-options\-\_\-delta}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-delta\-\_\-type} lzma\-\_\-options\-\_\-delta\-::type}\label{structlzma__options__delta_af3f1ece7f8c472f4a794953b414c7cd7}
+For now, this must always be L\-Z\-M\-A\-\_\-\-D\-E\-L\-T\-A\-\_\-\-T\-Y\-P\-E\-\_\-\-B\-Y\-T\-E. 
+
+Referenced by options\-\_\-delta().
+
+\index{lzma\-\_\-options\-\_\-delta@{lzma\-\_\-options\-\_\-delta}!dist@{dist}}
+\index{dist@{dist}!lzma_options_delta@{lzma\-\_\-options\-\_\-delta}}
+\subsubsection[{dist}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-options\-\_\-delta\-::dist}\label{structlzma__options__delta_a31b4b0b5a2462cb9433c2663b8a62790}
+
+
+Delta distance. 
+
+With the only currently supported type, L\-Z\-M\-A\-\_\-\-D\-E\-L\-T\-A\-\_\-\-T\-Y\-P\-E\-\_\-\-B\-Y\-T\-E, the distance is as bytes.
+
+Examples\-:
+\begin{DoxyItemize}
+\item 16-\/bit stereo audio\-: distance = 4 bytes
+\item 24-\/bit R\-G\-B image data\-: distance = 3 bytes 
+\end{DoxyItemize}
+
+Referenced by message\-\_\-filters\-\_\-to\-\_\-str().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/api/lzma/{\bf delta.\-h}\end{DoxyCompactItemize}

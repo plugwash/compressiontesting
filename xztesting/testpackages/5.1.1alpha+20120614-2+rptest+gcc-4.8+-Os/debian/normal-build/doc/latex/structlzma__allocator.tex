@@ -1,0 +1,96 @@
+\section{lzma\-\_\-allocator Struct Reference}
+\label{structlzma__allocator}\index{lzma\-\_\-allocator@{lzma\-\_\-allocator}}
+
+
+Custom functions for memory handling.  
+
+
+
+
+{\ttfamily \#include $<$base.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$($\ast$ {\bf alloc} )(void $\ast${\bf opaque}, size\-\_\-t nmemb, size\-\_\-t size)
+\begin{DoxyCompactList}\small\item\em Pointer to a custom memory allocation function. \end{DoxyCompactList}\item 
+void($\ast$ {\bf free} )(void $\ast${\bf opaque}, void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Pointer to a custom memory freeing function. \end{DoxyCompactList}\item 
+void $\ast$ {\bf opaque}
+\begin{DoxyCompactList}\small\item\em Pointer passed to .\doxyref{alloc()}{p.}{structlzma__allocator_a6a6d5ef7d5f1a55ce5bbca51e432ea3f} and .\doxyref{free()}{p.}{structlzma__allocator_a4fe2dc8c939119a3ecdfee14a47c3de2} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Custom functions for memory handling. 
+
+A pointer to \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} may be passed via \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} structure to liblzma, and some advanced functions take a pointer to \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} as a separate function argument. The library will use the functions specified in \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} for memory handling instead of the default malloc() and \doxyref{free()}{p.}{structlzma__allocator_a4fe2dc8c939119a3ecdfee14a47c3de2}. C++ users should note that the custom memory handling functions must not throw exceptions.
+
+Single-\/threaded mode only\-: liblzma doesn't make an internal copy of \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator}. Thus, it is O\-K to change these function pointers in the middle of the coding process, but obviously it must be done carefully to make sure that the replacement `free' can deallocate memory allocated by the earlier `alloc' function(s).
+
+Multithreaded mode\-: liblzma might internally store pointers to the \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} given via the \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} structure. The application must not change the allocator pointer in \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} or the contents of the pointed \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} structure until \doxyref{lzma\-\_\-end()}{p.}{base_8h_a854ff37464ae1225febf14db1af43308} has been used to free the memory associated with that \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream}. The allocation functions might be called simultaneously from multiple threads, and thus they must be thread safe. 
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-allocator@{lzma\-\_\-allocator}!alloc@{alloc}}
+\index{alloc@{alloc}!lzma_allocator@{lzma\-\_\-allocator}}
+\subsubsection[{alloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$( $\ast$ lzma\-\_\-allocator\-::alloc)(void $\ast${\bf opaque}, size\-\_\-t nmemb, size\-\_\-t size)}\label{structlzma__allocator_a6a6d5ef7d5f1a55ce5bbca51e432ea3f}
+
+
+Pointer to a custom memory allocation function. 
+
+If you don't want a custom allocator, but still want custom \doxyref{free()}{p.}{structlzma__allocator_a4fe2dc8c939119a3ecdfee14a47c3de2}, set this to N\-U\-L\-L and liblzma will use the standard malloc().
+
+
+\begin{DoxyParams}{Parameters}
+{\em opaque} & \doxyref{lzma\-\_\-allocator.\-opaque}{p.}{structlzma__allocator_aab293a5007a93299cc97ee8b5fb81268} (see below) \\
+\hline
+{\em nmemb} & Number of elements like in calloc(). liblzma will always set nmemb to 1, so it is safe to ignore nmemb in a custom allocator if you like. The nmemb argument exists only for compatibility with zlib and libbzip2. \\
+\hline
+{\em size} & Size of an element in bytes. liblzma never sets this to zero.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the beginning of a memory block of `size' bytes, or N\-U\-L\-L if allocation fails for some reason. When allocation fails, functions of liblzma return L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R.
+\end{DoxyReturn}
+The allocator should not waste time zeroing the allocated buffers. This is not only about speed, but also memory usage, since the operating system kernel doesn't necessarily allocate the requested memory in physical memory until it is actually used. With small input files, liblzma may actually need only a fraction of the memory that it requested for allocation.
+
+\begin{DoxyNote}{Note}
+L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R is also used when the size of the allocation would be greater than S\-I\-Z\-E\-\_\-\-M\-A\-X. Thus, don't assume that the custom allocator must have returned N\-U\-L\-L if some function from liblzma returns L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R. 
+\end{DoxyNote}
+\index{lzma\-\_\-allocator@{lzma\-\_\-allocator}!free@{free}}
+\index{free@{free}!lzma_allocator@{lzma\-\_\-allocator}}
+\subsubsection[{free}]{\setlength{\rightskip}{0pt plus 5cm}void( $\ast$ lzma\-\_\-allocator\-::free)(void $\ast${\bf opaque}, void $\ast$ptr)}\label{structlzma__allocator_a4fe2dc8c939119a3ecdfee14a47c3de2}
+
+
+Pointer to a custom memory freeing function. 
+
+If you don't want a custom freeing function, but still want a custom allocator, set this to N\-U\-L\-L and liblzma will use the standard \doxyref{free()}{p.}{structlzma__allocator_a4fe2dc8c939119a3ecdfee14a47c3de2}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em opaque} & \doxyref{lzma\-\_\-allocator.\-opaque}{p.}{structlzma__allocator_aab293a5007a93299cc97ee8b5fb81268} (see below) \\
+\hline
+{\em ptr} & Pointer returned by \doxyref{lzma\-\_\-allocator.\-alloc()}{p.}{structlzma__allocator_a6a6d5ef7d5f1a55ce5bbca51e432ea3f}, or when it is set to N\-U\-L\-L, a pointer returned by the standard malloc(). \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by lzma\-\_\-free().
+
+\index{lzma\-\_\-allocator@{lzma\-\_\-allocator}!opaque@{opaque}}
+\index{opaque@{opaque}!lzma_allocator@{lzma\-\_\-allocator}}
+\subsubsection[{opaque}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ lzma\-\_\-allocator\-::opaque}\label{structlzma__allocator_aab293a5007a93299cc97ee8b5fb81268}
+
+
+Pointer passed to .\doxyref{alloc()}{p.}{structlzma__allocator_a6a6d5ef7d5f1a55ce5bbca51e432ea3f} and .\doxyref{free()}{p.}{structlzma__allocator_a4fe2dc8c939119a3ecdfee14a47c3de2} 
+
+opaque is passed as the first argument to \doxyref{lzma\-\_\-allocator.\-alloc()}{p.}{structlzma__allocator_a6a6d5ef7d5f1a55ce5bbca51e432ea3f} and \doxyref{lzma\-\_\-allocator.\-free()}{p.}{structlzma__allocator_a4fe2dc8c939119a3ecdfee14a47c3de2}. This intended to ease implementing custom memory allocation functions for use with liblzma.
+
+If you don't need this, you should set this to N\-U\-L\-L. 
+
+Referenced by lzma\-\_\-free().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/api/lzma/{\bf base.\-h}\end{DoxyCompactItemize}

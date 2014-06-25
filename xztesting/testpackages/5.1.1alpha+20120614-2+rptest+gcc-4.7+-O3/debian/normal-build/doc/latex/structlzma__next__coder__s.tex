@@ -1,0 +1,101 @@
+\section{lzma\-\_\-next\-\_\-coder\-\_\-s Struct Reference}
+\label{structlzma__next__coder__s}\index{lzma\-\_\-next\-\_\-coder\-\_\-s@{lzma\-\_\-next\-\_\-coder\-\_\-s}}
+
+
+Hold data and function pointers of the next filter in the chain.  
+
+
+
+
+{\ttfamily \#include $<$common.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-coder} $\ast$ {\bf coder}
+\begin{DoxyCompactList}\small\item\em Pointer to coder-\/specific data. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf id}
+\item 
+uintptr\-\_\-t {\bf init}
+\item 
+{\bf lzma\-\_\-code\-\_\-function} {\bf code}
+\begin{DoxyCompactList}\small\item\em Pointer to function to do the actual coding. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-end\-\_\-function} {\bf end}
+\item 
+{\bf lzma\-\_\-check}($\ast$ {\bf get\-\_\-check} )(const {\bf lzma\-\_\-coder} $\ast${\bf coder})
+\item 
+{\bf lzma\-\_\-ret}($\ast$ {\bf memconfig} )({\bf lzma\-\_\-coder} $\ast${\bf coder}, uint64\-\_\-t $\ast$memusage, uint64\-\_\-t $\ast$old\-\_\-memlimit, uint64\-\_\-t new\-\_\-memlimit)
+\item 
+{\bf lzma\-\_\-ret}($\ast$ {\bf update} )({\bf lzma\-\_\-coder} $\ast${\bf coder}, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast${\bf filters}, const {\bf lzma\-\_\-filter} $\ast$reversed\-\_\-filters)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hold data and function pointers of the next filter in the chain. 
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-next\-\_\-coder\-\_\-s@{lzma\-\_\-next\-\_\-coder\-\_\-s}!coder@{coder}}
+\index{coder@{coder}!lzma_next_coder_s@{lzma\-\_\-next\-\_\-coder\-\_\-s}}
+\subsubsection[{coder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-coder}$\ast$ lzma\-\_\-next\-\_\-coder\-\_\-s\-::coder}\label{structlzma__next__coder__s_ac2064cebf4a0f2f9abb2e090348dae4a}
+
+
+Pointer to coder-\/specific data. 
+
+
+
+Referenced by copy\-\_\-or\-\_\-code(), fill\-\_\-window(), lzma\-\_\-block\-\_\-buffer\-\_\-decode(), lzma\-\_\-next\-\_\-end(), lzma\-\_\-next\-\_\-filter\-\_\-update(), lzma\-\_\-raw\-\_\-buffer\-\_\-decode(), lzma\-\_\-raw\-\_\-buffer\-\_\-encode(), and lzma\-\_\-stream\-\_\-buffer\-\_\-decode().
+
+\index{lzma\-\_\-next\-\_\-coder\-\_\-s@{lzma\-\_\-next\-\_\-coder\-\_\-s}!id@{id}}
+\index{id@{id}!lzma_next_coder_s@{lzma\-\_\-next\-\_\-coder\-\_\-s}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-next\-\_\-coder\-\_\-s\-::id}\label{structlzma__next__coder__s_a5d536a495df657dd90415a4dad1860a8}
+Filter I\-D. This is L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N when this structure doesn't point to a filter coder. 
+
+Referenced by lzma\-\_\-next\-\_\-filter\-\_\-init(), and lzma\-\_\-next\-\_\-filter\-\_\-update().
+
+\index{lzma\-\_\-next\-\_\-coder\-\_\-s@{lzma\-\_\-next\-\_\-coder\-\_\-s}!init@{init}}
+\index{init@{init}!lzma_next_coder_s@{lzma\-\_\-next\-\_\-coder\-\_\-s}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t lzma\-\_\-next\-\_\-coder\-\_\-s\-::init}\label{structlzma__next__coder__s_a8de5f47b0ff5783c2ad24241e7d540d7}
+\char`\"{}\-Pointer\char`\"{} to init function. This is never called here. We need only to detect if we are initializing a coder that was allocated earlier. See lzma\-\_\-next\-\_\-coder\-\_\-init and lzma\-\_\-next\-\_\-strm\-\_\-init macros in this file. 
+
+Referenced by lzma\-\_\-next\-\_\-end().
+
+\index{lzma\-\_\-next\-\_\-coder\-\_\-s@{lzma\-\_\-next\-\_\-coder\-\_\-s}!code@{code}}
+\index{code@{code}!lzma_next_coder_s@{lzma\-\_\-next\-\_\-coder\-\_\-s}}
+\subsubsection[{code}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-code\-\_\-function} lzma\-\_\-next\-\_\-coder\-\_\-s\-::code}\label{structlzma__next__coder__s_a0d736e310d786b85d83f151f26b85440}
+
+
+Pointer to function to do the actual coding. 
+
+
+
+Referenced by copy\-\_\-or\-\_\-code(), fill\-\_\-window(), lzma\-\_\-block\-\_\-buffer\-\_\-decode(), lzma\-\_\-raw\-\_\-buffer\-\_\-decode(), lzma\-\_\-raw\-\_\-buffer\-\_\-encode(), and lzma\-\_\-stream\-\_\-buffer\-\_\-decode().
+
+\index{lzma\-\_\-next\-\_\-coder\-\_\-s@{lzma\-\_\-next\-\_\-coder\-\_\-s}!end@{end}}
+\index{end@{end}!lzma_next_coder_s@{lzma\-\_\-next\-\_\-coder\-\_\-s}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-end\-\_\-function} lzma\-\_\-next\-\_\-coder\-\_\-s\-::end}\label{structlzma__next__coder__s_a9c7f8bdf058d498a3de54730f1fa2ac1}
+Pointer to function to free \doxyref{lzma\-\_\-next\-\_\-coder.\-coder}{p.}{structlzma__next__coder__s_ac2064cebf4a0f2f9abb2e090348dae4a}. This can be N\-U\-L\-L; in that case, lzma\-\_\-free is called to free \doxyref{lzma\-\_\-next\-\_\-coder.\-coder}{p.}{structlzma__next__coder__s_ac2064cebf4a0f2f9abb2e090348dae4a}. 
+
+Referenced by lzma\-\_\-next\-\_\-end().
+
+\index{lzma\-\_\-next\-\_\-coder\-\_\-s@{lzma\-\_\-next\-\_\-coder\-\_\-s}!get\-\_\-check@{get\-\_\-check}}
+\index{get\-\_\-check@{get\-\_\-check}!lzma_next_coder_s@{lzma\-\_\-next\-\_\-coder\-\_\-s}}
+\subsubsection[{get\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-check}($\ast$ lzma\-\_\-next\-\_\-coder\-\_\-s\-::get\-\_\-check)(const {\bf lzma\-\_\-coder} $\ast${\bf coder})}\label{structlzma__next__coder__s_a5fe632164cca580a7104240a6a3f00e1}
+Pointer to function to return the type of the integrity check. Most coders won't support this. \index{lzma\-\_\-next\-\_\-coder\-\_\-s@{lzma\-\_\-next\-\_\-coder\-\_\-s}!memconfig@{memconfig}}
+\index{memconfig@{memconfig}!lzma_next_coder_s@{lzma\-\_\-next\-\_\-coder\-\_\-s}}
+\subsubsection[{memconfig}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret}($\ast$ lzma\-\_\-next\-\_\-coder\-\_\-s\-::memconfig)({\bf lzma\-\_\-coder} $\ast${\bf coder}, uint64\-\_\-t $\ast$memusage, uint64\-\_\-t $\ast$old\-\_\-memlimit, uint64\-\_\-t new\-\_\-memlimit)}\label{structlzma__next__coder__s_a64f0d17359f6cf41d5a187e43dac9fb3}
+Pointer to function to get and/or change the memory usage limit. If new\-\_\-memlimit == 0, the limit is not changed. 
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-decode().
+
+\index{lzma\-\_\-next\-\_\-coder\-\_\-s@{lzma\-\_\-next\-\_\-coder\-\_\-s}!update@{update}}
+\index{update@{update}!lzma_next_coder_s@{lzma\-\_\-next\-\_\-coder\-\_\-s}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret}($\ast$ lzma\-\_\-next\-\_\-coder\-\_\-s\-::update)({\bf lzma\-\_\-coder} $\ast${\bf coder}, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast${\bf filters}, const {\bf lzma\-\_\-filter} $\ast$reversed\-\_\-filters)}\label{structlzma__next__coder__s_a4c39fc7a9b192010e4ac413bc17cb6d3}
+Update the filter-\/specific options or the whole filter chain in the encoder. 
+
+Referenced by lzma\-\_\-next\-\_\-filter\-\_\-update().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/{\bf common.\-h}\end{DoxyCompactItemize}

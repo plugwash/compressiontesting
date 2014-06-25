@@ -1,0 +1,5 @@
+zlib1g_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb libs required
+zlib1g-dev_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb libdevel optional
+zlib1g-dbg_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb debug extra
+zlib-bin_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb utils optional
+zlib1g-udeb_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.udeb debian-installer optional

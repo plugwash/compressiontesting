@@ -1,0 +1,63 @@
+\section{liblzma/lzma/lzma\-\_\-decoder.h File Reference}
+\label{lzma__decoder_8h}\index{liblzma/lzma/lzma\-\_\-decoder.\-h@{liblzma/lzma/lzma\-\_\-decoder.\-h}}
+
+
+L\-Z\-M\-A decoder A\-P\-I.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-lzma\-\_\-decoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters})
+\begin{DoxyCompactList}\small\item\em Allocates and initializes L\-Z\-M\-A decoder. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bfseries lzma\-\_\-lzma\-\_\-decoder\-\_\-memusage} (const void $\ast$options)\label{lzma__decoder_8h_aad2f0056516cc2d78de478a41418307e}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-lzma\-\_\-props\-\_\-decode} (void $\ast$$\ast$options, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$props, size\-\_\-t props\-\_\-size)\label{lzma__decoder_8h_aba6901f5619ec431f49699a09fa620e1}
+
+\item 
+bool {\bf lzma\-\_\-lzma\-\_\-lclppb\-\_\-decode} ({\bf lzma\-\_\-options\-\_\-lzma} $\ast$options, uint8\-\_\-t byte)
+\begin{DoxyCompactList}\small\item\em Decodes the L\-Z\-M\-A Properties byte (lc/lp/pb) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\-Z\-M\-A decoder A\-P\-I. 
+
+\subsection{Function Documentation}
+\index{lzma\-\_\-decoder.\-h@{lzma\-\_\-decoder.\-h}!lzma\-\_\-lzma\-\_\-decoder\-\_\-init@{lzma\-\_\-lzma\-\_\-decoder\-\_\-init}}
+\index{lzma\-\_\-lzma\-\_\-decoder\-\_\-init@{lzma\-\_\-lzma\-\_\-decoder\-\_\-init}!lzma_decoder.h@{lzma\-\_\-decoder.\-h}}
+\subsubsection[{lzma\-\_\-lzma\-\_\-decoder\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-lzma\-\_\-decoder\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-next\-\_\-coder} $\ast$}]{next, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const {\bf lzma\-\_\-filter\-\_\-info} $\ast$}]{filters}
+\end{DoxyParamCaption}
+)}\label{lzma__decoder_8h_aa0eb3768968e2be05d721cbca0827666}
+
+
+Allocates and initializes L\-Z\-M\-A decoder. 
+
+
+
+References lzma\-\_\-decoder\-\_\-init().
+
+\index{lzma\-\_\-decoder.\-h@{lzma\-\_\-decoder.\-h}!lzma\-\_\-lzma\-\_\-lclppb\-\_\-decode@{lzma\-\_\-lzma\-\_\-lclppb\-\_\-decode}}
+\index{lzma\-\_\-lzma\-\_\-lclppb\-\_\-decode@{lzma\-\_\-lzma\-\_\-lclppb\-\_\-decode}!lzma_decoder.h@{lzma\-\_\-decoder.\-h}}
+\subsubsection[{lzma\-\_\-lzma\-\_\-lclppb\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-lzma\-\_\-lclppb\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-options\-\_\-lzma} $\ast$}]{options, }
+\item[{uint8\-\_\-t}]{byte}
+\end{DoxyParamCaption}
+)}\label{lzma__decoder_8h_a4907f7d9047a0c9990bdaf943ae8a181}
+
+
+Decodes the L\-Z\-M\-A Properties byte (lc/lp/pb) 
+
+\begin{DoxyReturn}{Returns}
+true if error occurred, false on success 
+\end{DoxyReturn}
+
+
+References lzma\-\_\-options\-\_\-lzma\-::lc, lzma\-\_\-options\-\_\-lzma\-::lp, and lzma\-\_\-options\-\_\-lzma\-::pb.
+

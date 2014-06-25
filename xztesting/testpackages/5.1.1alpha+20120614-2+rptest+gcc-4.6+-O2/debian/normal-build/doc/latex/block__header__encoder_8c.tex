@@ -1,0 +1,81 @@
+\section{liblzma/common/block\-\_\-header\-\_\-encoder.c File Reference}
+\label{block__header__encoder_8c}\index{liblzma/common/block\-\_\-header\-\_\-encoder.\-c@{liblzma/common/block\-\_\-header\-\_\-encoder.\-c}}
+
+
+Encodes Block Header for .xz files.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}check.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-block\-\_\-header\-\_\-size} ({\bf lzma\-\_\-block} $\ast$block)
+\begin{DoxyCompactList}\small\item\em Calculate Block Header Size. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-block\-\_\-header\-\_\-encode} (const {\bf lzma\-\_\-block} $\ast$block, uint8\-\_\-t $\ast$out)
+\begin{DoxyCompactList}\small\item\em Encode Block Header. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encodes Block Header for .xz files. 
+
+\subsection{Function Documentation}
+\index{block\-\_\-header\-\_\-encoder.\-c@{block\-\_\-header\-\_\-encoder.\-c}!lzma\-\_\-block\-\_\-header\-\_\-size@{lzma\-\_\-block\-\_\-header\-\_\-size}}
+\index{lzma\-\_\-block\-\_\-header\-\_\-size@{lzma\-\_\-block\-\_\-header\-\_\-size}!block_header_encoder.c@{block\-\_\-header\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-block\-\_\-header\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-block\-\_\-header\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-block} $\ast$}]{block}
+\end{DoxyParamCaption}
+)}\label{block__header__encoder_8c_a7d60c35cba687af87e3c3a83639b2f6d}
+
+
+Calculate Block Header Size. 
+
+Calculate the minimum size needed for the Block Header field using the settings specified in the \doxyref{lzma\-\_\-block}{p.}{structlzma__block} structure. Note that it is O\-K to increase the calculated header\-\_\-size value as long as it is a multiple of four and doesn't exceed L\-Z\-M\-A\-\_\-\-B\-L\-O\-C\-K\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E\-\_\-\-M\-A\-X. Increasing header\-\_\-size just means that \doxyref{lzma\-\_\-block\-\_\-header\-\_\-encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0} will add Header Padding.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Size calculated successfully and stored to block-\/$>$header\-\_\-size.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported version, filters or filter options.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Invalid values like compressed\-\_\-size == 0.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This doesn't check that all the options are valid i.\-e. this may return L\-Z\-M\-A\-\_\-\-O\-K even if \doxyref{lzma\-\_\-block\-\_\-header\-\_\-encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0} or \doxyref{lzma\-\_\-block\-\_\-encoder()}{p.}{block_8h_a2218a49025a0b44f9a6f9d6d24359359} would fail. If you want to validate the filter chain, consider using lzma\-\_\-memlimit\-\_\-encoder() which as a side-\/effect validates the filter chain. 
+\end{DoxyNote}
+
+
+References lzma\-\_\-filter\-\_\-flags\-\_\-size(), L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-vli\-\_\-size(), L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, and return\-\_\-if\-\_\-error.
+
+\index{block\-\_\-header\-\_\-encoder.\-c@{block\-\_\-header\-\_\-encoder.\-c}!lzma\-\_\-block\-\_\-header\-\_\-encode@{lzma\-\_\-block\-\_\-header\-\_\-encode}}
+\index{lzma\-\_\-block\-\_\-header\-\_\-encode@{lzma\-\_\-block\-\_\-header\-\_\-encode}!block_header_encoder.c@{block\-\_\-header\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-block\-\_\-header\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-block\-\_\-header\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-block} $\ast$}]{block, }
+\item[{uint8\-\_\-t $\ast$}]{out}
+\end{DoxyParamCaption}
+)}\label{block__header__encoder_8c_a01a1e06f40b56d8ca61ac577e77a4fec}
+
+
+Encode Block Header. 
+
+The caller must have calculated the size of the Block Header already with \doxyref{lzma\-\_\-block\-\_\-header\-\_\-size()}{p.}{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd}. If a value larger than the one calculated by \doxyref{lzma\-\_\-block\-\_\-header\-\_\-size()}{p.}{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd} is used, the Block Header will be padded to the specified size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Beginning of the output buffer. This must be at least block-\/$>$header\-\_\-size bytes. \\
+\hline
+{\em block} & Block options to be encoded.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Encoding was successful. block-\/$>$header\-\_\-size bytes were written to output buffer.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Invalid or unsupported options.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Invalid arguments, for example block-\/$>$header\-\_\-size is invalid or block-\/$>$filters is N\-U\-L\-L. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-block\-\_\-unpadded\-\_\-size(), lzma\-\_\-crc32(), lzma\-\_\-filter\-\_\-flags\-\_\-encode(), L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-vli\-\_\-encode(), lzma\-\_\-vli\-\_\-is\-\_\-valid, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, and return\-\_\-if\-\_\-error.
+

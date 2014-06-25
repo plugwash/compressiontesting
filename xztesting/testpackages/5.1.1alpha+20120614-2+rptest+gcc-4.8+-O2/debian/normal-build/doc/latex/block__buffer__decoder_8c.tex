@@ -1,0 +1,72 @@
+\section{liblzma/common/block\-\_\-buffer\-\_\-decoder.c File Reference}
+\label{block__buffer__decoder_8c}\index{liblzma/common/block\-\_\-buffer\-\_\-decoder.\-c@{liblzma/common/block\-\_\-buffer\-\_\-decoder.\-c}}
+
+
+Single-\/call .xz Block decoder.  
+
+
+{\ttfamily \#include \char`\"{}block\-\_\-decoder.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-block\-\_\-buffer\-\_\-decode} ({\bf lzma\-\_\-block} $\ast$block, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$in, size\-\_\-t $\ast$in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Single-\/call .xz Block decoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Single-\/call .xz Block decoder. 
+
+\subsection{Function Documentation}
+\index{block\-\_\-buffer\-\_\-decoder.\-c@{block\-\_\-buffer\-\_\-decoder.\-c}!lzma\-\_\-block\-\_\-buffer\-\_\-decode@{lzma\-\_\-block\-\_\-buffer\-\_\-decode}}
+\index{lzma\-\_\-block\-\_\-buffer\-\_\-decode@{lzma\-\_\-block\-\_\-buffer\-\_\-decode}!block_buffer_decoder.c@{block\-\_\-buffer\-\_\-decoder.\-c}}
+\subsubsection[{lzma\-\_\-block\-\_\-buffer\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-block\-\_\-buffer\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-block} $\ast$}]{block, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t $\ast$}]{in\-\_\-pos, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{block__buffer__decoder_8c_a160b1204057a9359c70e707b5c2b05a6}
+
+
+Single-\/call .xz Block decoder. 
+
+This is single-\/call equivalent of \doxyref{lzma\-\_\-block\-\_\-decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}, and requires that the caller has already decoded Block Header and checked its memory usage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & Block options just like with \doxyref{lzma\-\_\-block\-\_\-decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}. \\
+\hline
+{\em allocator} & \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\-U\-L\-L to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\-\_\-pos} & The next byte will be read from in[$\ast$in\-\_\-pos]. $\ast$in\-\_\-pos is updated only if decoding succeeds. \\
+\hline
+{\em in\-\_\-size} & Size of the input buffer; the first byte that won't be read is in[in\-\_\-size]. \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\-\_\-pos} & The next byte will be written to out[$\ast$out\-\_\-pos]. $\ast$out\-\_\-pos is updated only if encoding succeeds. \\
+\hline
+{\em out\-\_\-size} & Size of the out buffer; the first byte into which no data is written to is out[out\-\_\-size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Decoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: Output buffer was too small.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-next\-\_\-coder\-\_\-s\-::code, lzma\-\_\-next\-\_\-coder\-\_\-s\-::coder, L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, and L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D.
+

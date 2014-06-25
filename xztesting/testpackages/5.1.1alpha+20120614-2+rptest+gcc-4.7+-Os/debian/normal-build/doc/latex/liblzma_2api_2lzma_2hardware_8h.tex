@@ -1,0 +1,43 @@
+\section{liblzma/api/lzma/hardware.h File Reference}
+\label{liblzma_2api_2lzma_2hardware_8h}\index{liblzma/api/lzma/hardware.\-h@{liblzma/api/lzma/hardware.\-h}}
+
+
+Hardware information.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\-\_\-t {\bf lzma\-\_\-physmem} (void) lzma\-\_\-nothrow
+\begin{DoxyCompactList}\small\item\em Get the total amount of physical memory (R\-A\-M) in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hardware information. Since liblzma can consume a lot of system resources, it also provides ways to limit the resource usage. Applications linking against liblzma need to do the actual decisions how much resources to let liblzma to use. To ease making these decisions, liblzma provides functions to find out the relevant capabilities of the underlaying hardware. Currently there is only a function to find out the amount of R\-A\-M, but in the future there will be also a function to detect how many concurrent threads the system can run.
+
+\begin{DoxyNote}{Note}
+On some operating systems, these function may temporarily load a shared library or open file descriptor(s) to find out the requested hardware information. Unless the application assumes that specific file descriptors are not touched by other threads, this should have no effect on thread safety. Possible operations involving file descriptors will restart the syscalls if they return E\-I\-N\-T\-R. 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{liblzma/api/lzma/hardware.\-h@{liblzma/api/lzma/hardware.\-h}!lzma\-\_\-physmem@{lzma\-\_\-physmem}}
+\index{lzma\-\_\-physmem@{lzma\-\_\-physmem}!liblzma/api/lzma/hardware.h@{liblzma/api/lzma/hardware.\-h}}
+\subsubsection[{lzma\-\_\-physmem}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-physmem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{liblzma_2api_2lzma_2hardware_8h_a85363e453b34272a9f26c9fdffb041ee}
+
+
+Get the total amount of physical memory (R\-A\-M) in bytes. 
+
+This function may be useful when determining a reasonable memory usage limit for decompressing or how much memory it is O\-K to use for compressing.
+
+\begin{DoxyReturn}{Returns}
+On success, the total amount of physical memory in bytes is returned. If the amount of R\-A\-M cannot be determined, zero is returned. This can happen if an error occurs or if there is no code in liblzma to detect the amount of R\-A\-M on the specific operating system. 
+\end{DoxyReturn}
+
+
+Referenced by hardware\-\_\-init().
+

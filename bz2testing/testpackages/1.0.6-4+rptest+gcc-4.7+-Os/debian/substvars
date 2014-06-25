@@ -1,0 +1,1 @@
+shlibs:Depends=libbz2-1.0, libc6 (>= 2.13-28)

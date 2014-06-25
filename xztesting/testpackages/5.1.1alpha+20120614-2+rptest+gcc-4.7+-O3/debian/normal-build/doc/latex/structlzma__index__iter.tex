@@ -1,0 +1,234 @@
+\section{lzma\-\_\-index\-\_\-iter Struct Reference}
+\label{structlzma__index__iter}\index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}}
+
+
+Iterator to get information about Blocks and Streams.  
+
+
+
+
+{\ttfamily \#include $<$index.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>const {\bf lzma\_stream\_flags} $\ast$ {\bf flags}\\
+\>\>{\em Pointer to Stream Flags. }\\
+\>const void $\ast$ {\bfseries reserved\_ptr1}\\
+\>const void $\ast$ {\bfseries reserved\_ptr2}\\
+\>const void $\ast$ {\bfseries reserved\_ptr3}\\
+\>{\bf lzma\_vli} {\bf number}\\
+\>\>{\em Stream number in the lzma\_index. }\\
+\>{\bf lzma\_vli} {\bf block\_count}\\
+\>\>{\em Number of Blocks in the Stream. }\\
+\>{\bf lzma\_vli} {\bf compressed\_offset}\\
+\>\>{\em Compressed start offset of this Stream. }\\
+\>{\bf lzma\_vli} {\bf uncompressed\_offset}\\
+\>\>{\em Uncompressed start offset of this Stream. }\\
+\>{\bf lzma\_vli} {\bf compressed\_size}\\
+\>\>{\em Compressed size of this Stream. }\\
+\>{\bf lzma\_vli} {\bf uncompressed\_size}\\
+\>\>{\em Uncompressed size of this Stream. }\\
+\>{\bf lzma\_vli} {\bf padding}\\
+\>\>{\em Size of Stream Padding after this Stream. }\\
+\>{\bf lzma\_vli} {\bfseries reserved\_vli1}\\
+\>{\bf lzma\_vli} {\bfseries reserved\_vli2}\\
+\>{\bf lzma\_vli} {\bfseries reserved\_vli3}\\
+\>{\bf lzma\_vli} {\bfseries reserved\_vli4}\\
+\} {\bfseries stream}\label{structlzma__index__iter_aa0fe35bec39527135ff1ebc2664257d6}
+\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>{\bf lzma\_vli} {\bf number\_in\_file}\\
+\>\>{\em Block number in the file. }\\
+\>{\bf lzma\_vli} {\bf compressed\_file\_offset}\\
+\>\>{\em Compressed start offset of this Block. }\\
+\>{\bf lzma\_vli} {\bf uncompressed\_file\_offset}\\
+\>\>{\em Uncompressed start offset of this Block. }\\
+\>{\bf lzma\_vli} {\bf number\_in\_stream}\\
+\>\>{\em Block number in this Stream. }\\
+\>{\bf lzma\_vli} {\bf compressed\_stream\_offset}\\
+\>\>{\em Compressed start offset of this Block. }\\
+\>{\bf lzma\_vli} {\bf uncompressed\_stream\_offset}\\
+\>\>{\em Uncompressed start offset of this Block. }\\
+\>{\bf lzma\_vli} {\bf uncompressed\_size}\\
+\>\>{\em Uncompressed size of this Block. }\\
+\>{\bf lzma\_vli} {\bf unpadded\_size}\\
+\>\>{\em Unpadded size of this Block. }\\
+\>{\bf lzma\_vli} {\bf total\_size}\\
+\>\>{\em Total compressed size. }\\
+\>{\bf lzma\_vli} {\bfseries reserved\_vli1}\\
+\>{\bf lzma\_vli} {\bfseries reserved\_vli2}\\
+\>{\bf lzma\_vli} {\bfseries reserved\_vli3}\\
+\>{\bf lzma\_vli} {\bfseries reserved\_vli4}\\
+\>const void $\ast$ {\bfseries reserved\_ptr1}\\
+\>const void $\ast$ {\bfseries reserved\_ptr2}\\
+\>const void $\ast$ {\bfseries reserved\_ptr3}\\
+\>const void $\ast$ {\bfseries reserved\_ptr4}\\
+\} {\bfseries block}\label{structlzma__index__iter_ab170fa54eeea21d75221fd0ef3cfe24b}
+\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>const void $\ast$ {\bfseries p}\\
+\>size\_t {\bfseries s}\\
+\>{\bf lzma\_vli} {\bfseries v}\\
+\} {\bfseries internal} [6]\label{structlzma__index__iter_ab1b5da15f424c22d155c4e39b520940b}
+\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Iterator to get information about Blocks and Streams. 
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!flags@{flags}}
+\index{flags@{flags}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf lzma\-\_\-stream\-\_\-flags}$\ast$ lzma\-\_\-index\-\_\-iter\-::flags}\label{structlzma__index__iter_a223a046bcf09077a6e720967682deeae}
+
+
+Pointer to Stream Flags. 
+
+This is N\-U\-L\-L if Stream Flags have not been set for this Stream with \doxyref{lzma\-\_\-index\-\_\-stream\-\_\-flags()}{p.}{api_2lzma_2index_8h_a79a19669237f19f0b11c9f3be80a62b4}. 
+
+Referenced by parse\-\_\-block\-\_\-header(), and parse\-\_\-check\-\_\-value().
+
+\index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!number@{number}}
+\index{number@{number}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{number}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::number}\label{structlzma__index__iter_a115a307dbc778a9de296376dc39c7b23}
+
+
+Stream number in the lzma\-\_\-index. 
+
+The first Stream is 1. \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!block\-\_\-count@{block\-\_\-count}}
+\index{block\-\_\-count@{block\-\_\-count}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{block\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::block\-\_\-count}\label{structlzma__index__iter_abc6ee9be23e54f31aed07382c8caaf7c}
+
+
+Number of Blocks in the Stream. 
+
+If this is zero, the block structure below has undefined values. \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!compressed\-\_\-offset@{compressed\-\_\-offset}}
+\index{compressed\-\_\-offset@{compressed\-\_\-offset}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{compressed\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::compressed\-\_\-offset}\label{structlzma__index__iter_a426705df8dde4b094a42f91ea20a46ac}
+
+
+Compressed start offset of this Stream. 
+
+The offset is relative to the beginning of the lzma\-\_\-index (i.\-e. usually the beginning of the .xz file). \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!uncompressed\-\_\-offset@{uncompressed\-\_\-offset}}
+\index{uncompressed\-\_\-offset@{uncompressed\-\_\-offset}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{uncompressed\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::uncompressed\-\_\-offset}\label{structlzma__index__iter_abd374b748b4a42e122b90841709609bc}
+
+
+Uncompressed start offset of this Stream. 
+
+The offset is relative to the beginning of the lzma\-\_\-index (i.\-e. usually the beginning of the .xz file). \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!compressed\-\_\-size@{compressed\-\_\-size}}
+\index{compressed\-\_\-size@{compressed\-\_\-size}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{compressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::compressed\-\_\-size}\label{structlzma__index__iter_a6e73b1f37e3fcf1e9491e4a53b2c52c7}
+
+
+Compressed size of this Stream. 
+
+This includes all headers except the possible Stream Padding after this Stream. \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!uncompressed\-\_\-size@{uncompressed\-\_\-size}}
+\index{uncompressed\-\_\-size@{uncompressed\-\_\-size}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{uncompressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::uncompressed\-\_\-size}\label{structlzma__index__iter_aafc48408ed40060a84ecd66bae5e1b23}
+
+
+Uncompressed size of this Stream. 
+
+Uncompressed size of this Block.
+
+You should pass this to the Block decoder if you will decode this Block. It will allow the Block decoder to validate the uncompressed size. 
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+\index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!padding@{padding}}
+\index{padding@{padding}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{padding}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::padding}\label{structlzma__index__iter_a48cfc856f283fe00b0df37402e012818}
+
+
+Size of Stream Padding after this Stream. 
+
+If it hasn't been set with \doxyref{lzma\-\_\-index\-\_\-stream\-\_\-padding()}{p.}{api_2lzma_2index_8h_a3ed82f96c688f3c953f6509b6f4e2ef3}, this defaults to zero. Stream Padding is always a multiple of four bytes. \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!number\-\_\-in\-\_\-file@{number\-\_\-in\-\_\-file}}
+\index{number\-\_\-in\-\_\-file@{number\-\_\-in\-\_\-file}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{number\-\_\-in\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::number\-\_\-in\-\_\-file}\label{structlzma__index__iter_abe5333de53562189012d5ed084c0ef98}
+
+
+Block number in the file. 
+
+The first Block is 1. \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!compressed\-\_\-file\-\_\-offset@{compressed\-\_\-file\-\_\-offset}}
+\index{compressed\-\_\-file\-\_\-offset@{compressed\-\_\-file\-\_\-offset}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{compressed\-\_\-file\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::compressed\-\_\-file\-\_\-offset}\label{structlzma__index__iter_a26436e75d4c2b5dd8d1de24140d8003e}
+
+
+Compressed start offset of this Block. 
+
+This offset is relative to the beginning of the lzma\-\_\-index (i.\-e. usually the beginning of the .xz file). Normally this is where you should seek in the .xz file to start decompressing this Block. 
+
+Referenced by parse\-\_\-block\-\_\-header(), and parse\-\_\-check\-\_\-value().
+
+\index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!uncompressed\-\_\-file\-\_\-offset@{uncompressed\-\_\-file\-\_\-offset}}
+\index{uncompressed\-\_\-file\-\_\-offset@{uncompressed\-\_\-file\-\_\-offset}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{uncompressed\-\_\-file\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::uncompressed\-\_\-file\-\_\-offset}\label{structlzma__index__iter_a2f3ecf341b5dc043e9673759b8ff47b9}
+
+
+Uncompressed start offset of this Block. 
+
+This offset is relative to the beginning of the lzma\-\_\-index (i.\-e. usually the beginning of the .xz file).
+
+When doing random-\/access reading, it is possible that the target offset is not exactly at Block boundary. One will need to compare the target offset against uncompressed\-\_\-file\-\_\-offset or uncompressed\-\_\-stream\-\_\-offset, and possibly decode and throw away some amount of data before reaching the target offset. \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!number\-\_\-in\-\_\-stream@{number\-\_\-in\-\_\-stream}}
+\index{number\-\_\-in\-\_\-stream@{number\-\_\-in\-\_\-stream}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{number\-\_\-in\-\_\-stream}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::number\-\_\-in\-\_\-stream}\label{structlzma__index__iter_a35a752d344ff5d35d2a858a20bd6e5e8}
+
+
+Block number in this Stream. 
+
+The first Block is 1. \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!compressed\-\_\-stream\-\_\-offset@{compressed\-\_\-stream\-\_\-offset}}
+\index{compressed\-\_\-stream\-\_\-offset@{compressed\-\_\-stream\-\_\-offset}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{compressed\-\_\-stream\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::compressed\-\_\-stream\-\_\-offset}\label{structlzma__index__iter_a578bba553c43dc59a5e4032d4f6c89a3}
+
+
+Compressed start offset of this Block. 
+
+This offset is relative to the beginning of the Stream containing this Block. \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!uncompressed\-\_\-stream\-\_\-offset@{uncompressed\-\_\-stream\-\_\-offset}}
+\index{uncompressed\-\_\-stream\-\_\-offset@{uncompressed\-\_\-stream\-\_\-offset}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{uncompressed\-\_\-stream\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::uncompressed\-\_\-stream\-\_\-offset}\label{structlzma__index__iter_a0fc4959fab08e1a6a4902c728c735a99}
+
+
+Uncompressed start offset of this Block. 
+
+This offset is relative to the beginning of the Stream containing this Block. \index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!unpadded\-\_\-size@{unpadded\-\_\-size}}
+\index{unpadded\-\_\-size@{unpadded\-\_\-size}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{unpadded\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::unpadded\-\_\-size}\label{structlzma__index__iter_a9f4e405b9884be08e3a35bc06e3e15df}
+
+
+Unpadded size of this Block. 
+
+You should pass this to the Block decoder if you will decode this Block. It will allow the Block decoder to validate the unpadded size. 
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+\index{lzma\-\_\-index\-\_\-iter@{lzma\-\_\-index\-\_\-iter}!total\-\_\-size@{total\-\_\-size}}
+\index{total\-\_\-size@{total\-\_\-size}!lzma_index_iter@{lzma\-\_\-index\-\_\-iter}}
+\subsubsection[{total\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-iter\-::total\-\_\-size}\label{structlzma__index__iter_ae164ca3d7492dcf5883769c38baac30e}
+
+
+Total compressed size. 
+
+This includes all headers and padding in this Block. This is useful if you need to know how many bytes the Block decoder will actually read. 
+
+Referenced by parse\-\_\-block\-\_\-header(), and parse\-\_\-check\-\_\-value().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/api/lzma/{\bf index.\-h}\end{DoxyCompactItemize}

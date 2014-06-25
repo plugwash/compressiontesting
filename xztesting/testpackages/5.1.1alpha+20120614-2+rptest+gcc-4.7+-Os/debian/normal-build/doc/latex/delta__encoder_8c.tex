@@ -1,0 +1,61 @@
+\section{liblzma/delta/delta\-\_\-encoder.c File Reference}
+\label{delta__encoder_8c}\index{liblzma/delta/delta\-\_\-encoder.\-c@{liblzma/delta/delta\-\_\-encoder.\-c}}
+
+
+Delta filter encoder.  
+
+
+{\ttfamily \#include \char`\"{}delta\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}delta\-\_\-private.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf copy\-\_\-and\-\_\-encode} ({\bf lzma\-\_\-coder} $\ast$coder, const uint8\-\_\-t $\ast$restrict in, uint8\-\_\-t $\ast$restrict out, size\-\_\-t size)
+\item 
+static void {\bf encode\-\_\-in\-\_\-place} ({\bf lzma\-\_\-coder} $\ast$coder, uint8\-\_\-t $\ast$buffer, size\-\_\-t size)
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries delta\-\_\-encode} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)\label{delta__encoder_8c_a929dd302bd6585f4b299bf0f4e2d0cbd}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries delta\-\_\-encoder\-\_\-update} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast$filters\-\_\-null lzma\-\_\-attribute((\-\_\-\-\_\-unused\-\_\-\-\_\-)), const {\bf lzma\-\_\-filter} $\ast$reversed\-\_\-filters)\label{delta__encoder_8c_a63aadb80cd148579d17442fd323d4b8b}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-delta\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters})\label{delta__encoder_8c_a25a23568a3f2a9802296357475dc26bc}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-delta\-\_\-props\-\_\-encode} (const void $\ast$options, uint8\-\_\-t $\ast$out)\label{delta__encoder_8c_aeac2126d3a2fc0ab4e32a0d3b0e0fc9e}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Delta filter encoder. 
+
+\subsection{Function Documentation}
+\index{delta\-\_\-encoder.\-c@{delta\-\_\-encoder.\-c}!copy\-\_\-and\-\_\-encode@{copy\-\_\-and\-\_\-encode}}
+\index{copy\-\_\-and\-\_\-encode@{copy\-\_\-and\-\_\-encode}!delta_encoder.c@{delta\-\_\-encoder.\-c}}
+\subsubsection[{copy\-\_\-and\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}static void copy\-\_\-and\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-coder} $\ast$}]{coder, }
+\item[{const uint8\-\_\-t $\ast$restrict}]{in, }
+\item[{uint8\-\_\-t $\ast$restrict}]{out, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{delta__encoder_8c_abb766eff4602079aa7113baa0e07614e}
+Copies and encodes the data at the same time. This is used when Delta is the first filter in the chain (and thus the last filter in the encoder's filter stack). 
+
+References lzma\-\_\-coder\-\_\-s\-::distance, lzma\-\_\-coder\-\_\-s\-::history, and lzma\-\_\-coder\-\_\-s\-::pos.
+
+\index{delta\-\_\-encoder.\-c@{delta\-\_\-encoder.\-c}!encode\-\_\-in\-\_\-place@{encode\-\_\-in\-\_\-place}}
+\index{encode\-\_\-in\-\_\-place@{encode\-\_\-in\-\_\-place}!delta_encoder.c@{delta\-\_\-encoder.\-c}}
+\subsubsection[{encode\-\_\-in\-\_\-place}]{\setlength{\rightskip}{0pt plus 5cm}static void encode\-\_\-in\-\_\-place (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-coder} $\ast$}]{coder, }
+\item[{uint8\-\_\-t $\ast$}]{buffer, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{delta__encoder_8c_a3e7782e0ed0c38d5d1e84ccc5b9f58c2}
+Encodes the data in place. This is used when we are the last filter in the chain (and thus non-\/last filter in the encoder's filter stack). 
+
+References lzma\-\_\-coder\-\_\-s\-::distance, lzma\-\_\-coder\-\_\-s\-::history, and lzma\-\_\-coder\-\_\-s\-::pos.
+

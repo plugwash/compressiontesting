@@ -1,0 +1,44 @@
+\section{liblzma/common/easy\-\_\-decoder\-\_\-memusage.c File Reference}
+\label{easy__decoder__memusage_8c}\index{liblzma/common/easy\-\_\-decoder\-\_\-memusage.\-c@{liblzma/common/easy\-\_\-decoder\-\_\-memusage.\-c}}
+
+
+Decoder memory usage calculation to match easy encoder presets.  
+
+
+{\ttfamily \#include \char`\"{}easy\-\_\-preset.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\-\_\-t {\bf lzma\-\_\-easy\-\_\-decoder\-\_\-memusage} (uint32\-\_\-t preset)
+\begin{DoxyCompactList}\small\item\em Calculate approximate decoder memory usage of a preset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Decoder memory usage calculation to match easy encoder presets. 
+
+\subsection{Function Documentation}
+\index{easy\-\_\-decoder\-\_\-memusage.\-c@{easy\-\_\-decoder\-\_\-memusage.\-c}!lzma\-\_\-easy\-\_\-decoder\-\_\-memusage@{lzma\-\_\-easy\-\_\-decoder\-\_\-memusage}}
+\index{lzma\-\_\-easy\-\_\-decoder\-\_\-memusage@{lzma\-\_\-easy\-\_\-decoder\-\_\-memusage}!easy_decoder_memusage.c@{easy\-\_\-decoder\-\_\-memusage.\-c}}
+\subsubsection[{lzma\-\_\-easy\-\_\-decoder\-\_\-memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-easy\-\_\-decoder\-\_\-memusage (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{preset}
+\end{DoxyParamCaption}
+)}\label{easy__decoder__memusage_8c_a729d0e470e873745f54a02d7fc4451f3}
+
+
+Calculate approximate decoder memory usage of a preset. 
+
+This function is a wrapper for \doxyref{lzma\-\_\-raw\-\_\-decoder\-\_\-memusage()}{p.}{filter_8h_a58511249ae9206d7de7c5d1f05842297}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em preset} & Compression preset (level and possible flags)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes of memory required to decompress a file that was compressed using the given preset. If an error occurs, for example due to unsupported preset, U\-I\-N\-T64\-\_\-\-M\-A\-X is returned. 
+\end{DoxyReturn}
+
+
+References lzma\-\_\-options\-\_\-easy\-::filters, lzma\-\_\-easy\-\_\-preset(), and lzma\-\_\-raw\-\_\-decoder\-\_\-memusage().
+

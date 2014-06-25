@@ -1,0 +1,70 @@
+\section{liblzma/common/filter\-\_\-buffer\-\_\-encoder.c File Reference}
+\label{filter__buffer__encoder_8c}\index{liblzma/common/filter\-\_\-buffer\-\_\-encoder.\-c@{liblzma/common/filter\-\_\-buffer\-\_\-encoder.\-c}}
+
+
+Single-\/call raw encoding.  
+
+
+{\ttfamily \#include \char`\"{}filter\-\_\-encoder.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-raw\-\_\-buffer\-\_\-encode} (const {\bf lzma\-\_\-filter} $\ast${\bf filters}, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$in, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Single-\/call raw encoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Single-\/call raw encoding. 
+
+\subsection{Function Documentation}
+\index{filter\-\_\-buffer\-\_\-encoder.\-c@{filter\-\_\-buffer\-\_\-encoder.\-c}!lzma\-\_\-raw\-\_\-buffer\-\_\-encode@{lzma\-\_\-raw\-\_\-buffer\-\_\-encode}}
+\index{lzma\-\_\-raw\-\_\-buffer\-\_\-encode@{lzma\-\_\-raw\-\_\-buffer\-\_\-encode}!filter_buffer_encoder.c@{filter\-\_\-buffer\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-raw\-\_\-buffer\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-raw\-\_\-buffer\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{filter__buffer__encoder_8c_a31527db1862063420cf8b8e67404da27}
+
+
+Single-\/call raw encoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filters} & Array of \doxyref{lzma\-\_\-filter}{p.}{structlzma__filter} structures. The end of the array must be marked with .id = L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N. \\
+\hline
+{\em allocator} & \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\-U\-L\-L to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\-\_\-size} & Size of the input buffer \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\-\_\-pos} & The next byte will be written to out[$\ast$out\-\_\-pos]. $\ast$out\-\_\-pos is updated only if encoding succeeds. \\
+\hline
+{\em out\-\_\-size} & Size of the out buffer; the first byte into which no data is written to is out[out\-\_\-size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Encoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: Not enough output buffer space.
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+There is no function to calculate how big output buffer would surely be big enough. (\doxyref{lzma\-\_\-stream\-\_\-buffer\-\_\-bound()}{p.}{container_8h_a66d4366a47b8332bff2a512f44f5c45e} works only for \doxyref{lzma\-\_\-stream\-\_\-buffer\-\_\-encode()}{p.}{container_8h_a558683e06e092cb3b9e7edb226d6a1b8}; raw encoder won't necessarily meet that bound.) 
+\end{DoxyNote}
+
+
+References lzma\-\_\-next\-\_\-coder\-\_\-s\-::code, lzma\-\_\-next\-\_\-coder\-\_\-s\-::coder, L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D, and return\-\_\-if\-\_\-error.
+

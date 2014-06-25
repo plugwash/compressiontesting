@@ -1,0 +1,115 @@
+\section{liblzma/common/index\-\_\-encoder.c File Reference}
+\label{index__encoder_8c}\index{liblzma/common/index\-\_\-encoder.\-c@{liblzma/common/index\-\_\-encoder.\-c}}
+
+
+Encodes the Index field.  
+
+
+{\ttfamily \#include \char`\"{}index\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}index.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}check.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-coder\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries index\-\_\-encode} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator lzma\-\_\-attribute((\-\_\-\-\_\-unused\-\_\-\-\_\-)), const uint8\-\_\-t $\ast$restrict in lzma\-\_\-attribute((\-\_\-\-\_\-unused\-\_\-\-\_\-)), size\-\_\-t $\ast$restrict in\-\_\-pos lzma\-\_\-attribute((\-\_\-\-\_\-unused\-\_\-\-\_\-)), size\-\_\-t in\-\_\-size lzma\-\_\-attribute((\-\_\-\-\_\-unused\-\_\-\-\_\-)), uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action lzma\-\_\-attribute((\-\_\-\-\_\-unused\-\_\-\-\_\-)))\label{index__encoder_8c_abba22efd65d1e917f84520aff817ecbe}
+
+\item 
+static void {\bfseries index\-\_\-encoder\-\_\-end} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{index__encoder_8c_a4b1eea941978202299cdef6b45700de7}
+
+\item 
+static void {\bfseries index\-\_\-encoder\-\_\-reset} ({\bf lzma\-\_\-coder} $\ast$coder, const {\bf lzma\-\_\-index} $\ast$i)\label{index__encoder_8c_ac1780c10ca2933f6dac9017bcef1ffad}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-index\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-index} $\ast$i)\label{index__encoder_8c_a8a142f42c47076fee7c1963102776ac0}
+
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-index\-\_\-encoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Initialize .xz Index encoder. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-index\-\_\-buffer\-\_\-encode} (const {\bf lzma\-\_\-index} $\ast$i, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Single-\/call .xz Index encoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encodes the Index field. 
+
+\subsection{Function Documentation}
+\index{index\-\_\-encoder.\-c@{index\-\_\-encoder.\-c}!lzma\-\_\-index\-\_\-encoder@{lzma\-\_\-index\-\_\-encoder}}
+\index{lzma\-\_\-index\-\_\-encoder@{lzma\-\_\-index\-\_\-encoder}!index_encoder.c@{index\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-index\-\_\-encoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index__encoder_8c_ad1398e64633414d8f50e6ae5432958e2}
+
+
+Initialize .xz Index encoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} \\
+\hline
+{\em i} & Pointer to lzma\-\_\-index which should be encoded.\\
+\hline
+\end{DoxyParams}
+The valid `action' values for \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} are L\-Z\-M\-A\-\_\-\-R\-U\-N and L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H. It is enough to use only one of them (you can choose freely; use L\-Z\-M\-A\-\_\-\-R\-U\-N to support liblzma versions older than 5.\-0.\-0).
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Initialization succeeded, continue with \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-R\-U\-N.
+
+\index{index\-\_\-encoder.\-c@{index\-\_\-encoder.\-c}!lzma\-\_\-index\-\_\-buffer\-\_\-encode@{lzma\-\_\-index\-\_\-buffer\-\_\-encode}}
+\index{lzma\-\_\-index\-\_\-buffer\-\_\-encode@{lzma\-\_\-index\-\_\-buffer\-\_\-encode}!index_encoder.c@{index\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-buffer\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-index\-\_\-buffer\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{index__encoder_8c_a9a6a4b09464a3edc101ff4f4b1f49917}
+
+
+Single-\/call .xz Index encoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & lzma\-\_\-index to be encoded \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\-\_\-pos} & The next byte will be written to out[$\ast$out\-\_\-pos]. $\ast$out\-\_\-pos is updated only if encoding succeeds. \\
+\hline
+{\em out\-\_\-size} & Size of the out buffer; the first byte into which no data is written to is out[out\-\_\-size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Encoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: Output buffer is too small. Use \doxyref{lzma\-\_\-index\-\_\-size()}{p.}{api_2lzma_2index_8h_a669ed1a82b1941217cfbb07e7826afc2} to find out how much output space is needed.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function doesn't take allocator argument since all the internal data is allocated on stack. 
+\end{DoxyNote}
+
+
+References L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-index\-\_\-size(), L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-R\-U\-N, and L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D.
+
+
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+

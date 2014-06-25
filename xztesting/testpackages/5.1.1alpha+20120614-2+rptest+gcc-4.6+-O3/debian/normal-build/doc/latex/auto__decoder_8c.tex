@@ -1,0 +1,76 @@
+\section{liblzma/common/auto\-\_\-decoder.c File Reference}
+\label{auto__decoder_8c}\index{liblzma/common/auto\-\_\-decoder.\-c@{liblzma/common/auto\-\_\-decoder.\-c}}
+
+
+Autodetect between .xz Stream and .lzma (L\-Z\-M\-A\-\_\-\-Alone) formats.  
+
+
+{\ttfamily \#include \char`\"{}stream\-\_\-decoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}alone\-\_\-decoder.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-coder\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries auto\-\_\-decode} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)\label{auto__decoder_8c_a5a57a43d393da9d0407eceebe946235b}
+
+\item 
+static void {\bfseries auto\-\_\-decoder\-\_\-end} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{auto__decoder_8c_a67b55f8122bbcf996fdee771bd7b031b}
+
+\item 
+static {\bf lzma\-\_\-check} {\bfseries auto\-\_\-decoder\-\_\-get\-\_\-check} (const {\bf lzma\-\_\-coder} $\ast$coder)\label{auto__decoder_8c_a82f78ff1488702496560bdd604e0f6ed}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries auto\-\_\-decoder\-\_\-memconfig} ({\bf lzma\-\_\-coder} $\ast$coder, uint64\-\_\-t $\ast$memusage, uint64\-\_\-t $\ast$old\-\_\-memlimit, uint64\-\_\-t new\-\_\-memlimit)\label{auto__decoder_8c_ad073da7ee4e874d94373920fcfde37aa}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries auto\-\_\-decoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, uint64\-\_\-t memlimit, uint32\-\_\-t flags)\label{auto__decoder_8c_a1ba6d00b925519ec9226153a8532b487}
+
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-auto\-\_\-decoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, uint64\-\_\-t memlimit, uint32\-\_\-t flags)
+\begin{DoxyCompactList}\small\item\em Decode .xz Streams and .lzma files with autodetection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Autodetect between .xz Stream and .lzma (L\-Z\-M\-A\-\_\-\-Alone) formats. 
+
+\subsection{Function Documentation}
+\index{auto\-\_\-decoder.\-c@{auto\-\_\-decoder.\-c}!lzma\-\_\-auto\-\_\-decoder@{lzma\-\_\-auto\-\_\-decoder}}
+\index{lzma\-\_\-auto\-\_\-decoder@{lzma\-\_\-auto\-\_\-decoder}!auto_decoder.c@{auto\-\_\-decoder.\-c}}
+\subsubsection[{lzma\-\_\-auto\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-auto\-\_\-decoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{uint64\-\_\-t}]{memlimit, }
+\item[{uint32\-\_\-t}]{flags}
+\end{DoxyParamCaption}
+)}\label{auto__decoder_8c_a9e11aae50c8b28fdff631a16af8dbfc7}
+
+
+Decode .xz Streams and .lzma files with autodetection. 
+
+This decoder autodetects between the .xz and .lzma file formats, and calls \doxyref{lzma\-\_\-stream\-\_\-decoder()}{p.}{container_8h_a02b7683ef98d8049788961370a8b28c0} or \doxyref{lzma\-\_\-alone\-\_\-decoder()}{p.}{container_8h_a5f43c3a1035e5a226dcd298f4162b861} once the type of the input file has been detected.
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} \\
+\hline
+{\em memlimit} & Memory usage limit as bytes. Use U\-I\-N\-T64\-\_\-\-M\-A\-X to effectively disable the limiter. \\
+\hline
+{\em flags} & Bitwise-\/or of flags, or zero for no flags.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Initialization was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R\-: Cannot allocate memory.
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported flags
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-R\-U\-N.
+

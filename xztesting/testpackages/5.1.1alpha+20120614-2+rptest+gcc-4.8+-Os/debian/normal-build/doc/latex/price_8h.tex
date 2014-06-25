@@ -1,0 +1,61 @@
+\section{liblzma/rangecoder/price.h File Reference}
+\label{price_8h}\index{liblzma/rangecoder/price.\-h@{liblzma/rangecoder/price.\-h}}
+
+
+Probability price calculation.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries R\-C\-\_\-\-M\-O\-V\-E\-\_\-\-R\-E\-D\-U\-C\-I\-N\-G\-\_\-\-B\-I\-T\-S}~4\label{price_8h_a4d38936a14ae066d7eaa2d801ffa5403}
+
+\item 
+\#define {\bfseries R\-C\-\_\-\-B\-I\-T\-\_\-\-P\-R\-I\-C\-E\-\_\-\-S\-H\-I\-F\-T\-\_\-\-B\-I\-T\-S}~4\label{price_8h_af103bd94e53fb3716daae7232e264f25}
+
+\item 
+\#define {\bfseries R\-C\-\_\-\-P\-R\-I\-C\-E\-\_\-\-T\-A\-B\-L\-E\-\_\-\-S\-I\-Z\-E}~(R\-C\-\_\-\-B\-I\-T\-\_\-\-M\-O\-D\-E\-L\-\_\-\-T\-O\-T\-A\-L $>$$>$ R\-C\-\_\-\-M\-O\-V\-E\-\_\-\-R\-E\-D\-U\-C\-I\-N\-G\-\_\-\-B\-I\-T\-S)\label{price_8h_a76af79ce948dc0d68436f2ef0c3eee6c}
+
+\item 
+\#define {\bfseries R\-C\-\_\-\-I\-N\-F\-I\-N\-I\-T\-Y\-\_\-\-P\-R\-I\-C\-E}~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 30)\label{price_8h_abb630554054926c3c682496bd6679feb}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint32\-\_\-t {\bfseries rc\-\_\-bit\-\_\-price} (const {\bf probability} prob, const uint32\-\_\-t bit)\label{price_8h_a31730e694ca6966ca15e74a297ca2ef1}
+
+\item 
+static uint32\-\_\-t {\bfseries rc\-\_\-bit\-\_\-0\-\_\-price} (const {\bf probability} prob)\label{price_8h_aa7d8f51846076b5a310edfd2de431c03}
+
+\item 
+static uint32\-\_\-t {\bfseries rc\-\_\-bit\-\_\-1\-\_\-price} (const {\bf probability} prob)\label{price_8h_ab1d9ec6e6e4fd2d1ee018e2fff39e665}
+
+\item 
+static uint32\-\_\-t {\bfseries rc\-\_\-bittree\-\_\-price} (const {\bf probability} $\ast$const probs, const uint32\-\_\-t bit\-\_\-levels, uint32\-\_\-t symbol)\label{price_8h_a5157fa388a830caeb7451cf7d7e11d07}
+
+\item 
+static uint32\-\_\-t {\bfseries rc\-\_\-bittree\-\_\-reverse\-\_\-price} (const {\bf probability} $\ast$const probs, uint32\-\_\-t bit\-\_\-levels, uint32\-\_\-t symbol)\label{price_8h_a7b8971dfba6f48c072b507a3e5a580fa}
+
+\item 
+static uint32\-\_\-t {\bfseries rc\-\_\-direct\-\_\-price} (const uint32\-\_\-t bits)\label{price_8h_ae1dc528c9c6a82bbd07adfa94b5710ee}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\-\_\-t {\bf lzma\-\_\-rc\-\_\-prices} [R\-C\-\_\-\-P\-R\-I\-C\-E\-\_\-\-T\-A\-B\-L\-E\-\_\-\-S\-I\-Z\-E]
+\begin{DoxyCompactList}\small\item\em Lookup table for the inline functions defined in this file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Probability price calculation. 
+
+\subsection{Variable Documentation}
+\index{price.\-h@{price.\-h}!lzma\-\_\-rc\-\_\-prices@{lzma\-\_\-rc\-\_\-prices}}
+\index{lzma\-\_\-rc\-\_\-prices@{lzma\-\_\-rc\-\_\-prices}!price.h@{price.\-h}}
+\subsubsection[{lzma\-\_\-rc\-\_\-prices}]{\setlength{\rightskip}{0pt plus 5cm}const uint8\-\_\-t lzma\-\_\-rc\-\_\-prices[R\-C\-\_\-\-P\-R\-I\-C\-E\-\_\-\-T\-A\-B\-L\-E\-\_\-\-S\-I\-Z\-E]}\label{price_8h_ab6ce95bec016604493ae528e847554aa}
+
+
+Lookup table for the inline functions defined in this file. 
+

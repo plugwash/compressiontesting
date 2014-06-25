@@ -1,0 +1,65 @@
+\section{liblzma/common/block\-\_\-encoder.c File Reference}
+\label{block__encoder_8c}\index{liblzma/common/block\-\_\-encoder.\-c@{liblzma/common/block\-\_\-encoder.\-c}}
+
+
+Encodes .xz Blocks.  
+
+
+{\ttfamily \#include \char`\"{}block\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}filter\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}check.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-coder\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries block\-\_\-encode} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)\label{block__encoder_8c_aafc3d711610efe32cce0582878cb8440}
+
+\item 
+static void {\bfseries block\-\_\-encoder\-\_\-end} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{block__encoder_8c_a01110a794229dc4594c34185245bab48}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries block\-\_\-encoder\-\_\-update} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast${\bf filters} lzma\-\_\-attribute((\-\_\-\-\_\-unused\-\_\-\-\_\-)), const {\bf lzma\-\_\-filter} $\ast$reversed\-\_\-filters)\label{block__encoder_8c_adafff0107d8d0d6bcdc97949f3d25fba}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-block\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, {\bf lzma\-\_\-block} $\ast$block)\label{block__encoder_8c_a89c401647b51c72c5435b91307a6fb4c}
+
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-block\-\_\-encoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, {\bf lzma\-\_\-block} $\ast$block)
+\begin{DoxyCompactList}\small\item\em Initialize .xz Block encoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encodes .xz Blocks. 
+
+\subsection{Function Documentation}
+\index{block\-\_\-encoder.\-c@{block\-\_\-encoder.\-c}!lzma\-\_\-block\-\_\-encoder@{lzma\-\_\-block\-\_\-encoder}}
+\index{lzma\-\_\-block\-\_\-encoder@{lzma\-\_\-block\-\_\-encoder}!block_encoder.c@{block\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-block\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-block\-\_\-encoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{{\bf lzma\-\_\-block} $\ast$}]{block}
+\end{DoxyParamCaption}
+)}\label{block__encoder_8c_a933285cbceb03c0e2507f8e0bb737a79}
+
+
+Initialize .xz Block encoder. 
+
+Valid actions for \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} are L\-Z\-M\-A\-\_\-\-R\-U\-N, L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H (only if the filter chain supports it), and L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: All good, continue with \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K\-: block-\/$>$check specifies a Check I\-D that is not supported by this buid of liblzma. Initializing the encoder failed.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-R\-U\-N.
+

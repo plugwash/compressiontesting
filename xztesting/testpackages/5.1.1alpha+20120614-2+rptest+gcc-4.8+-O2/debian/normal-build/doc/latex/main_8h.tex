@@ -1,0 +1,64 @@
+\section{xz/main.h File Reference}
+\label{main_8h}\index{xz/main.\-h@{xz/main.\-h}}
+
+
+Miscellaneous declarations.  
+
+
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf exit\-\_\-status\-\_\-type} \{ {\bfseries E\-\_\-\-S\-U\-C\-C\-E\-S\-S} =  0, 
+{\bfseries E\-\_\-\-E\-R\-R\-O\-R} =  1, 
+{\bfseries E\-\_\-\-W\-A\-R\-N\-I\-N\-G} =  2
+ \}
+\begin{DoxyCompactList}\small\item\em Possible exit status values. These are the same as used by gzip and bzip2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\-\_\-exit\-\_\-status} (enum {\bf exit\-\_\-status\-\_\-type} new\-\_\-status)
+\item 
+void {\bf set\-\_\-exit\-\_\-no\-\_\-warn} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Miscellaneous declarations. 
+
+\subsection{Enumeration Type Documentation}
+\index{main.\-h@{main.\-h}!exit\-\_\-status\-\_\-type@{exit\-\_\-status\-\_\-type}}
+\index{exit\-\_\-status\-\_\-type@{exit\-\_\-status\-\_\-type}!main.h@{main.\-h}}
+\subsubsection[{exit\-\_\-status\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf exit\-\_\-status\-\_\-type}}\label{main_8h_af872d4d5c51b96938b58f0c59b6c3c37}
+
+
+Possible exit status values. These are the same as used by gzip and bzip2. 
+
+
+
+\subsection{Function Documentation}
+\index{main.\-h@{main.\-h}!set\-\_\-exit\-\_\-status@{set\-\_\-exit\-\_\-status}}
+\index{set\-\_\-exit\-\_\-status@{set\-\_\-exit\-\_\-status}!main.h@{main.\-h}}
+\subsubsection[{set\-\_\-exit\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-exit\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{enum {\bf exit\-\_\-status\-\_\-type}}]{new\-\_\-status}
+\end{DoxyParamCaption}
+)}\label{main_8h_aa5da9e106c96aef50fcb212123d5e906}
+Sets the exit status after a warning or error has occurred. If new\-\_\-status is E\-\_\-\-W\-A\-R\-N\-I\-N\-G and the old exit status was already E\-\_\-\-E\-R\-R\-O\-R, the exit status is not changed. 
+
+References exit\-\_\-status.
+
+
+
+Referenced by signals\-\_\-exit().
+
+\index{main.\-h@{main.\-h}!set\-\_\-exit\-\_\-no\-\_\-warn@{set\-\_\-exit\-\_\-no\-\_\-warn}}
+\index{set\-\_\-exit\-\_\-no\-\_\-warn@{set\-\_\-exit\-\_\-no\-\_\-warn}!main.h@{main.\-h}}
+\subsubsection[{set\-\_\-exit\-\_\-no\-\_\-warn}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-exit\-\_\-no\-\_\-warn (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{main_8h_a822c7b0dcac2111d1abacbb29145458e}
+Use E\-\_\-\-S\-U\-C\-C\-E\-S\-S instead of E\-\_\-\-W\-A\-R\-N\-I\-N\-G if something worth a warning occurs but nothing worth an error has occurred. This is called when --no-\/warn is specified. 
+
+References no\-\_\-warn.
+

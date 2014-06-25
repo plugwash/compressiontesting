@@ -1,0 +1,59 @@
+\section{liblzma/rangecoder/range\-\_\-encoder.h File Reference}
+\label{range__encoder_8h}\index{liblzma/rangecoder/range\-\_\-encoder.\-h@{liblzma/rangecoder/range\-\_\-encoder.\-h}}
+
+
+Range Encoder.  
+
+
+{\ttfamily \#include \char`\"{}range\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}price.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-range\-\_\-encoder}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X}~58
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries rc\-\_\-reset} ({\bf lzma\-\_\-range\-\_\-encoder} $\ast$rc)\label{range__encoder_8h_a8dbc1f491df17ff8419328f8ead4965e}
+
+\item 
+static void {\bfseries rc\-\_\-bit} ({\bf lzma\-\_\-range\-\_\-encoder} $\ast$rc, {\bf probability} $\ast$prob, uint32\-\_\-t bit)\label{range__encoder_8h_af6e28b5e196ae2e674606ac9be9d978e}
+
+\item 
+static void {\bfseries rc\-\_\-bittree} ({\bf lzma\-\_\-range\-\_\-encoder} $\ast$rc, {\bf probability} $\ast$probs, uint32\-\_\-t bit\-\_\-count, uint32\-\_\-t symbol)\label{range__encoder_8h_a5fab079801e01b6bbffd4875b06113bb}
+
+\item 
+static void {\bfseries rc\-\_\-bittree\-\_\-reverse} ({\bf lzma\-\_\-range\-\_\-encoder} $\ast$rc, {\bf probability} $\ast$probs, uint32\-\_\-t bit\-\_\-count, uint32\-\_\-t symbol)\label{range__encoder_8h_a904c42e50d0cda697ebe13e0cd7d7426}
+
+\item 
+static void {\bfseries rc\-\_\-direct} ({\bf lzma\-\_\-range\-\_\-encoder} $\ast$rc, uint32\-\_\-t value, uint32\-\_\-t bit\-\_\-count)\label{range__encoder_8h_a08febd4ffd026974a30df7e312e7ecf5}
+
+\item 
+static void {\bfseries rc\-\_\-flush} ({\bf lzma\-\_\-range\-\_\-encoder} $\ast$rc)\label{range__encoder_8h_af066f7ba00f8bab2363e09f8c53d3dce}
+
+\item 
+static bool {\bfseries rc\-\_\-shift\-\_\-low} ({\bf lzma\-\_\-range\-\_\-encoder} $\ast$rc, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size)\label{range__encoder_8h_a06451265900fdb647be0ee4057093b52}
+
+\item 
+static bool {\bfseries rc\-\_\-encode} ({\bf lzma\-\_\-range\-\_\-encoder} $\ast$rc, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size)\label{range__encoder_8h_a49148a61d9860c118b844318e3e4b3d3}
+
+\item 
+static uint64\-\_\-t {\bfseries rc\-\_\-pending} (const {\bf lzma\-\_\-range\-\_\-encoder} $\ast$rc)\label{range__encoder_8h_ad28d516df175ac9b16108e6599413046}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Range Encoder. 
+
+\subsection{Macro Definition Documentation}
+\index{range\-\_\-encoder.\-h@{range\-\_\-encoder.\-h}!R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X@{R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X}}
+\index{R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X@{R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X}!range_encoder.h@{range\-\_\-encoder.\-h}}
+\subsubsection[{R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X~58}\label{range__encoder_8h_afd0938dc503738165e08e50284fbad7b}
+Maximum number of symbols that can be put pending into \doxyref{lzma\-\_\-range\-\_\-encoder}{p.}{structlzma__range__encoder} structure between calls to lzma\-\_\-rc\-\_\-encode(). For L\-Z\-M\-A, 52+5 is enough (match with big distance and length followed by range encoder flush). 

@@ -1,0 +1,39 @@
+Format: 1.8
+Date: Wed, 14 May 2014 16:40:36 +0000
+Source: xz-utils
+Binary: liblzma5 xz-utils xzdec liblzma-dev liblzma-doc
+Architecture: armhf all
+Version: 5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2
+Distribution: wheezy-test
+Urgency: low
+Maintainer: Jonathan Nieder <jrnieder@gmail.com>
+Changed-By: Peter Michael Green <plugwash@raspbian.org>
+Description: 
+ liblzma-dev - XZ-format compression library - development files
+ liblzma-doc - XZ-format compression library - API documentation
+ liblzma5   - XZ-format compression library
+ xz-utils   - XZ-format compression utilities
+ xzdec      - XZ-format compression utilities - tiny decompressors
+Changes: 
+ xz-utils (5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2) wheezy-test; urgency=low
+ .
+   * set optimisation to -O2 to test impact on codesize and performance.
+   * Build with gcc-4.8 to test impact on codeside and performance.
+Checksums-Sha1: 
+ 6a595f12dcd0ce564f009efbb92c42f16eae9000 198376 liblzma5_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ ee3f6155c1f411045f44ccf0dc2c8bfff95f168e 236588 xz-utils_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ 51de4577f99596ebbce7121879cb2ad208ac5191 166406 xzdec_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ cb012a38c5b02ac1ec6dfd972280a4124909d74c 272126 liblzma-dev_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ 0aa47a148d07c88607e6b59ede7d1a95e36bd510 587868 liblzma-doc_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_all.deb
+Checksums-Sha256: 
+ d56864d4eedba86209a323b0eb6075d0088d10c75b7a22c31e10b3ddfb2f9fd5 198376 liblzma5_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ 0975cc4568bc91764617378eab86c41cfbcd1aee4ac48ee7e49333eb77d9d631 236588 xz-utils_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ cdaec947b617db109e1e6237d1c2a0ed81eda4e3e56cfdf25b1cd6005ed23d4d 166406 xzdec_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ 9a9fd8328448f19d696aed74b3ef7e394bcdb300adaec1d67ca80c2c735a2c14 272126 liblzma-dev_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ d6a0f4693931153df20606c5d68d71f3885a8c0082c423afd1e53be2d306d723 587868 liblzma-doc_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_all.deb
+Files: 
+ ce0a016484398c45d04c0142b8b58924 198376 libs required liblzma5_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ 5d28d0ad6309535f24afb7c3cb086db7 236588 utils required xz-utils_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ 7136e526f3802684fc0cf369352894b5 166406 utils extra xzdec_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ f945b9154a5bdfe7deca0abf040be86b 272126 libdevel optional liblzma-dev_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_armhf.deb
+ 511cc5269fe115f9877b7f615a9316cf 587868 doc optional liblzma-doc_5.1.1alpha+20120614-2+rptest+gcc-4.8+-O2_all.deb

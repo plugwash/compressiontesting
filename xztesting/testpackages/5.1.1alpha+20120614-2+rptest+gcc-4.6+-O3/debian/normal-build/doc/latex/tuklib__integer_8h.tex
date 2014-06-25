@@ -1,0 +1,184 @@
+\section{common/tuklib\-\_\-integer.h File Reference}
+\label{tuklib__integer_8h}\index{common/tuklib\-\_\-integer.\-h@{common/tuklib\-\_\-integer.\-h}}
+
+
+Various integer and bit operations.  
+
+
+{\ttfamily \#include \char`\"{}tuklib\-\_\-common.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries bswap16}(num)~(((uint16\-\_\-t)(num) $<$$<$ 8) $|$ ((uint16\-\_\-t)(num) $>$$>$ 8))\label{tuklib__integer_8h_a9bc188ccb2085aca13b9e411db6bae11}
+
+\item 
+\#define {\bfseries bswap32}(num)
+\item 
+\#define {\bfseries bswap64}(num)
+\item 
+\#define {\bfseries conv16be}(num)~bswap16(num)\label{tuklib__integer_8h_a6b2b9d836ddb7dc5d299ead15101f57a}
+
+\item 
+\#define {\bfseries conv32be}(num)~bswap32(num)\label{tuklib__integer_8h_a812ae5d9be2d45d34f37744eb35c6ec4}
+
+\item 
+\#define {\bfseries conv64be}(num)~bswap64(num)\label{tuklib__integer_8h_a8ed018b58daffeb1bb83871cf4e09f2d}
+
+\item 
+\#define {\bfseries conv16le}(num)~((uint16\-\_\-t)(num))\label{tuklib__integer_8h_a3f517ab0a93d921fd78a2d0647ab906f}
+
+\item 
+\#define {\bfseries conv32le}(num)~((uint32\-\_\-t)(num))\label{tuklib__integer_8h_aaa18c21f5b341ddb6952b6b798be9795}
+
+\item 
+\#define {\bfseries conv64le}(num)~((uint64\-\_\-t)(num))\label{tuklib__integer_8h_a2cb6884e43cdd40bf5c5e67bebec7b27}
+
+\item 
+\#define {\bfseries write16be}(buf, num)~write16ne((buf), conv16be(num))\label{tuklib__integer_8h_a1f3fa212057250e94c915987ee6c3d0b}
+
+\item 
+\#define {\bfseries write16le}(buf, num)~write16ne((buf), conv16le(num))\label{tuklib__integer_8h_af0b9424360d88d83fe8161d5e210b4b2}
+
+\item 
+\#define {\bfseries write32be}(buf, num)~write32ne((buf), conv32be(num))\label{tuklib__integer_8h_af4f4e88616e71eb539a9dd7589475fa1}
+
+\item 
+\#define {\bfseries write32le}(buf, num)~write32ne((buf), conv32le(num))\label{tuklib__integer_8h_af29be033fcc28c5c2b11a7f580761e79}
+
+\item 
+\#define {\bfseries write64be}(buf, num)~write64ne((buf), conv64be(num))\label{tuklib__integer_8h_ab6fb0927aa9e804d9200ffdab0c23b40}
+
+\item 
+\#define {\bfseries write64le}(buf, num)~write64ne((buf), conv64le(num))\label{tuklib__integer_8h_a097c6c866bd97162c7f01eb73433a068}
+
+\item 
+\#define {\bfseries bsf32}~ctz32\label{tuklib__integer_8h_a510e889b2b5726d0e44c11b88cfc80bf}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint16\-\_\-t {\bfseries read16be} (const uint8\-\_\-t $\ast$buf)\label{tuklib__integer_8h_ade5dfb160423314015a92f9d3b41364e}
+
+\item 
+static uint16\-\_\-t {\bfseries read16le} (const uint8\-\_\-t $\ast$buf)\label{tuklib__integer_8h_aabdb9935979bb9e6d6b9c43b4ea09219}
+
+\item 
+static uint32\-\_\-t {\bfseries read32be} (const uint8\-\_\-t $\ast$buf)\label{tuklib__integer_8h_ad61e457beb44cca201afa4e22a991f7c}
+
+\item 
+static uint32\-\_\-t {\bfseries read32le} (const uint8\-\_\-t $\ast$buf)\label{tuklib__integer_8h_a0c1af647880b49c2783a1b8fb5ceb8b3}
+
+\item 
+static uint64\-\_\-t {\bfseries read64be} (const uint8\-\_\-t $\ast$buf)\label{tuklib__integer_8h_a6ef94494f1932d82ccd8eec33c84f2ba}
+
+\item 
+static uint64\-\_\-t {\bfseries read64le} (const uint8\-\_\-t $\ast$buf)\label{tuklib__integer_8h_a188612f1b09af87b03a4b5f97c236771}
+
+\item 
+static void {\bfseries write16ne} (uint8\-\_\-t $\ast$buf, uint16\-\_\-t num)\label{tuklib__integer_8h_a87d1e8e3c3158b34f10644ba14bb4bce}
+
+\item 
+static void {\bfseries write32ne} (uint8\-\_\-t $\ast$buf, uint32\-\_\-t num)\label{tuklib__integer_8h_ae1bb649e12f5096e4e17a67027dda451}
+
+\item 
+static void {\bfseries write64ne} (uint8\-\_\-t $\ast$buf, uint64\-\_\-t num)\label{tuklib__integer_8h_a018f795a238067705b3ed704625ae816}
+
+\item 
+static uint16\-\_\-t {\bfseries unaligned\-\_\-read16be} (const uint8\-\_\-t $\ast$buf)\label{tuklib__integer_8h_a61a37dadae8ea79c9728758acab6f375}
+
+\item 
+static uint16\-\_\-t {\bfseries unaligned\-\_\-read16le} (const uint8\-\_\-t $\ast$buf)\label{tuklib__integer_8h_a03f4001c17c5907e160653277953066a}
+
+\item 
+static uint32\-\_\-t {\bfseries unaligned\-\_\-read32be} (const uint8\-\_\-t $\ast$buf)\label{tuklib__integer_8h_a32dbc938f43376657e411cb6a6285fb5}
+
+\item 
+static uint32\-\_\-t {\bfseries unaligned\-\_\-read32le} (const uint8\-\_\-t $\ast$buf)\label{tuklib__integer_8h_a29527305cc7fb6ba4b4fe8f6f44d2147}
+
+\item 
+static void {\bfseries unaligned\-\_\-write16be} (uint8\-\_\-t $\ast$buf, uint16\-\_\-t num)\label{tuklib__integer_8h_a822e6b949cf0f6606754e315b015421e}
+
+\item 
+static void {\bfseries unaligned\-\_\-write16le} (uint8\-\_\-t $\ast$buf, uint16\-\_\-t num)\label{tuklib__integer_8h_a36528cdd7dbf52b7c4aa438fc3c6619b}
+
+\item 
+static void {\bfseries unaligned\-\_\-write32be} (uint8\-\_\-t $\ast$buf, uint32\-\_\-t num)\label{tuklib__integer_8h_a2283faf2589131fb98468fa6a2238d5d}
+
+\item 
+static void {\bfseries unaligned\-\_\-write32le} (uint8\-\_\-t $\ast$buf, uint32\-\_\-t num)\label{tuklib__integer_8h_a80a90d3c7e8bde942b718aefc4eb6e8f}
+
+\item 
+static uint32\-\_\-t {\bfseries bsr32} (uint32\-\_\-t n)\label{tuklib__integer_8h_ace3a388259583931adc6cb3a2f5a8167}
+
+\item 
+static uint32\-\_\-t {\bfseries clz32} (uint32\-\_\-t n)\label{tuklib__integer_8h_a108e65d5fe1aae56171dee1be2dcb0a4}
+
+\item 
+static uint32\-\_\-t {\bfseries ctz32} (uint32\-\_\-t n)\label{tuklib__integer_8h_a80e9adeba7b4eea789a09ad5e6683d04}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Various integer and bit operations. This file provides macros or functions to do some basic integer and bit operations.
+
+Endianness related integer operations (X\-X = 16, 32, or 64; Y = b or l)\-:
+\begin{DoxyItemize}
+\item Byte swapping\-: bswap\-X\-X(num)
+\item Byte order conversions to/from native\-: conv\-X\-X\-Ye(num)
+\item Aligned reads\-: read\-X\-X\-Ye(ptr)
+\item Aligned writes\-: write\-X\-X\-Ye(ptr, num)
+\item Unaligned reads (16/32-\/bit only)\-: unaligned\-\_\-read\-X\-X\-Ye(ptr)
+\item Unaligned writes (16/32-\/bit only)\-: unaligned\-\_\-write\-X\-X\-Ye(ptr, num)
+\end{DoxyItemize}
+
+Since they can macros, the arguments should have no side effects since they may be evaluated more than once.
+
+\begin{DoxyRefDesc}{Todo}
+\item[{\bf Todo}]Power\-P\-C and possibly some other architectures support byte swapping load and store instructions. This file doesn't take advantage of those instructions.\end{DoxyRefDesc}
+
+
+Bit scan operations for non-\/zero 32-\/bit integers\-:
+\begin{DoxyItemize}
+\item Bit scan reverse (find highest non-\/zero bit)\-: bsr32(num)
+\item Count leading zeros\-: clz32(num)
+\item Count trailing zeros\-: ctz32(num)
+\item Bit scan forward (simply an alias for ctz32())\-: bsf32(num)
+\end{DoxyItemize}
+
+The above bit scan operations return 0-\/31. If num is zero, the result is undefined. 
+
+\subsection{Macro Definition Documentation}
+\index{tuklib\-\_\-integer.\-h@{tuklib\-\_\-integer.\-h}!bswap32@{bswap32}}
+\index{bswap32@{bswap32}!tuklib_integer.h@{tuklib\-\_\-integer.\-h}}
+\subsubsection[{bswap32}]{\setlength{\rightskip}{0pt plus 5cm}\#define bswap32(
+\begin{DoxyParamCaption}
+\item[{}]{num}
+\end{DoxyParamCaption}
+)}\label{tuklib__integer_8h_a2610a88a071ec508edbc15ee90094e64}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+( (((uint32\_t)(num) << 24)                       ) \(\backslash\)
+                | (((uint32\_t)(num) <<  8) & UINT32\_C(0x00FF0000)) \(\backslash\)
+                | (((uint32\_t)(num) >>  8) & UINT32\_C(0x0000FF00)) \(\backslash\)
+                | (((uint32\_t)(num) >> 24)                       ) )
+\end{DoxyCode}
+\index{tuklib\-\_\-integer.\-h@{tuklib\-\_\-integer.\-h}!bswap64@{bswap64}}
+\index{bswap64@{bswap64}!tuklib_integer.h@{tuklib\-\_\-integer.\-h}}
+\subsubsection[{bswap64}]{\setlength{\rightskip}{0pt plus 5cm}\#define bswap64(
+\begin{DoxyParamCaption}
+\item[{}]{num}
+\end{DoxyParamCaption}
+)}\label{tuklib__integer_8h_ac9db02787e6a4bc63d62808b357df8ce}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+( (((uint64\_t)(num) << 56)                               ) \(\backslash\)
+                | (((uint64\_t)(num) << 40) & UINT64\_C(0x00FF000000000000)) \(\backslash\)
+                | (((uint64\_t)(num) << 24) & UINT64\_C(0x0000FF0000000000)) \(\backslash\)
+                | (((uint64\_t)(num) <<  8) & UINT64\_C(0x000000FF00000000)) \(\backslash\)
+                | (((uint64\_t)(num) >>  8) & UINT64\_C(0x00000000FF000000)) \(\backslash\)
+                | (((uint64\_t)(num) >> 24) & UINT64\_C(0x0000000000FF0000)) \(\backslash\)
+                | (((uint64\_t)(num) >> 40) & UINT64\_C(0x000000000000FF00)) \(\backslash\)
+                | (((uint64\_t)(num) >> 56)                               ) )
+\end{DoxyCode}

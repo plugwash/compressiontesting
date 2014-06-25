@@ -1,0 +1,319 @@
+\section{lzma\-\_\-block Struct Reference}
+\label{structlzma__block}\index{lzma\-\_\-block@{lzma\-\_\-block}}
+
+
+Options for the Block and Block Header encoders and decoders.  
+
+
+
+
+{\ttfamily \#include $<$block.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t {\bf version}
+\begin{DoxyCompactList}\small\item\em Block format version. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf header\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Size of the Block Header field. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-check} {\bf check}
+\begin{DoxyCompactList}\small\item\em Type of integrity Check. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf compressed\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Size of the Compressed Data in bytes. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf uncompressed\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Uncompressed Size in bytes. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-filter} $\ast$ {\bf filters}
+\begin{DoxyCompactList}\small\item\em Array of filters. \end{DoxyCompactList}\item 
+uint8\-\_\-t {\bf raw\-\_\-check} [{\bf L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-S\-I\-Z\-E\-\_\-\-M\-A\-X}]
+\begin{DoxyCompactList}\small\item\em Raw value stored in the Check field. \end{DoxyCompactList}\item 
+void $\ast$ {\bfseries reserved\-\_\-ptr1}\label{structlzma__block_ac93263d0c9c3791a62c66b00b5163192}
+
+\item 
+void $\ast$ {\bfseries reserved\-\_\-ptr2}\label{structlzma__block_a12a6e26045014564160b7b11dde3a4de}
+
+\item 
+void $\ast$ {\bfseries reserved\-\_\-ptr3}\label{structlzma__block_a93f4cdeffad3bd54f8a29a5628bc0354}
+
+\item 
+uint32\-\_\-t {\bfseries reserved\-\_\-int1}\label{structlzma__block_aefd3a82a6bb42d584db8e271c3d8e7e5}
+
+\item 
+uint32\-\_\-t {\bfseries reserved\-\_\-int2}\label{structlzma__block_a56a55fcddfb20c8f67637f92390ccc84}
+
+\item 
+{\bf lzma\-\_\-vli} {\bfseries reserved\-\_\-int3}\label{structlzma__block_a8f942073a3fd4ecb4b6688b31eab83e4}
+
+\item 
+{\bf lzma\-\_\-vli} {\bfseries reserved\-\_\-int4}\label{structlzma__block_a9302e7f7bc7b469754e4cd70060c36d8}
+
+\item 
+{\bf lzma\-\_\-vli} {\bfseries reserved\-\_\-int5}\label{structlzma__block_a7a82b8fdcc19bfb2c7c85c370704d2a1}
+
+\item 
+{\bf lzma\-\_\-vli} {\bfseries reserved\-\_\-int6}\label{structlzma__block_a0cd27e168bc50e048a5651e2349db9e9}
+
+\item 
+{\bf lzma\-\_\-vli} {\bfseries reserved\-\_\-int7}\label{structlzma__block_ada5cf837f1b9e33957b1714220093592}
+
+\item 
+{\bf lzma\-\_\-vli} {\bfseries reserved\-\_\-int8}\label{structlzma__block_a39a042a40f749910bab479f81ee58a36}
+
+\item 
+{\bf lzma\-\_\-reserved\-\_\-enum} {\bfseries reserved\-\_\-enum1}\label{structlzma__block_a9584798ce37a2a28fbc37cb5802c5e24}
+
+\item 
+{\bf lzma\-\_\-reserved\-\_\-enum} {\bfseries reserved\-\_\-enum2}\label{structlzma__block_aa1551e1b1a0077d8d5017534c408418b}
+
+\item 
+{\bf lzma\-\_\-reserved\-\_\-enum} {\bfseries reserved\-\_\-enum3}\label{structlzma__block_a4f91e3e1eff8e16704adc98f8b8247cf}
+
+\item 
+{\bf lzma\-\_\-reserved\-\_\-enum} {\bfseries reserved\-\_\-enum4}\label{structlzma__block_a8743231e0878e72d925f2b316d96c165}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool1}\label{structlzma__block_a34eed5b15214662ce39eb79876851d65}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool2}\label{structlzma__block_a6d7e3982f63e2b2983449e0f303858c1}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool3}\label{structlzma__block_afc7ef0a795db3a819f8af42859e0b505}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool4}\label{structlzma__block_aa801287f73f755d1c3e0c994449a0f95}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool5}\label{structlzma__block_af0e4cce2df722794f0cb27a54360f60e}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool6}\label{structlzma__block_a6fba278ab21382b49ea67f1c99455837}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool7}\label{structlzma__block_a51824da503cbbb61393ba0b4ceb1a113}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool8}\label{structlzma__block_ae344e512fc8d1cc4adfecbab081896bf}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Options for the Block and Block Header encoders and decoders. 
+
+Different Block handling functions use different parts of this structure. Some read some members, other functions write, and some do both. Only the members listed for reading need to be initialized when the specified functions are called. The members marked for writing will be assigned new values at some point either by calling the given function or by later calls to \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}. 
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-block@{lzma\-\_\-block}!version@{version}}
+\index{version@{version}!lzma_block@{lzma\-\_\-block}}
+\subsubsection[{version}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-block\-::version}\label{structlzma__block_ac3936a5b0ec3f9b8f9c7ad68e7d149a5}
+
+
+Block format version. 
+
+To prevent A\-P\-I and A\-B\-I breakages if new features are needed in the Block field, a version number is used to indicate which fields in this structure are in use. For now, version must always be zero. With non-\/zero version, most Block related functions will return L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R.
+
+Read by\-:
+\begin{DoxyItemize}
+\item All functions that take pointer to \doxyref{lzma\-\_\-block}{p.}{structlzma__block} as argument, including \doxyref{lzma\-\_\-block\-\_\-header\-\_\-decode()}{p.}{block_8h_a71ddd0bec506092018e407ed6f027f53}.
+\end{DoxyItemize}
+
+Written by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-decode()}{p.}{block_8h_a71ddd0bec506092018e407ed6f027f53} 
+\end{DoxyItemize}
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-encode(), and parse\-\_\-block\-\_\-header().
+
+\index{lzma\-\_\-block@{lzma\-\_\-block}!header\-\_\-size@{header\-\_\-size}}
+\index{header\-\_\-size@{header\-\_\-size}!lzma_block@{lzma\-\_\-block}}
+\subsubsection[{header\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-block\-::header\-\_\-size}\label{structlzma__block_a6689c4f7524b2c05772a2d6151138610}
+
+
+Size of the Block Header field. 
+
+This is always a multiple of four.
+
+Read by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-decode()}{p.}{block_8h_a71ddd0bec506092018e407ed6f027f53}
+\item \doxyref{lzma\-\_\-block\-\_\-compressed\-\_\-size()}{p.}{block_8h_a6c3e102d76db06a07126a569abc6e2bc}
+\item \doxyref{lzma\-\_\-block\-\_\-unpadded\-\_\-size()}{p.}{block_8h_a412d5605280fa29befae1b89e344bf30}
+\item \doxyref{lzma\-\_\-block\-\_\-total\-\_\-size()}{p.}{block_8h_a694424f9dfdd5151e01debac1c501fa9}
+\item \doxyref{lzma\-\_\-block\-\_\-decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-decode()}{p.}{block_8h_a2bdf26b5fb43880364991a1536d74346}
+\end{DoxyItemize}
+
+Written by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-size()}{p.}{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-encode()}{p.}{block_8h_a41e080db33169819f985595d48a157bc} 
+\end{DoxyItemize}
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+\index{lzma\-\_\-block@{lzma\-\_\-block}!check@{check}}
+\index{check@{check}!lzma_block@{lzma\-\_\-block}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-check} lzma\-\_\-block\-::check}\label{structlzma__block_a80cd9d3025991db4a476ce7588f853e6}
+
+
+Type of integrity Check. 
+
+The Check I\-D is not stored into the Block Header, thus its value must be provided also when decoding.
+
+Read by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-decode()}{p.}{block_8h_a71ddd0bec506092018e407ed6f027f53}
+\item \doxyref{lzma\-\_\-block\-\_\-compressed\-\_\-size()}{p.}{block_8h_a6c3e102d76db06a07126a569abc6e2bc}
+\item \doxyref{lzma\-\_\-block\-\_\-unpadded\-\_\-size()}{p.}{block_8h_a412d5605280fa29befae1b89e344bf30}
+\item \doxyref{lzma\-\_\-block\-\_\-total\-\_\-size()}{p.}{block_8h_a694424f9dfdd5151e01debac1c501fa9}
+\item \doxyref{lzma\-\_\-block\-\_\-encoder()}{p.}{block_8h_a2218a49025a0b44f9a6f9d6d24359359}
+\item \doxyref{lzma\-\_\-block\-\_\-decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-encode()}{p.}{block_8h_a41e080db33169819f985595d48a157bc}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-decode()}{p.}{block_8h_a2bdf26b5fb43880364991a1536d74346} 
+\end{DoxyItemize}
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+\index{lzma\-\_\-block@{lzma\-\_\-block}!compressed\-\_\-size@{compressed\-\_\-size}}
+\index{compressed\-\_\-size@{compressed\-\_\-size}!lzma_block@{lzma\-\_\-block}}
+\subsubsection[{compressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-block\-::compressed\-\_\-size}\label{structlzma__block_a8383d489c9ffea8af390669a105c74e5}
+
+
+Size of the Compressed Data in bytes. 
+
+Encoding\-: If this is not L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, Block Header encoder will store this value to the Block Header. Block encoder doesn't care about this value, but will set it once the encoding has been finished.
+
+Decoding\-: If this is not L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, Block decoder will verify that the size of the Compressed Data field matches compressed\-\_\-size.
+
+Usually you don't know this value when encoding in streamed mode, and thus cannot write this field into the Block Header.
+
+In non-\/streamed mode you can reserve space for this field before encoding the actual Block. After encoding the data, finish the Block by encoding the Block Header. Steps in detail\-:
+
+
+\begin{DoxyItemize}
+\item Set compressed\-\_\-size to some big enough value. If you don't know better, use L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X, but remember that bigger values take more space in Block Header.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Call \doxyref{lzma\-\_\-block\-\_\-header\-\_\-size()}{p.}{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd} to see how much space you need to reserve for the Block Header.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Encode the Block using \doxyref{lzma\-\_\-block\-\_\-encoder()}{p.}{block_8h_a2218a49025a0b44f9a6f9d6d24359359} and \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}. It sets compressed\-\_\-size to the correct value.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Use \doxyref{lzma\-\_\-block\-\_\-header\-\_\-encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0} to encode the Block Header. Because space was reserved in the first step, you don't need to call \doxyref{lzma\-\_\-block\-\_\-header\-\_\-size()}{p.}{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd} anymore, because due to reserving, header\-\_\-size has to be big enough. If it is \char`\"{}too big\char`\"{}, \doxyref{lzma\-\_\-block\-\_\-header\-\_\-encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0} will add enough Header Padding to make Block Header to match the size specified by header\-\_\-size.
+\end{DoxyItemize}
+
+Read by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-size()}{p.}{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0}
+\item \doxyref{lzma\-\_\-block\-\_\-compressed\-\_\-size()}{p.}{block_8h_a6c3e102d76db06a07126a569abc6e2bc}
+\item \doxyref{lzma\-\_\-block\-\_\-unpadded\-\_\-size()}{p.}{block_8h_a412d5605280fa29befae1b89e344bf30}
+\item \doxyref{lzma\-\_\-block\-\_\-total\-\_\-size()}{p.}{block_8h_a694424f9dfdd5151e01debac1c501fa9}
+\item \doxyref{lzma\-\_\-block\-\_\-decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-decode()}{p.}{block_8h_a2bdf26b5fb43880364991a1536d74346}
+\end{DoxyItemize}
+
+Written by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-decode()}{p.}{block_8h_a71ddd0bec506092018e407ed6f027f53}
+\item \doxyref{lzma\-\_\-block\-\_\-compressed\-\_\-size()}{p.}{block_8h_a6c3e102d76db06a07126a569abc6e2bc}
+\item \doxyref{lzma\-\_\-block\-\_\-encoder()}{p.}{block_8h_a2218a49025a0b44f9a6f9d6d24359359}
+\item \doxyref{lzma\-\_\-block\-\_\-decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-encode()}{p.}{block_8h_a41e080db33169819f985595d48a157bc}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-decode()}{p.}{block_8h_a2bdf26b5fb43880364991a1536d74346} 
+\end{DoxyItemize}
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+\index{lzma\-\_\-block@{lzma\-\_\-block}!uncompressed\-\_\-size@{uncompressed\-\_\-size}}
+\index{uncompressed\-\_\-size@{uncompressed\-\_\-size}!lzma_block@{lzma\-\_\-block}}
+\subsubsection[{uncompressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-block\-::uncompressed\-\_\-size}\label{structlzma__block_a17362d38d1946dd16a9686557ec19a94}
+
+
+Uncompressed Size in bytes. 
+
+This is handled very similarly to compressed\-\_\-size above.
+
+uncompressed\-\_\-size is needed by fewer functions than compressed\-\_\-size. This is because uncompressed\-\_\-size isn't needed to validate that Block stays within proper limits.
+
+Read by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-size()}{p.}{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0}
+\item \doxyref{lzma\-\_\-block\-\_\-decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-decode()}{p.}{block_8h_a2bdf26b5fb43880364991a1536d74346}
+\end{DoxyItemize}
+
+Written by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-decode()}{p.}{block_8h_a71ddd0bec506092018e407ed6f027f53}
+\item \doxyref{lzma\-\_\-block\-\_\-encoder()}{p.}{block_8h_a2218a49025a0b44f9a6f9d6d24359359}
+\item \doxyref{lzma\-\_\-block\-\_\-decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-encode()}{p.}{block_8h_a41e080db33169819f985595d48a157bc}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-decode()}{p.}{block_8h_a2bdf26b5fb43880364991a1536d74346} 
+\end{DoxyItemize}
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-encode(), and parse\-\_\-block\-\_\-header().
+
+\index{lzma\-\_\-block@{lzma\-\_\-block}!filters@{filters}}
+\index{filters@{filters}!lzma_block@{lzma\-\_\-block}}
+\subsubsection[{filters}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-filter}$\ast$ lzma\-\_\-block\-::filters}\label{structlzma__block_a5900e517e6e0a473a3184074ae7defd1}
+
+
+Array of filters. 
+
+There can be 1-\/4 filters. The end of the array is marked with .id = L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N.
+
+Read by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-size()}{p.}{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0}
+\item \doxyref{lzma\-\_\-block\-\_\-encoder()}{p.}{block_8h_a2218a49025a0b44f9a6f9d6d24359359}
+\item \doxyref{lzma\-\_\-block\-\_\-decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-encode()}{p.}{block_8h_a41e080db33169819f985595d48a157bc}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-decode()}{p.}{block_8h_a2bdf26b5fb43880364991a1536d74346}
+\end{DoxyItemize}
+
+Written by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-header\-\_\-decode()}{p.}{block_8h_a71ddd0bec506092018e407ed6f027f53}\-: Note that this does N\-O\-T free() the old filter options structures. All unused filters[] will have .id == L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N and .options == N\-U\-L\-L. If decoding fails, all filters[] are guaranteed to be L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N and N\-U\-L\-L.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Because of the array is terminated with .id = L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, the actual array must have L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X + 1 members or the Block Header decoder will overflow the buffer. 
+\end{DoxyNote}
+
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+\index{lzma\-\_\-block@{lzma\-\_\-block}!raw\-\_\-check@{raw\-\_\-check}}
+\index{raw\-\_\-check@{raw\-\_\-check}!lzma_block@{lzma\-\_\-block}}
+\subsubsection[{raw\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t lzma\-\_\-block\-::raw\-\_\-check[{\bf L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-S\-I\-Z\-E\-\_\-\-M\-A\-X}]}\label{structlzma__block_a25e9bf1bb1699017694b18ca24f965d2}
+
+
+Raw value stored in the Check field. 
+
+After successful coding, the first lzma\-\_\-check\-\_\-size(check) bytes of this array contain the raw value stored in the Check field.
+
+Note that C\-R\-C32 and C\-R\-C64 are stored in little endian byte order. Take it into account if you display the Check values to the user.
+
+Written by\-:
+\begin{DoxyItemize}
+\item \doxyref{lzma\-\_\-block\-\_\-encoder()}{p.}{block_8h_a2218a49025a0b44f9a6f9d6d24359359}
+\item \doxyref{lzma\-\_\-block\-\_\-decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-encode()}{p.}{block_8h_a41e080db33169819f985595d48a157bc}
+\item \doxyref{lzma\-\_\-block\-\_\-buffer\-\_\-decode()}{p.}{block_8h_a2bdf26b5fb43880364991a1536d74346} 
+\end{DoxyItemize}
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/api/lzma/{\bf block.\-h}\end{DoxyCompactItemize}

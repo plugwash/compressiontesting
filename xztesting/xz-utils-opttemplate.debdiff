@@ -1,0 +1,38 @@
+--- xz-utils-5.1.1alpha+20120614/debian/changelog	2012-10-11 22:38:38.000000000 +0000
++++ xz-utils-5.1.1alpha+20120614.new/debian/changelog	2014-06-05 13:52:51.000000000 +0000
+@@ -1,3 +1,10 @@
++xz-utils (5.1.1alpha+20120614-2__VERSIONSUFFIX__) wheezy-test; urgency=low
++
++  * set optimisation to __OPT__ to test impact on codesize and performance.
++  * Build with __COMPILER__ to test impact on codeside and performance.
++
++ -- Peter Michael Green <plugwash@raspbian.org>  Wed, 14 May 2014 16:40:36 +0000
++
+ xz-utils (5.1.1alpha+20120614-2) unstable; urgency=low
+ 
+   * Apply fixes from 5.1.2alpha.  Closes: #685220.
+--- xz-utils-5.1.1alpha+20120614/debian/rules	2012-10-11 22:38:38.000000000 +0000
++++ xz-utils-5.1.1alpha+20120614.new/debian/rules	2014-06-05 13:58:20.000000000 +0000
+@@ -1,5 +1,8 @@
+ #!/usr/bin/make -f
+ 
++export CC=__COMPILER__
++export CXX=$(shell echo __COMPILER__ | sed s/cc/++/)
++
+ build clean install binary-arch binary-indep binary:
+ 	+dh $@ --parallel $(opt_no_act)
+ 
+@@ -94,8 +97,12 @@
+ small_flags_env =
+ small_flags_env += DEB_CFLAGS_MAINT_STRIP='-O2 -O3'
+ small_flags_env += DEB_CFLAGS_MAINT_PREPEND=-Os
++regular_flags_env =
++regular_flags_env += DEB_CFLAGS_MAINT_STRIP='-O2 -O3'
++regular_flags_env += DEB_CFLAGS_MAINT_PREPEND=__OPT__
++
+ flags_cmd = dpkg-buildflags --export=configure
+-opt_optimize = $(shell $(flags_cmd))
++opt_optimize = $(shell $(regular_flags_env) $(flags_cmd))
+ opt_optimize_small = $(shell $(small_flags_env) $(flags_cmd))
+ 
+ opt_no_act =

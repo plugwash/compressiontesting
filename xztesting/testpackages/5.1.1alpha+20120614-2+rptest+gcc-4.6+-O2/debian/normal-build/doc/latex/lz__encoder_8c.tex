@@ -1,0 +1,108 @@
+\section{liblzma/lz/lz\-\_\-encoder.c File Reference}
+\label{lz__encoder_8c}\index{liblzma/lz/lz\-\_\-encoder.\-c@{liblzma/lz/lz\-\_\-encoder.\-c}}
+
+
+L\-Z in window.  
+
+
+{\ttfamily \#include \char`\"{}lz\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lz\-\_\-encoder\-\_\-hash.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-coder\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf move\-\_\-window} ({\bf lzma\-\_\-mf} $\ast$mf)
+\begin{DoxyCompactList}\small\item\em Moves the data in the input window to free space for new data. \end{DoxyCompactList}\item 
+static {\bf lzma\-\_\-ret} {\bf fill\-\_\-window} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$in, size\-\_\-t $\ast$in\-\_\-pos, size\-\_\-t in\-\_\-size, {\bf lzma\-\_\-action} action)
+\begin{DoxyCompactList}\small\item\em Tries to fill the input window (mf-\/$>$buffer) \end{DoxyCompactList}\item 
+static {\bf lzma\-\_\-ret} {\bfseries lz\-\_\-encode} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)\label{lz__encoder_8c_a1f9b0d169bfa75d11bc1411f1d3ed5f1}
+
+\item 
+static bool {\bfseries lz\-\_\-encoder\-\_\-prepare} ({\bf lzma\-\_\-mf} $\ast$mf, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-lz\-\_\-options} $\ast$lz\-\_\-options)\label{lz__encoder_8c_afc36bb49c0c64f5cc324443d215e3773}
+
+\item 
+static bool {\bfseries lz\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-mf} $\ast$mf, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-lz\-\_\-options} $\ast$lz\-\_\-options)\label{lz__encoder_8c_aa4ec951d4aa73c3cf21f9dd2c153f311}
+
+\item 
+uint64\-\_\-t {\bfseries lzma\-\_\-lz\-\_\-encoder\-\_\-memusage} (const {\bf lzma\-\_\-lz\-\_\-options} $\ast$lz\-\_\-options)\label{lz__encoder_8c_aa3748d94a78e951b0a2f3e38c21e8049}
+
+\item 
+static void {\bfseries lz\-\_\-encoder\-\_\-end} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{lz__encoder_8c_a085df21818a985dceb67b56bc66bb4f8}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries lz\-\_\-encoder\-\_\-update} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast$filters\-\_\-null lzma\-\_\-attribute((\-\_\-\-\_\-unused\-\_\-\-\_\-)), const {\bf lzma\-\_\-filter} $\ast$reversed\-\_\-filters)\label{lz__encoder_8c_adda9e2bd7a717305e5060b39de09b5c6}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-lz\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters}, {\bf lzma\-\_\-ret}($\ast$lz\-\_\-init)({\bf lzma\-\_\-lz\-\_\-encoder} $\ast$lz, {\bf lzma\-\_\-allocator} $\ast$allocator, const void $\ast$options, {\bf lzma\-\_\-lz\-\_\-options} $\ast$lz\-\_\-options))\label{lz__encoder_8c_ad974ad121f8a230f0a24714f15c113f3}
+
+\item 
+{\bf lzma\-\_\-bool} {\bf lzma\-\_\-mf\-\_\-is\-\_\-supported} ({\bf lzma\-\_\-match\-\_\-finder} mf)
+\begin{DoxyCompactList}\small\item\em Test if given match finder is supported. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\-Z in window. 
+
+\subsection{Function Documentation}
+\index{lz\-\_\-encoder.\-c@{lz\-\_\-encoder.\-c}!move\-\_\-window@{move\-\_\-window}}
+\index{move\-\_\-window@{move\-\_\-window}!lz_encoder.c@{lz\-\_\-encoder.\-c}}
+\subsubsection[{move\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}static void move\-\_\-window (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-mf} $\ast$}]{mf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{lz__encoder_8c_a0ffebd3acf94a8ae2aecd13872bf9ce6}
+
+
+Moves the data in the input window to free space for new data. 
+
+mf-\/$>$buffer is a sliding input window, which keeps mf-\/$>$keep\-\_\-size\-\_\-before bytes of input history available all the time. Now and then we need to \char`\"{}slide\char`\"{} the buffer to make space for the new data to the end of the buffer. At the same time, data older than keep\-\_\-size\-\_\-before is dropped. 
+
+References lzma\-\_\-mf\-\_\-s\-::buffer, lzma\-\_\-mf\-\_\-s\-::keep\-\_\-size\-\_\-before, lzma\-\_\-mf\-\_\-s\-::offset, lzma\-\_\-mf\-\_\-s\-::read\-\_\-limit, lzma\-\_\-mf\-\_\-s\-::read\-\_\-pos, and lzma\-\_\-mf\-\_\-s\-::write\-\_\-pos.
+
+
+
+Referenced by fill\-\_\-window().
+
+\index{lz\-\_\-encoder.\-c@{lz\-\_\-encoder.\-c}!fill\-\_\-window@{fill\-\_\-window}}
+\index{fill\-\_\-window@{fill\-\_\-window}!lz_encoder.c@{lz\-\_\-encoder.\-c}}
+\subsubsection[{fill\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf lzma\-\_\-ret} fill\-\_\-window (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-coder} $\ast$}]{coder, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t $\ast$}]{in\-\_\-pos, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{{\bf lzma\-\_\-action}}]{action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{lz__encoder_8c_af8e273502e2493eae8441a836715213e}
+
+
+Tries to fill the input window (mf-\/$>$buffer) 
+
+If we are the last encoder in the chain, our input data is in in[]. Otherwise we call the next filter in the chain to process in[] and write its output to mf-\/$>$buffer.
+
+This function must not be called once it has returned L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D. 
+
+References lzma\-\_\-mf\-\_\-s\-::action, lzma\-\_\-mf\-\_\-s\-::buffer, lzma\-\_\-next\-\_\-coder\-\_\-s\-::code, lzma\-\_\-next\-\_\-coder\-\_\-s\-::coder, lzma\-\_\-mf\-\_\-s\-::keep\-\_\-size\-\_\-after, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-R\-U\-N, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D, lzma\-\_\-coder\-\_\-s\-::mf, move\-\_\-window(), lzma\-\_\-coder\-\_\-s\-::next, lzma\-\_\-mf\-\_\-s\-::pending, lzma\-\_\-mf\-\_\-s\-::read\-\_\-limit, lzma\-\_\-mf\-\_\-s\-::read\-\_\-pos, lzma\-\_\-mf\-\_\-s\-::size, lzma\-\_\-mf\-\_\-s\-::skip, and lzma\-\_\-mf\-\_\-s\-::write\-\_\-pos.
+
+\index{lz\-\_\-encoder.\-c@{lz\-\_\-encoder.\-c}!lzma\-\_\-mf\-\_\-is\-\_\-supported@{lzma\-\_\-mf\-\_\-is\-\_\-supported}}
+\index{lzma\-\_\-mf\-\_\-is\-\_\-supported@{lzma\-\_\-mf\-\_\-is\-\_\-supported}!lz_encoder.c@{lz\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-mf\-\_\-is\-\_\-supported}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-bool} lzma\-\_\-mf\-\_\-is\-\_\-supported (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-match\-\_\-finder}}]{match\-\_\-finder}
+\end{DoxyParamCaption}
+) const}\label{lz__encoder_8c_a98a84efebf5e7ff1e8ddb821fc676d3f}
+
+
+Test if given match finder is supported. 
+
+Return true if the given match finder is supported by this liblzma build. Otherwise false is returned. It is safe to call this with a value that isn't listed in lzma\-\_\-match\-\_\-finder enumeration; the return value will be false.
+
+There is no way to list which match finders are available in this particular liblzma version and build. It would be useless, because a new match finder, which the application developer wasn't aware, could require giving additional options to the encoder that the older match finders don't need. 
+
+References L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3, and L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4.
+

@@ -1,0 +1,102 @@
+\section{liblzma/common/filter\-\_\-flags\-\_\-encoder.c File Reference}
+\label{filter__flags__encoder_8c}\index{liblzma/common/filter\-\_\-flags\-\_\-encoder.\-c@{liblzma/common/filter\-\_\-flags\-\_\-encoder.\-c}}
+
+
+Decodes a Filter Flags field.  
+
+
+{\ttfamily \#include \char`\"{}filter\-\_\-encoder.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-filter\-\_\-flags\-\_\-size} (uint32\-\_\-t $\ast$size, const {\bf lzma\-\_\-filter} $\ast$filter)
+\begin{DoxyCompactList}\small\item\em Calculate encoded size of a Filter Flags field. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-filter\-\_\-flags\-\_\-encode} (const {\bf lzma\-\_\-filter} $\ast$filter, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Encode Filter Flags into given buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Decodes a Filter Flags field. 
+
+\subsection{Function Documentation}
+\index{filter\-\_\-flags\-\_\-encoder.\-c@{filter\-\_\-flags\-\_\-encoder.\-c}!lzma\-\_\-filter\-\_\-flags\-\_\-size@{lzma\-\_\-filter\-\_\-flags\-\_\-size}}
+\index{lzma\-\_\-filter\-\_\-flags\-\_\-size@{lzma\-\_\-filter\-\_\-flags\-\_\-size}!filter_flags_encoder.c@{filter\-\_\-flags\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-filter\-\_\-flags\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-filter\-\_\-flags\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t $\ast$}]{size, }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filter}
+\end{DoxyParamCaption}
+)}\label{filter__flags__encoder_8c_a23a84602614b62ba2c9241149fd89087}
+
+
+Calculate encoded size of a Filter Flags field. 
+
+Knowing the size of Filter Flags is useful to know when allocating memory to hold the encoded Filter Flags.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Pointer to integer to hold the calculated size \\
+\hline
+{\em filter} & Filter I\-D and associated options whose encoded size is to be calculated\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: $\ast$size set successfully. Note that this doesn't guarantee that filter-\/$>$options is valid, thus \doxyref{lzma\-\_\-filter\-\_\-flags\-\_\-encode()}{p.}{filter_8h_a96f23309bc21398fece18c00ebe7db98} may still fail.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unknown Filter I\-D or unsupported options.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Invalid options
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If you need to calculate size of List of Filter Flags, you need to loop over every \doxyref{lzma\-\_\-filter}{p.}{structlzma__filter} entry. 
+\end{DoxyNote}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-D\-\_\-\-S\-T\-A\-R\-T, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-properties\-\_\-size(), lzma\-\_\-vli\-\_\-size(), and return\-\_\-if\-\_\-error.
+
+
+
+Referenced by lzma\-\_\-block\-\_\-header\-\_\-size().
+
+\index{filter\-\_\-flags\-\_\-encoder.\-c@{filter\-\_\-flags\-\_\-encoder.\-c}!lzma\-\_\-filter\-\_\-flags\-\_\-encode@{lzma\-\_\-filter\-\_\-flags\-\_\-encode}}
+\index{lzma\-\_\-filter\-\_\-flags\-\_\-encode@{lzma\-\_\-filter\-\_\-flags\-\_\-encode}!filter_flags_encoder.c@{filter\-\_\-flags\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-filter\-\_\-flags\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-filter\-\_\-flags\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filter, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{filter__flags__encoder_8c_a7015967aa324750a66c788b1987aa6a5}
+
+
+Encode Filter Flags into given buffer. 
+
+In contrast to some functions, this doesn't allocate the needed buffer. This is due to how this function is used internally by liblzma.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filter} & Filter I\-D and options to be encoded \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\-\_\-pos} & out[$\ast$out\-\_\-pos] is the next write position. This is updated by the encoder. \\
+\hline
+{\em out\-\_\-size} & out[out\-\_\-size] is the first byte to not write.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Encoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Invalid or unsupported options.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Invalid options or not enough output buffer space (you should have checked it with \doxyref{lzma\-\_\-filter\-\_\-flags\-\_\-size()}{p.}{filter_8h_a996c9c21840ed54e37bd1f664a79d940}). 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-D\-\_\-\-S\-T\-A\-R\-T, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-properties\-\_\-encode(), lzma\-\_\-properties\-\_\-size(), lzma\-\_\-vli\-\_\-encode(), and return\-\_\-if\-\_\-error.
+
+
+
+Referenced by lzma\-\_\-block\-\_\-header\-\_\-encode().
+

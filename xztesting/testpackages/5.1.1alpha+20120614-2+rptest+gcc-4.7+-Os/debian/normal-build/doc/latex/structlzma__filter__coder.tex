@@ -1,0 +1,44 @@
+\section{lzma\-\_\-filter\-\_\-coder Struct Reference}
+\label{structlzma__filter__coder}\index{lzma\-\_\-filter\-\_\-coder@{lzma\-\_\-filter\-\_\-coder}}
+
+
+Both \doxyref{lzma\-\_\-filter\-\_\-encoder}{p.}{structlzma__filter__encoder} and \doxyref{lzma\-\_\-filter\-\_\-decoder}{p.}{structlzma__filter__decoder} begin with these members.  
+
+
+
+
+{\ttfamily \#include $<$filter\-\_\-common.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-vli} {\bf id}
+\begin{DoxyCompactList}\small\item\em Filter I\-D. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-init\-\_\-function} {\bf init}
+\item 
+uint64\-\_\-t($\ast$ {\bf memusage} )(const void $\ast$options)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Both \doxyref{lzma\-\_\-filter\-\_\-encoder}{p.}{structlzma__filter__encoder} and \doxyref{lzma\-\_\-filter\-\_\-decoder}{p.}{structlzma__filter__decoder} begin with these members. 
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-filter\-\_\-coder@{lzma\-\_\-filter\-\_\-coder}!id@{id}}
+\index{id@{id}!lzma_filter_coder@{lzma\-\_\-filter\-\_\-coder}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-filter\-\_\-coder\-::id}\label{structlzma__filter__coder_a9811e1ce25e9a41580b84d5084c3b677}
+
+
+Filter I\-D. 
+
+\index{lzma\-\_\-filter\-\_\-coder@{lzma\-\_\-filter\-\_\-coder}!init@{init}}
+\index{init@{init}!lzma_filter_coder@{lzma\-\_\-filter\-\_\-coder}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-init\-\_\-function} lzma\-\_\-filter\-\_\-coder\-::init}\label{structlzma__filter__coder_a77457ad750cc5f14ca0325718f924a36}
+Initializes the filter encoder and calls \doxyref{lzma\-\_\-next\-\_\-filter\-\_\-init()}{p.}{common_8h_a083a413c43195aed33e19b1d2c043f88} for filters + 1. \index{lzma\-\_\-filter\-\_\-coder@{lzma\-\_\-filter\-\_\-coder}!memusage@{memusage}}
+\index{memusage@{memusage}!lzma_filter_coder@{lzma\-\_\-filter\-\_\-coder}}
+\subsubsection[{memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t($\ast$ lzma\-\_\-filter\-\_\-coder\-::memusage)(const void $\ast$options)}\label{structlzma__filter__coder_a7d721b898a88c9f7b20fb1bb2db79580}
+Calculates memory usage of the encoder. If the options are invalid, U\-I\-N\-T64\-\_\-\-M\-A\-X is returned. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/filter\-\_\-common.\-h\end{DoxyCompactItemize}

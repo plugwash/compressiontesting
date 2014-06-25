@@ -1,0 +1,79 @@
+\section{lzmainfo/lzmainfo.c File Reference}
+\label{lzmainfo_8c}\index{lzmainfo/lzmainfo.\-c@{lzmainfo/lzmainfo.\-c}}
+
+
+lzmainfo tool for compatibility with L\-Z\-M\-A Utils  
+
+
+{\ttfamily \#include \char`\"{}sysdefs.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}lzma.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}getopt.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tuklib\-\_\-gettext.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tuklib\-\_\-progname.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tuklib\-\_\-exit.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries lzma\-\_\-attribute} ((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))\label{lzmainfo_8c_a1957d0c8f6ec2eb4950e67226425ee7c}
+
+\item 
+static void {\bf parse\-\_\-args} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Parse command line options. \end{DoxyCompactList}\item 
+static uint32\-\_\-t {\bf my\-\_\-log2} (uint32\-\_\-t n)
+\begin{DoxyCompactList}\small\item\em Primitive base-\/2 logarithm for integers. \end{DoxyCompactList}\item 
+static bool {\bf lzmainfo} (const char $\ast$name, F\-I\-L\-E $\ast$f)
+\begin{DoxyCompactList}\small\item\em Parse the .lzma header and display information about it. \end{DoxyCompactList}\item 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)\label{lzmainfo_8c_a3c04138a5bfe5d72780bb7e82a18e627}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+lzmainfo tool for compatibility with L\-Z\-M\-A Utils 
+
+\subsection{Function Documentation}
+\index{lzmainfo.\-c@{lzmainfo.\-c}!parse\-\_\-args@{parse\-\_\-args}}
+\index{parse\-\_\-args@{parse\-\_\-args}!lzmainfo.c@{lzmainfo.\-c}}
+\subsubsection[{parse\-\_\-args}]{\setlength{\rightskip}{0pt plus 5cm}static void parse\-\_\-args (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{lzmainfo_8c_a9d09353ebb8a010f64e86ae867660816}
+
+
+Parse command line options. 
+
+\index{lzmainfo.\-c@{lzmainfo.\-c}!my\-\_\-log2@{my\-\_\-log2}}
+\index{my\-\_\-log2@{my\-\_\-log2}!lzmainfo.c@{lzmainfo.\-c}}
+\subsubsection[{my\-\_\-log2}]{\setlength{\rightskip}{0pt plus 5cm}static uint32\-\_\-t my\-\_\-log2 (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{lzmainfo_8c_ad60f3b791a79a2848fc82b3f1033b47d}
+
+
+Primitive base-\/2 logarithm for integers. 
+
+
+
+Referenced by lzmainfo().
+
+\index{lzmainfo.\-c@{lzmainfo.\-c}!lzmainfo@{lzmainfo}}
+\index{lzmainfo@{lzmainfo}!lzmainfo.c@{lzmainfo.\-c}}
+\subsubsection[{lzmainfo}]{\setlength{\rightskip}{0pt plus 5cm}static bool lzmainfo (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name, }
+\item[{F\-I\-L\-E $\ast$}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{lzmainfo_8c_a76cfa2b4fc44ede3c371981dd4e66e11}
+
+
+Parse the .lzma header and display information about it. 
+
+
+
+References lzma\-\_\-options\-\_\-lzma\-::dict\-\_\-size, lzma\-\_\-filter\-::id, lzma\-\_\-options\-\_\-lzma\-::lc, lzma\-\_\-options\-\_\-lzma\-::lp, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A1, L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-properties\-\_\-decode(), my\-\_\-log2(), lzma\-\_\-filter\-::options, and lzma\-\_\-options\-\_\-lzma\-::pb.
+

@@ -1,0 +1,232 @@
+\section{liblzma/api/lzma/stream\-\_\-flags.h File Reference}
+\label{stream__flags_8h}\index{liblzma/api/lzma/stream\-\_\-flags.\-h@{liblzma/api/lzma/stream\-\_\-flags.\-h}}
+
+
+.xz Stream Header and Stream Footer encoder and decoder  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-stream\-\_\-flags}
+\begin{DoxyCompactList}\small\item\em Options for encoding/decoding Stream Header and Stream Footer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E}~12
+\begin{DoxyCompactList}\small\item\em Size of Stream Header and Stream Footer. \end{DoxyCompactList}\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-B\-A\-C\-K\-W\-A\-R\-D\-\_\-\-S\-I\-Z\-E\-\_\-\-M\-I\-N}~4\label{stream__flags_8h_ae8da8190f1396f66332073946bc45634}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-B\-A\-C\-K\-W\-A\-R\-D\-\_\-\-S\-I\-Z\-E\-\_\-\-M\-A\-X}~({\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}(1) $<$$<$ 34)\label{stream__flags_8h_a2e5e09010880f8caa6cd6539c7341239}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-header\-\_\-encode} (const {\bf lzma\-\_\-stream\-\_\-flags} $\ast$options, uint8\-\_\-t $\ast$out) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Encode Stream Header. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-footer\-\_\-encode} (const {\bf lzma\-\_\-stream\-\_\-flags} $\ast$options, uint8\-\_\-t $\ast$out) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Encode Stream Footer. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-header\-\_\-decode} ({\bf lzma\-\_\-stream\-\_\-flags} $\ast$options, const uint8\-\_\-t $\ast$in) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Decode Stream Header. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-footer\-\_\-decode} ({\bf lzma\-\_\-stream\-\_\-flags} $\ast$options, const uint8\-\_\-t $\ast$in) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Decode Stream Footer. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-flags\-\_\-compare} (const {\bf lzma\-\_\-stream\-\_\-flags} $\ast$a, const {\bf lzma\-\_\-stream\-\_\-flags} $\ast$b) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-pure
+\begin{DoxyCompactList}\small\item\em Compare two \doxyref{lzma\-\_\-stream\-\_\-flags}{p.}{structlzma__stream__flags} structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+.xz Stream Header and Stream Footer encoder and decoder 
+
+\subsection{Macro Definition Documentation}
+\index{stream\-\_\-flags.\-h@{stream\-\_\-flags.\-h}!L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E@{L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E}}
+\index{L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E@{L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E}!stream_flags.h@{stream\-\_\-flags.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E~12}\label{stream__flags_8h_ada7e0a4f5e7146f547962cb9e9ef08ee}
+
+
+Size of Stream Header and Stream Footer. 
+
+Stream Header and Stream Footer have the same size and they are not going to change even if a newer version of the .xz file format is developed in future. 
+
+Referenced by lzma\-\_\-index\-\_\-stream\-\_\-size(), lzma\-\_\-stream\-\_\-buffer\-\_\-encode(), lzma\-\_\-stream\-\_\-footer\-\_\-encode(), lzma\-\_\-stream\-\_\-header\-\_\-encode(), and parse\-\_\-indexes().
+
+
+
+\subsection{Function Documentation}
+\index{stream\-\_\-flags.\-h@{stream\-\_\-flags.\-h}!lzma\-\_\-stream\-\_\-header\-\_\-encode@{lzma\-\_\-stream\-\_\-header\-\_\-encode}}
+\index{lzma\-\_\-stream\-\_\-header\-\_\-encode@{lzma\-\_\-stream\-\_\-header\-\_\-encode}!stream_flags.h@{stream\-\_\-flags.\-h}}
+\subsubsection[{lzma\-\_\-stream\-\_\-header\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-header\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-stream\-\_\-flags} $\ast$}]{options, }
+\item[{uint8\-\_\-t $\ast$}]{out}
+\end{DoxyParamCaption}
+)}\label{stream__flags_8h_a2ebb8d6dff23daeb3de398913b845eff}
+
+
+Encode Stream Header. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & Stream Header options to be encoded. options-\/$>$backward\-\_\-size is ignored and doesn't need to be initialized. \\
+\hline
+{\em out} & Beginning of the output buffer of L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Encoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: options-\/$>$version is not supported by this liblzma version.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Invalid options. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-crc32(), L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-F\-L\-A\-G\-S\-\_\-\-S\-I\-Z\-E, and L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E.
+
+
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+
+\index{stream\-\_\-flags.\-h@{stream\-\_\-flags.\-h}!lzma\-\_\-stream\-\_\-footer\-\_\-encode@{lzma\-\_\-stream\-\_\-footer\-\_\-encode}}
+\index{lzma\-\_\-stream\-\_\-footer\-\_\-encode@{lzma\-\_\-stream\-\_\-footer\-\_\-encode}!stream_flags.h@{stream\-\_\-flags.\-h}}
+\subsubsection[{lzma\-\_\-stream\-\_\-footer\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-footer\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-stream\-\_\-flags} $\ast$}]{options, }
+\item[{uint8\-\_\-t $\ast$}]{out}
+\end{DoxyParamCaption}
+)}\label{stream__flags_8h_a438249a75ea8da952a7474b92bfe7b7a}
+
+
+Encode Stream Footer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & Stream Footer options to be encoded. \\
+\hline
+{\em out} & Beginning of the output buffer of L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Encoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: options-\/$>$version is not supported by this liblzma version.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Invalid options. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-crc32(), L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-F\-L\-A\-G\-S\-\_\-\-S\-I\-Z\-E, and L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E.
+
+
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+
+\index{stream\-\_\-flags.\-h@{stream\-\_\-flags.\-h}!lzma\-\_\-stream\-\_\-header\-\_\-decode@{lzma\-\_\-stream\-\_\-header\-\_\-decode}}
+\index{lzma\-\_\-stream\-\_\-header\-\_\-decode@{lzma\-\_\-stream\-\_\-header\-\_\-decode}!stream_flags.h@{stream\-\_\-flags.\-h}}
+\subsubsection[{lzma\-\_\-stream\-\_\-header\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-header\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream\-\_\-flags} $\ast$}]{options, }
+\item[{const uint8\-\_\-t $\ast$}]{in}
+\end{DoxyParamCaption}
+)}\label{stream__flags_8h_ae03198e464f0d296e601ff841e100805}
+
+
+Decode Stream Header. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & Target for the decoded Stream Header options. \\
+\hline
+{\em in} & Beginning of the input buffer of L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E bytes.\\
+\hline
+\end{DoxyParams}
+options-\/$>$backward\-\_\-size is always set to L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N. This is to help comparing Stream Flags from Stream Header and Stream Footer with \doxyref{lzma\-\_\-stream\-\_\-flags\-\_\-compare()}{p.}{stream__flags_8h_a3e25ca4205021302882a696283d45263}.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Decoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R\-: Magic bytes don't match, thus the given buffer cannot be Stream Header.
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R\-: C\-R\-C32 doesn't match, thus the header is corrupt.
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported options are present in the header.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+When decoding .xz files that contain multiple Streams, it may make sense to print \char`\"{}file format not recognized\char`\"{} only if decoding of the Stream Header of the {\itshape first} Stream gives L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R. If non-\/first Stream Header gives L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R, the message used for L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R is probably more appropriate.
+\end{DoxyNote}
+For example, Stream decoder in liblzma uses L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R if L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R is returned by \doxyref{lzma\-\_\-stream\-\_\-header\-\_\-decode()}{p.}{stream__flags_8h_ae03198e464f0d296e601ff841e100805} when decoding non-\/first Stream. 
+
+References lzma\-\_\-crc32(), L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-F\-L\-A\-G\-S\-\_\-\-S\-I\-Z\-E, and L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N.
+
+
+
+Referenced by parse\-\_\-indexes().
+
+\index{stream\-\_\-flags.\-h@{stream\-\_\-flags.\-h}!lzma\-\_\-stream\-\_\-footer\-\_\-decode@{lzma\-\_\-stream\-\_\-footer\-\_\-decode}}
+\index{lzma\-\_\-stream\-\_\-footer\-\_\-decode@{lzma\-\_\-stream\-\_\-footer\-\_\-decode}!stream_flags.h@{stream\-\_\-flags.\-h}}
+\subsubsection[{lzma\-\_\-stream\-\_\-footer\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-footer\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream\-\_\-flags} $\ast$}]{options, }
+\item[{const uint8\-\_\-t $\ast$}]{in}
+\end{DoxyParamCaption}
+)}\label{stream__flags_8h_aa92a383f85753bb79ee23227fa68186c}
+
+
+Decode Stream Footer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & Target for the decoded Stream Header options. \\
+\hline
+{\em in} & Beginning of the input buffer of L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Decoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R\-: Magic bytes don't match, thus the given buffer cannot be Stream Footer.
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R\-: C\-R\-C32 doesn't match, thus the Stream Footer is corrupt.
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported options are present in Stream Footer.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If Stream Header was already decoded successfully, but decoding Stream Footer returns L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R, the application should probably report some other error message than \char`\"{}file format not recognized\char`\"{}, since the file more likely is corrupt (possibly truncated). Stream decoder in liblzma uses L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R in this situation. 
+\end{DoxyNote}
+
+
+References lzma\-\_\-crc32(), L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, and L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-F\-L\-A\-G\-S\-\_\-\-S\-I\-Z\-E.
+
+
+
+Referenced by parse\-\_\-indexes().
+
+\index{stream\-\_\-flags.\-h@{stream\-\_\-flags.\-h}!lzma\-\_\-stream\-\_\-flags\-\_\-compare@{lzma\-\_\-stream\-\_\-flags\-\_\-compare}}
+\index{lzma\-\_\-stream\-\_\-flags\-\_\-compare@{lzma\-\_\-stream\-\_\-flags\-\_\-compare}!stream_flags.h@{stream\-\_\-flags.\-h}}
+\subsubsection[{lzma\-\_\-stream\-\_\-flags\-\_\-compare}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-flags\-\_\-compare (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-stream\-\_\-flags} $\ast$}]{a, }
+\item[{const {\bf lzma\-\_\-stream\-\_\-flags} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{stream__flags_8h_a3e25ca4205021302882a696283d45263}
+
+
+Compare two \doxyref{lzma\-\_\-stream\-\_\-flags}{p.}{structlzma__stream__flags} structures. 
+
+backward\-\_\-size values are compared only if both are not L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Both are equal. If either had backward\-\_\-size set to L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, backward\-\_\-size values were not compared or validated.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R\-: The structures differ.
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: version in either structure is greater than the maximum supported version (currently zero).
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Invalid value, e.\-g. invalid check or backward\-\_\-size. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-I\-D\-\_\-\-M\-A\-X, L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, and L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N.
+
+
+
+Referenced by lzma\-\_\-index\-\_\-stream\-\_\-flags(), and parse\-\_\-indexes().
+

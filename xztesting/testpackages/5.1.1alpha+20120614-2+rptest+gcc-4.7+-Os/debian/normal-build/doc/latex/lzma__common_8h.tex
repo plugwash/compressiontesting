@@ -1,0 +1,293 @@
+\section{liblzma/lzma/lzma\-\_\-common.h File Reference}
+\label{lzma__common_8h}\index{liblzma/lzma/lzma\-\_\-common.\-h@{liblzma/lzma/lzma\-\_\-common.\-h}}
+
+
+Private definitions common to L\-Z\-M\-A encoder and decoder.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}range\-\_\-common.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf P\-O\-S\-\_\-\-S\-T\-A\-T\-E\-S\-\_\-\-M\-A\-X}~(1 $<$$<$ L\-Z\-M\-A\-\_\-\-P\-B\-\_\-\-M\-A\-X)
+\item 
+\#define {\bf S\-T\-A\-T\-E\-S}~12
+\begin{DoxyCompactList}\small\item\em Total number of states. \end{DoxyCompactList}\item 
+\#define {\bf L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S}~7
+\begin{DoxyCompactList}\small\item\em The lowest 7 states indicate that the previous state was a literal. \end{DoxyCompactList}\item 
+\#define {\bf update\-\_\-literal}(state)
+\begin{DoxyCompactList}\small\item\em Indicate that the latest state was a literal. \end{DoxyCompactList}\item 
+\#define {\bf update\-\_\-match}(state)~state = ((state) $<$ {\bf L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S} ? S\-T\-A\-T\-E\-\_\-\-L\-I\-T\-\_\-\-M\-A\-T\-C\-H \-: S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-L\-I\-T\-\_\-\-M\-A\-T\-C\-H)
+\begin{DoxyCompactList}\small\item\em Indicate that the latest state was a match. \end{DoxyCompactList}\item 
+\#define {\bf update\-\_\-long\-\_\-rep}(state)~state = ((state) $<$ {\bf L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S} ? S\-T\-A\-T\-E\-\_\-\-L\-I\-T\-\_\-\-L\-O\-N\-G\-R\-E\-P \-: S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-L\-I\-T\-\_\-\-R\-E\-P)
+\begin{DoxyCompactList}\small\item\em Indicate that the latest state was a long repeated match. \end{DoxyCompactList}\item 
+\#define {\bf update\-\_\-short\-\_\-rep}(state)~state = ((state) $<$ {\bf L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S} ? S\-T\-A\-T\-E\-\_\-\-L\-I\-T\-\_\-\-S\-H\-O\-R\-T\-R\-E\-P \-: S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-L\-I\-T\-\_\-\-R\-E\-P)
+\begin{DoxyCompactList}\small\item\em Indicate that the latest state was a short match. \end{DoxyCompactList}\item 
+\#define {\bf is\-\_\-literal\-\_\-state}(state)~((state) $<$ {\bf L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S})
+\begin{DoxyCompactList}\small\item\em Test if the previous state was a literal. \end{DoxyCompactList}\item 
+\#define {\bf L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-\_\-\-S\-I\-Z\-E}~0x300
+\item 
+\#define {\bf L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-S\-\_\-\-M\-A\-X}~(1 $<$$<$ L\-Z\-M\-A\-\_\-\-L\-C\-L\-P\-\_\-\-M\-A\-X)
+\begin{DoxyCompactList}\small\item\em Maximum number of literal coders. \end{DoxyCompactList}\item 
+\#define {\bf literal\-\_\-subcoder}(probs, lc, lp\-\_\-mask, pos, prev\-\_\-byte)~((probs)[(((pos) \& lp\-\_\-mask) $<$$<$ lc) + ((prev\-\_\-byte) $>$$>$ (8 -\/ lc))])
+\item 
+\#define {\bfseries M\-A\-T\-C\-H\-\_\-\-L\-E\-N\-\_\-\-M\-I\-N}~2\label{lzma__common_8h_a0446368a60f0eed3d573bb60c115fe36}
+
+\item 
+\#define {\bfseries L\-E\-N\-\_\-\-L\-O\-W\-\_\-\-B\-I\-T\-S}~3\label{lzma__common_8h_ab1cd94a55a8eb66c6e40dd0c18f9840d}
+
+\item 
+\#define {\bfseries L\-E\-N\-\_\-\-L\-O\-W\-\_\-\-S\-Y\-M\-B\-O\-L\-S}~(1 $<$$<$ L\-E\-N\-\_\-\-L\-O\-W\-\_\-\-B\-I\-T\-S)\label{lzma__common_8h_a090242ace12ca4570533bb3188d940ae}
+
+\item 
+\#define {\bfseries L\-E\-N\-\_\-\-M\-I\-D\-\_\-\-B\-I\-T\-S}~3\label{lzma__common_8h_a643cc8be6c5192ff525b14194327bd79}
+
+\item 
+\#define {\bfseries L\-E\-N\-\_\-\-M\-I\-D\-\_\-\-S\-Y\-M\-B\-O\-L\-S}~(1 $<$$<$ L\-E\-N\-\_\-\-M\-I\-D\-\_\-\-B\-I\-T\-S)\label{lzma__common_8h_a41b4c58d4c4c3bfe41a7b73329e581d0}
+
+\item 
+\#define {\bfseries L\-E\-N\-\_\-\-H\-I\-G\-H\-\_\-\-B\-I\-T\-S}~8\label{lzma__common_8h_ae09b9993a1717f3f867dc50e8f07665a}
+
+\item 
+\#define {\bfseries L\-E\-N\-\_\-\-H\-I\-G\-H\-\_\-\-S\-Y\-M\-B\-O\-L\-S}~(1 $<$$<$ L\-E\-N\-\_\-\-H\-I\-G\-H\-\_\-\-B\-I\-T\-S)\label{lzma__common_8h_aaae9f1f1f03f4a686f03d127d8df4b83}
+
+\item 
+\#define {\bfseries L\-E\-N\-\_\-\-S\-Y\-M\-B\-O\-L\-S}~(L\-E\-N\-\_\-\-L\-O\-W\-\_\-\-S\-Y\-M\-B\-O\-L\-S + L\-E\-N\-\_\-\-M\-I\-D\-\_\-\-S\-Y\-M\-B\-O\-L\-S + L\-E\-N\-\_\-\-H\-I\-G\-H\-\_\-\-S\-Y\-M\-B\-O\-L\-S)\label{lzma__common_8h_a07c07c3a78ddd32b8688a98be11fcb3d}
+
+\item 
+\#define {\bfseries M\-A\-T\-C\-H\-\_\-\-L\-E\-N\-\_\-\-M\-A\-X}~(M\-A\-T\-C\-H\-\_\-\-L\-E\-N\-\_\-\-M\-I\-N + L\-E\-N\-\_\-\-S\-Y\-M\-B\-O\-L\-S -\/ 1)\label{lzma__common_8h_a035b46ae64c71e0a6a2cbadb2919e95c}
+
+\item 
+\#define {\bfseries D\-I\-S\-T\-\_\-\-S\-T\-A\-T\-E\-S}~4\label{lzma__common_8h_a3afda544104deb6878935b33cb3fb027}
+
+\item 
+\#define {\bfseries get\-\_\-dist\-\_\-state}(len)
+\item 
+\#define {\bfseries D\-I\-S\-T\-\_\-\-S\-L\-O\-T\-\_\-\-B\-I\-T\-S}~6\label{lzma__common_8h_a36b6c4eaec443dc813e12e1aaadfb97c}
+
+\item 
+\#define {\bfseries D\-I\-S\-T\-\_\-\-S\-L\-O\-T\-S}~(1 $<$$<$ D\-I\-S\-T\-\_\-\-S\-L\-O\-T\-\_\-\-B\-I\-T\-S)\label{lzma__common_8h_a903523e973d201db2ab82a5284b0b40f}
+
+\item 
+\#define {\bfseries D\-I\-S\-T\-\_\-\-M\-O\-D\-E\-L\-\_\-\-S\-T\-A\-R\-T}~4\label{lzma__common_8h_ae5011f8df31787b3fab5dab429f1f7ff}
+
+\item 
+\#define {\bfseries D\-I\-S\-T\-\_\-\-M\-O\-D\-E\-L\-\_\-\-E\-N\-D}~14\label{lzma__common_8h_aa61c0222da66043346632577d364896c}
+
+\item 
+\#define {\bfseries F\-U\-L\-L\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-S\-\_\-\-B\-I\-T\-S}~(D\-I\-S\-T\-\_\-\-M\-O\-D\-E\-L\-\_\-\-E\-N\-D / 2)\label{lzma__common_8h_a02121326061ce76c4f1f2119f90bcd39}
+
+\item 
+\#define {\bfseries F\-U\-L\-L\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-S}~(1 $<$$<$ F\-U\-L\-L\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-S\-\_\-\-B\-I\-T\-S)\label{lzma__common_8h_a638ba3ec1c265efcd7bb1812534186f6}
+
+\item 
+\#define {\bfseries A\-L\-I\-G\-N\-\_\-\-B\-I\-T\-S}~4\label{lzma__common_8h_a2ae9aed5395d2113810e0c5067064605}
+
+\item 
+\#define {\bfseries A\-L\-I\-G\-N\-\_\-\-S\-I\-Z\-E}~(1 $<$$<$ A\-L\-I\-G\-N\-\_\-\-B\-I\-T\-S)\label{lzma__common_8h_a65d1ea18e1cbfa27d9d1952f05e31e60}
+
+\item 
+\#define {\bfseries A\-L\-I\-G\-N\-\_\-\-M\-A\-S\-K}~(A\-L\-I\-G\-N\-\_\-\-S\-I\-Z\-E -\/ 1)\label{lzma__common_8h_a9acfa53ba535d32d76682f5d3e893c05}
+
+\item 
+\#define {\bfseries R\-E\-P\-S}~4\label{lzma__common_8h_a28973becc878febad71571123f7df2c9}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf lzma\-\_\-lzma\-\_\-state} \{ \\*
+{\bfseries S\-T\-A\-T\-E\-\_\-\-L\-I\-T\-\_\-\-L\-I\-T}, 
+{\bfseries S\-T\-A\-T\-E\-\_\-\-M\-A\-T\-C\-H\-\_\-\-L\-I\-T\-\_\-\-L\-I\-T}, 
+{\bfseries S\-T\-A\-T\-E\-\_\-\-R\-E\-P\-\_\-\-L\-I\-T\-\_\-\-L\-I\-T}, 
+{\bfseries S\-T\-A\-T\-E\-\_\-\-S\-H\-O\-R\-T\-R\-E\-P\-\_\-\-L\-I\-T\-\_\-\-L\-I\-T}, 
+\\*
+{\bfseries S\-T\-A\-T\-E\-\_\-\-M\-A\-T\-C\-H\-\_\-\-L\-I\-T}, 
+{\bfseries S\-T\-A\-T\-E\-\_\-\-R\-E\-P\-\_\-\-L\-I\-T}, 
+{\bfseries S\-T\-A\-T\-E\-\_\-\-S\-H\-O\-R\-T\-R\-E\-P\-\_\-\-L\-I\-T}, 
+{\bfseries S\-T\-A\-T\-E\-\_\-\-L\-I\-T\-\_\-\-M\-A\-T\-C\-H}, 
+\\*
+{\bfseries S\-T\-A\-T\-E\-\_\-\-L\-I\-T\-\_\-\-L\-O\-N\-G\-R\-E\-P}, 
+{\bfseries S\-T\-A\-T\-E\-\_\-\-L\-I\-T\-\_\-\-S\-H\-O\-R\-T\-R\-E\-P}, 
+{\bfseries S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-L\-I\-T\-\_\-\-M\-A\-T\-C\-H}, 
+{\bfseries S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-L\-I\-T\-\_\-\-R\-E\-P}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool {\bf is\-\_\-lclppb\-\_\-valid} (const {\bf lzma\-\_\-options\-\_\-lzma} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Validates lc, lp, and pb. \end{DoxyCompactList}\item 
+static void {\bfseries literal\-\_\-init} ({\bf probability}($\ast$probs)[{\bf L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-\_\-\-S\-I\-Z\-E}], uint32\-\_\-t lc, uint32\-\_\-t lp)\label{lzma__common_8h_aa08e52ba6f25a872abac5c7055400412}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Private definitions common to L\-Z\-M\-A encoder and decoder. 
+
+\subsection{Macro Definition Documentation}
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!P\-O\-S\-\_\-\-S\-T\-A\-T\-E\-S\-\_\-\-M\-A\-X@{P\-O\-S\-\_\-\-S\-T\-A\-T\-E\-S\-\_\-\-M\-A\-X}}
+\index{P\-O\-S\-\_\-\-S\-T\-A\-T\-E\-S\-\_\-\-M\-A\-X@{P\-O\-S\-\_\-\-S\-T\-A\-T\-E\-S\-\_\-\-M\-A\-X}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{P\-O\-S\-\_\-\-S\-T\-A\-T\-E\-S\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-S\-\_\-\-S\-T\-A\-T\-E\-S\-\_\-\-M\-A\-X~(1 $<$$<$ L\-Z\-M\-A\-\_\-\-P\-B\-\_\-\-M\-A\-X)}\label{lzma__common_8h_a745eda4922193007c4b894dd75330549}
+Maximum number of position states. A position state is the lowest pos bits number of bits of the current uncompressed offset. In some places there are different sets of probabilities for different pos states. \index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!S\-T\-A\-T\-E\-S@{S\-T\-A\-T\-E\-S}}
+\index{S\-T\-A\-T\-E\-S@{S\-T\-A\-T\-E\-S}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{S\-T\-A\-T\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-A\-T\-E\-S~12}\label{lzma__common_8h_ab09b5cfbb756f1b30c59bf321716fd2e}
+
+
+Total number of states. 
+
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S@{L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S}}
+\index{L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S@{L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S~7}\label{lzma__common_8h_ae303e2388293410797ababce2713a272}
+
+
+The lowest 7 states indicate that the previous state was a literal. 
+
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!update\-\_\-literal@{update\-\_\-literal}}
+\index{update\-\_\-literal@{update\-\_\-literal}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{update\-\_\-literal}]{\setlength{\rightskip}{0pt plus 5cm}\#define update\-\_\-literal(
+\begin{DoxyParamCaption}
+\item[{}]{state}
+\end{DoxyParamCaption}
+)}\label{lzma__common_8h_a0e9345ff8ee7be54bb081533ee90983d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+state = ((state) <= STATE\_SHORTREP\_LIT\_LIT \(\backslash\)
+                        ? STATE\_LIT\_LIT \(\backslash\)
+                        : ((state) <= STATE\_LIT\_SHORTREP \(\backslash\)
+                                ? (state) - 3 \(\backslash\)
+                                : (state) - 6))
+\end{DoxyCode}
+
+
+Indicate that the latest state was a literal. 
+
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!update\-\_\-match@{update\-\_\-match}}
+\index{update\-\_\-match@{update\-\_\-match}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{update\-\_\-match}]{\setlength{\rightskip}{0pt plus 5cm}\#define update\-\_\-match(
+\begin{DoxyParamCaption}
+\item[{}]{state}
+\end{DoxyParamCaption}
+)~state = ((state) $<$ {\bf L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S} ? S\-T\-A\-T\-E\-\_\-\-L\-I\-T\-\_\-\-M\-A\-T\-C\-H \-: S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-L\-I\-T\-\_\-\-M\-A\-T\-C\-H)}\label{lzma__common_8h_a5341ef2436de312cfe09acbe07a0845d}
+
+
+Indicate that the latest state was a match. 
+
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!update\-\_\-long\-\_\-rep@{update\-\_\-long\-\_\-rep}}
+\index{update\-\_\-long\-\_\-rep@{update\-\_\-long\-\_\-rep}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{update\-\_\-long\-\_\-rep}]{\setlength{\rightskip}{0pt plus 5cm}\#define update\-\_\-long\-\_\-rep(
+\begin{DoxyParamCaption}
+\item[{}]{state}
+\end{DoxyParamCaption}
+)~state = ((state) $<$ {\bf L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S} ? S\-T\-A\-T\-E\-\_\-\-L\-I\-T\-\_\-\-L\-O\-N\-G\-R\-E\-P \-: S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-L\-I\-T\-\_\-\-R\-E\-P)}\label{lzma__common_8h_acf8d33862abfe91c6ff1af15c0dfc3ba}
+
+
+Indicate that the latest state was a long repeated match. 
+
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!update\-\_\-short\-\_\-rep@{update\-\_\-short\-\_\-rep}}
+\index{update\-\_\-short\-\_\-rep@{update\-\_\-short\-\_\-rep}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{update\-\_\-short\-\_\-rep}]{\setlength{\rightskip}{0pt plus 5cm}\#define update\-\_\-short\-\_\-rep(
+\begin{DoxyParamCaption}
+\item[{}]{state}
+\end{DoxyParamCaption}
+)~state = ((state) $<$ {\bf L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S} ? S\-T\-A\-T\-E\-\_\-\-L\-I\-T\-\_\-\-S\-H\-O\-R\-T\-R\-E\-P \-: S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-L\-I\-T\-\_\-\-R\-E\-P)}\label{lzma__common_8h_af249e4b787501e8a14ac344921662de5}
+
+
+Indicate that the latest state was a short match. 
+
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!is\-\_\-literal\-\_\-state@{is\-\_\-literal\-\_\-state}}
+\index{is\-\_\-literal\-\_\-state@{is\-\_\-literal\-\_\-state}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{is\-\_\-literal\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}\#define is\-\_\-literal\-\_\-state(
+\begin{DoxyParamCaption}
+\item[{}]{state}
+\end{DoxyParamCaption}
+)~((state) $<$ {\bf L\-I\-T\-\_\-\-S\-T\-A\-T\-E\-S})}\label{lzma__common_8h_a36e3126576fdcc6041d647ab2c507050}
+
+
+Test if the previous state was a literal. 
+
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-\_\-\-S\-I\-Z\-E@{L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-\_\-\-S\-I\-Z\-E}}
+\index{L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-\_\-\-S\-I\-Z\-E@{L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-\_\-\-S\-I\-Z\-E}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-\_\-\-S\-I\-Z\-E~0x300}\label{lzma__common_8h_a10b5f469b05969cb31c55a66e0de8803}
+Each literal coder is divided in three sections\-:
+\begin{DoxyItemize}
+\item 0x001-\/0x0\-F\-F\-: Without match byte
+\item 0x101-\/0x1\-F\-F\-: With match byte; match bit is 0
+\item 0x201-\/0x2\-F\-F\-: With match byte; match bit is 1
+\end{DoxyItemize}
+
+Match byte is used when the previous L\-Z\-M\-A symbol was something else than a literal (that is, it was some kind of match). \index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-S\-\_\-\-M\-A\-X@{L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-S\-\_\-\-M\-A\-X}}
+\index{L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-S\-\_\-\-M\-A\-X@{L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-S\-\_\-\-M\-A\-X}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-S\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-S\-\_\-\-M\-A\-X~(1 $<$$<$ L\-Z\-M\-A\-\_\-\-L\-C\-L\-P\-\_\-\-M\-A\-X)}\label{lzma__common_8h_aec4bc6b32a64f98d6ff9c04034a42cb9}
+
+
+Maximum number of literal coders. 
+
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!literal\-\_\-subcoder@{literal\-\_\-subcoder}}
+\index{literal\-\_\-subcoder@{literal\-\_\-subcoder}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{literal\-\_\-subcoder}]{\setlength{\rightskip}{0pt plus 5cm}\#define literal\-\_\-subcoder(
+\begin{DoxyParamCaption}
+\item[{}]{probs, }
+\item[{}]{lc, }
+\item[{}]{lp\-\_\-mask, }
+\item[{}]{pos, }
+\item[{}]{prev\-\_\-byte}
+\end{DoxyParamCaption}
+)~((probs)[(((pos) \& lp\-\_\-mask) $<$$<$ lc) + ((prev\-\_\-byte) $>$$>$ (8 -\/ lc))])}\label{lzma__common_8h_a76c5317ac9a42bdc6349815648fd7707}
+Locate the literal coder for the next literal byte. The choice depends on
+\begin{DoxyItemize}
+\item the lowest literal\-\_\-pos\-\_\-bits bits of the position of the current byte; and
+\item the highest literal\-\_\-context\-\_\-bits bits of the previous byte. 
+\end{DoxyItemize}\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!get\-\_\-dist\-\_\-state@{get\-\_\-dist\-\_\-state}}
+\index{get\-\_\-dist\-\_\-state@{get\-\_\-dist\-\_\-state}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{get\-\_\-dist\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}\#define get\-\_\-dist\-\_\-state(
+\begin{DoxyParamCaption}
+\item[{}]{len}
+\end{DoxyParamCaption}
+)}\label{lzma__common_8h_a704ef120888c4b6b3b7603577036600b}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((len) < DIST\_STATES + MATCH\_LEN\_MIN \(\backslash\)
+                ? (len) - MATCH\_LEN\_MIN \(\backslash\)
+                : DIST\_STATES - 1)
+\end{DoxyCode}
+
+
+\subsection{Enumeration Type Documentation}
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!lzma\-\_\-lzma\-\_\-state@{lzma\-\_\-lzma\-\_\-state}}
+\index{lzma\-\_\-lzma\-\_\-state@{lzma\-\_\-lzma\-\_\-state}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{lzma\-\_\-lzma\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf lzma\-\_\-lzma\-\_\-state}}\label{lzma__common_8h_a0898e5dfe84ee35425db2d9f6fbfa3d2}
+This enum is used to track which events have occurred most recently and in which order. This information is used to predict the next event.
+
+Events\-:
+\begin{DoxyItemize}
+\item Literal\-: One 8-\/bit byte
+\item Match\-: Repeat a chunk of data at some distance
+\item Long repeat\-: Multi-\/byte match at a recently seen distance
+\item Short repeat\-: One-\/byte repeat at a recently seen distance
+\end{DoxyItemize}
+
+The event names are in from S\-T\-A\-T\-E\-\_\-oldest\-\_\-older\-\_\-previous. R\-E\-P means either short or long repeated match, and N\-O\-N\-L\-I\-T means any non-\/literal. 
+
+\subsection{Function Documentation}
+\index{lzma\-\_\-common.\-h@{lzma\-\_\-common.\-h}!is\-\_\-lclppb\-\_\-valid@{is\-\_\-lclppb\-\_\-valid}}
+\index{is\-\_\-lclppb\-\_\-valid@{is\-\_\-lclppb\-\_\-valid}!lzma_common.h@{lzma\-\_\-common.\-h}}
+\subsubsection[{is\-\_\-lclppb\-\_\-valid}]{\setlength{\rightskip}{0pt plus 5cm}static bool is\-\_\-lclppb\-\_\-valid (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-options\-\_\-lzma} $\ast$}]{options}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lzma__common_8h_aedd478d0358af2297a6cac1d73540e85}
+
+
+Validates lc, lp, and pb. 
+
+
+
+References lzma\-\_\-options\-\_\-lzma\-::lc, lzma\-\_\-options\-\_\-lzma\-::lp, and lzma\-\_\-options\-\_\-lzma\-::pb.
+
+
+
+Referenced by lzma\-\_\-decoder\-\_\-init(), and lzma\-\_\-lzma\-\_\-lclppb\-\_\-encode().
+

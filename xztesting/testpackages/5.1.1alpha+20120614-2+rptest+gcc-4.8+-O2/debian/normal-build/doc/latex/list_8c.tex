@@ -1,0 +1,358 @@
+\section{xz/list.c File Reference}
+\label{list_8c}\index{xz/list.\-c@{xz/list.\-c}}
+
+
+Listing information about .xz files.  
+
+
+{\ttfamily \#include \char`\"{}private.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tuklib\-\_\-integer.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf xz\-\_\-file\-\_\-info}
+\begin{DoxyCompactList}\small\item\em Information about a .xz file. \end{DoxyCompactList}\item 
+struct {\bf block\-\_\-header\-\_\-info}
+\begin{DoxyCompactList}\small\item\em Information about a .xz Block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries X\-Z\-\_\-\-F\-I\-L\-E\-\_\-\-I\-N\-F\-O\-\_\-\-I\-N\-I\-T}~\{ N\-U\-L\-L, 0, 0, true, 50000002 \}\label{list_8c_ad9d9d8c2f571536b8f85da8f0d2f9381}
+
+\item 
+\#define {\bf C\-H\-E\-C\-K\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}~1024
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ {\bf xz\-\_\-ver\-\_\-to\-\_\-str} (uint32\-\_\-t ver)
+\begin{DoxyCompactList}\small\item\em Convert X\-Z Utils version number to a string. \end{DoxyCompactList}\item 
+static bool {\bf parse\-\_\-indexes} ({\bf xz\-\_\-file\-\_\-info} $\ast$xfi, {\bf file\-\_\-pair} $\ast$pair)
+\begin{DoxyCompactList}\small\item\em Parse the Index(es) from the given .xz file. \end{DoxyCompactList}\item 
+static bool {\bf parse\-\_\-block\-\_\-header} ({\bf file\-\_\-pair} $\ast$pair, const {\bf lzma\-\_\-index\-\_\-iter} $\ast$iter, {\bf block\-\_\-header\-\_\-info} $\ast$bhi, {\bf xz\-\_\-file\-\_\-info} $\ast$xfi)
+\begin{DoxyCompactList}\small\item\em Parse the Block Header. \end{DoxyCompactList}\item 
+static bool {\bf parse\-\_\-check\-\_\-value} ({\bf file\-\_\-pair} $\ast$pair, const {\bf lzma\-\_\-index\-\_\-iter} $\ast$iter)
+\begin{DoxyCompactList}\small\item\em Parse the Check field and put it into check\-\_\-value[]. \end{DoxyCompactList}\item 
+static bool {\bf parse\-\_\-details} ({\bf file\-\_\-pair} $\ast$pair, const {\bf lzma\-\_\-index\-\_\-iter} $\ast$iter, {\bf block\-\_\-header\-\_\-info} $\ast$bhi, {\bf xz\-\_\-file\-\_\-info} $\ast$xfi)
+\begin{DoxyCompactList}\small\item\em Parse detailed information about a Block. \end{DoxyCompactList}\item 
+static const char $\ast$ {\bf get\-\_\-ratio} (uint64\-\_\-t compressed\-\_\-size, uint64\-\_\-t uncompressed\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Get the compression ratio. \end{DoxyCompactList}\item 
+static void {\bf get\-\_\-check\-\_\-names} (char buf[{\bf C\-H\-E\-C\-K\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}], uint32\-\_\-t checks, bool space\-\_\-after\-\_\-comma)
+\begin{DoxyCompactList}\small\item\em Get a comma-\/separated list of Check names. \end{DoxyCompactList}\item 
+static bool {\bfseries print\-\_\-info\-\_\-basic} (const {\bf xz\-\_\-file\-\_\-info} $\ast$xfi, {\bf file\-\_\-pair} $\ast$pair)\label{list_8c_ac7876d4d338f652c5bd3aa42494a2250}
+
+\item 
+static void {\bfseries print\-\_\-adv\-\_\-helper} (uint64\-\_\-t stream\-\_\-count, uint64\-\_\-t block\-\_\-count, uint64\-\_\-t compressed\-\_\-size, uint64\-\_\-t uncompressed\-\_\-size, uint32\-\_\-t checks, uint64\-\_\-t stream\-\_\-padding)\label{list_8c_a3cf5e9b274fd72124b29938c0280a38b}
+
+\item 
+static bool {\bfseries print\-\_\-info\-\_\-adv} ({\bf xz\-\_\-file\-\_\-info} $\ast$xfi, {\bf file\-\_\-pair} $\ast$pair)\label{list_8c_a94d7f6e29b6da2dc3ef3c85c9e043fd6}
+
+\item 
+static bool {\bfseries print\-\_\-info\-\_\-robot} ({\bf xz\-\_\-file\-\_\-info} $\ast$xfi, {\bf file\-\_\-pair} $\ast$pair)\label{list_8c_a1be82234154dad0429454b94811aa1b5}
+
+\item 
+static void {\bfseries update\-\_\-totals} (const {\bf xz\-\_\-file\-\_\-info} $\ast$xfi)\label{list_8c_a74dbce5976005821dbb5aedd6fba1a16}
+
+\item 
+static void {\bfseries print\-\_\-totals\-\_\-basic} (void)\label{list_8c_ac20eb95fe3de6e849d752b4712de03b3}
+
+\item 
+static void {\bfseries print\-\_\-totals\-\_\-adv} (void)\label{list_8c_ae181b8b1d1222474d4417e36c13855eb}
+
+\item 
+static void {\bfseries print\-\_\-totals\-\_\-robot} (void)\label{list_8c_ac7df73c0aa9d21a248f5e32e400eae39}
+
+\item 
+void {\bf list\-\_\-totals} (void)
+\begin{DoxyCompactList}\small\item\em Show the totals after all files have been listed. \end{DoxyCompactList}\item 
+void {\bf list\-\_\-file} (const char $\ast${\bf filename})
+\begin{DoxyCompactList}\small\item\em List information about the given .xz file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const char {\bf check\-\_\-names} [{\bf L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-I\-D\-\_\-\-M\-A\-X}+1][12]
+\begin{DoxyCompactList}\small\item\em Check I\-D to string mapping. \end{DoxyCompactList}\item 
+static char {\bf check\-\_\-value} [2 $\ast${\bf L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-S\-I\-Z\-E\-\_\-\-M\-A\-X}+1]
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint64\_t {\bfseries files}\\
+\>uint64\_t {\bfseries streams}\\
+\>uint64\_t {\bfseries blocks}\\
+\>uint64\_t {\bfseries compressed\_size}\\
+\>uint64\_t {\bfseries uncompressed\_size}\\
+\>uint64\_t {\bfseries stream\_padding}\\
+\>uint64\_t {\bfseries memusage\_max}\\
+\>uint32\_t {\bfseries checks}\\
+\>uint32\_t {\bfseries min\_version}\\
+\>bool {\bfseries all\_have\_sizes}\\
+\} {\bf totals}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Listing information about .xz files. 
+
+\subsection{Macro Definition Documentation}
+\index{list.\-c@{list.\-c}!C\-H\-E\-C\-K\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E@{C\-H\-E\-C\-K\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}}
+\index{C\-H\-E\-C\-K\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E@{C\-H\-E\-C\-K\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}!list.c@{list.\-c}}
+\subsubsection[{C\-H\-E\-C\-K\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-E\-C\-K\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E~1024}\label{list_8c_a3cf7cfcaed5e556420f15af7117f2d08}
+Buffer size for \doxyref{get\-\_\-check\-\_\-names()}{p.}{list_8c_a90aab9f7b2077d1cbad85ec256faa436}. This may be a bit ridiculous, but at least it's enough if some language needs many multibyte chars. 
+
+Referenced by get\-\_\-check\-\_\-names().
+
+
+
+\subsection{Function Documentation}
+\index{list.\-c@{list.\-c}!xz\-\_\-ver\-\_\-to\-\_\-str@{xz\-\_\-ver\-\_\-to\-\_\-str}}
+\index{xz\-\_\-ver\-\_\-to\-\_\-str@{xz\-\_\-ver\-\_\-to\-\_\-str}!list.c@{list.\-c}}
+\subsubsection[{xz\-\_\-ver\-\_\-to\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}static const char$\ast$ xz\-\_\-ver\-\_\-to\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{ver}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{list_8c_a32fdf796cd8d4e429fde5d08028eef03}
+
+
+Convert X\-Z Utils version number to a string. 
+
+\index{list.\-c@{list.\-c}!parse\-\_\-indexes@{parse\-\_\-indexes}}
+\index{parse\-\_\-indexes@{parse\-\_\-indexes}!list.c@{list.\-c}}
+\subsubsection[{parse\-\_\-indexes}]{\setlength{\rightskip}{0pt plus 5cm}static bool parse\-\_\-indexes (
+\begin{DoxyParamCaption}
+\item[{{\bf xz\-\_\-file\-\_\-info} $\ast$}]{xfi, }
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{list_8c_ada243f83a8540051b161d0a114ef8f24}
+
+
+Parse the Index(es) from the given .xz file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xfi} & Pointer to structure where the decoded information is stored. \\
+\hline
+{\em pair} & Input file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, false is returned. On error, true is returned. 
+\end{DoxyReturn}
+
+
+References lzma\-\_\-stream\-::avail\-\_\-in, lzma\-\_\-stream\-\_\-flags\-::backward\-\_\-size, hardware\-\_\-memlimit\-\_\-get(), xz\-\_\-file\-\_\-info\-::idx, io\-\_\-pread(), L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-code(), L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-end(), lzma\-\_\-index\-\_\-cat(), lzma\-\_\-index\-\_\-decoder(), lzma\-\_\-index\-\_\-end(), lzma\-\_\-index\-\_\-memused(), lzma\-\_\-index\-\_\-stream\-\_\-flags(), lzma\-\_\-index\-\_\-stream\-\_\-padding(), lzma\-\_\-index\-\_\-total\-\_\-size(), lzma\-\_\-memusage(), L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-R\-U\-N, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D, lzma\-\_\-stream\-\_\-flags\-\_\-compare(), lzma\-\_\-stream\-\_\-footer\-\_\-decode(), lzma\-\_\-stream\-\_\-header\-\_\-decode(), L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-N\-I\-T, message\-\_\-bug(), message\-\_\-error(), message\-\_\-mem\-\_\-needed(), message\-\_\-strm(), lzma\-\_\-stream\-::next\-\_\-in, file\-\_\-pair\-::src\-\_\-name, file\-\_\-pair\-::src\-\_\-st, xz\-\_\-file\-\_\-info\-::stream\-\_\-padding, strm, and V\-\_\-\-E\-R\-R\-O\-R.
+
+
+
+Referenced by list\-\_\-file().
+
+\index{list.\-c@{list.\-c}!parse\-\_\-block\-\_\-header@{parse\-\_\-block\-\_\-header}}
+\index{parse\-\_\-block\-\_\-header@{parse\-\_\-block\-\_\-header}!list.c@{list.\-c}}
+\subsubsection[{parse\-\_\-block\-\_\-header}]{\setlength{\rightskip}{0pt plus 5cm}static bool parse\-\_\-block\-\_\-header (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{const {\bf lzma\-\_\-index\-\_\-iter} $\ast$}]{iter, }
+\item[{{\bf block\-\_\-header\-\_\-info} $\ast$}]{bhi, }
+\item[{{\bf xz\-\_\-file\-\_\-info} $\ast$}]{xfi}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{list_8c_ae8bf55be793e1ad58bc179ac19168c90}
+
+
+Parse the Block Header. 
+
+The result is stored into $\ast$bhi. The caller takes care of initializing it.
+
+\begin{DoxyReturn}{Returns}
+False on success, true on error. 
+\end{DoxyReturn}
+
+
+References xz\-\_\-file\-\_\-info\-::all\-\_\-have\-\_\-sizes, lzma\-\_\-stream\-\_\-flags\-::check, lzma\-\_\-block\-::check, lzma\-\_\-index\-\_\-iter\-::compressed\-\_\-file\-\_\-offset, block\-\_\-header\-\_\-info\-::compressed\-\_\-size, lzma\-\_\-block\-::compressed\-\_\-size, block\-\_\-header\-\_\-info\-::filter\-\_\-chain, filters, lzma\-\_\-block\-::filters, block\-\_\-header\-\_\-info\-::flags, lzma\-\_\-index\-\_\-iter\-::flags, block\-\_\-header\-\_\-info\-::header\-\_\-size, lzma\-\_\-block\-::header\-\_\-size, lzma\-\_\-filter\-::id, io\-\_\-pread(), lzma\-\_\-block\-\_\-compressed\-\_\-size(), lzma\-\_\-block\-\_\-header\-\_\-decode(), lzma\-\_\-block\-\_\-header\-\_\-size\-\_\-decode, lzma\-\_\-check\-\_\-size(), L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-raw\-\_\-decoder\-\_\-memusage(), L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, block\-\_\-header\-\_\-info\-::memusage, xz\-\_\-file\-\_\-info\-::memusage\-\_\-max, message\-\_\-bug(), message\-\_\-error(), message\-\_\-filters\-\_\-to\-\_\-str(), message\-\_\-strm(), xz\-\_\-file\-\_\-info\-::min\-\_\-version, file\-\_\-pair\-::src\-\_\-name, lzma\-\_\-index\-\_\-iter\-::total\-\_\-size, lzma\-\_\-index\-\_\-iter\-::uncompressed\-\_\-size, lzma\-\_\-block\-::uncompressed\-\_\-size, lzma\-\_\-index\-\_\-iter\-::unpadded\-\_\-size, and lzma\-\_\-block\-::version.
+
+
+
+Referenced by parse\-\_\-details().
+
+\index{list.\-c@{list.\-c}!parse\-\_\-check\-\_\-value@{parse\-\_\-check\-\_\-value}}
+\index{parse\-\_\-check\-\_\-value@{parse\-\_\-check\-\_\-value}!list.c@{list.\-c}}
+\subsubsection[{parse\-\_\-check\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}static bool parse\-\_\-check\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{const {\bf lzma\-\_\-index\-\_\-iter} $\ast$}]{iter}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{list_8c_a9e7a2155d21e8e64be85e248e8a77f62}
+
+
+Parse the Check field and put it into check\-\_\-value[]. 
+
+\begin{DoxyReturn}{Returns}
+False on success, true on error. 
+\end{DoxyReturn}
+
+
+References lzma\-\_\-stream\-\_\-flags\-::check, check\-\_\-value, lzma\-\_\-index\-\_\-iter\-::compressed\-\_\-file\-\_\-offset, lzma\-\_\-index\-\_\-iter\-::flags, io\-\_\-pread(), L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-N\-O\-N\-E, lzma\-\_\-check\-\_\-size(), and lzma\-\_\-index\-\_\-iter\-::total\-\_\-size.
+
+
+
+Referenced by parse\-\_\-details().
+
+\index{list.\-c@{list.\-c}!parse\-\_\-details@{parse\-\_\-details}}
+\index{parse\-\_\-details@{parse\-\_\-details}!list.c@{list.\-c}}
+\subsubsection[{parse\-\_\-details}]{\setlength{\rightskip}{0pt plus 5cm}static bool parse\-\_\-details (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{const {\bf lzma\-\_\-index\-\_\-iter} $\ast$}]{iter, }
+\item[{{\bf block\-\_\-header\-\_\-info} $\ast$}]{bhi, }
+\item[{{\bf xz\-\_\-file\-\_\-info} $\ast$}]{xfi}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{list_8c_a75d469c2b671db817dcca67130d89462}
+
+
+Parse detailed information about a Block. 
+
+Since this requires seek(s), listing information about all Blocks can be slow.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & Input file \\
+\hline
+{\em iter} & Location of the Block whose Check value should be printed. \\
+\hline
+{\em bhi} & Pointer to structure where to store the information about the Block Header field.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False on success, true on error. If an error occurs, the error message is printed too so the caller doesn't need to worry about that. 
+\end{DoxyReturn}
+
+
+References parse\-\_\-block\-\_\-header(), and parse\-\_\-check\-\_\-value().
+
+\index{list.\-c@{list.\-c}!get\-\_\-ratio@{get\-\_\-ratio}}
+\index{get\-\_\-ratio@{get\-\_\-ratio}!list.c@{list.\-c}}
+\subsubsection[{get\-\_\-ratio}]{\setlength{\rightskip}{0pt plus 5cm}static const char$\ast$ get\-\_\-ratio (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{compressed\-\_\-size, }
+\item[{uint64\-\_\-t}]{uncompressed\-\_\-size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{list_8c_ae914d2189f4e95281ba4fdfe363596fd}
+
+
+Get the compression ratio. 
+
+This has slightly different format than that is used in \doxyref{message.\-c}{p.}{message_8c}. \index{list.\-c@{list.\-c}!get\-\_\-check\-\_\-names@{get\-\_\-check\-\_\-names}}
+\index{get\-\_\-check\-\_\-names@{get\-\_\-check\-\_\-names}!list.c@{list.\-c}}
+\subsubsection[{get\-\_\-check\-\_\-names}]{\setlength{\rightskip}{0pt plus 5cm}static void get\-\_\-check\-\_\-names (
+\begin{DoxyParamCaption}
+\item[{char}]{buf[\-C\-H\-E\-C\-K\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E], }
+\item[{uint32\-\_\-t}]{checks, }
+\item[{bool}]{space\-\_\-after\-\_\-comma}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{list_8c_a90aab9f7b2077d1cbad85ec256faa436}
+
+
+Get a comma-\/separated list of Check names. 
+
+The check names are translated with gettext except when in robot mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Buffer to hold the resulting string \\
+\hline
+{\em checks} & Bit mask of Checks to print \\
+\hline
+{\em space\-\_\-after\-\_\-comma} & It's better to not use spaces in table-\/like listings, but in more verbose formats a space after a comma is good for readability. \\
+\hline
+\end{DoxyParams}
+
+
+References check\-\_\-names, C\-H\-E\-C\-K\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-I\-D\-\_\-\-M\-A\-X, and my\-\_\-snprintf().
+
+\index{list.\-c@{list.\-c}!list\-\_\-totals@{list\-\_\-totals}}
+\index{list\-\_\-totals@{list\-\_\-totals}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-totals}]{\setlength{\rightskip}{0pt plus 5cm}void list\-\_\-totals (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{list_8c_a569ef6a3578fb357c9c3246c2fe14607}
+
+
+Show the totals after all files have been listed. 
+
+
+
+References message\-\_\-verbosity\-\_\-get(), totals, and V\-\_\-\-W\-A\-R\-N\-I\-N\-G.
+
+\index{list.\-c@{list.\-c}!list\-\_\-file@{list\-\_\-file}}
+\index{list\-\_\-file@{list\-\_\-file}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void list\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{list_8c_a2b9bdcc3cdcc48e99a29e178df9d4899}
+
+
+List information about the given .xz file. 
+
+
+
+References xz\-\_\-file\-\_\-info\-::idx, io\-\_\-close(), io\-\_\-open\-\_\-src(), lzma\-\_\-index\-\_\-end(), message\-\_\-error(), message\-\_\-fatal(), message\-\_\-filename(), message\-\_\-verbosity\-\_\-get(), opt\-\_\-format, parse\-\_\-indexes(), and V\-\_\-\-W\-A\-R\-N\-I\-N\-G.
+
+
+
+\subsection{Variable Documentation}
+\index{list.\-c@{list.\-c}!check\-\_\-names@{check\-\_\-names}}
+\index{check\-\_\-names@{check\-\_\-names}!list.c@{list.\-c}}
+\subsubsection[{check\-\_\-names}]{\setlength{\rightskip}{0pt plus 5cm}const char check\-\_\-names[{\bf L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-I\-D\-\_\-\-M\-A\-X}+1][12]\hspace{0.3cm}{\ttfamily [static]}}\label{list_8c_a3e7ca9a7a1b4fae8eb5a64a197a34a71}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+ \{
+        
+        
+        
+        N\_(\textcolor{stringliteral}{"None"}),
+        \textcolor{stringliteral}{"CRC32"},
+        
+        
+        
+        
+        
+        N\_(\textcolor{stringliteral}{"Unknown-2"}),
+        N\_(\textcolor{stringliteral}{"Unknown-3"}),
+        \textcolor{stringliteral}{"CRC64"},
+        N\_(\textcolor{stringliteral}{"Unknown-5"}),
+        N\_(\textcolor{stringliteral}{"Unknown-6"}),
+        N\_(\textcolor{stringliteral}{"Unknown-7"}),
+        N\_(\textcolor{stringliteral}{"Unknown-8"}),
+        N\_(\textcolor{stringliteral}{"Unknown-9"}),
+        \textcolor{stringliteral}{"SHA-256"},
+        N\_(\textcolor{stringliteral}{"Unknown-11"}),
+        N\_(\textcolor{stringliteral}{"Unknown-12"}),
+        N\_(\textcolor{stringliteral}{"Unknown-13"}),
+        N\_(\textcolor{stringliteral}{"Unknown-14"}),
+        N\_(\textcolor{stringliteral}{"Unknown-15"}),
+\}
+\end{DoxyCode}
+
+
+Check I\-D to string mapping. 
+
+
+
+Referenced by get\-\_\-check\-\_\-names().
+
+\index{list.\-c@{list.\-c}!check\-\_\-value@{check\-\_\-value}}
+\index{check\-\_\-value@{check\-\_\-value}!list.c@{list.\-c}}
+\subsubsection[{check\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}char check\-\_\-value[2 $\ast${\bf L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-S\-I\-Z\-E\-\_\-\-M\-A\-X}+1]\hspace{0.3cm}{\ttfamily [static]}}\label{list_8c_a49a34a8966827518afd5f95ce9899b5a}
+Value of the Check field as hexadecimal string. This is set by \doxyref{parse\-\_\-check\-\_\-value()}{p.}{list_8c_a9e7a2155d21e8e64be85e248e8a77f62}. 
+
+Referenced by parse\-\_\-check\-\_\-value().
+
+\index{list.\-c@{list.\-c}!totals@{totals}}
+\index{totals@{totals}!list.c@{list.\-c}}
+\subsubsection[{totals}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   totals\hspace{0.3cm}{\ttfamily [static]}}\label{list_8c_a10bd6823082c9aee9314bf8a41c3e906}
+Totals that are displayed if there was more than one file. The \char`\"{}files\char`\"{} counter is also used in print\-\_\-info\-\_\-adv() to show the file number. 
+
+Referenced by list\-\_\-totals().
+

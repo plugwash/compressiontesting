@@ -1,0 +1,79 @@
+\section{liblzma/common/stream\-\_\-encoder.c File Reference}
+\label{stream__encoder_8c}\index{liblzma/common/stream\-\_\-encoder.\-c@{liblzma/common/stream\-\_\-encoder.\-c}}
+
+
+Encodes .xz Streams.  
+
+
+{\ttfamily \#include \char`\"{}block\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}index\-\_\-encoder.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-coder\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries block\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{stream__encoder_8c_afd3035cab4dfdeefb2403fabccda2c4e}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries stream\-\_\-encode} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)\label{stream__encoder_8c_a6779e791b2d1838a1a1140cb389c177d}
+
+\item 
+static void {\bfseries stream\-\_\-encoder\-\_\-end} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{stream__encoder_8c_a3fe2b0f12fd95ad8b4490ad7e294f9d1}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries stream\-\_\-encoder\-\_\-update} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast${\bf filters}, const {\bf lzma\-\_\-filter} $\ast$reversed\-\_\-filters)\label{stream__encoder_8c_a562de94971236d032471afac4537cbee}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries stream\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast${\bf filters}, {\bf lzma\-\_\-check} {\bf check})\label{stream__encoder_8c_a595c20cc5f23bf115fb6382d5a21f1c3}
+
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-encoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, const {\bf lzma\-\_\-filter} $\ast${\bf filters}, {\bf lzma\-\_\-check} {\bf check})
+\begin{DoxyCompactList}\small\item\em Initialize .xz Stream encoder using a custom filter chain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encodes .xz Streams. 
+
+\subsection{Function Documentation}
+\index{stream\-\_\-encoder.\-c@{stream\-\_\-encoder.\-c}!lzma\-\_\-stream\-\_\-encoder@{lzma\-\_\-stream\-\_\-encoder}}
+\index{lzma\-\_\-stream\-\_\-encoder@{lzma\-\_\-stream\-\_\-encoder}!stream_encoder.c@{stream\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-stream\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-encoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters, }
+\item[{{\bf lzma\-\_\-check}}]{check}
+\end{DoxyParamCaption}
+)}\label{stream__encoder_8c_a19acfa3822b05132cd81edc010fe2272}
+
+
+Initialize .xz Stream encoder using a custom filter chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} \\
+\hline
+{\em filters} & Array of filters. This must be terminated with filters[n].id = L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N. See \doxyref{filter.\-h}{p.}{filter_8h} for more information. \\
+\hline
+{\em check} & Type of the integrity check to calculate from uncompressed data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Initialization was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, L\-Z\-M\-A\-\_\-\-F\-U\-L\-L\-\_\-\-F\-L\-U\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-R\-U\-N, and L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H.
+
+
+
+Referenced by coder\-\_\-init(), and lzma\-\_\-easy\-\_\-encoder().
+

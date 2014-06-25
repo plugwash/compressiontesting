@@ -1,0 +1,80 @@
+\section{common/sysdefs.h File Reference}
+\label{sysdefs_8h}\index{common/sysdefs.\-h@{common/sysdefs.\-h}}
+
+
+Common includes, definitions, system-\/specific things etc.  
+
+
+{\ttfamily \#include $<$stddef.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\-I\-N\-T32\-\_\-\-C}(n)~n \#\# U\label{sysdefs_8h_acecee981dc3f28418f54035e20d7e578}
+
+\item 
+\#define {\bfseries U\-I\-N\-T32\-\_\-\-M\-A\-X}~U\-I\-N\-T32\-\_\-\-C(4294967295)\label{sysdefs_8h_ab5eb23180f7cc12b7d6c04a8ec067fdd}
+
+\item 
+\#define {\bfseries P\-R\-Iu32}~\char`\"{}u\char`\"{}\label{sysdefs_8h_aaf2af4a10f0bd308e9c349c8382382be}
+
+\item 
+\#define {\bfseries P\-R\-Ix32}~\char`\"{}x\char`\"{}\label{sysdefs_8h_a80ca66bcc9e366733f02c90ed4b0838c}
+
+\item 
+\#define {\bfseries P\-R\-I\-X32}~\char`\"{}X\char`\"{}\label{sysdefs_8h_a32b0c8a04aae5d4454d15e6cbe109f64}
+
+\item 
+\#define {\bfseries U\-I\-N\-T64\-\_\-\-C}(n)~n \#\# U\-L\label{sysdefs_8h_ac6548785b283106d4d7bfc7a4ef87fc4}
+
+\item 
+\#define {\bfseries P\-R\-Iu64}~\char`\"{}lu\char`\"{}\label{sysdefs_8h_ac582131d7a7c8ee57e73180d1714f9d5}
+
+\item 
+\#define {\bfseries P\-R\-Ix64}~\char`\"{}lx\char`\"{}\label{sysdefs_8h_aba38357387a474f439428dee1984fc5a}
+
+\item 
+\#define {\bfseries P\-R\-I\-X64}~\char`\"{}l\-X\char`\"{}\label{sysdefs_8h_af56fc48030ace2ec83125c0f5f42816c}
+
+\item 
+\#define {\bfseries U\-I\-N\-T64\-\_\-\-M\-A\-X}~U\-I\-N\-T64\-\_\-\-C(18446744073709551615)\label{sysdefs_8h_a30654b4b67d97c42ca3f9b6052dda916}
+
+\item 
+\#define {\bfseries bool}~\-\_\-\-Bool\label{sysdefs_8h_abb452686968e48b67397da5f97445f5b}
+
+\item 
+\#define {\bfseries false}~0\label{sysdefs_8h_a65e9886d74aaee76545e83dd09011727}
+
+\item 
+\#define {\bfseries true}~1\label{sysdefs_8h_a41f9c5fb8b08eb5dc3edce4dcb37fee7}
+
+\item 
+\#define {\bfseries \-\_\-\-\_\-bool\-\_\-true\-\_\-false\-\_\-are\-\_\-defined}~1\label{sysdefs_8h_a665b0cc9ee2ced31785321d55cde349e}
+
+\item 
+\#define {\bfseries memzero}(s, n)~memset(s, 0, n)\label{sysdefs_8h_a47a52a328495441d3703e5a54501be9e}
+
+\item 
+\#define {\bfseries my\-\_\-min}(x, y)~((x) $<$ (y) ? (x) \-: (y))\label{sysdefs_8h_a323fb84a2c92ab7fae34a4f399bbbe4b}
+
+\item 
+\#define {\bfseries my\-\_\-max}(x, y)~((x) $>$ (y) ? (x) \-: (y))\label{sysdefs_8h_ad625c91f4d8099a004e4fbb2f3c7f3db}
+
+\item 
+\#define {\bfseries A\-R\-R\-A\-Y\-\_\-\-S\-I\-Z\-E}(array)~(sizeof(array) / sizeof((array)[0]))\label{sysdefs_8h_a70c57aae3eb654e205459b4362c8089a}
+
+\item 
+\#define {\bfseries lzma\-\_\-attr\-\_\-alloc\-\_\-size}(x)\label{sysdefs_8h_ac081969088d935fe170252ad22b9aa17}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned char {\bfseries \-\_\-\-Bool}\label{sysdefs_8h_a72f46762c3b83cb22d2385dd65e5f216}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Common includes, definitions, system-\/specific things etc. This file is used also by the lzma command line tool, that's why this file is separate from \doxyref{common.\-h}{p.}{common_8h}. 

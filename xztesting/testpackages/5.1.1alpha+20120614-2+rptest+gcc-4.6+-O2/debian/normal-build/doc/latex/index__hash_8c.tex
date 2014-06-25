@@ -1,0 +1,175 @@
+\section{liblzma/common/index\-\_\-hash.c File Reference}
+\label{index__hash_8c}\index{liblzma/common/index\-\_\-hash.\-c@{liblzma/common/index\-\_\-hash.\-c}}
+
+
+Validates Index by using a hash function.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}index.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}check.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-index\-\_\-hash\-\_\-info}
+\item 
+struct {\bf lzma\-\_\-index\-\_\-hash\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-index\-\_\-hash} $\ast$ {\bf lzma\-\_\-index\-\_\-hash\-\_\-init} ({\bf lzma\-\_\-index\-\_\-hash} $\ast$index\-\_\-hash, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Allocate and initialize a new lzma\-\_\-index\-\_\-hash structure. \end{DoxyCompactList}\item 
+void {\bf lzma\-\_\-index\-\_\-hash\-\_\-end} ({\bf lzma\-\_\-index\-\_\-hash} $\ast$index\-\_\-hash, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Deallocate lzma\-\_\-index\-\_\-hash structure. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf lzma\-\_\-index\-\_\-hash\-\_\-size} (const {\bf lzma\-\_\-index\-\_\-hash} $\ast$index\-\_\-hash)
+\begin{DoxyCompactList}\small\item\em Get the size of the Index field as bytes. \end{DoxyCompactList}\item 
+static {\bf lzma\-\_\-ret} {\bf hash\-\_\-append} ({\bf lzma\-\_\-index\-\_\-hash\-\_\-info} $\ast$info, {\bf lzma\-\_\-vli} unpadded\-\_\-size, {\bf lzma\-\_\-vli} uncompressed\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Updates the sizes and the hash without any validation. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-index\-\_\-hash\-\_\-append} ({\bf lzma\-\_\-index\-\_\-hash} $\ast$index\-\_\-hash, {\bf lzma\-\_\-vli} unpadded\-\_\-size, {\bf lzma\-\_\-vli} uncompressed\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Add a new Record to an Index hash. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-index\-\_\-hash\-\_\-decode} ({\bf lzma\-\_\-index\-\_\-hash} $\ast$index\-\_\-hash, const uint8\-\_\-t $\ast$in, size\-\_\-t $\ast$in\-\_\-pos, size\-\_\-t in\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Decode and validate the Index field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Validates Index by using a hash function. 
+
+\subsection{Function Documentation}
+\index{index\-\_\-hash.\-c@{index\-\_\-hash.\-c}!lzma\-\_\-index\-\_\-hash\-\_\-init@{lzma\-\_\-index\-\_\-hash\-\_\-init}}
+\index{lzma\-\_\-index\-\_\-hash\-\_\-init@{lzma\-\_\-index\-\_\-hash\-\_\-init}!index_hash.c@{index\-\_\-hash.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-hash\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-index\-\_\-hash}$\ast$ lzma\-\_\-index\-\_\-hash\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index\-\_\-hash} $\ast$}]{index\-\_\-hash, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)}\label{index__hash_8c_a3aeca7881f96d38353480997d579ba23}
+
+
+Allocate and initialize a new lzma\-\_\-index\-\_\-hash structure. 
+
+If index\-\_\-hash is N\-U\-L\-L, a new lzma\-\_\-index\-\_\-hash structure is allocated, initialized, and a pointer to it returned. If allocation fails, N\-U\-L\-L is returned.
+
+If index\-\_\-hash is non-\/\-N\-U\-L\-L, it is reinitialized and the same pointer returned. In this case, return value cannot be N\-U\-L\-L or a different pointer than the index\-\_\-hash that was given as an argument. 
+
+References lzma\-\_\-alloc(), and lzma\-\_\-check\-\_\-init().
+
+\index{index\-\_\-hash.\-c@{index\-\_\-hash.\-c}!lzma\-\_\-index\-\_\-hash\-\_\-end@{lzma\-\_\-index\-\_\-hash\-\_\-end}}
+\index{lzma\-\_\-index\-\_\-hash\-\_\-end@{lzma\-\_\-index\-\_\-hash\-\_\-end}!index_hash.c@{index\-\_\-hash.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-hash\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}void lzma\-\_\-index\-\_\-hash\-\_\-end (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index\-\_\-hash} $\ast$}]{index\-\_\-hash, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)}\label{index__hash_8c_ade73b28ca60941b52feac1e696cb52c7}
+
+
+Deallocate lzma\-\_\-index\-\_\-hash structure. 
+
+\index{index\-\_\-hash.\-c@{index\-\_\-hash.\-c}!lzma\-\_\-index\-\_\-hash\-\_\-size@{lzma\-\_\-index\-\_\-hash\-\_\-size}}
+\index{lzma\-\_\-index\-\_\-hash\-\_\-size@{lzma\-\_\-index\-\_\-hash\-\_\-size}!index_hash.c@{index\-\_\-hash.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-hash\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-hash\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index\-\_\-hash} $\ast$}]{index\-\_\-hash}
+\end{DoxyParamCaption}
+)}\label{index__hash_8c_a32be74e93c9c24752c0cddc53a8d3148}
+
+
+Get the size of the Index field as bytes. 
+
+This is needed to verify the Backward Size field in the Stream Footer. \index{index\-\_\-hash.\-c@{index\-\_\-hash.\-c}!hash\-\_\-append@{hash\-\_\-append}}
+\index{hash\-\_\-append@{hash\-\_\-append}!index_hash.c@{index\-\_\-hash.\-c}}
+\subsubsection[{hash\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf lzma\-\_\-ret} hash\-\_\-append (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index\-\_\-hash\-\_\-info} $\ast$}]{info, }
+\item[{{\bf lzma\-\_\-vli}}]{unpadded\-\_\-size, }
+\item[{{\bf lzma\-\_\-vli}}]{uncompressed\-\_\-size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{index__hash_8c_a1670b0c9e4dd89cecdae1327c661efba}
+
+
+Updates the sizes and the hash without any validation. 
+
+
+
+References lzma\-\_\-index\-\_\-hash\-\_\-info\-::blocks\-\_\-size, lzma\-\_\-index\-\_\-hash\-\_\-info\-::check, lzma\-\_\-index\-\_\-hash\-\_\-info\-::count, lzma\-\_\-index\-\_\-hash\-\_\-info\-::index\-\_\-list\-\_\-size, lzma\-\_\-check\-\_\-update(), L\-Z\-M\-A\-\_\-\-O\-K, lzma\-\_\-vli\-\_\-size(), and lzma\-\_\-index\-\_\-hash\-\_\-info\-::uncompressed\-\_\-size.
+
+
+
+Referenced by lzma\-\_\-index\-\_\-hash\-\_\-append(), and lzma\-\_\-index\-\_\-hash\-\_\-decode().
+
+\index{index\-\_\-hash.\-c@{index\-\_\-hash.\-c}!lzma\-\_\-index\-\_\-hash\-\_\-append@{lzma\-\_\-index\-\_\-hash\-\_\-append}}
+\index{lzma\-\_\-index\-\_\-hash\-\_\-append@{lzma\-\_\-index\-\_\-hash\-\_\-append}!index_hash.c@{index\-\_\-hash.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-hash\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-index\-\_\-hash\-\_\-append (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index\-\_\-hash} $\ast$}]{index\-\_\-hash, }
+\item[{{\bf lzma\-\_\-vli}}]{unpadded\-\_\-size, }
+\item[{{\bf lzma\-\_\-vli}}]{uncompressed\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{index__hash_8c_a29b6194063af60c27dab0309b793598a}
+
+
+Add a new Record to an Index hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Pointer to a lzma\-\_\-index\-\_\-hash structure \\
+\hline
+{\em unpadded\-\_\-size} & Unpadded Size of a Block \\
+\hline
+{\em uncompressed\-\_\-size} & Uncompressed Size of a Block\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R\-: Compressed or uncompressed size of the Stream or size of the Index field would grow too big.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Invalid arguments or this function is being used when \doxyref{lzma\-\_\-index\-\_\-hash\-\_\-decode()}{p.}{index__hash_8h_a891eb955284c9117155f92eb0ddba44c} has already been used. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References hash\-\_\-append(), L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X, and return\-\_\-if\-\_\-error.
+
+\index{index\-\_\-hash.\-c@{index\-\_\-hash.\-c}!lzma\-\_\-index\-\_\-hash\-\_\-decode@{lzma\-\_\-index\-\_\-hash\-\_\-decode}}
+\index{lzma\-\_\-index\-\_\-hash\-\_\-decode@{lzma\-\_\-index\-\_\-hash\-\_\-decode}!index_hash.c@{index\-\_\-hash.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-hash\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-index\-\_\-hash\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index\-\_\-hash} $\ast$}]{index\-\_\-hash, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t $\ast$}]{in\-\_\-pos, }
+\item[{size\-\_\-t}]{in\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{index__hash_8c_aedf75aefbcc0b3263898afbb9cab3ef5}
+
+
+Decode and validate the Index field. 
+
+After telling the sizes of all Blocks with \doxyref{lzma\-\_\-index\-\_\-hash\-\_\-append()}{p.}{index__hash_8h_a2bdbe4f0b5fa2fadb7528447feaaa97f}, the actual Index field is decoded with this function. Specifically, once decoding of the Index field has been started, no more Records can be added using \doxyref{lzma\-\_\-index\-\_\-hash\-\_\-append()}{p.}{index__hash_8h_a2bdbe4f0b5fa2fadb7528447feaaa97f}.
+
+This function doesn't use \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} structure to pass the input data. Instead, the input buffer is specified using three arguments. This is because it matches better the internal A\-P\-Is of liblzma.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\-\_\-hash} & Pointer to a lzma\-\_\-index\-\_\-hash structure \\
+\hline
+{\em in} & Pointer to the beginning of the input buffer \\
+\hline
+{\em in\-\_\-pos} & in[$\ast$in\-\_\-pos] is the next byte to process \\
+\hline
+{\em in\-\_\-size} & in[in\-\_\-size] is the first byte not to process\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: So far good, but more input is needed.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D\-: Index decoded successfully and it matches the Records given with \doxyref{lzma\-\_\-index\-\_\-hash\-\_\-append()}{p.}{index__hash_8h_a2bdbe4f0b5fa2fadb7528447feaaa97f}.
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R\-: Index is corrupt or doesn't match the information given with \doxyref{lzma\-\_\-index\-\_\-hash\-\_\-append()}{p.}{index__hash_8h_a2bdbe4f0b5fa2fadb7528447feaaa97f}.
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: Cannot progress because $\ast$in\-\_\-pos $>$= in\-\_\-size.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References hash\-\_\-append(), L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-check\-\_\-finish(), lzma\-\_\-check\-\_\-size(), lzma\-\_\-crc32(), L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C, lzma\-\_\-vli\-\_\-decode(), and return\-\_\-if\-\_\-error.
+

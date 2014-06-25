@@ -1,0 +1,47 @@
+\section{liblzma/check/crc64\-\_\-small.c File Reference}
+\label{crc64__small_8c}\index{liblzma/check/crc64\-\_\-small.\-c@{liblzma/check/crc64\-\_\-small.\-c}}
+
+
+C\-R\-C64 calculation (size-\/optimized)  
+
+
+{\ttfamily \#include \char`\"{}check.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries crc64\-\_\-init} (void)\label{crc64__small_8c_a98954d84c36880425a9ff63295984300}
+
+\item 
+uint64\-\_\-t {\bf lzma\-\_\-crc64} (const uint8\-\_\-t $\ast$buf, size\-\_\-t size, uint64\-\_\-t crc)
+\begin{DoxyCompactList}\small\item\em Calculate C\-R\-C64. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static uint64\-\_\-t {\bfseries crc64\-\_\-table} [256]\label{crc64__small_8c_a62b5fdf3060d15921378edcdb8d88a19}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\-R\-C64 calculation (size-\/optimized) 
+
+\subsection{Function Documentation}
+\index{crc64\-\_\-small.\-c@{crc64\-\_\-small.\-c}!lzma\-\_\-crc64@{lzma\-\_\-crc64}}
+\index{lzma\-\_\-crc64@{lzma\-\_\-crc64}!crc64_small.c@{crc64\-\_\-small.\-c}}
+\subsubsection[{lzma\-\_\-crc64}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-crc64 (
+\begin{DoxyParamCaption}
+\item[{const uint8\-\_\-t $\ast$}]{buf, }
+\item[{size\-\_\-t}]{size, }
+\item[{uint64\-\_\-t}]{crc}
+\end{DoxyParamCaption}
+)}\label{crc64__small_8c_a1383b975ae0941254f7525c89285787f}
+
+
+Calculate C\-R\-C64. 
+
+Calculate C\-R\-C64 using the polynomial from the E\-C\-M\-A-\/182 standard.
+
+This function is used similarly to \doxyref{lzma\-\_\-crc32()}{p.}{api_2lzma_2check_8h_a760b569cce91bdd01e4ce9d78823c96d}. See its documentation. 
+
+Referenced by lzma\-\_\-check\-\_\-update().
+

@@ -1,0 +1,4 @@
+bzip2-doc_1.0.6-4+rptest+gcc-4.8+-O3_all.deb doc optional
+libbz2-1.0_1.0.6-4+rptest+gcc-4.8+-O3_armhf.deb libs important
+libbz2-dev_1.0.6-4+rptest+gcc-4.8+-O3_armhf.deb libdevel optional
+bzip2_1.0.6-4+rptest+gcc-4.8+-O3_armhf.deb utils standard

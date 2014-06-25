@@ -1,0 +1,80 @@
+\section{index\-\_\-group Struct Reference}
+\label{structindex__group}\index{index\-\_\-group@{index\-\_\-group}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf index\-\_\-tree\-\_\-node} {\bf node}
+\begin{DoxyCompactList}\small\item\em Every Record group is part of \doxyref{index\-\_\-stream.\-groups}{p.}{structindex__stream_a9e6b322459a5b7b8806154ac9170d1c8} tree. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf number\-\_\-base}
+\begin{DoxyCompactList}\small\item\em Number of Blocks in this Stream before this group. \end{DoxyCompactList}\item 
+size\-\_\-t {\bf allocated}
+\begin{DoxyCompactList}\small\item\em Number of Records that can be put in records[]. \end{DoxyCompactList}\item 
+size\-\_\-t {\bf last}
+\begin{DoxyCompactList}\small\item\em Index of the last Record in use. \end{DoxyCompactList}\item 
+{\bf index\-\_\-record} {\bf records} [$\,$]
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\index{index\-\_\-group@{index\-\_\-group}!node@{node}}
+\index{node@{node}!index_group@{index\-\_\-group}}
+\subsubsection[{node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf index\-\_\-tree\-\_\-node} index\-\_\-group\-::node}\label{structindex__group_ad684ad25ae558b53a3c77d56489b7009}
+
+
+Every Record group is part of \doxyref{index\-\_\-stream.\-groups}{p.}{structindex__stream_a9e6b322459a5b7b8806154ac9170d1c8} tree. 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), lzma\-\_\-index\-\_\-append(), and lzma\-\_\-index\-\_\-iter\-\_\-next().
+
+\index{index\-\_\-group@{index\-\_\-group}!number\-\_\-base@{number\-\_\-base}}
+\index{number\-\_\-base@{number\-\_\-base}!index_group@{index\-\_\-group}}
+\subsubsection[{number\-\_\-base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} index\-\_\-group\-::number\-\_\-base}\label{structindex__group_a8b7eba508bb2cf92b23e8aefb7ad0cd9}
+
+
+Number of Blocks in this Stream before this group. 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), and lzma\-\_\-index\-\_\-append().
+
+\index{index\-\_\-group@{index\-\_\-group}!allocated@{allocated}}
+\index{allocated@{allocated}!index_group@{index\-\_\-group}}
+\subsubsection[{allocated}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t index\-\_\-group\-::allocated}\label{structindex__group_ab741e763843d5492a307bfb71cb82ff6}
+
+
+Number of Records that can be put in records[]. 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), and lzma\-\_\-index\-\_\-append().
+
+\index{index\-\_\-group@{index\-\_\-group}!last@{last}}
+\index{last@{last}!index_group@{index\-\_\-group}}
+\subsubsection[{last}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t index\-\_\-group\-::last}\label{structindex__group_a72f07e1a884c09ee2818671e5ca32222}
+
+
+Index of the last Record in use. 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), lzma\-\_\-index\-\_\-append(), lzma\-\_\-index\-\_\-file\-\_\-size(), and lzma\-\_\-index\-\_\-iter\-\_\-locate().
+
+\index{index\-\_\-group@{index\-\_\-group}!records@{records}}
+\index{records@{records}!index_group@{index\-\_\-group}}
+\subsubsection[{records}]{\setlength{\rightskip}{0pt plus 5cm}{\bf index\-\_\-record} index\-\_\-group\-::records[$\,$]}\label{structindex__group_af0e6e330aff607120ff7ffd2467c2c70}
+The sizes in this array are stored as cumulative sums relative to the beginning of the Stream. This makes it possible to use binary search in lzma\-\_\-index\-\_\-locate().
+
+Note that the cumulative summing is done specially for unpadded\-\_\-sum\-: The previous value is rounded up to the next multiple of four before adding the Unpadded Size of the new Block. The total encoded size of the Blocks in the Stream is records[last].unpadded\-\_\-sum in the last Record group of the Stream.
+
+For example, if the Unpadded Sizes are 39, 57, and 81, the stored values are 39, 97 (40 + 57), and 181 (100 + 181). The total encoded size of these Blocks is 184.
+
+This is a flexible array, because it makes easy to optimize memory usage in case someone concatenates many Streams that have only one or few Blocks. 
+
+Referenced by index\-\_\-dup\-\_\-stream(), lzma\-\_\-index\-\_\-append(), lzma\-\_\-index\-\_\-file\-\_\-size(), lzma\-\_\-index\-\_\-iter\-\_\-locate(), and lzma\-\_\-index\-\_\-iter\-\_\-next().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/{\bf index.\-c}\end{DoxyCompactItemize}

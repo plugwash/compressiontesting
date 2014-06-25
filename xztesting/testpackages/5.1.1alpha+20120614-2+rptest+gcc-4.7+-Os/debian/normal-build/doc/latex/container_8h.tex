@@ -1,0 +1,580 @@
+\section{liblzma/api/lzma/container.h File Reference}
+\label{container_8h}\index{liblzma/api/lzma/container.\-h@{liblzma/api/lzma/container.\-h}}
+
+
+File formats.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-D\-E\-F\-A\-U\-L\-T}~U\-I\-N\-T32\-\_\-\-C(6)
+\begin{DoxyCompactList}\small\item\em Default compression preset. \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}~U\-I\-N\-T32\-\_\-\-C(0x1\-F)
+\begin{DoxyCompactList}\small\item\em Mask for preset level. \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E}~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 31)
+\begin{DoxyCompactList}\small\item\em Extreme compression preset. \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K}~U\-I\-N\-T32\-\_\-\-C(0x01)
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K}~U\-I\-N\-T32\-\_\-\-C(0x02)
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K}~U\-I\-N\-T32\-\_\-\-C(0x04)
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D}~U\-I\-N\-T32\-\_\-\-C(0x08)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\-\_\-t {\bf lzma\-\_\-easy\-\_\-encoder\-\_\-memusage} (uint32\-\_\-t preset) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-pure
+\begin{DoxyCompactList}\small\item\em Calculate approximate memory usage of easy encoder. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bf lzma\-\_\-easy\-\_\-decoder\-\_\-memusage} (uint32\-\_\-t preset) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-pure
+\begin{DoxyCompactList}\small\item\em Calculate approximate decoder memory usage of a preset. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-easy\-\_\-encoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, uint32\-\_\-t preset, {\bf lzma\-\_\-check} {\bf check}) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Initialize .xz Stream encoder using a preset number. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-easy\-\_\-buffer\-\_\-encode} (uint32\-\_\-t preset, {\bf lzma\-\_\-check} {\bf check}, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$in, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size) lzma\-\_\-nothrow
+\begin{DoxyCompactList}\small\item\em Single-\/call .xz Stream encoding using a preset number. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-encoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, const {\bf lzma\-\_\-filter} $\ast${\bf filters}, {\bf lzma\-\_\-check} {\bf check}) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Initialize .xz Stream encoder using a custom filter chain. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-alone\-\_\-encoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, const {\bf lzma\-\_\-options\-\_\-lzma} $\ast$options) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Initialize .lzma encoder (legacy file format) \end{DoxyCompactList}\item 
+size\-\_\-t {\bf lzma\-\_\-stream\-\_\-buffer\-\_\-bound} (size\-\_\-t uncompressed\-\_\-size) lzma\-\_\-nothrow
+\begin{DoxyCompactList}\small\item\em Calculate output buffer size for single-\/call Stream encoder. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-buffer\-\_\-encode} ({\bf lzma\-\_\-filter} $\ast${\bf filters}, {\bf lzma\-\_\-check} {\bf check}, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$in, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Single-\/call .xz Stream encoder. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-decoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, uint64\-\_\-t memlimit, uint32\-\_\-t flags) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Initialize .xz Stream decoder. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-auto\-\_\-decoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, uint64\-\_\-t memlimit, uint32\-\_\-t flags) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Decode .xz Streams and .lzma files with autodetection. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-alone\-\_\-decoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, uint64\-\_\-t memlimit) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Initialize .lzma decoder (legacy file format) \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-buffer\-\_\-decode} (uint64\-\_\-t $\ast$memlimit, uint32\-\_\-t flags, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$in, size\-\_\-t $\ast$in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-warn\-\_\-unused\-\_\-result
+\begin{DoxyCompactList}\small\item\em Single-\/call .xz Stream decoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File formats. 
+
+\subsection{Macro Definition Documentation}
+\index{container.\-h@{container.\-h}!L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-D\-E\-F\-A\-U\-L\-T@{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-D\-E\-F\-A\-U\-L\-T}}
+\index{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-D\-E\-F\-A\-U\-L\-T@{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-D\-E\-F\-A\-U\-L\-T}!container.h@{container.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-D\-E\-F\-A\-U\-L\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-D\-E\-F\-A\-U\-L\-T~U\-I\-N\-T32\-\_\-\-C(6)}\label{container_8h_af3ca20ff228b363a82515c1aee9e27bc}
+
+
+Default compression preset. 
+
+It's not straightforward to recommend a default preset, because in some cases keeping the resource usage relatively low is more important that getting the maximum compression ratio. 
+
+Referenced by options\-\_\-lzma().
+
+\index{container.\-h@{container.\-h}!L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K@{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}}
+\index{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K@{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}!container.h@{container.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K~U\-I\-N\-T32\-\_\-\-C(0x1\-F)}\label{container_8h_a97e40265e355a21bd2465aaa5b85f03d}
+
+
+Mask for preset level. 
+
+This is useful only if you need to extract the level from the preset variable. That should be rare. 
+
+Referenced by lzma\-\_\-lzma\-\_\-preset().
+
+\index{container.\-h@{container.\-h}!L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E@{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E}}
+\index{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E@{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E}!container.h@{container.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 31)}\label{container_8h_af524fe9af5737820fdadcd40a2c26deb}
+
+
+Extreme compression preset. 
+
+This flag modifies the preset to make the encoding significantly slower while improving the compression ratio only marginally. This is useful when you don't mind wasting time to get as small result as possible.
+
+This flag doesn't affect the memory usage requirements of the decoder (at least not significantly). The memory usage of the encoder may be increased a little but only at the lowest preset levels (0-\/3). 
+
+Referenced by lzma\-\_\-lzma\-\_\-preset().
+
+\index{container.\-h@{container.\-h}!L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K@{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K}}
+\index{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K@{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K}!container.h@{container.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K~U\-I\-N\-T32\-\_\-\-C(0x01)}\label{container_8h_ada9cd20febb28b5ed6656de9184a86e9}
+This flag makes \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} return L\-Z\-M\-A\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K if the input stream being decoded has no integrity check. Note that when used with \doxyref{lzma\-\_\-auto\-\_\-decoder()}{p.}{container_8h_a21cbebf2771617bb1e956385cfb353e3}, all .lzma files will trigger L\-Z\-M\-A\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K if L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K is used. \index{container.\-h@{container.\-h}!L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K@{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K}}
+\index{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K@{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K}!container.h@{container.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K~U\-I\-N\-T32\-\_\-\-C(0x02)}\label{container_8h_ae21fb746037c82735d40d428c462e078}
+This flag makes \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} return L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K if the input stream has an integrity check, but the type of the integrity check is not supported by this liblzma version or build. Such files can still be decoded, but the integrity check cannot be verified. 
+
+Referenced by coder\-\_\-init().
+
+\index{container.\-h@{container.\-h}!L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K@{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K}}
+\index{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K@{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K}!container.h@{container.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K~U\-I\-N\-T32\-\_\-\-C(0x04)}\label{container_8h_a0bdde702a77ff42b90a99c0bf4147b6b}
+This flag makes \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} return L\-Z\-M\-A\-\_\-\-G\-E\-T\-\_\-\-C\-H\-E\-C\-K as soon as the type of the integrity check is known. The type can then be got with \doxyref{lzma\-\_\-get\-\_\-check()}{p.}{api_2lzma_2check_8h_a8d7c3ffabfd024485f03fa209536c746}. 
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-decode().
+
+\index{container.\-h@{container.\-h}!L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D@{L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D}}
+\index{L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D@{L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D}!container.h@{container.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D~U\-I\-N\-T32\-\_\-\-C(0x08)}\label{container_8h_a563c84b5f368b3dd00d92ea903c5c33d}
+This flag enables decoding of concatenated files with file formats that allow concatenating compressed files as is. From the formats currently supported by liblzma, only the .xz format allows concatenated files. Concatenated files are not allowed with the legacy .lzma format.
+
+This flag also affects the usage of the `action' argument for \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}. When L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D is used, \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} won't return L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D unless L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H is used as `action'. Thus, the application has to set L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H in the same way as it does when encoding.
+
+If L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D is not used, the decoders still accept L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H as `action' for \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}, but the usage of L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H isn't required. 
+
+Referenced by coder\-\_\-init().
+
+
+
+\subsection{Function Documentation}
+\index{container.\-h@{container.\-h}!lzma\-\_\-easy\-\_\-encoder\-\_\-memusage@{lzma\-\_\-easy\-\_\-encoder\-\_\-memusage}}
+\index{lzma\-\_\-easy\-\_\-encoder\-\_\-memusage@{lzma\-\_\-easy\-\_\-encoder\-\_\-memusage}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-easy\-\_\-encoder\-\_\-memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-easy\-\_\-encoder\-\_\-memusage (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{preset}
+\end{DoxyParamCaption}
+)}\label{container_8h_a62c853cf7dbf008bdbd97b2685c3eabf}
+
+
+Calculate approximate memory usage of easy encoder. 
+
+This function is a wrapper for \doxyref{lzma\-\_\-raw\-\_\-encoder\-\_\-memusage()}{p.}{filter_8h_a730f9391e85a5979bcd1b32643ae7176}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em preset} & Compression preset (level and possible flags)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes of memory required for the given preset when encoding. If an error occurs, for example due to unsupported preset, U\-I\-N\-T64\-\_\-\-M\-A\-X is returned. 
+\end{DoxyReturn}
+
+
+References lzma\-\_\-options\-\_\-easy\-::filters, lzma\-\_\-easy\-\_\-preset(), and lzma\-\_\-raw\-\_\-encoder\-\_\-memusage().
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-easy\-\_\-decoder\-\_\-memusage@{lzma\-\_\-easy\-\_\-decoder\-\_\-memusage}}
+\index{lzma\-\_\-easy\-\_\-decoder\-\_\-memusage@{lzma\-\_\-easy\-\_\-decoder\-\_\-memusage}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-easy\-\_\-decoder\-\_\-memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-easy\-\_\-decoder\-\_\-memusage (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{preset}
+\end{DoxyParamCaption}
+)}\label{container_8h_a3562055d26c18fad067a7c7516eaddf5}
+
+
+Calculate approximate decoder memory usage of a preset. 
+
+This function is a wrapper for \doxyref{lzma\-\_\-raw\-\_\-decoder\-\_\-memusage()}{p.}{filter_8h_a58511249ae9206d7de7c5d1f05842297}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em preset} & Compression preset (level and possible flags)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes of memory required to decompress a file that was compressed using the given preset. If an error occurs, for example due to unsupported preset, U\-I\-N\-T64\-\_\-\-M\-A\-X is returned. 
+\end{DoxyReturn}
+
+
+References lzma\-\_\-options\-\_\-easy\-::filters, lzma\-\_\-easy\-\_\-preset(), and lzma\-\_\-raw\-\_\-decoder\-\_\-memusage().
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-easy\-\_\-encoder@{lzma\-\_\-easy\-\_\-encoder}}
+\index{lzma\-\_\-easy\-\_\-encoder@{lzma\-\_\-easy\-\_\-encoder}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-easy\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-easy\-\_\-encoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{uint32\-\_\-t}]{preset, }
+\item[{{\bf lzma\-\_\-check}}]{check}
+\end{DoxyParamCaption}
+)}\label{container_8h_acbdad999c544872f0f5d242f0d1a4ed4}
+
+
+Initialize .xz Stream encoder using a preset number. 
+
+This function is intended for those who just want to use the basic features if liblzma (that is, most developers out there).
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} that is at least initialized with L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-N\-I\-T. \\
+\hline
+{\em preset} & Compression preset to use. A preset consist of level number and zero or more flags. Usually flags aren't used, so preset is simply a number [0, 9] which match the options -\/0 ... -\/9 of the xz command line tool. Additional flags can be be set using bitwise-\/or with the preset level number, e.\-g. 6 $|$ L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E. \\
+\hline
+{\em check} & Integrity check type to use. See check.\-h for available checks. The xz command line tool defaults to L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C64, which is a good choice if you are unsure. L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C32 is good too as long as the uncompressed file is not many gigabytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Initialization succeeded. Use \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} to encode your data.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R\-: Memory allocation failed.
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: The given compression preset is not supported by this build of liblzma.
+\item L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K\-: The given check type is not supported by this liblzma build.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: One or more of the parameters have values that will never be valid. For example, strm == N\-U\-L\-L.
+\end{DoxyItemize}
+\end{DoxyReturn}
+If initialization fails (return value is not L\-Z\-M\-A\-\_\-\-O\-K), all the memory allocated for $\ast$strm by liblzma is always freed. Thus, there is no need to call \doxyref{lzma\-\_\-end()}{p.}{base_8h_a854ff37464ae1225febf14db1af43308} after failed initialization.
+
+If initialization succeeds, use \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} to do the actual encoding. Valid values for `action' (the second argument of \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}) are L\-Z\-M\-A\-\_\-\-R\-U\-N, L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H, L\-Z\-M\-A\-\_\-\-F\-U\-L\-L\-\_\-\-F\-L\-U\-S\-H, and L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H. In future, there may be compression levels or flags that don't support L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H. 
+
+References lzma\-\_\-options\-\_\-easy\-::filters, lzma\-\_\-easy\-\_\-preset(), L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, and lzma\-\_\-stream\-\_\-encoder().
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-easy\-\_\-buffer\-\_\-encode@{lzma\-\_\-easy\-\_\-buffer\-\_\-encode}}
+\index{lzma\-\_\-easy\-\_\-buffer\-\_\-encode@{lzma\-\_\-easy\-\_\-buffer\-\_\-encode}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-easy\-\_\-buffer\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-easy\-\_\-buffer\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{preset, }
+\item[{{\bf lzma\-\_\-check}}]{check, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{container_8h_a8cd00c448b2cce31398cec01ee30c2f3}
+
+
+Single-\/call .xz Stream encoding using a preset number. 
+
+The maximum required output buffer size can be calculated with \doxyref{lzma\-\_\-stream\-\_\-buffer\-\_\-bound()}{p.}{container_8h_a66d4366a47b8332bff2a512f44f5c45e}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em preset} & Compression preset to use. See the description in \doxyref{lzma\-\_\-easy\-\_\-encoder()}{p.}{container_8h_acbdad999c544872f0f5d242f0d1a4ed4}. \\
+\hline
+{\em check} & Type of the integrity check to calculate from uncompressed data. \\
+\hline
+{\em allocator} & \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\-U\-L\-L to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\-\_\-size} & Size of the input buffer \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\-\_\-pos} & The next byte will be written to out[$\ast$out\-\_\-pos]. $\ast$out\-\_\-pos is updated only if encoding succeeds. \\
+\hline
+{\em out\-\_\-size} & Size of the out buffer; the first byte into which no data is written to is out[out\-\_\-size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Encoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: Not enough output buffer space.
+\item L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-options\-\_\-easy\-::filters, lzma\-\_\-easy\-\_\-preset(), L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, and lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-stream\-\_\-encoder@{lzma\-\_\-stream\-\_\-encoder}}
+\index{lzma\-\_\-stream\-\_\-encoder@{lzma\-\_\-stream\-\_\-encoder}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-stream\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-encoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters, }
+\item[{{\bf lzma\-\_\-check}}]{check}
+\end{DoxyParamCaption}
+)}\label{container_8h_a1a97aec94c9fedd7646cfa51c4f4cd52}
+
+
+Initialize .xz Stream encoder using a custom filter chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} \\
+\hline
+{\em filters} & Array of filters. This must be terminated with filters[n].id = L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N. See \doxyref{filter.\-h}{p.}{filter_8h} for more information. \\
+\hline
+{\em check} & Type of the integrity check to calculate from uncompressed data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Initialization was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, L\-Z\-M\-A\-\_\-\-F\-U\-L\-L\-\_\-\-F\-L\-U\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-R\-U\-N, and L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H.
+
+
+
+Referenced by coder\-\_\-init(), and lzma\-\_\-easy\-\_\-encoder().
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-alone\-\_\-encoder@{lzma\-\_\-alone\-\_\-encoder}}
+\index{lzma\-\_\-alone\-\_\-encoder@{lzma\-\_\-alone\-\_\-encoder}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-alone\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-alone\-\_\-encoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{const {\bf lzma\-\_\-options\-\_\-lzma} $\ast$}]{options}
+\end{DoxyParamCaption}
+)}\label{container_8h_a26fcc5bccdf3f862caa4c992d01e1a72}
+
+
+Initialize .lzma encoder (legacy file format) 
+
+The .lzma format is sometimes called the L\-Z\-M\-A\-\_\-\-Alone format, which is the reason for the name of this function. The .lzma format supports only the L\-Z\-M\-A1 filter. There is no support for integrity checks like C\-R\-C32.
+
+Use this function if and only if you need to create files readable by legacy L\-Z\-M\-A tools such as L\-Z\-M\-A Utils 4.\-32.\-x. Moving to the .xz format is strongly recommended.
+
+The valid action values for \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} are L\-Z\-M\-A\-\_\-\-R\-U\-N and L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H. No kind of flushing is supported, because the file format doesn't make it possible.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-R\-U\-N.
+
+
+
+Referenced by coder\-\_\-init().
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-stream\-\_\-buffer\-\_\-bound@{lzma\-\_\-stream\-\_\-buffer\-\_\-bound}}
+\index{lzma\-\_\-stream\-\_\-buffer\-\_\-bound@{lzma\-\_\-stream\-\_\-buffer\-\_\-bound}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-stream\-\_\-buffer\-\_\-bound}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-stream\-\_\-buffer\-\_\-bound (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{uncompressed\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{container_8h_a66d4366a47b8332bff2a512f44f5c45e}
+
+
+Calculate output buffer size for single-\/call Stream encoder. 
+
+When trying to compress uncompressible data, the encoded size will be slightly bigger than the input data. This function calculates how much output buffer space is required to be sure that \doxyref{lzma\-\_\-stream\-\_\-buffer\-\_\-encode()}{p.}{container_8h_a558683e06e092cb3b9e7edb226d6a1b8} doesn't return L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R.
+
+The calculated value is not exact, but it is guaranteed to be big enough. The actual maximum output space required may be slightly smaller (up to about 100 bytes). This should not be a problem in practice.
+
+If the calculated maximum size doesn't fit into size\-\_\-t or would make the Stream grow past L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X (which should never happen in practice), zero is returned to indicate the error.
+
+\begin{DoxyNote}{Note}
+The limit calculated by this function applies only to single-\/call encoding. Multi-\/call encoding may (and probably will) have larger maximum expansion when encoding uncompressible data. Currently there is no function to calculate the maximum expansion of multi-\/call encoding. 
+\end{DoxyNote}
+
+
+References H\-E\-A\-D\-E\-R\-S\-\_\-\-B\-O\-U\-N\-D, lzma\-\_\-block\-\_\-buffer\-\_\-bound(), and L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X.
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-stream\-\_\-buffer\-\_\-encode@{lzma\-\_\-stream\-\_\-buffer\-\_\-encode}}
+\index{lzma\-\_\-stream\-\_\-buffer\-\_\-encode@{lzma\-\_\-stream\-\_\-buffer\-\_\-encode}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-stream\-\_\-buffer\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-buffer\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-filter} $\ast$}]{filters, }
+\item[{{\bf lzma\-\_\-check}}]{check, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{container_8h_a558683e06e092cb3b9e7edb226d6a1b8}
+
+
+Single-\/call .xz Stream encoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filters} & Array of filters. This must be terminated with filters[n].id = L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N. See \doxyref{filter.\-h}{p.}{filter_8h} for more information. \\
+\hline
+{\em check} & Type of the integrity check to calculate from uncompressed data. \\
+\hline
+{\em allocator} & \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\-U\-L\-L to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\-\_\-size} & Size of the input buffer \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\-\_\-pos} & The next byte will be written to out[$\ast$out\-\_\-pos]. $\ast$out\-\_\-pos is updated only if encoding succeeds. \\
+\hline
+{\em out\-\_\-size} & Size of the out buffer; the first byte into which no data is written to is out[out\-\_\-size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Encoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: Not enough output buffer space.
+\item L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-stream\-\_\-flags\-::backward\-\_\-size, check, filters, lzma\-\_\-block\-\_\-buffer\-\_\-encode(), lzma\-\_\-block\-\_\-unpadded\-\_\-size(), L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-I\-D\-\_\-\-M\-A\-X, lzma\-\_\-check\-\_\-is\-\_\-supported(), lzma\-\_\-index\-\_\-append(), lzma\-\_\-index\-\_\-buffer\-\_\-encode(), lzma\-\_\-index\-\_\-end(), lzma\-\_\-index\-\_\-init(), lzma\-\_\-index\-\_\-size(), L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-stream\-\_\-footer\-\_\-encode(), lzma\-\_\-stream\-\_\-header\-\_\-encode(), L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E, L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K, return\-\_\-if\-\_\-error, lzma\-\_\-block\-::uncompressed\-\_\-size, lzma\-\_\-block\-::version, and lzma\-\_\-stream\-\_\-flags\-::version.
+
+
+
+Referenced by lzma\-\_\-easy\-\_\-buffer\-\_\-encode().
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-stream\-\_\-decoder@{lzma\-\_\-stream\-\_\-decoder}}
+\index{lzma\-\_\-stream\-\_\-decoder@{lzma\-\_\-stream\-\_\-decoder}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-stream\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-decoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{uint64\-\_\-t}]{memlimit, }
+\item[{uint32\-\_\-t}]{flags}
+\end{DoxyParamCaption}
+)}\label{container_8h_a02b7683ef98d8049788961370a8b28c0}
+
+
+Initialize .xz Stream decoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} \\
+\hline
+{\em memlimit} & Memory usage limit as bytes. Use U\-I\-N\-T64\-\_\-\-M\-A\-X to effectively disable the limiter. \\
+\hline
+{\em flags} & Bitwise-\/or of zero or more of the decoder flags\-: L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Initialization was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R\-: Cannot allocate memory.
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported flags
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-R\-U\-N.
+
+
+
+Referenced by coder\-\_\-init().
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-auto\-\_\-decoder@{lzma\-\_\-auto\-\_\-decoder}}
+\index{lzma\-\_\-auto\-\_\-decoder@{lzma\-\_\-auto\-\_\-decoder}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-auto\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-auto\-\_\-decoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{uint64\-\_\-t}]{memlimit, }
+\item[{uint32\-\_\-t}]{flags}
+\end{DoxyParamCaption}
+)}\label{container_8h_a21cbebf2771617bb1e956385cfb353e3}
+
+
+Decode .xz Streams and .lzma files with autodetection. 
+
+This decoder autodetects between the .xz and .lzma file formats, and calls \doxyref{lzma\-\_\-stream\-\_\-decoder()}{p.}{container_8h_a02b7683ef98d8049788961370a8b28c0} or \doxyref{lzma\-\_\-alone\-\_\-decoder()}{p.}{container_8h_a5f43c3a1035e5a226dcd298f4162b861} once the type of the input file has been detected.
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} \\
+\hline
+{\em memlimit} & Memory usage limit as bytes. Use U\-I\-N\-T64\-\_\-\-M\-A\-X to effectively disable the limiter. \\
+\hline
+{\em flags} & Bitwise-\/or of flags, or zero for no flags.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Initialization was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R\-: Cannot allocate memory.
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported flags
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-R\-U\-N.
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-alone\-\_\-decoder@{lzma\-\_\-alone\-\_\-decoder}}
+\index{lzma\-\_\-alone\-\_\-decoder@{lzma\-\_\-alone\-\_\-decoder}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-alone\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-alone\-\_\-decoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{uint64\-\_\-t}]{memlimit}
+\end{DoxyParamCaption}
+)}\label{container_8h_a5f43c3a1035e5a226dcd298f4162b861}
+
+
+Initialize .lzma decoder (legacy file format) 
+
+Valid `action' arguments to \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} are L\-Z\-M\-A\-\_\-\-R\-U\-N and L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H. There is no need to use L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, but allowing it may simplify certain types of applications.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-R\-U\-N.
+
+
+
+Referenced by coder\-\_\-init().
+
+\index{container.\-h@{container.\-h}!lzma\-\_\-stream\-\_\-buffer\-\_\-decode@{lzma\-\_\-stream\-\_\-buffer\-\_\-decode}}
+\index{lzma\-\_\-stream\-\_\-buffer\-\_\-decode@{lzma\-\_\-stream\-\_\-buffer\-\_\-decode}!container.h@{container.\-h}}
+\subsubsection[{lzma\-\_\-stream\-\_\-buffer\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-buffer\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t $\ast$}]{memlimit, }
+\item[{uint32\-\_\-t}]{flags, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t $\ast$}]{in\-\_\-pos, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{container_8h_adf823f70e6344e1e393e61b74818a1b5}
+
+
+Single-\/call .xz Stream decoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em memlimit} & Pointer to how much memory the decoder is allowed to allocate. The value pointed by this pointer is modified if and only if L\-Z\-M\-A\-\_\-\-M\-E\-M\-L\-I\-M\-I\-T\-\_\-\-E\-R\-R\-O\-R is returned. \\
+\hline
+{\em flags} & Bitwise-\/or of zero or more of the decoder flags\-: L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D. Note that L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K is not allowed and will return L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R. \\
+\hline
+{\em allocator} & \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\-U\-L\-L to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\-\_\-pos} & The next byte will be read from in[$\ast$in\-\_\-pos]. $\ast$in\-\_\-pos is updated only if decoding succeeds. \\
+\hline
+{\em in\-\_\-size} & Size of the input buffer; the first byte that won't be read is in[in\-\_\-size]. \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\-\_\-pos} & The next byte will be written to out[$\ast$out\-\_\-pos]. $\ast$out\-\_\-pos is updated only if decoding succeeds. \\
+\hline
+{\em out\-\_\-size} & Size of the out buffer; the first byte into which no data is written to is out[out\-\_\-size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Decoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K\-: This can be returned only if using the L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K flag.
+\item L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K\-: This can be returned only if using the L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K flag.
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-L\-I\-M\-I\-T\-\_\-\-E\-R\-R\-O\-R\-: Memory usage limit was reached. The minimum required memlimit value was stored to $\ast$memlimit.
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: Output buffer was too small.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-next\-\_\-coder\-\_\-s\-::code, lzma\-\_\-next\-\_\-coder\-\_\-s\-::coder, L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D, L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K, and lzma\-\_\-next\-\_\-coder\-\_\-s\-::memconfig.
+

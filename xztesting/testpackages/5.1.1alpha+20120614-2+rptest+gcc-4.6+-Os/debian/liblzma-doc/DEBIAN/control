@@ -1,0 +1,15 @@
+Package: liblzma-doc
+Source: xz-utils
+Version: 5.1.1alpha+20120614-2+rptest+gcc-4.6+-Os
+Architecture: all
+Maintainer: Jonathan Nieder <jrnieder@gmail.com>
+Installed-Size: 3367
+Suggests: liblzma-dev
+Section: doc
+Priority: optional
+Homepage: http://tukaani.org/xz/
+Description: XZ-format compression library - API documentation
+ This package contains a reference manual for the liblzma data
+ compression library, in Doxygen-generated HTML files. The purpose
+ of each struct, macro, and function in the public interface is
+ explained.

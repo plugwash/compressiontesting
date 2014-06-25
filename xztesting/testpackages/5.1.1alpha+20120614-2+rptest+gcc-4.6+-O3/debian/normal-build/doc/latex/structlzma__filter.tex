@@ -1,0 +1,60 @@
+\section{lzma\-\_\-filter Struct Reference}
+\label{structlzma__filter}\index{lzma\-\_\-filter@{lzma\-\_\-filter}}
+
+
+Filter options.  
+
+
+
+
+{\ttfamily \#include $<$filter.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-vli} {\bf id}
+\begin{DoxyCompactList}\small\item\em Filter I\-D. \end{DoxyCompactList}\item 
+void $\ast$ {\bf options}
+\begin{DoxyCompactList}\small\item\em Pointer to filter-\/specific options structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Filter options. 
+
+This structure is used to pass Filter I\-D and a pointer filter's options to liblzma. A few functions work with a single \doxyref{lzma\-\_\-filter}{p.}{structlzma__filter} structure, while most functions expect a filter chain.
+
+A filter chain is indicated with an array of \doxyref{lzma\-\_\-filter}{p.}{structlzma__filter} structures. The array is terminated with .id = L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N. Thus, the filter array must have L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X + 1 elements (that is, five) to be able to hold any arbitrary filter chain. This is important when using \doxyref{lzma\-\_\-block\-\_\-header\-\_\-decode()}{p.}{block_8h_a71ddd0bec506092018e407ed6f027f53} from \doxyref{block.\-h}{p.}{block_8h}, because too small array would make liblzma write past the end of the filters array. 
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-filter@{lzma\-\_\-filter}!id@{id}}
+\index{id@{id}!lzma_filter@{lzma\-\_\-filter}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-filter\-::id}\label{structlzma__filter_aef1d9709759f39e61db77547b2326929}
+
+
+Filter I\-D. 
+
+Use constants whose name begin with `\-L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-' to specify different filters. In an array of \doxyref{lzma\-\_\-filter}{p.}{structlzma__filter} structures, use L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N to indicate end of filters.
+
+\begin{DoxyNote}{Note}
+This is not an enum, because on some systems enums cannot be 64-\/bit. 
+\end{DoxyNote}
+
+
+Referenced by coder\-\_\-add\-\_\-filter(), is\-\_\-format\-\_\-lzma(), lzma\-\_\-easy\-\_\-preset(), lzma\-\_\-filters\-\_\-update(), lzmainfo(), message\-\_\-filters\-\_\-to\-\_\-str(), and parse\-\_\-block\-\_\-header().
+
+\index{lzma\-\_\-filter@{lzma\-\_\-filter}!options@{options}}
+\index{options@{options}!lzma_filter@{lzma\-\_\-filter}}
+\subsubsection[{options}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ lzma\-\_\-filter\-::options}\label{structlzma__filter_a10dfbaa1601793657d12320bef933ee6}
+
+
+Pointer to filter-\/specific options structure. 
+
+If the filter doesn't need options, set this to N\-U\-L\-L. If id is set to L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, options is ignored, and thus doesn't need be initialized. 
+
+Referenced by coder\-\_\-add\-\_\-filter(), coder\-\_\-set\-\_\-preset(), is\-\_\-format\-\_\-lzma(), lzma\-\_\-easy\-\_\-preset(), lzmainfo(), and message\-\_\-filters\-\_\-to\-\_\-str().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/api/lzma/{\bf filter.\-h}\end{DoxyCompactItemize}

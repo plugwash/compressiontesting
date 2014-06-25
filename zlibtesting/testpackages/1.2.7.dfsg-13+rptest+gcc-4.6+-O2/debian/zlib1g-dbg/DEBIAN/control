@@ -1,0 +1,15 @@
+Package: zlib1g-dbg
+Source: zlib
+Version: 1:1.2.7.dfsg-13+rptest+gcc-4.6+-O2
+Architecture: armhf
+Maintainer: Mark Brown <broonie@debian.org>
+Installed-Size: 448
+Depends: zlib1g (= 1:1.2.7.dfsg-13+rptest+gcc-4.6+-O2)
+Provides: libz-dbg
+Section: debug
+Priority: extra
+Homepage: http://zlib.net/
+Description: compression library - development
+ zlib is a library implementing the deflate compression method found
+ in gzip and PKZIP.  This package includes debugging symbols for use
+ when debugging applications which use zlib.

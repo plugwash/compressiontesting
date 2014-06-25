@@ -1,0 +1,86 @@
+\section{lzma\-\_\-index\-\_\-s Struct Reference}
+\label{structlzma__index__s}\index{lzma\-\_\-index\-\_\-s@{lzma\-\_\-index\-\_\-s}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf index\-\_\-tree} {\bf streams}
+\item 
+{\bf lzma\-\_\-vli} {\bf uncompressed\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Uncompressed size of all the Blocks in the Stream(s) \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf total\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Total size of all the Blocks in the Stream(s) \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf record\-\_\-count}
+\begin{DoxyCompactList}\small\item\em Total number of Records in all Streams in this lzma\-\_\-index. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf index\-\_\-list\-\_\-size}
+\item 
+size\-\_\-t {\bf prealloc}
+\item 
+uint32\-\_\-t {\bf checks}
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-index\-\_\-s@{lzma\-\_\-index\-\_\-s}!streams@{streams}}
+\index{streams@{streams}!lzma_index_s@{lzma\-\_\-index\-\_\-s}}
+\subsubsection[{streams}]{\setlength{\rightskip}{0pt plus 5cm}{\bf index\-\_\-tree} lzma\-\_\-index\-\_\-s\-::streams}\label{structlzma__index__s_a4dbed779040f4a7bad495a629d27e919}
+A\-V\-L-\/tree containing the Stream(s). Often there is just one Stream, but using a tree keeps lookups fast even when there are many concatenated Streams. 
+
+Referenced by lzma\-\_\-index\-\_\-dup(), lzma\-\_\-index\-\_\-init(), lzma\-\_\-index\-\_\-iter\-\_\-locate(), and lzma\-\_\-index\-\_\-iter\-\_\-next().
+
+\index{lzma\-\_\-index\-\_\-s@{lzma\-\_\-index\-\_\-s}!uncompressed\-\_\-size@{uncompressed\-\_\-size}}
+\index{uncompressed\-\_\-size@{uncompressed\-\_\-size}!lzma_index_s@{lzma\-\_\-index\-\_\-s}}
+\subsubsection[{uncompressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-s\-::uncompressed\-\_\-size}\label{structlzma__index__s_ac26ac10364bd7861c8e2afecd024c4ba}
+
+
+Uncompressed size of all the Blocks in the Stream(s) 
+
+
+
+Referenced by lzma\-\_\-index\-\_\-dup(), and lzma\-\_\-index\-\_\-iter\-\_\-locate().
+
+\index{lzma\-\_\-index\-\_\-s@{lzma\-\_\-index\-\_\-s}!total\-\_\-size@{total\-\_\-size}}
+\index{total\-\_\-size@{total\-\_\-size}!lzma_index_s@{lzma\-\_\-index\-\_\-s}}
+\subsubsection[{total\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-s\-::total\-\_\-size}\label{structlzma__index__s_a1e3767d5bad6704d797c5b447467ec75}
+
+
+Total size of all the Blocks in the Stream(s) 
+
+
+
+Referenced by lzma\-\_\-index\-\_\-dup().
+
+\index{lzma\-\_\-index\-\_\-s@{lzma\-\_\-index\-\_\-s}!record\-\_\-count@{record\-\_\-count}}
+\index{record\-\_\-count@{record\-\_\-count}!lzma_index_s@{lzma\-\_\-index\-\_\-s}}
+\subsubsection[{record\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-s\-::record\-\_\-count}\label{structlzma__index__s_a94bbe86623f812d8742da7e545ed5d88}
+
+
+Total number of Records in all Streams in this lzma\-\_\-index. 
+
+
+
+Referenced by lzma\-\_\-index\-\_\-dup(), and lzma\-\_\-index\-\_\-padding\-\_\-size().
+
+\index{lzma\-\_\-index\-\_\-s@{lzma\-\_\-index\-\_\-s}!index\-\_\-list\-\_\-size@{index\-\_\-list\-\_\-size}}
+\index{index\-\_\-list\-\_\-size@{index\-\_\-list\-\_\-size}!lzma_index_s@{lzma\-\_\-index\-\_\-s}}
+\subsubsection[{index\-\_\-list\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-s\-::index\-\_\-list\-\_\-size}\label{structlzma__index__s_a69f2a4f80181ffce53aeb73cc135a923}
+Size of the List of Records field if all the Streams in this lzma\-\_\-index were packed into a single Stream (makes it simpler to take many .xz files and combine them into a single Stream).
+
+This value together with record\-\_\-count is needed to calculate Backward Size that is stored into Stream Footer. 
+
+Referenced by lzma\-\_\-index\-\_\-dup(), and lzma\-\_\-index\-\_\-padding\-\_\-size().
+
+\index{lzma\-\_\-index\-\_\-s@{lzma\-\_\-index\-\_\-s}!prealloc@{prealloc}}
+\index{prealloc@{prealloc}!lzma_index_s@{lzma\-\_\-index\-\_\-s}}
+\subsubsection[{prealloc}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-index\-\_\-s\-::prealloc}\label{structlzma__index__s_abf85208d42ea5923a68dc120c0620baf}
+How many Records to allocate at once in \doxyref{lzma\-\_\-index\-\_\-append()}{p.}{api_2lzma_2index_8h_aad24f1d4784b7c665b27ae91b52d3bd1}. This defaults to I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E but can be overriden with \doxyref{lzma\-\_\-index\-\_\-prealloc()}{p.}{index_8c_a017afdd81c6a8410f3148d82dca671c2}. 
+
+Referenced by lzma\-\_\-index\-\_\-prealloc().
+
+\index{lzma\-\_\-index\-\_\-s@{lzma\-\_\-index\-\_\-s}!checks@{checks}}
+\index{checks@{checks}!lzma_index_s@{lzma\-\_\-index\-\_\-s}}
+\subsubsection[{checks}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-index\-\_\-s\-::checks}\label{structlzma__index__s_af5e9822e2fe197f32be8f88d04a7f83d}
+Bitmask indicating what integrity check types have been used as set by \doxyref{lzma\-\_\-index\-\_\-stream\-\_\-flags()}{p.}{api_2lzma_2index_8h_a79a19669237f19f0b11c9f3be80a62b4}. The bit of the last Stream is not included here, since it is possible to change it by calling \doxyref{lzma\-\_\-index\-\_\-stream\-\_\-flags()}{p.}{api_2lzma_2index_8h_a79a19669237f19f0b11c9f3be80a62b4} again. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/{\bf index.\-c}\end{DoxyCompactItemize}

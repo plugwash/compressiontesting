@@ -1,0 +1,26 @@
+\section{io\-\_\-buf Union Reference}
+\label{unionio__buf}\index{io\-\_\-buf@{io\-\_\-buf}}
+
+
+{\ttfamily \#include $<$file\-\_\-io.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t {\bfseries u8} [I\-O\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E]\label{unionio__buf_a8aeb5732cba5cae653b05fb6079850b7}
+
+\item 
+uint32\-\_\-t {\bfseries u32} [I\-O\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E/sizeof(uint32\-\_\-t)]\label{unionio__buf_a98e0cad575a6118c0518a823e8c0aa1e}
+
+\item 
+uint64\-\_\-t {\bfseries u64} [I\-O\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E/sizeof(uint64\-\_\-t)]\label{unionio__buf_a62b585619d3b3f93e24057fbe1658371}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+is\-\_\-sparse() accesses the buffer as uint64\-\_\-t for maximum speed. Use an union to make sure that the buffer is properly aligned. 
+
+The documentation for this union was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+xz/{\bf file\-\_\-io.\-h}\end{DoxyCompactItemize}

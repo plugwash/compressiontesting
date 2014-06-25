@@ -1,0 +1,293 @@
+\section{xz/util.h File Reference}
+\label{util_8h}\index{xz/util.\-h@{xz/util.\-h}}
+
+
+Miscellaneous utility functions.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf xmalloc}(size)~{\bf xrealloc}(N\-U\-L\-L, size)
+\begin{DoxyCompactList}\small\item\em Safe malloc() that never returns N\-U\-L\-L. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries nicestr\-\_\-unit} \{ \\*
+{\bfseries N\-I\-C\-E\-S\-T\-R\-\_\-\-B}, 
+{\bfseries N\-I\-C\-E\-S\-T\-R\-\_\-\-K\-I\-B}, 
+{\bfseries N\-I\-C\-E\-S\-T\-R\-\_\-\-M\-I\-B}, 
+{\bfseries N\-I\-C\-E\-S\-T\-R\-\_\-\-G\-I\-B}, 
+\\*
+{\bfseries N\-I\-C\-E\-S\-T\-R\-\_\-\-T\-I\-B}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ {\bf xrealloc} (void $\ast$ptr, size\-\_\-t size) lzma\-\_\-attribute((\-\_\-\-\_\-malloc\-\_\-\-\_\-)) lzma\-\_\-attr\-\_\-alloc\-\_\-size(2)
+\begin{DoxyCompactList}\small\item\em Safe realloc() that never returns N\-U\-L\-L. \end{DoxyCompactList}\item 
+char $\ast$ {\bf xstrdup} (const char $\ast$src) lzma\-\_\-attribute((\-\_\-\-\_\-malloc\-\_\-\-\_\-))
+\begin{DoxyCompactList}\small\item\em Safe strdup() that never returns N\-U\-L\-L. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bf str\-\_\-to\-\_\-uint64} (const char $\ast$name, const char $\ast$value, uint64\-\_\-t min, uint64\-\_\-t max)
+\begin{DoxyCompactList}\small\item\em Fancy version of strtoull() \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bf round\-\_\-up\-\_\-to\-\_\-mib} (uint64\-\_\-t n)
+\begin{DoxyCompactList}\small\item\em Round an integer up to the next full Mi\-B and convert to Mi\-B. \end{DoxyCompactList}\item 
+const char $\ast$ {\bf uint64\-\_\-to\-\_\-str} (uint64\-\_\-t value, uint32\-\_\-t slot)
+\begin{DoxyCompactList}\small\item\em Convert uint64\-\_\-t to a string. \end{DoxyCompactList}\item 
+const char $\ast$ {\bf uint64\-\_\-to\-\_\-nicestr} (uint64\-\_\-t value, enum nicestr\-\_\-unit unit\-\_\-min, enum nicestr\-\_\-unit unit\-\_\-max, bool always\-\_\-also\-\_\-bytes, uint32\-\_\-t slot)
+\begin{DoxyCompactList}\small\item\em Convert uint64\-\_\-t to a nice human readable string. \end{DoxyCompactList}\item 
+void {\bf my\-\_\-snprintf} (char $\ast$$\ast$pos, size\-\_\-t $\ast$left, const char $\ast$fmt,...) lzma\-\_\-attribute((\-\_\-\-\_\-format\-\_\-\-\_\-(\-\_\-\-\_\-printf\-\_\-\-\_\-
+\begin{DoxyCompactList}\small\item\em Wrapper for snprintf() to help constructing a string in pieces. \end{DoxyCompactList}\item 
+void bool {\bf is\-\_\-empty\-\_\-filename} (const char $\ast${\bf filename})
+\begin{DoxyCompactList}\small\item\em Check if filename is empty and print an error message. \end{DoxyCompactList}\item 
+bool {\bf is\-\_\-tty\-\_\-stdin} (void)
+\begin{DoxyCompactList}\small\item\em Test if stdin is a terminal. \end{DoxyCompactList}\item 
+bool {\bf is\-\_\-tty\-\_\-stdout} (void)
+\begin{DoxyCompactList}\small\item\em Test if stdout is a terminal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Miscellaneous utility functions. 
+
+\subsection{Macro Definition Documentation}
+\index{util.\-h@{util.\-h}!xmalloc@{xmalloc}}
+\index{xmalloc@{xmalloc}!util.h@{util.\-h}}
+\subsubsection[{xmalloc}]{\setlength{\rightskip}{0pt plus 5cm}\#define xmalloc(
+\begin{DoxyParamCaption}
+\item[{}]{size}
+\end{DoxyParamCaption}
+)~{\bf xrealloc}(N\-U\-L\-L, size)}\label{util_8h_add65fdb55fc7500c5443d169143f31a7}
+
+
+Safe malloc() that never returns N\-U\-L\-L. 
+
+\begin{DoxyNote}{Note}
+\doxyref{xmalloc()}{p.}{util_8h_add65fdb55fc7500c5443d169143f31a7}, \doxyref{xrealloc()}{p.}{util_8c_a93a8ec6e8a6eef0f62b7e5b50d0bf9e4}, and \doxyref{xstrdup()}{p.}{util_8c_a401dd8b99774c03e2dafe25f57d259e8} must not be used when there are files open for writing, that should be cleaned up before exiting. 
+\end{DoxyNote}
+
+
+Referenced by compressed\-\_\-name(), options\-\_\-bcj(), options\-\_\-delta(), options\-\_\-lzma(), uncompressed\-\_\-name(), and xstrdup().
+
+
+
+\subsection{Function Documentation}
+\index{util.\-h@{util.\-h}!xrealloc@{xrealloc}}
+\index{xrealloc@{xrealloc}!util.h@{util.\-h}}
+\subsubsection[{xrealloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ xrealloc (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}\label{util_8h_a0598904a6092ee955166c8ea29749cd8}
+
+
+Safe realloc() that never returns N\-U\-L\-L. 
+
+
+
+References message\-\_\-fatal().
+
+\index{util.\-h@{util.\-h}!xstrdup@{xstrdup}}
+\index{xstrdup@{xstrdup}!util.h@{util.\-h}}
+\subsubsection[{xstrdup}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ xstrdup (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src}
+\end{DoxyParamCaption}
+)}\label{util_8h_a68543a962982b7dca93c9e99a8e368dc}
+
+
+Safe strdup() that never returns N\-U\-L\-L. 
+
+
+
+References xmalloc.
+
+
+
+Referenced by parse\-\_\-options(), and suffix\-\_\-set().
+
+\index{util.\-h@{util.\-h}!str\-\_\-to\-\_\-uint64@{str\-\_\-to\-\_\-uint64}}
+\index{str\-\_\-to\-\_\-uint64@{str\-\_\-to\-\_\-uint64}!util.h@{util.\-h}}
+\subsubsection[{str\-\_\-to\-\_\-uint64}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t str\-\_\-to\-\_\-uint64 (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name, }
+\item[{const char $\ast$}]{value, }
+\item[{uint64\-\_\-t}]{min, }
+\item[{uint64\-\_\-t}]{max}
+\end{DoxyParamCaption}
+)}\label{util_8h_a0ec7e8d80d1eb63f7ea31dd8e0bb56a2}
+
+
+Fancy version of strtoull() 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the option to show in case of an error \\
+\hline
+{\em value} & String containing the number to be parsed; may contain suffixes \char`\"{}k\char`\"{}, \char`\"{}\-M\char`\"{}, \char`\"{}\-G\char`\"{}, \char`\"{}\-Ki\char`\"{}, \char`\"{}\-Mi\char`\"{}, or \char`\"{}\-Gi\char`\"{} \\
+\hline
+{\em min} & Minimum valid value \\
+\hline
+{\em max} & Maximum valid value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Parsed value that is in the range [min, max]. Does not return if an error occurs. 
+\end{DoxyReturn}
+
+
+References message(), message\-\_\-fatal(), and V\-\_\-\-E\-R\-R\-O\-R.
+
+
+
+Referenced by parse\-\_\-memlimit(), and parse\-\_\-options().
+
+\index{util.\-h@{util.\-h}!round\-\_\-up\-\_\-to\-\_\-mib@{round\-\_\-up\-\_\-to\-\_\-mib}}
+\index{round\-\_\-up\-\_\-to\-\_\-mib@{round\-\_\-up\-\_\-to\-\_\-mib}!util.h@{util.\-h}}
+\subsubsection[{round\-\_\-up\-\_\-to\-\_\-mib}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t round\-\_\-up\-\_\-to\-\_\-mib (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}\label{util_8h_aecb8fdaf99a830f7fe8697ca87f8acea}
+
+
+Round an integer up to the next full Mi\-B and convert to Mi\-B. 
+
+This is used when printing memory usage and limit. 
+
+Referenced by memlimit\-\_\-show(), and message\-\_\-mem\-\_\-needed().
+
+\index{util.\-h@{util.\-h}!uint64\-\_\-to\-\_\-str@{uint64\-\_\-to\-\_\-str}}
+\index{uint64\-\_\-to\-\_\-str@{uint64\-\_\-to\-\_\-str}!util.h@{util.\-h}}
+\subsubsection[{uint64\-\_\-to\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ uint64\-\_\-to\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{value, }
+\item[{uint32\-\_\-t}]{slot}
+\end{DoxyParamCaption}
+)}\label{util_8h_a157dec70513354b09a89166c74ddac53}
+
+
+Convert uint64\-\_\-t to a string. 
+
+Convert the given value to a string with locale-\/specific thousand separators, if supported by the snprintf() implementation. The string is stored into an internal static buffer indicated by the slot argument. A pointer to the selected buffer is returned.
+
+This function exists, because non-\/\-P\-O\-S\-I\-X systems don't support thousand separator in format strings. Solving the problem in a simple way doesn't work, because it breaks gettext (specifically, the xgettext tool). 
+
+References bufs, check\-\_\-thousand\-\_\-sep(), and thousand.
+
+
+
+Referenced by memlimit\-\_\-show(), and message\-\_\-mem\-\_\-needed().
+
+\index{util.\-h@{util.\-h}!uint64\-\_\-to\-\_\-nicestr@{uint64\-\_\-to\-\_\-nicestr}}
+\index{uint64\-\_\-to\-\_\-nicestr@{uint64\-\_\-to\-\_\-nicestr}!util.h@{util.\-h}}
+\subsubsection[{uint64\-\_\-to\-\_\-nicestr}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ uint64\-\_\-to\-\_\-nicestr (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{value, }
+\item[{enum nicestr\-\_\-unit}]{unit\-\_\-min, }
+\item[{enum nicestr\-\_\-unit}]{unit\-\_\-max, }
+\item[{bool}]{always\-\_\-also\-\_\-bytes, }
+\item[{uint32\-\_\-t}]{slot}
+\end{DoxyParamCaption}
+)}\label{util_8h_a459cbc5237b7dbb1b68cd6cd605c8af2}
+
+
+Convert uint64\-\_\-t to a nice human readable string. 
+
+This is like \doxyref{uint64\-\_\-to\-\_\-str()}{p.}{util_8c_a157dec70513354b09a89166c74ddac53} but uses B, Ki\-B, Mi\-B, Gi\-B, or Ti\-B suffix and optionally includes the exact size in parenthesis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Value to be printed \\
+\hline
+{\em unit\-\_\-min} & Smallest unit to use. This and unit\-\_\-max are used e.\-g. when showing the progress indicator to force the unit to Mi\-B. \\
+\hline
+{\em unit\-\_\-max} & Biggest unit to use. assert(unit\-\_\-min $<$= unit\-\_\-max). \\
+\hline
+{\em always\-\_\-also\-\_\-bytes} & Show also the exact byte value in parenthesis if the nicely formatted string uses bigger unit than bytes. \\
+\hline
+{\em slot} & Which static buffer to use to hold the string. This is shared with \doxyref{uint64\-\_\-to\-\_\-str()}{p.}{util_8c_a157dec70513354b09a89166c74ddac53}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to statically allocated buffer containing the string.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This uses double\-\_\-to\-\_\-str() internally so the static buffer in double\-\_\-to\-\_\-str() will be overwritten. 
+\end{DoxyNote}
+
+
+References bufs, check\-\_\-thousand\-\_\-sep(), my\-\_\-snprintf(), and thousand.
+
+
+
+Referenced by progress\-\_\-sizes().
+
+\index{util.\-h@{util.\-h}!my\-\_\-snprintf@{my\-\_\-snprintf}}
+\index{my\-\_\-snprintf@{my\-\_\-snprintf}!util.h@{util.\-h}}
+\subsubsection[{my\-\_\-snprintf}]{\setlength{\rightskip}{0pt plus 5cm}void my\-\_\-snprintf (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{pos, }
+\item[{size\-\_\-t $\ast$}]{left, }
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{util_8h_a935bb9522106de53d1e6573a0289843c}
+
+
+Wrapper for snprintf() to help constructing a string in pieces. 
+
+A maximum of $\ast$left bytes is written starting from $\ast$pos. $\ast$pos and $\ast$left are updated accordingly. 
+
+Referenced by get\-\_\-check\-\_\-names(), message\-\_\-filters\-\_\-to\-\_\-str(), progress\-\_\-sizes(), and uint64\-\_\-to\-\_\-nicestr().
+
+\index{util.\-h@{util.\-h}!is\-\_\-empty\-\_\-filename@{is\-\_\-empty\-\_\-filename}}
+\index{is\-\_\-empty\-\_\-filename@{is\-\_\-empty\-\_\-filename}!util.h@{util.\-h}}
+\subsubsection[{is\-\_\-empty\-\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}void bool is\-\_\-empty\-\_\-filename (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{util_8h_a24db177e2d13aa23f841e2e1f3853475}
+
+
+Check if filename is empty and print an error message. 
+
+
+
+References message\-\_\-error().
+
+
+
+Referenced by io\-\_\-open\-\_\-src().
+
+\index{util.\-h@{util.\-h}!is\-\_\-tty\-\_\-stdin@{is\-\_\-tty\-\_\-stdin}}
+\index{is\-\_\-tty\-\_\-stdin@{is\-\_\-tty\-\_\-stdin}!util.h@{util.\-h}}
+\subsubsection[{is\-\_\-tty\-\_\-stdin}]{\setlength{\rightskip}{0pt plus 5cm}bool is\-\_\-tty\-\_\-stdin (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{util_8h_a2e66a584038626fa52f42665f7a852ba}
+
+
+Test if stdin is a terminal. 
+
+If stdin is a terminal, an error message is printed and exit status set to E\-X\-I\-T\-\_\-\-E\-R\-R\-O\-R. 
+
+References message\-\_\-error().
+
+\index{util.\-h@{util.\-h}!is\-\_\-tty\-\_\-stdout@{is\-\_\-tty\-\_\-stdout}}
+\index{is\-\_\-tty\-\_\-stdout@{is\-\_\-tty\-\_\-stdout}!util.h@{util.\-h}}
+\subsubsection[{is\-\_\-tty\-\_\-stdout}]{\setlength{\rightskip}{0pt plus 5cm}bool is\-\_\-tty\-\_\-stdout (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{util_8h_ad2b365a28363f4feb2bde1196f79c5dc}
+
+
+Test if stdout is a terminal. 
+
+If stdout is a terminal, an error message is printed and exit status set to E\-X\-I\-T\-\_\-\-E\-R\-R\-O\-R. 
+
+References message\-\_\-error().
+

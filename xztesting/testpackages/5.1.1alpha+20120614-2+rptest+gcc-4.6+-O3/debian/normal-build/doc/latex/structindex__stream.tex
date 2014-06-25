@@ -1,0 +1,101 @@
+\section{index\-\_\-stream Struct Reference}
+\label{structindex__stream}\index{index\-\_\-stream@{index\-\_\-stream}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf index\-\_\-tree\-\_\-node} {\bf node}
+\begin{DoxyCompactList}\small\item\em Every \doxyref{index\-\_\-stream}{p.}{structindex__stream} is a node in the tree of Sreams. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf number}
+\begin{DoxyCompactList}\small\item\em Number of this Stream (first one is 1) \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf block\-\_\-number\-\_\-base}
+\begin{DoxyCompactList}\small\item\em Total number of Blocks before this Stream. \end{DoxyCompactList}\item 
+{\bf index\-\_\-tree} {\bf groups}
+\item 
+{\bf lzma\-\_\-vli} {\bf record\-\_\-count}
+\begin{DoxyCompactList}\small\item\em Number of Records in this Stream. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf index\-\_\-list\-\_\-size}
+\item 
+{\bf lzma\-\_\-stream\-\_\-flags} {\bf stream\-\_\-flags}
+\item 
+{\bf lzma\-\_\-vli} {\bf stream\-\_\-padding}
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\index{index\-\_\-stream@{index\-\_\-stream}!node@{node}}
+\index{node@{node}!index_stream@{index\-\_\-stream}}
+\subsubsection[{node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf index\-\_\-tree\-\_\-node} index\-\_\-stream\-::node}\label{structindex__stream_a641dcc01e11966039a512b83dccdcd3c}
+
+
+Every \doxyref{index\-\_\-stream}{p.}{structindex__stream} is a node in the tree of Sreams. 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), index\-\_\-stream\-\_\-init(), lzma\-\_\-index\-\_\-append(), lzma\-\_\-index\-\_\-dup(), lzma\-\_\-index\-\_\-file\-\_\-size(), lzma\-\_\-index\-\_\-init(), lzma\-\_\-index\-\_\-iter\-\_\-locate(), and lzma\-\_\-index\-\_\-iter\-\_\-next().
+
+\index{index\-\_\-stream@{index\-\_\-stream}!number@{number}}
+\index{number@{number}!index_stream@{index\-\_\-stream}}
+\subsubsection[{number}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t index\-\_\-stream\-::number}\label{structindex__stream_a6430d10f4bc8ebd6a90bf0ecc93b9431}
+
+
+Number of this Stream (first one is 1) 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), and index\-\_\-stream\-\_\-init().
+
+\index{index\-\_\-stream@{index\-\_\-stream}!block\-\_\-number\-\_\-base@{block\-\_\-number\-\_\-base}}
+\index{block\-\_\-number\-\_\-base@{block\-\_\-number\-\_\-base}!index_stream@{index\-\_\-stream}}
+\subsubsection[{block\-\_\-number\-\_\-base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} index\-\_\-stream\-::block\-\_\-number\-\_\-base}\label{structindex__stream_a7cd8ca2b0ebfaee95e02065eda6fd38b}
+
+
+Total number of Blocks before this Stream. 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), and index\-\_\-stream\-\_\-init().
+
+\index{index\-\_\-stream@{index\-\_\-stream}!groups@{groups}}
+\index{groups@{groups}!index_stream@{index\-\_\-stream}}
+\subsubsection[{groups}]{\setlength{\rightskip}{0pt plus 5cm}{\bf index\-\_\-tree} index\-\_\-stream\-::groups}\label{structindex__stream_a9e6b322459a5b7b8806154ac9170d1c8}
+Record groups of this Stream are stored in a tree. It's a T-\/tree with A\-V\-L-\/tree balancing. There are I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E Records per node by default. This keeps the number of memory allocations reasonable and finding a Record is fast. 
+
+Referenced by index\-\_\-dup\-\_\-stream(), index\-\_\-stream\-\_\-end(), index\-\_\-stream\-\_\-init(), lzma\-\_\-index\-\_\-append(), lzma\-\_\-index\-\_\-file\-\_\-size(), lzma\-\_\-index\-\_\-iter\-\_\-locate(), and lzma\-\_\-index\-\_\-iter\-\_\-next().
+
+\index{index\-\_\-stream@{index\-\_\-stream}!record\-\_\-count@{record\-\_\-count}}
+\index{record\-\_\-count@{record\-\_\-count}!index_stream@{index\-\_\-stream}}
+\subsubsection[{record\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} index\-\_\-stream\-::record\-\_\-count}\label{structindex__stream_aef7ff4cbade21b89bf2b5c58dc46acf9}
+
+
+Number of Records in this Stream. 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), index\-\_\-stream\-\_\-init(), lzma\-\_\-index\-\_\-append(), and lzma\-\_\-index\-\_\-file\-\_\-size().
+
+\index{index\-\_\-stream@{index\-\_\-stream}!index\-\_\-list\-\_\-size@{index\-\_\-list\-\_\-size}}
+\index{index\-\_\-list\-\_\-size@{index\-\_\-list\-\_\-size}!index_stream@{index\-\_\-stream}}
+\subsubsection[{index\-\_\-list\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} index\-\_\-stream\-::index\-\_\-list\-\_\-size}\label{structindex__stream_a631ced838a2c6389d920e57dc1edd016}
+Size of the List of Records field in this Stream. This is used together with record\-\_\-count to calculate the size of the Index field and thus the total size of the Stream. 
+
+Referenced by index\-\_\-dup\-\_\-stream(), index\-\_\-stream\-\_\-init(), lzma\-\_\-index\-\_\-append(), and lzma\-\_\-index\-\_\-file\-\_\-size().
+
+\index{index\-\_\-stream@{index\-\_\-stream}!stream\-\_\-flags@{stream\-\_\-flags}}
+\index{stream\-\_\-flags@{stream\-\_\-flags}!index_stream@{index\-\_\-stream}}
+\subsubsection[{stream\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-stream\-\_\-flags} index\-\_\-stream\-::stream\-\_\-flags}\label{structindex__stream_ac6af5abc8801131038c79fbde165e064}
+Stream Flags of this Stream. This is meaningful only if the Stream Flags have been told us with \doxyref{lzma\-\_\-index\-\_\-stream\-\_\-flags()}{p.}{api_2lzma_2index_8h_a79a19669237f19f0b11c9f3be80a62b4}. Initially stream\-\_\-flags.\-version is set to U\-I\-N\-T32\-\_\-\-M\-A\-X to indicate that the Stream Flags are unknown. 
+
+Referenced by index\-\_\-dup\-\_\-stream(), index\-\_\-stream\-\_\-init(), lzma\-\_\-index\-\_\-checks(), and lzma\-\_\-index\-\_\-stream\-\_\-flags().
+
+\index{index\-\_\-stream@{index\-\_\-stream}!stream\-\_\-padding@{stream\-\_\-padding}}
+\index{stream\-\_\-padding@{stream\-\_\-padding}!index_stream@{index\-\_\-stream}}
+\subsubsection[{stream\-\_\-padding}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} index\-\_\-stream\-::stream\-\_\-padding}\label{structindex__stream_aedd50053d69a45984cd5470eecc736a2}
+Amount of Stream Padding after this Stream. This defaults to zero and can be set with \doxyref{lzma\-\_\-index\-\_\-stream\-\_\-padding()}{p.}{api_2lzma_2index_8h_a3ed82f96c688f3c953f6509b6f4e2ef3}. 
+
+Referenced by index\-\_\-dup\-\_\-stream(), index\-\_\-stream\-\_\-init(), lzma\-\_\-index\-\_\-append(), lzma\-\_\-index\-\_\-file\-\_\-size(), and lzma\-\_\-index\-\_\-stream\-\_\-padding().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/{\bf index.\-c}\end{DoxyCompactItemize}

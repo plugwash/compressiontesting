@@ -1,0 +1,14 @@
+Package: zlib-bin
+Source: zlib
+Version: 1:1.2.7.dfsg-13+rptest+gcc-4.7+-O3
+Architecture: armhf
+Maintainer: Mark Brown <broonie@debian.org>
+Installed-Size: 133
+Depends: libc6 (>= 2.13-28), libgcc1 (>= 1:4.4.0), zlib1g (>= 1:1.1.4)
+Section: utils
+Priority: optional
+Homepage: http://zlib.net/
+Description: compression library - sample programs
+ Some generally useful sample programs from the contrib directory.
+ Includes a "mini" implementation of `zip' and `unzip' called
+ `minizip' and `miniunzip' respectively.

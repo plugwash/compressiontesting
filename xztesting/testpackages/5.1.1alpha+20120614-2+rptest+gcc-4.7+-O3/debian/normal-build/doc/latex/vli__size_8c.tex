@@ -1,0 +1,41 @@
+\section{liblzma/common/vli\-\_\-size.c File Reference}
+\label{vli__size_8c}\index{liblzma/common/vli\-\_\-size.\-c@{liblzma/common/vli\-\_\-size.\-c}}
+
+
+Calculates the encoded size of a variable-\/length integer.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t {\bf lzma\-\_\-vli\-\_\-size} ({\bf lzma\-\_\-vli} vli)
+\begin{DoxyCompactList}\small\item\em Get the number of bytes required to encode a V\-L\-I. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculates the encoded size of a variable-\/length integer. 
+
+\subsection{Function Documentation}
+\index{vli\-\_\-size.\-c@{vli\-\_\-size.\-c}!lzma\-\_\-vli\-\_\-size@{lzma\-\_\-vli\-\_\-size}}
+\index{lzma\-\_\-vli\-\_\-size@{lzma\-\_\-vli\-\_\-size}!vli_size.c@{vli\-\_\-size.\-c}}
+\subsubsection[{lzma\-\_\-vli\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-vli\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-vli}}]{vli}
+\end{DoxyParamCaption}
+)}\label{vli__size_8c_a7818e4d09431b237a1d26ada34f15404}
+
+
+Get the number of bytes required to encode a V\-L\-I. 
+
+\begin{DoxyReturn}{Returns}
+Number of bytes on success (1-\/9). If vli isn't valid, zero is returned. 
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X, and L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X.
+
+
+
+Referenced by hash\-\_\-append(), lzma\-\_\-block\-\_\-header\-\_\-size(), lzma\-\_\-filter\-\_\-flags\-\_\-size(), and lzma\-\_\-index\-\_\-append().
+

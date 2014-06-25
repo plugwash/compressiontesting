@@ -1,0 +1,273 @@
+\section{liblzma/rangecoder/range\-\_\-decoder.h File Reference}
+\label{range__decoder_8h}\index{liblzma/rangecoder/range\-\_\-decoder.\-h@{liblzma/rangecoder/range\-\_\-decoder.\-h}}
+
+
+Range Decoder.  
+
+
+{\ttfamily \#include \char`\"{}range\-\_\-common.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-range\-\_\-decoder}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf rc\-\_\-to\-\_\-local}(range\-\_\-decoder, in\-\_\-pos)
+\item 
+\#define {\bf rc\-\_\-from\-\_\-local}(range\-\_\-decoder, in\-\_\-pos)
+\begin{DoxyCompactList}\small\item\em Stores the local copes back to the range decoder structure. \end{DoxyCompactList}\item 
+\#define {\bf rc\-\_\-reset}(range\-\_\-decoder)
+\begin{DoxyCompactList}\small\item\em Resets the range decoder structure. \end{DoxyCompactList}\item 
+\#define {\bf rc\-\_\-is\-\_\-finished}(range\-\_\-decoder)~((range\-\_\-decoder).code == 0)
+\item 
+\#define {\bf rc\-\_\-normalize}(seq)
+\item 
+\#define {\bf rc\-\_\-if\-\_\-0}(prob, seq)
+\item 
+\#define {\bf rc\-\_\-update\-\_\-0}(prob)
+\item 
+\#define {\bf rc\-\_\-update\-\_\-1}(prob)
+\item 
+\#define {\bf rc\-\_\-bit\-\_\-last}(prob, action0, action1, seq)
+\item 
+\#define {\bf rc\-\_\-bit}(prob, action0, action1, seq)
+\item 
+\#define {\bf rc\-\_\-bit\-\_\-case}(prob, action0, action1, seq)~case seq\-: {\bf rc\-\_\-bit}(prob, action0, action1, seq)
+\item 
+\#define {\bf rc\-\_\-direct}(dest, seq)
+\begin{DoxyCompactList}\small\item\em Decode a bit without using a probability. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf lzma\-\_\-ret} {\bf rc\-\_\-read\-\_\-init} ({\bf lzma\-\_\-range\-\_\-decoder} $\ast$rc, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Reads the first five bytes to initialize the range decoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Range Decoder. 
+
+\subsection{Macro Definition Documentation}
+\index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-to\-\_\-local@{rc\-\_\-to\-\_\-local}}
+\index{rc\-\_\-to\-\_\-local@{rc\-\_\-to\-\_\-local}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-to\-\_\-local}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-to\-\_\-local(
+\begin{DoxyParamCaption}
+\item[{}]{range\-\_\-decoder, }
+\item[{}]{in\-\_\-pos}
+\end{DoxyParamCaption}
+)}\label{range__decoder_8h_ad28e8f19eec3ae8efcd3b594567613e7}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+lzma_range_decoder rc = range\_decoder; \(\backslash\)
+        size\_t rc\_in\_pos = (in\_pos); \(\backslash\)
+        uint32\_t rc\_bound
+\end{DoxyCode}
+Makes local copies of range decoder and $\ast$in\-\_\-pos variables. Doing this improves speed significantly. The range decoder macros expect also variables `in' and `in\-\_\-size' to be defined. \index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-from\-\_\-local@{rc\-\_\-from\-\_\-local}}
+\index{rc\-\_\-from\-\_\-local@{rc\-\_\-from\-\_\-local}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-from\-\_\-local}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-from\-\_\-local(
+\begin{DoxyParamCaption}
+\item[{}]{range\-\_\-decoder, }
+\item[{}]{in\-\_\-pos}
+\end{DoxyParamCaption}
+)}\label{range__decoder_8h_a0ca99f138f3fb65ca0c2ecd324ba57d5}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        range\_decoder = rc; \(\backslash\)
+        in\_pos = rc\_in\_pos; \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+
+
+Stores the local copes back to the range decoder structure. 
+
+\index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-reset@{rc\-\_\-reset}}
+\index{rc\-\_\-reset@{rc\-\_\-reset}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-reset(
+\begin{DoxyParamCaption}
+\item[{}]{range\-\_\-decoder}
+\end{DoxyParamCaption}
+)}\label{range__decoder_8h_adf8447eed93df6da89a61330ed4019ef}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        (range\_decoder).range = UINT32\_MAX; \(\backslash\)
+        (range\_decoder).code = 0; \(\backslash\)
+        (range\_decoder).init\_bytes\_left = 5; \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+
+
+Resets the range decoder structure. 
+
+\index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-is\-\_\-finished@{rc\-\_\-is\-\_\-finished}}
+\index{rc\-\_\-is\-\_\-finished@{rc\-\_\-is\-\_\-finished}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-is\-\_\-finished}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-is\-\_\-finished(
+\begin{DoxyParamCaption}
+\item[{}]{range\-\_\-decoder}
+\end{DoxyParamCaption}
+)~((range\-\_\-decoder).code == 0)}\label{range__decoder_8h_a97bd7d0cb197a83eeadf68ef407551bd}
+When decoding has been properly finished, rc.\-code is always zero unless the input stream is corrupt. So checking this can catch some corrupt files especially if they don't have any other integrity check. \index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-normalize@{rc\-\_\-normalize}}
+\index{rc\-\_\-normalize@{rc\-\_\-normalize}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-normalize}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-normalize(
+\begin{DoxyParamCaption}
+\item[{}]{seq}
+\end{DoxyParamCaption}
+)}\label{range__decoder_8h_a21c3c3ab41e2d33a0c254f0247cdbf06}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        if (rc.range < RC\_TOP\_VALUE) \{ \(\backslash\)
+                if (unlikely(rc\_in\_pos == in\_size)) \{ \(\backslash\)
+                        coder->sequence = seq; \(\backslash\)
+                        goto out; \(\backslash\)
+                \} \(\backslash\)
+                rc.range <<= RC\_SHIFT\_BITS; \(\backslash\)
+                rc.code = (rc.code << RC\_SHIFT\_BITS) | in[rc\_in\_pos++]; \(\backslash\)
+        \} \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+Read the next input byte if needed. If more input is needed but there is no more input available, \char`\"{}goto out\char`\"{} is used to jump out of the main decoder loop. \index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-if\-\_\-0@{rc\-\_\-if\-\_\-0}}
+\index{rc\-\_\-if\-\_\-0@{rc\-\_\-if\-\_\-0}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-if\-\_\-0}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-if\-\_\-0(
+\begin{DoxyParamCaption}
+\item[{}]{prob, }
+\item[{}]{seq}
+\end{DoxyParamCaption}
+)}\label{range__decoder_8h_ac081d71fe9a8189e21e815fb3dcefc1a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+rc_normalize(seq); \(\backslash\)
+        rc\_bound = (rc.range >> RC\_BIT\_MODEL\_TOTAL\_BITS) * (prob); \(\backslash\)
+        if (rc.code < rc\_bound)
+\end{DoxyCode}
+Start decoding a bit. This must be used together with \doxyref{rc\-\_\-update\-\_\-0()}{p.}{range__decoder_8h_a32b921796222d502ec0bfb74579a8e93} and \doxyref{rc\-\_\-update\-\_\-1()}{p.}{range__decoder_8h_a59084c2817836fb897b39ddc81552588}\-: \begin{DoxyVerb}rc_if_0(prob, seq) {
+    rc_update_0(prob);
+    // Do something
+} else {
+    rc_update_1(prob);
+    // Do something else
+\end{DoxyVerb}
+ \index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-update\-\_\-0@{rc\-\_\-update\-\_\-0}}
+\index{rc\-\_\-update\-\_\-0@{rc\-\_\-update\-\_\-0}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-update\-\_\-0}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-update\-\_\-0(
+\begin{DoxyParamCaption}
+\item[{}]{prob}
+\end{DoxyParamCaption}
+)}\label{range__decoder_8h_a32b921796222d502ec0bfb74579a8e93}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        rc.range = rc\_bound; \(\backslash\)
+        prob += (RC\_BIT\_MODEL\_TOTAL - (prob)) >> RC\_MOVE\_BITS; \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+Update the range decoder state and the used probability variable to match a decoded bit of 0. \index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-update\-\_\-1@{rc\-\_\-update\-\_\-1}}
+\index{rc\-\_\-update\-\_\-1@{rc\-\_\-update\-\_\-1}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-update\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-update\-\_\-1(
+\begin{DoxyParamCaption}
+\item[{}]{prob}
+\end{DoxyParamCaption}
+)}\label{range__decoder_8h_a59084c2817836fb897b39ddc81552588}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        rc.range -= rc\_bound; \(\backslash\)
+        rc.code -= rc\_bound; \(\backslash\)
+        prob -= (prob) >> RC\_MOVE\_BITS; \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+Update the range decoder state and the used probability variable to match a decoded bit of 1. \index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-bit\-\_\-last@{rc\-\_\-bit\-\_\-last}}
+\index{rc\-\_\-bit\-\_\-last@{rc\-\_\-bit\-\_\-last}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-bit\-\_\-last}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-bit\-\_\-last(
+\begin{DoxyParamCaption}
+\item[{}]{prob, }
+\item[{}]{action0, }
+\item[{}]{action1, }
+\item[{}]{seq}
+\end{DoxyParamCaption}
+)}\label{range__decoder_8h_abb97294f27855a3367ca0086ac90e26d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        rc\_if\_0(prob, seq) \{ \(\backslash\)
+                rc\_update\_0(prob); \(\backslash\)
+                action0; \(\backslash\)
+        \} \textcolor{keywordflow}{else} \{ \(\backslash\)
+                rc\_update\_1(prob); \(\backslash\)
+                action1; \(\backslash\)
+        \} \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+Decodes one bit and runs action0 or action1 depending on the decoded bit. This macro is used as the last step in bittree reverse decoders since those don't use \char`\"{}symbol\char`\"{} for anything else than indexing the probability arrays. \index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-bit@{rc\-\_\-bit}}
+\index{rc\-\_\-bit@{rc\-\_\-bit}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-bit}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-bit(
+\begin{DoxyParamCaption}
+\item[{}]{prob, }
+\item[{}]{action0, }
+\item[{}]{action1, }
+\item[{}]{seq}
+\end{DoxyParamCaption}
+)}\label{range__decoder_8h_ad8733a6224ef3e32e11ad6e3d402d1f5}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+rc_bit_last(prob, \(\backslash\)
+                symbol <<= 1; action0, \(\backslash\)
+                symbol = (symbol << 1) + 1; action1, \(\backslash\)
+                seq);
+\end{DoxyCode}
+Decodes one bit, updates \char`\"{}symbol\char`\"{}, and runs action0 or action1 depending on the decoded bit. \index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-bit\-\_\-case@{rc\-\_\-bit\-\_\-case}}
+\index{rc\-\_\-bit\-\_\-case@{rc\-\_\-bit\-\_\-case}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-bit\-\_\-case}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-bit\-\_\-case(
+\begin{DoxyParamCaption}
+\item[{}]{prob, }
+\item[{}]{action0, }
+\item[{}]{action1, }
+\item[{}]{seq}
+\end{DoxyParamCaption}
+)~case seq\-: {\bf rc\-\_\-bit}(prob, action0, action1, seq)}\label{range__decoder_8h_a17c20634d2b7154a63599557d212cb23}
+Like \doxyref{rc\-\_\-bit()}{p.}{range__decoder_8h_ad8733a6224ef3e32e11ad6e3d402d1f5} but add \char`\"{}case seq\-:\char`\"{} as a prefix. This makes the unrolled loops more readable because the code isn't littered with \char`\"{}case\char`\"{} statements. On the other hand this also makes it less readable, since spotting the places where the decoder loop may be restarted is less obvious. \index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-direct@{rc\-\_\-direct}}
+\index{rc\-\_\-direct@{rc\-\_\-direct}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-direct}]{\setlength{\rightskip}{0pt plus 5cm}\#define rc\-\_\-direct(
+\begin{DoxyParamCaption}
+\item[{}]{dest, }
+\item[{}]{seq}
+\end{DoxyParamCaption}
+)}\label{range__decoder_8h_a23c08d2d5e74140ccb2eabb8902abad6}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        rc\_normalize(seq); \(\backslash\)
+        rc.range >>= 1; \(\backslash\)
+        rc.code -= rc.range; \(\backslash\)
+        rc\_bound = UINT32\_C(0) - (rc.code >> 31); \(\backslash\)
+        rc.code += rc.range & rc\_bound; \(\backslash\)
+        dest = (dest << 1) + (rc\_bound + 1); \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+
+
+Decode a bit without using a probability. 
+
+
+
+\subsection{Function Documentation}
+\index{range\-\_\-decoder.\-h@{range\-\_\-decoder.\-h}!rc\-\_\-read\-\_\-init@{rc\-\_\-read\-\_\-init}}
+\index{rc\-\_\-read\-\_\-init@{rc\-\_\-read\-\_\-init}!range_decoder.h@{range\-\_\-decoder.\-h}}
+\subsubsection[{rc\-\_\-read\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf lzma\-\_\-ret} rc\-\_\-read\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-range\-\_\-decoder} $\ast$}]{rc, }
+\item[{const uint8\-\_\-t $\ast$restrict}]{in, }
+\item[{size\-\_\-t $\ast$restrict}]{in\-\_\-pos, }
+\item[{size\-\_\-t}]{in\-\_\-size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{range__decoder_8h_af6b5b8bc8f662e3de48411eea3a35658}
+
+
+Reads the first five bytes to initialize the range decoder. 
+
+
+
+References L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D.
+

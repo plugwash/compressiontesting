@@ -1,0 +1,86 @@
+\section{block\-\_\-header\-\_\-info Struct Reference}
+\label{structblock__header__info}\index{block\-\_\-header\-\_\-info@{block\-\_\-header\-\_\-info}}
+
+
+Information about a .xz Block.  
+
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t {\bf header\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Size of the Block Header. \end{DoxyCompactList}\item 
+char {\bf flags} [3]
+\begin{DoxyCompactList}\small\item\em A few of the Block Flags as a string. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf compressed\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Size of the Compressed Data field in the Block. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bf memusage}
+\begin{DoxyCompactList}\small\item\em Decoder memory usage for this Block. \end{DoxyCompactList}\item 
+char {\bf filter\-\_\-chain} [{\bf F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}]
+\begin{DoxyCompactList}\small\item\em The filter chain of this Block in human-\/readable form. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Information about a .xz Block. 
+
+\subsection{Field Documentation}
+\index{block\-\_\-header\-\_\-info@{block\-\_\-header\-\_\-info}!header\-\_\-size@{header\-\_\-size}}
+\index{header\-\_\-size@{header\-\_\-size}!block_header_info@{block\-\_\-header\-\_\-info}}
+\subsubsection[{header\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t block\-\_\-header\-\_\-info\-::header\-\_\-size}\label{structblock__header__info_a764fabb6d51c79d8c04cea60da4193fc}
+
+
+Size of the Block Header. 
+
+
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+\index{block\-\_\-header\-\_\-info@{block\-\_\-header\-\_\-info}!flags@{flags}}
+\index{flags@{flags}!block_header_info@{block\-\_\-header\-\_\-info}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}char block\-\_\-header\-\_\-info\-::flags[3]}\label{structblock__header__info_ac754c2f6877cab774b9236896b274a56}
+
+
+A few of the Block Flags as a string. 
+
+
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+\index{block\-\_\-header\-\_\-info@{block\-\_\-header\-\_\-info}!compressed\-\_\-size@{compressed\-\_\-size}}
+\index{compressed\-\_\-size@{compressed\-\_\-size}!block_header_info@{block\-\_\-header\-\_\-info}}
+\subsubsection[{compressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} block\-\_\-header\-\_\-info\-::compressed\-\_\-size}\label{structblock__header__info_a9b26a3d31384d6780e3fa1634a2ef9c8}
+
+
+Size of the Compressed Data field in the Block. 
+
+
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+\index{block\-\_\-header\-\_\-info@{block\-\_\-header\-\_\-info}!memusage@{memusage}}
+\index{memusage@{memusage}!block_header_info@{block\-\_\-header\-\_\-info}}
+\subsubsection[{memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t block\-\_\-header\-\_\-info\-::memusage}\label{structblock__header__info_a88cb8006bb6751b3beb6fc3502157961}
+
+
+Decoder memory usage for this Block. 
+
+
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+\index{block\-\_\-header\-\_\-info@{block\-\_\-header\-\_\-info}!filter\-\_\-chain@{filter\-\_\-chain}}
+\index{filter\-\_\-chain@{filter\-\_\-chain}!block_header_info@{block\-\_\-header\-\_\-info}}
+\subsubsection[{filter\-\_\-chain}]{\setlength{\rightskip}{0pt plus 5cm}char block\-\_\-header\-\_\-info\-::filter\-\_\-chain[{\bf F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}]}\label{structblock__header__info_a57a8b7bfb8338109e1cbc294aa1fa537}
+
+
+The filter chain of this Block in human-\/readable form. 
+
+
+
+Referenced by parse\-\_\-block\-\_\-header().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+xz/{\bf list.\-c}\end{DoxyCompactItemize}

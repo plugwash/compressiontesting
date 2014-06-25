@@ -1,0 +1,166 @@
+\section{liblzma/lz/lz\-\_\-decoder.h File Reference}
+\label{lz__decoder_8h}\index{liblzma/lz/lz\-\_\-decoder.\-h@{liblzma/lz/lz\-\_\-decoder.\-h}}
+
+
+L\-Z out window.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-dict}
+\item 
+struct {\bf lzma\-\_\-lz\-\_\-options}
+\item 
+struct {\bf lzma\-\_\-lz\-\_\-decoder}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-L\-Z\-\_\-\-D\-E\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-lz\-\_\-decoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters}, {\bf lzma\-\_\-ret}($\ast$lz\-\_\-init)({\bf lzma\-\_\-lz\-\_\-decoder} $\ast$lz, {\bf lzma\-\_\-allocator} $\ast$allocator, const void $\ast$options, {\bf lzma\-\_\-lz\-\_\-options} $\ast$lz\-\_\-options))\label{lz__decoder_8h_a3a98cb00f0b1d5e5d8d4e8daa7375d05}
+
+\item 
+uint64\-\_\-t {\bfseries lzma\-\_\-lz\-\_\-decoder\-\_\-memusage} (size\-\_\-t dictionary\-\_\-size)\label{lz__decoder_8h_aa715866ca37ce5fd726c391b0da5b882}
+
+\item 
+void {\bfseries lzma\-\_\-lz\-\_\-decoder\-\_\-uncompressed} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-vli} uncompressed\-\_\-size)\label{lz__decoder_8h_a1c90ae360afade0460f2015d210ec4e8}
+
+\item 
+static uint8\-\_\-t {\bf dict\-\_\-get} (const {\bf lzma\-\_\-dict} $\ast$const dict, const uint32\-\_\-t distance)
+\begin{DoxyCompactList}\small\item\em Get a byte from the history buffer. \end{DoxyCompactList}\item 
+static bool {\bf dict\-\_\-is\-\_\-empty} (const {\bf lzma\-\_\-dict} $\ast$const dict)
+\begin{DoxyCompactList}\small\item\em Test if dictionary is empty. \end{DoxyCompactList}\item 
+static bool {\bf dict\-\_\-is\-\_\-distance\-\_\-valid} (const {\bf lzma\-\_\-dict} $\ast$const dict, const size\-\_\-t distance)
+\begin{DoxyCompactList}\small\item\em Validate the match distance. \end{DoxyCompactList}\item 
+static bool {\bf dict\-\_\-repeat} ({\bf lzma\-\_\-dict} $\ast$dict, uint32\-\_\-t distance, uint32\-\_\-t $\ast$len)
+\begin{DoxyCompactList}\small\item\em Repeat $\ast$len bytes at distance. \end{DoxyCompactList}\item 
+static bool {\bf dict\-\_\-put} ({\bf lzma\-\_\-dict} $\ast$dict, uint8\-\_\-t byte)
+\item 
+static void {\bf dict\-\_\-write} ({\bf lzma\-\_\-dict} $\ast$restrict dict, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, size\-\_\-t $\ast$restrict left)
+\begin{DoxyCompactList}\small\item\em Copies arbitrary amount of data into the dictionary. \end{DoxyCompactList}\item 
+static void {\bfseries dict\-\_\-reset} ({\bf lzma\-\_\-dict} $\ast$dict)\label{lz__decoder_8h_a729d355916eccfbfd4d97713948dafa5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\-Z out window. 
+
+\subsection{Macro Definition Documentation}
+\index{lz\-\_\-decoder.\-h@{lz\-\_\-decoder.\-h}!L\-Z\-M\-A\-\_\-\-L\-Z\-\_\-\-D\-E\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T@{L\-Z\-M\-A\-\_\-\-L\-Z\-\_\-\-D\-E\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}}
+\index{L\-Z\-M\-A\-\_\-\-L\-Z\-\_\-\-D\-E\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T@{L\-Z\-M\-A\-\_\-\-L\-Z\-\_\-\-D\-E\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}!lz_decoder.h@{lz\-\_\-decoder.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-L\-Z\-\_\-\-D\-E\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-L\-Z\-\_\-\-D\-E\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}\label{lz__decoder_8h_af5478bc5429f666f9c45cd413ffcb146}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(lzma_lz_decoder)\{ \(\backslash\)
+                .coder = NULL, \(\backslash\)
+                .code = NULL, \(\backslash\)
+                .reset = NULL, \(\backslash\)
+                .set\_uncompressed = NULL, \(\backslash\)
+                .end = NULL, \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\index{lz\-\_\-decoder.\-h@{lz\-\_\-decoder.\-h}!dict\-\_\-get@{dict\-\_\-get}}
+\index{dict\-\_\-get@{dict\-\_\-get}!lz_decoder.h@{lz\-\_\-decoder.\-h}}
+\subsubsection[{dict\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}static uint8\-\_\-t dict\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-dict} $\ast$const}]{dict, }
+\item[{const uint32\-\_\-t}]{distance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__decoder_8h_a4e7478dbf91637d16b8b6d173a773479}
+
+
+Get a byte from the history buffer. 
+
+
+
+References lzma\-\_\-dict\-::buf, lzma\-\_\-dict\-::pos, and lzma\-\_\-dict\-::size.
+
+
+
+Referenced by dict\-\_\-repeat().
+
+\index{lz\-\_\-decoder.\-h@{lz\-\_\-decoder.\-h}!dict\-\_\-is\-\_\-empty@{dict\-\_\-is\-\_\-empty}}
+\index{dict\-\_\-is\-\_\-empty@{dict\-\_\-is\-\_\-empty}!lz_decoder.h@{lz\-\_\-decoder.\-h}}
+\subsubsection[{dict\-\_\-is\-\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}static bool dict\-\_\-is\-\_\-empty (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-dict} $\ast$const}]{dict}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__decoder_8h_a6da98d67d879288e96c80ecd5a2a1c16}
+
+
+Test if dictionary is empty. 
+
+
+
+References lzma\-\_\-dict\-::full.
+
+\index{lz\-\_\-decoder.\-h@{lz\-\_\-decoder.\-h}!dict\-\_\-is\-\_\-distance\-\_\-valid@{dict\-\_\-is\-\_\-distance\-\_\-valid}}
+\index{dict\-\_\-is\-\_\-distance\-\_\-valid@{dict\-\_\-is\-\_\-distance\-\_\-valid}!lz_decoder.h@{lz\-\_\-decoder.\-h}}
+\subsubsection[{dict\-\_\-is\-\_\-distance\-\_\-valid}]{\setlength{\rightskip}{0pt plus 5cm}static bool dict\-\_\-is\-\_\-distance\-\_\-valid (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-dict} $\ast$const}]{dict, }
+\item[{const size\-\_\-t}]{distance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__decoder_8h_a6fda74d5df0d5ee938f8dcbd493ed8a2}
+
+
+Validate the match distance. 
+
+
+
+References lzma\-\_\-dict\-::full.
+
+\index{lz\-\_\-decoder.\-h@{lz\-\_\-decoder.\-h}!dict\-\_\-repeat@{dict\-\_\-repeat}}
+\index{dict\-\_\-repeat@{dict\-\_\-repeat}!lz_decoder.h@{lz\-\_\-decoder.\-h}}
+\subsubsection[{dict\-\_\-repeat}]{\setlength{\rightskip}{0pt plus 5cm}static bool dict\-\_\-repeat (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-dict} $\ast$}]{dict, }
+\item[{uint32\-\_\-t}]{distance, }
+\item[{uint32\-\_\-t $\ast$}]{len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__decoder_8h_a36bee36b32a04403586112cffcb51ff2}
+
+
+Repeat $\ast$len bytes at distance. 
+
+
+
+References lzma\-\_\-dict\-::buf, dict\-\_\-get(), lzma\-\_\-dict\-::full, lzma\-\_\-dict\-::limit, lzma\-\_\-dict\-::pos, and lzma\-\_\-dict\-::size.
+
+\index{lz\-\_\-decoder.\-h@{lz\-\_\-decoder.\-h}!dict\-\_\-put@{dict\-\_\-put}}
+\index{dict\-\_\-put@{dict\-\_\-put}!lz_decoder.h@{lz\-\_\-decoder.\-h}}
+\subsubsection[{dict\-\_\-put}]{\setlength{\rightskip}{0pt plus 5cm}static bool dict\-\_\-put (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-dict} $\ast$}]{dict, }
+\item[{uint8\-\_\-t}]{byte}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__decoder_8h_a47402161f84a93481543e888ca65912d}
+Puts one byte into the dictionary. Returns true if the dictionary was already full and the byte couldn't be added. 
+
+References lzma\-\_\-dict\-::buf, lzma\-\_\-dict\-::full, lzma\-\_\-dict\-::limit, and lzma\-\_\-dict\-::pos.
+
+\index{lz\-\_\-decoder.\-h@{lz\-\_\-decoder.\-h}!dict\-\_\-write@{dict\-\_\-write}}
+\index{dict\-\_\-write@{dict\-\_\-write}!lz_decoder.h@{lz\-\_\-decoder.\-h}}
+\subsubsection[{dict\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}static void dict\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-dict} $\ast$restrict}]{dict, }
+\item[{const uint8\-\_\-t $\ast$restrict}]{in, }
+\item[{size\-\_\-t $\ast$restrict}]{in\-\_\-pos, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{size\-\_\-t $\ast$restrict}]{left}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__decoder_8h_ae4695051f81069a5b17c5cb88912e545}
+
+
+Copies arbitrary amount of data into the dictionary. 
+

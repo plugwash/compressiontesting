@@ -1,0 +1,434 @@
+\section{xz/file\-\_\-io.c File Reference}
+\label{file__io_8c}\index{xz/file\-\_\-io.\-c@{xz/file\-\_\-io.\-c}}
+
+
+File opening, unlinking, and closing.  
+
+
+{\ttfamily \#include \char`\"{}private.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}tuklib\-\_\-open\-\_\-stdxxx.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries O\-\_\-\-B\-I\-N\-A\-R\-Y}~0\label{file__io_8c_a36fa9b2e726512bc17a7a6d3e39002be}
+
+\item 
+\#define {\bfseries O\-\_\-\-N\-O\-C\-T\-T\-Y}~0\label{file__io_8c_a2e375ab32c7ef4581b026be28e4cc116}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool {\bfseries io\-\_\-write\-\_\-buf} ({\bf file\-\_\-pair} $\ast$pair, const uint8\-\_\-t $\ast$buf, size\-\_\-t size)\label{file__io_8c_aec1e9629ef5cc3abf4d2e39bd8006710}
+
+\item 
+void {\bf io\-\_\-init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the I/\-O module. \end{DoxyCompactList}\item 
+void {\bf io\-\_\-no\-\_\-sparse} (void)
+\begin{DoxyCompactList}\small\item\em Disable creation of sparse files when decompressing. \end{DoxyCompactList}\item 
+static void {\bf io\-\_\-unlink} (const char $\ast$name, const struct stat $\ast$known\-\_\-st)
+\begin{DoxyCompactList}\small\item\em Unlink a file. \end{DoxyCompactList}\item 
+static void {\bf io\-\_\-copy\-\_\-attrs} (const {\bf file\-\_\-pair} $\ast$pair)
+\begin{DoxyCompactList}\small\item\em Copies owner/group and permissions. \end{DoxyCompactList}\item 
+static bool {\bf io\-\_\-open\-\_\-src\-\_\-real} ({\bf file\-\_\-pair} $\ast$pair)
+\begin{DoxyCompactList}\small\item\em Opens the source file. Returns false on success, true on error. \end{DoxyCompactList}\item 
+{\bf file\-\_\-pair} $\ast$ {\bf io\-\_\-open\-\_\-src} (const char $\ast$src\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Open the source file. \end{DoxyCompactList}\item 
+static void {\bf io\-\_\-close\-\_\-src} ({\bf file\-\_\-pair} $\ast$pair, bool success)
+\begin{DoxyCompactList}\small\item\em Closes source file of the \doxyref{file\-\_\-pair}{p.}{structfile__pair} structure. \end{DoxyCompactList}\item 
+static bool {\bfseries io\-\_\-open\-\_\-dest\-\_\-real} ({\bf file\-\_\-pair} $\ast$pair)\label{file__io_8c_a0571f8f4694fe021d5d5a6b9859cba23}
+
+\item 
+bool {\bf io\-\_\-open\-\_\-dest} ({\bf file\-\_\-pair} $\ast$pair)
+\begin{DoxyCompactList}\small\item\em Open the destination file. \end{DoxyCompactList}\item 
+static bool {\bf io\-\_\-close\-\_\-dest} ({\bf file\-\_\-pair} $\ast$pair, bool success)
+\begin{DoxyCompactList}\small\item\em Closes destination file of the \doxyref{file\-\_\-pair}{p.}{structfile__pair} structure. \end{DoxyCompactList}\item 
+void {\bf io\-\_\-close} ({\bf file\-\_\-pair} $\ast$pair, bool success)
+\begin{DoxyCompactList}\small\item\em Closes the file descriptors and frees possible allocated memory. \end{DoxyCompactList}\item 
+void {\bf io\-\_\-fix\-\_\-src\-\_\-pos} ({\bf file\-\_\-pair} $\ast$pair, size\-\_\-t rewind\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Fix the position in src\-\_\-fd. \end{DoxyCompactList}\item 
+size\-\_\-t {\bf io\-\_\-read} ({\bf file\-\_\-pair} $\ast$pair, {\bf io\-\_\-buf} $\ast$buf\-\_\-union, size\-\_\-t size)
+\begin{DoxyCompactList}\small\item\em Reads from the source file to a buffer. \end{DoxyCompactList}\item 
+bool {\bf io\-\_\-pread} ({\bf file\-\_\-pair} $\ast$pair, {\bf io\-\_\-buf} $\ast$buf, size\-\_\-t size, off\-\_\-t pos)
+\begin{DoxyCompactList}\small\item\em Read from source file from given offset to a buffer. \end{DoxyCompactList}\item 
+static bool {\bfseries is\-\_\-sparse} (const {\bf io\-\_\-buf} $\ast$buf)\label{file__io_8c_a5d532508f4cfd5470b0b1eeb301ec27f}
+
+\item 
+bool {\bf io\-\_\-write} ({\bf file\-\_\-pair} $\ast$pair, const {\bf io\-\_\-buf} $\ast$buf, size\-\_\-t size)
+\begin{DoxyCompactList}\small\item\em Writes a buffer to the destination file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static bool {\bfseries warn\-\_\-fchown}\label{file__io_8c_a0b21eecca73d4dc0b8a24bb53f381ca8}
+
+\item 
+static bool {\bf try\-\_\-sparse} = true
+\begin{DoxyCompactList}\small\item\em If true, try to create sparse files when decompressing. \end{DoxyCompactList}\item 
+static int {\bf stdout\-\_\-flags} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File opening, unlinking, and closing. 
+
+\subsection{Function Documentation}
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-init@{io\-\_\-init}}
+\index{io\-\_\-init@{io\-\_\-init}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void io\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{file__io_8c_a43bba613ce0efd6af387cd04458ede8d}
+
+
+Initialize the I/\-O module. 
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-no\-\_\-sparse@{io\-\_\-no\-\_\-sparse}}
+\index{io\-\_\-no\-\_\-sparse@{io\-\_\-no\-\_\-sparse}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-no\-\_\-sparse}]{\setlength{\rightskip}{0pt plus 5cm}void io\-\_\-no\-\_\-sparse (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{file__io_8c_a26350b70a7ef7ae45e57f04157ade2aa}
+
+
+Disable creation of sparse files when decompressing. 
+
+
+
+References try\-\_\-sparse.
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-unlink@{io\-\_\-unlink}}
+\index{io\-\_\-unlink@{io\-\_\-unlink}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-unlink}]{\setlength{\rightskip}{0pt plus 5cm}static void io\-\_\-unlink (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name, }
+\item[{const struct stat $\ast$}]{known\-\_\-st}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{file__io_8c_a80290e05c048a6052bd8c35d7b69cfb6}
+
+
+Unlink a file. 
+
+This tries to verify that the file being unlinked really is the file that we want to unlink by verifying device and inode numbers. There's still a small unavoidable race, but this is much better than nothing (the file could have been moved/replaced even hours earlier). 
+
+References message\-\_\-error().
+
+
+
+Referenced by io\-\_\-close\-\_\-dest(), and io\-\_\-close\-\_\-src().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-copy\-\_\-attrs@{io\-\_\-copy\-\_\-attrs}}
+\index{io\-\_\-copy\-\_\-attrs@{io\-\_\-copy\-\_\-attrs}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-copy\-\_\-attrs}]{\setlength{\rightskip}{0pt plus 5cm}static void io\-\_\-copy\-\_\-attrs (
+\begin{DoxyParamCaption}
+\item[{const {\bf file\-\_\-pair} $\ast$}]{pair}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{file__io_8c_a1884e01ba0a7757bb6fd96fa8a0bf09b}
+
+
+Copies owner/group and permissions. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[{\bf Todo}]A\-C\-L and E\-A support \end{DoxyRefDesc}
+
+
+References file\-\_\-pair\-::dest\-\_\-fd, file\-\_\-pair\-::dest\-\_\-name, message\-\_\-warning(), and file\-\_\-pair\-::src\-\_\-st.
+
+
+
+Referenced by io\-\_\-close().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-open\-\_\-src\-\_\-real@{io\-\_\-open\-\_\-src\-\_\-real}}
+\index{io\-\_\-open\-\_\-src\-\_\-real@{io\-\_\-open\-\_\-src\-\_\-real}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-open\-\_\-src\-\_\-real}]{\setlength{\rightskip}{0pt plus 5cm}static bool io\-\_\-open\-\_\-src\-\_\-real (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{file__io_8c_af0470bc137d3ae386126db2ca94b5e65}
+
+
+Opens the source file. Returns false on success, true on error. 
+
+
+
+References message\-\_\-error(), message\-\_\-warning(), signals\-\_\-block(), signals\-\_\-unblock(), file\-\_\-pair\-::src\-\_\-fd, file\-\_\-pair\-::src\-\_\-name, file\-\_\-pair\-::src\-\_\-st, and user\-\_\-abort.
+
+
+
+Referenced by io\-\_\-open\-\_\-src().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-open\-\_\-src@{io\-\_\-open\-\_\-src}}
+\index{io\-\_\-open\-\_\-src@{io\-\_\-open\-\_\-src}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-open\-\_\-src}]{\setlength{\rightskip}{0pt plus 5cm}{\bf file\-\_\-pair}$\ast$ io\-\_\-open\-\_\-src (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src\-\_\-name}
+\end{DoxyParamCaption}
+)}\label{file__io_8c_ac4fb03f340ee03676cbde913682a3719}
+
+
+Open the source file. 
+
+
+
+References io\-\_\-open\-\_\-src\-\_\-real(), is\-\_\-empty\-\_\-filename(), signals\-\_\-block(), signals\-\_\-unblock(), and file\-\_\-pair\-::src\-\_\-name.
+
+
+
+Referenced by coder\-\_\-run(), and list\-\_\-file().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-close\-\_\-src@{io\-\_\-close\-\_\-src}}
+\index{io\-\_\-close\-\_\-src@{io\-\_\-close\-\_\-src}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-close\-\_\-src}]{\setlength{\rightskip}{0pt plus 5cm}static void io\-\_\-close\-\_\-src (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{bool}]{success}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{file__io_8c_ac4e485a5d6cbb717f7eddfc8eae35841}
+
+
+Closes source file of the \doxyref{file\-\_\-pair}{p.}{structfile__pair} structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & File whose src\-\_\-fd should be closed \\
+\hline
+{\em success} & If true, the file will be removed from the disk if closing succeeds and --keep hasn't been used. \\
+\hline
+\end{DoxyParams}
+
+
+References io\-\_\-unlink(), file\-\_\-pair\-::src\-\_\-fd, file\-\_\-pair\-::src\-\_\-name, and file\-\_\-pair\-::src\-\_\-st.
+
+
+
+Referenced by io\-\_\-close().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-open\-\_\-dest@{io\-\_\-open\-\_\-dest}}
+\index{io\-\_\-open\-\_\-dest@{io\-\_\-open\-\_\-dest}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-open\-\_\-dest}]{\setlength{\rightskip}{0pt plus 5cm}bool io\-\_\-open\-\_\-dest (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair}
+\end{DoxyParamCaption}
+)}\label{file__io_8c_a51c7b0ad8b7829773a69972565b7d08d}
+
+
+Open the destination file. 
+
+
+
+References signals\-\_\-block(), and signals\-\_\-unblock().
+
+
+
+Referenced by coder\-\_\-run().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-close\-\_\-dest@{io\-\_\-close\-\_\-dest}}
+\index{io\-\_\-close\-\_\-dest@{io\-\_\-close\-\_\-dest}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-close\-\_\-dest}]{\setlength{\rightskip}{0pt plus 5cm}static bool io\-\_\-close\-\_\-dest (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{bool}]{success}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{file__io_8c_a2e1e4bee9c2f87daa8ec40b3072816a5}
+
+
+Closes destination file of the \doxyref{file\-\_\-pair}{p.}{structfile__pair} structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & File whose dest\-\_\-fd should be closed \\
+\hline
+{\em success} & If false, the file will be removed from the disk.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Zero if closing succeeds. On error, -\/1 is returned and error message printed. 
+\end{DoxyReturn}
+
+
+References file\-\_\-pair\-::dest\-\_\-fd, file\-\_\-pair\-::dest\-\_\-name, file\-\_\-pair\-::dest\-\_\-st, io\-\_\-unlink(), message\-\_\-error(), and stdout\-\_\-flags.
+
+
+
+Referenced by io\-\_\-close().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-close@{io\-\_\-close}}
+\index{io\-\_\-close@{io\-\_\-close}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}void io\-\_\-close (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{bool}]{success}
+\end{DoxyParamCaption}
+)}\label{file__io_8c_a8dcc56461111f392398385820ad9c1d9}
+
+
+Closes the file descriptors and frees possible allocated memory. 
+
+The success argument determines if source or destination file gets unlinked\-:
+\begin{DoxyItemize}
+\item false\-: The destination file is unlinked.
+\item true\-: The source file is unlinked unless writing to stdout or --keep was used. 
+\end{DoxyItemize}
+
+References file\-\_\-pair\-::dest\-\_\-fd, file\-\_\-pair\-::dest\-\_\-name, file\-\_\-pair\-::dest\-\_\-pending\-\_\-sparse, file\-\_\-pair\-::dest\-\_\-try\-\_\-sparse, io\-\_\-close\-\_\-dest(), io\-\_\-close\-\_\-src(), io\-\_\-copy\-\_\-attrs(), message\-\_\-error(), signals\-\_\-block(), and signals\-\_\-unblock().
+
+
+
+Referenced by coder\-\_\-run(), and list\-\_\-file().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-fix\-\_\-src\-\_\-pos@{io\-\_\-fix\-\_\-src\-\_\-pos}}
+\index{io\-\_\-fix\-\_\-src\-\_\-pos@{io\-\_\-fix\-\_\-src\-\_\-pos}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-fix\-\_\-src\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}void io\-\_\-fix\-\_\-src\-\_\-pos (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{size\-\_\-t}]{rewind\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{file__io_8c_aa06dd4cd771d5a19bc191ff334f0623a}
+
+
+Fix the position in src\-\_\-fd. 
+
+This is used when --single-\/thream has been specified and decompression is successful. If the input file descriptor supports seeking, this function fixes the input position to point to the next byte after the decompressed stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & File pair having the source file open for reading \\
+\hline
+{\em rewind\-\_\-size} & How many bytes of extra have been read i.\-e. how much to seek backwards. \\
+\hline
+\end{DoxyParams}
+
+
+References file\-\_\-pair\-::src\-\_\-fd.
+
+
+
+Referenced by coder\-\_\-normal().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-read@{io\-\_\-read}}
+\index{io\-\_\-read@{io\-\_\-read}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t io\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{{\bf io\-\_\-buf} $\ast$}]{buf, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}\label{file__io_8c_ae7642411c20e8800874f7f95489c8d9d}
+
+
+Reads from the source file to a buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & File pair having the source file open for reading \\
+\hline
+{\em buf} & Destination buffer to hold the read data \\
+\hline
+{\em size} & Size of the buffer; assumed be smaller than S\-S\-I\-Z\-E\-\_\-\-M\-A\-X\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, number of bytes read is returned. On end of file zero is returned and pair-\/$>$src\-\_\-eof set to true. On error, S\-I\-Z\-E\-\_\-\-M\-A\-X is returned and error message printed. 
+\end{DoxyReturn}
+
+
+References message\-\_\-error(), file\-\_\-pair\-::src\-\_\-eof, file\-\_\-pair\-::src\-\_\-fd, file\-\_\-pair\-::src\-\_\-name, and user\-\_\-abort.
+
+
+
+Referenced by coder\-\_\-normal(), coder\-\_\-passthru(), coder\-\_\-run(), and io\-\_\-pread().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-pread@{io\-\_\-pread}}
+\index{io\-\_\-pread@{io\-\_\-pread}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-pread}]{\setlength{\rightskip}{0pt plus 5cm}bool io\-\_\-pread (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{{\bf io\-\_\-buf} $\ast$}]{buf, }
+\item[{size\-\_\-t}]{size, }
+\item[{off\-\_\-t}]{pos}
+\end{DoxyParamCaption}
+)}\label{file__io_8c_af0781545c818796c48a4ee8dadd2c2a7}
+
+
+Read from source file from given offset to a buffer. 
+
+This is remotely similar to standard pread(). This uses lseek() though, so the read offset is changed on each call.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & Seekable source file \\
+\hline
+{\em buf} & Destination buffer \\
+\hline
+{\em size} & Amount of data to read \\
+\hline
+{\em pos} & Offset relative to the beginning of the file, from which the data should be read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, false is returned. On error, error message is printed and true is returned. 
+\end{DoxyReturn}
+
+
+References io\-\_\-read(), message\-\_\-error(), file\-\_\-pair\-::src\-\_\-fd, and file\-\_\-pair\-::src\-\_\-name.
+
+
+
+Referenced by parse\-\_\-block\-\_\-header(), parse\-\_\-check\-\_\-value(), and parse\-\_\-indexes().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!io\-\_\-write@{io\-\_\-write}}
+\index{io\-\_\-write@{io\-\_\-write}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{io\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}bool io\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{const {\bf io\-\_\-buf} $\ast$}]{buf, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}\label{file__io_8c_a42ccfb816386ca04e622762bad58ef6f}
+
+
+Writes a buffer to the destination file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & File pair having the destination file open for writing \\
+\hline
+{\em buf} & Buffer containing the data to be written \\
+\hline
+{\em size} & Size of the buffer; assumed be smaller than S\-S\-I\-Z\-E\-\_\-\-M\-A\-X\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, zero is returned. On error, -\/1 is returned and error message printed. 
+\end{DoxyReturn}
+
+
+References file\-\_\-pair\-::dest\-\_\-fd, file\-\_\-pair\-::dest\-\_\-name, file\-\_\-pair\-::dest\-\_\-pending\-\_\-sparse, file\-\_\-pair\-::dest\-\_\-try\-\_\-sparse, and message\-\_\-error().
+
+
+
+Referenced by coder\-\_\-normal(), and coder\-\_\-passthru().
+
+
+
+\subsection{Variable Documentation}
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!try\-\_\-sparse@{try\-\_\-sparse}}
+\index{try\-\_\-sparse@{try\-\_\-sparse}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{try\-\_\-sparse}]{\setlength{\rightskip}{0pt plus 5cm}bool try\-\_\-sparse = true\hspace{0.3cm}{\ttfamily [static]}}\label{file__io_8c_a96b3b450da5d99ec1f6bd3e57d5f340a}
+
+
+If true, try to create sparse files when decompressing. 
+
+
+
+Referenced by io\-\_\-no\-\_\-sparse().
+
+\index{file\-\_\-io.\-c@{file\-\_\-io.\-c}!stdout\-\_\-flags@{stdout\-\_\-flags}}
+\index{stdout\-\_\-flags@{stdout\-\_\-flags}!file_io.c@{file\-\_\-io.\-c}}
+\subsubsection[{stdout\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}int stdout\-\_\-flags = 0\hspace{0.3cm}{\ttfamily [static]}}\label{file__io_8c_aead170473661c2bec0f0a48adf5322b1}
+File status flags of standard output. This is used by \doxyref{io\-\_\-open\-\_\-dest()}{p.}{file__io_8c_a51c7b0ad8b7829773a69972565b7d08d} and \doxyref{io\-\_\-close\-\_\-dest()}{p.}{file__io_8c_a2e1e4bee9c2f87daa8ec40b3072816a5}. 
+
+Referenced by io\-\_\-close\-\_\-dest().
+

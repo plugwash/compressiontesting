@@ -1,0 +1,82 @@
+\section{index\-\_\-cat\-\_\-info Struct Reference}
+\label{structindex__cat__info}\index{index\-\_\-cat\-\_\-info@{index\-\_\-cat\-\_\-info}}
+
+
+Structure to pass info to \doxyref{index\-\_\-cat\-\_\-helper()}{p.}{index_8c_ae84b534588169c7490e8fe61c141b1d6}  
+
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-vli} {\bf uncompressed\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Uncompressed size of the destination. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf file\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Compressed file size of the destination. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf block\-\_\-number\-\_\-add}
+\begin{DoxyCompactList}\small\item\em Same as above but for Block numbers. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf stream\-\_\-number\-\_\-add}
+\item 
+{\bf index\-\_\-tree} $\ast$ {\bf streams}
+\begin{DoxyCompactList}\small\item\em Destination index' Stream tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure to pass info to \doxyref{index\-\_\-cat\-\_\-helper()}{p.}{index_8c_ae84b534588169c7490e8fe61c141b1d6} 
+
+\subsection{Field Documentation}
+\index{index\-\_\-cat\-\_\-info@{index\-\_\-cat\-\_\-info}!uncompressed\-\_\-size@{uncompressed\-\_\-size}}
+\index{uncompressed\-\_\-size@{uncompressed\-\_\-size}!index_cat_info@{index\-\_\-cat\-\_\-info}}
+\subsubsection[{uncompressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} index\-\_\-cat\-\_\-info\-::uncompressed\-\_\-size}\label{structindex__cat__info_a94d35c197825ad1522a017dd7c21e164}
+
+
+Uncompressed size of the destination. 
+
+
+
+Referenced by index\-\_\-cat\-\_\-helper().
+
+\index{index\-\_\-cat\-\_\-info@{index\-\_\-cat\-\_\-info}!file\-\_\-size@{file\-\_\-size}}
+\index{file\-\_\-size@{file\-\_\-size}!index_cat_info@{index\-\_\-cat\-\_\-info}}
+\subsubsection[{file\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} index\-\_\-cat\-\_\-info\-::file\-\_\-size}\label{structindex__cat__info_a20eb62c8cea344df17c73fa3caa43464}
+
+
+Compressed file size of the destination. 
+
+
+
+Referenced by index\-\_\-cat\-\_\-helper().
+
+\index{index\-\_\-cat\-\_\-info@{index\-\_\-cat\-\_\-info}!block\-\_\-number\-\_\-add@{block\-\_\-number\-\_\-add}}
+\index{block\-\_\-number\-\_\-add@{block\-\_\-number\-\_\-add}!index_cat_info@{index\-\_\-cat\-\_\-info}}
+\subsubsection[{block\-\_\-number\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} index\-\_\-cat\-\_\-info\-::block\-\_\-number\-\_\-add}\label{structindex__cat__info_a38ecede14d155c2dc5573996148dbc5c}
+
+
+Same as above but for Block numbers. 
+
+
+
+Referenced by index\-\_\-cat\-\_\-helper().
+
+\index{index\-\_\-cat\-\_\-info@{index\-\_\-cat\-\_\-info}!stream\-\_\-number\-\_\-add@{stream\-\_\-number\-\_\-add}}
+\index{stream\-\_\-number\-\_\-add@{stream\-\_\-number\-\_\-add}!index_cat_info@{index\-\_\-cat\-\_\-info}}
+\subsubsection[{stream\-\_\-number\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t index\-\_\-cat\-\_\-info\-::stream\-\_\-number\-\_\-add}\label{structindex__cat__info_a770ca8ec4b86841be5112ab040ea7f52}
+Number of Streams that were in the destination index before we started appending new Streams from the source index. This is used to fix the Stream numbering. 
+
+Referenced by index\-\_\-cat\-\_\-helper().
+
+\index{index\-\_\-cat\-\_\-info@{index\-\_\-cat\-\_\-info}!streams@{streams}}
+\index{streams@{streams}!index_cat_info@{index\-\_\-cat\-\_\-info}}
+\subsubsection[{streams}]{\setlength{\rightskip}{0pt plus 5cm}{\bf index\-\_\-tree}$\ast$ index\-\_\-cat\-\_\-info\-::streams}\label{structindex__cat__info_a1770333e66d324649acc671813c97a71}
+
+
+Destination index' Stream tree. 
+
+
+
+Referenced by index\-\_\-cat\-\_\-helper().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/{\bf index.\-c}\end{DoxyCompactItemize}

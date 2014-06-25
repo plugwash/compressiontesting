@@ -1,0 +1,114 @@
+\section{file\-\_\-pair Struct Reference}
+\label{structfile__pair}\index{file\-\_\-pair@{file\-\_\-pair}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ {\bf src\-\_\-name}
+\item 
+char $\ast$ {\bf dest\-\_\-name}
+\item 
+int {\bf src\-\_\-fd}
+\begin{DoxyCompactList}\small\item\em File descriptor of the source file. \end{DoxyCompactList}\item 
+int {\bf dest\-\_\-fd}
+\begin{DoxyCompactList}\small\item\em File descriptor of the target file. \end{DoxyCompactList}\item 
+bool {\bf src\-\_\-eof}
+\begin{DoxyCompactList}\small\item\em True once end of the source file has been detected. \end{DoxyCompactList}\item 
+bool {\bf dest\-\_\-try\-\_\-sparse}
+\item 
+off\-\_\-t {\bf dest\-\_\-pending\-\_\-sparse}
+\item 
+struct stat {\bf src\-\_\-st}
+\begin{DoxyCompactList}\small\item\em Stat of the source file. \end{DoxyCompactList}\item 
+struct stat {\bf dest\-\_\-st}
+\begin{DoxyCompactList}\small\item\em Stat of the destination file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\index{file\-\_\-pair@{file\-\_\-pair}!src\-\_\-name@{src\-\_\-name}}
+\index{src\-\_\-name@{src\-\_\-name}!file_pair@{file\-\_\-pair}}
+\subsubsection[{src\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ file\-\_\-pair\-::src\-\_\-name}\label{structfile__pair_abcd6b5b852a5bc8815a44dd025113bcf}
+Name of the source filename (as given on the command line) or pointer to static \char`\"{}(stdin)\char`\"{} when reading from standard input. 
+
+Referenced by coder\-\_\-init(), coder\-\_\-normal(), io\-\_\-close\-\_\-src(), io\-\_\-open\-\_\-src(), io\-\_\-open\-\_\-src\-\_\-real(), io\-\_\-pread(), io\-\_\-read(), parse\-\_\-block\-\_\-header(), and parse\-\_\-indexes().
+
+\index{file\-\_\-pair@{file\-\_\-pair}!dest\-\_\-name@{dest\-\_\-name}}
+\index{dest\-\_\-name@{dest\-\_\-name}!file_pair@{file\-\_\-pair}}
+\subsubsection[{dest\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ file\-\_\-pair\-::dest\-\_\-name}\label{structfile__pair_a7f1b46a8a665881ffa22d2d7b33b91ed}
+Destination filename converted from src\-\_\-name or pointer to static \char`\"{}(stdout)\char`\"{} when writing to standard output. 
+
+Referenced by io\-\_\-close(), io\-\_\-close\-\_\-dest(), io\-\_\-copy\-\_\-attrs(), and io\-\_\-write().
+
+\index{file\-\_\-pair@{file\-\_\-pair}!src\-\_\-fd@{src\-\_\-fd}}
+\index{src\-\_\-fd@{src\-\_\-fd}!file_pair@{file\-\_\-pair}}
+\subsubsection[{src\-\_\-fd}]{\setlength{\rightskip}{0pt plus 5cm}int file\-\_\-pair\-::src\-\_\-fd}\label{structfile__pair_acbab9ee46b39f49a7996360ae6dbe0a4}
+
+
+File descriptor of the source file. 
+
+
+
+Referenced by io\-\_\-close\-\_\-src(), io\-\_\-fix\-\_\-src\-\_\-pos(), io\-\_\-open\-\_\-src\-\_\-real(), io\-\_\-pread(), and io\-\_\-read().
+
+\index{file\-\_\-pair@{file\-\_\-pair}!dest\-\_\-fd@{dest\-\_\-fd}}
+\index{dest\-\_\-fd@{dest\-\_\-fd}!file_pair@{file\-\_\-pair}}
+\subsubsection[{dest\-\_\-fd}]{\setlength{\rightskip}{0pt plus 5cm}int file\-\_\-pair\-::dest\-\_\-fd}\label{structfile__pair_a95b05b836e2abd7cb9b227f03dcb5492}
+
+
+File descriptor of the target file. 
+
+
+
+Referenced by io\-\_\-close(), io\-\_\-close\-\_\-dest(), io\-\_\-copy\-\_\-attrs(), and io\-\_\-write().
+
+\index{file\-\_\-pair@{file\-\_\-pair}!src\-\_\-eof@{src\-\_\-eof}}
+\index{src\-\_\-eof@{src\-\_\-eof}!file_pair@{file\-\_\-pair}}
+\subsubsection[{src\-\_\-eof}]{\setlength{\rightskip}{0pt plus 5cm}bool file\-\_\-pair\-::src\-\_\-eof}\label{structfile__pair_afee08cdab4c8f19e0734a6da48e21921}
+
+
+True once end of the source file has been detected. 
+
+
+
+Referenced by coder\-\_\-normal(), and io\-\_\-read().
+
+\index{file\-\_\-pair@{file\-\_\-pair}!dest\-\_\-try\-\_\-sparse@{dest\-\_\-try\-\_\-sparse}}
+\index{dest\-\_\-try\-\_\-sparse@{dest\-\_\-try\-\_\-sparse}!file_pair@{file\-\_\-pair}}
+\subsubsection[{dest\-\_\-try\-\_\-sparse}]{\setlength{\rightskip}{0pt plus 5cm}bool file\-\_\-pair\-::dest\-\_\-try\-\_\-sparse}\label{structfile__pair_a0267a1a379d041c2c4dbf6db1035a20c}
+If true, we look for long chunks of zeros and try to create a sparse file. 
+
+Referenced by io\-\_\-close(), and io\-\_\-write().
+
+\index{file\-\_\-pair@{file\-\_\-pair}!dest\-\_\-pending\-\_\-sparse@{dest\-\_\-pending\-\_\-sparse}}
+\index{dest\-\_\-pending\-\_\-sparse@{dest\-\_\-pending\-\_\-sparse}!file_pair@{file\-\_\-pair}}
+\subsubsection[{dest\-\_\-pending\-\_\-sparse}]{\setlength{\rightskip}{0pt plus 5cm}off\-\_\-t file\-\_\-pair\-::dest\-\_\-pending\-\_\-sparse}\label{structfile__pair_a8372ad2043ad566b72c2743bd42bbe22}
+This is used only if dest\-\_\-try\-\_\-sparse is true. This holds the number of zero bytes we haven't written out, because we plan to make that byte range a sparse chunk. 
+
+Referenced by io\-\_\-close(), and io\-\_\-write().
+
+\index{file\-\_\-pair@{file\-\_\-pair}!src\-\_\-st@{src\-\_\-st}}
+\index{src\-\_\-st@{src\-\_\-st}!file_pair@{file\-\_\-pair}}
+\subsubsection[{src\-\_\-st}]{\setlength{\rightskip}{0pt plus 5cm}struct stat file\-\_\-pair\-::src\-\_\-st}\label{structfile__pair_ab2b63e4c15c0489b67ee3d795174d3dc}
+
+
+Stat of the source file. 
+
+
+
+Referenced by coder\-\_\-run(), io\-\_\-close\-\_\-src(), io\-\_\-copy\-\_\-attrs(), io\-\_\-open\-\_\-src\-\_\-real(), and parse\-\_\-indexes().
+
+\index{file\-\_\-pair@{file\-\_\-pair}!dest\-\_\-st@{dest\-\_\-st}}
+\index{dest\-\_\-st@{dest\-\_\-st}!file_pair@{file\-\_\-pair}}
+\subsubsection[{dest\-\_\-st}]{\setlength{\rightskip}{0pt plus 5cm}struct stat file\-\_\-pair\-::dest\-\_\-st}\label{structfile__pair_a31c3f2a5ea5d9538c4e29398c535a183}
+
+
+Stat of the destination file. 
+
+
+
+Referenced by io\-\_\-close\-\_\-dest().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+xz/{\bf file\-\_\-io.\-h}\end{DoxyCompactItemize}

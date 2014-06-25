@@ -1,0 +1,67 @@
+\section{liblzma/common/block\-\_\-header\-\_\-decoder.c File Reference}
+\label{block__header__decoder_8c}\index{liblzma/common/block\-\_\-header\-\_\-decoder.\-c@{liblzma/common/block\-\_\-header\-\_\-decoder.\-c}}
+
+
+Decodes Block Header from .xz files.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}check.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries free\-\_\-properties} ({\bf lzma\-\_\-block} $\ast$block, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{block__header__decoder_8c_a4cb2c68571cfb3de01fddfdb5f3d6ab8}
+
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-block\-\_\-header\-\_\-decode} ({\bf lzma\-\_\-block} $\ast$block, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$in)
+\begin{DoxyCompactList}\small\item\em Decode Block Header. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Decodes Block Header from .xz files. 
+
+\subsection{Function Documentation}
+\index{block\-\_\-header\-\_\-decoder.\-c@{block\-\_\-header\-\_\-decoder.\-c}!lzma\-\_\-block\-\_\-header\-\_\-decode@{lzma\-\_\-block\-\_\-header\-\_\-decode}}
+\index{lzma\-\_\-block\-\_\-header\-\_\-decode@{lzma\-\_\-block\-\_\-header\-\_\-decode}!block_header_decoder.c@{block\-\_\-header\-\_\-decoder.\-c}}
+\subsubsection[{lzma\-\_\-block\-\_\-header\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-block\-\_\-header\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-block} $\ast$}]{block, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{in}
+\end{DoxyParamCaption}
+)}\label{block__header__decoder_8c_ac85bbf9df6709081a8112c8826b4997b}
+
+
+Decode Block Header. 
+
+block-\/$>$version should be set to the highest value supported by the application; currently the only possible version is zero. This function will set version to the lowest value that still supports all the features required by the Block Header.
+
+The size of the Block Header must have already been decoded with \doxyref{lzma\-\_\-block\-\_\-header\-\_\-size\-\_\-decode()}{p.}{block_8h_ac025c940683a70f4c7f956bad814fd5f} macro and stored to block-\/$>$header\-\_\-size.
+
+block-\/$>$filters must have been allocated, but they don't need to be initialized (possible existing filter options are not freed).
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & Destination for Block options. \\
+\hline
+{\em allocator} & \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\-U\-L\-L to use malloc() (and also free() if an error occurs). \\
+\hline
+{\em in} & Beginning of the input buffer. This must be at least block-\/$>$header\-\_\-size bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Decoding was successful. block-\/$>$header\-\_\-size bytes were read from the input buffer.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: The Block Header specifies some unsupported options such as unsupported filters. This can happen also if block-\/$>$version was set to a too low value compared to what would be required to properly represent the information stored in the Block Header.
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R\-: Block Header is corrupt, for example, the C\-R\-C32 doesn't match.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Invalid arguments, for example block-\/$>$header\-\_\-size is invalid or block-\/$>$filters is N\-U\-L\-L. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-block\-\_\-header\-\_\-size\-\_\-decode, lzma\-\_\-block\-\_\-unpadded\-\_\-size(), L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-I\-D\-\_\-\-M\-A\-X, lzma\-\_\-crc32(), L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-filter\-\_\-flags\-\_\-decode(), L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-vli\-\_\-decode(), L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, and return\-\_\-if\-\_\-error.
+
+
+
+Referenced by parse\-\_\-block\-\_\-header().
+

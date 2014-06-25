@@ -1,0 +1,728 @@
+\section{xz/message.c File Reference}
+\label{message_8c}\index{xz/message.\-c@{xz/message.\-c}}
+
+
+Printing messages.  
+
+
+{\ttfamily \#include \char`\"{}private.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint64\-\_\-t {\bf my\-\_\-time} (void)
+\begin{DoxyCompactList}\small\item\em Get the current time as microseconds since epoch. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the message functions. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-verbosity\-\_\-increase} (void)
+\begin{DoxyCompactList}\small\item\em Increase verbosity level by one step unless it was at maximum. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-verbosity\-\_\-decrease} (void)
+\begin{DoxyCompactList}\small\item\em Decrease verbosity level by one step unless it was at minimum. \end{DoxyCompactList}\item 
+enum {\bf message\-\_\-verbosity} {\bf message\-\_\-verbosity\-\_\-get} (void)
+\begin{DoxyCompactList}\small\item\em Get the current verbosity level. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-set\-\_\-files} (unsigned int files)
+\begin{DoxyCompactList}\small\item\em Set the total number of files to be processed. \end{DoxyCompactList}\item 
+static void {\bf print\-\_\-filename} (void)
+\item 
+void {\bf message\-\_\-filename} (const char $\ast$src\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Set the name of the current file and possibly print it too. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-progress\-\_\-start} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, uint64\-\_\-t in\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Start progress info handling. \end{DoxyCompactList}\item 
+static const char $\ast$ {\bf progress\-\_\-percentage} (uint64\-\_\-t in\-\_\-pos)
+\begin{DoxyCompactList}\small\item\em Make the string indicating completion percentage. \end{DoxyCompactList}\item 
+static const char $\ast$ {\bf progress\-\_\-sizes} (uint64\-\_\-t compressed\-\_\-pos, uint64\-\_\-t uncompressed\-\_\-pos, bool final)
+\item 
+static const char $\ast$ {\bf progress\-\_\-speed} (uint64\-\_\-t uncompressed\-\_\-pos, uint64\-\_\-t elapsed)
+\begin{DoxyCompactList}\small\item\em Make the string containing the processing speed of uncompressed data. \end{DoxyCompactList}\item 
+static const char $\ast$ {\bf progress\-\_\-time} (uint64\-\_\-t useconds)
+\item 
+static const char $\ast$ {\bf progress\-\_\-remaining} (uint64\-\_\-t in\-\_\-pos, uint64\-\_\-t elapsed)
+\item 
+static uint64\-\_\-t {\bf progress\-\_\-elapsed} (void)
+\begin{DoxyCompactList}\small\item\em Calculate the elapsed time as microseconds. \end{DoxyCompactList}\item 
+static void {\bf progress\-\_\-pos} (uint64\-\_\-t $\ast$in\-\_\-pos, uint64\-\_\-t $\ast$compressed\-\_\-pos, uint64\-\_\-t $\ast$uncompressed\-\_\-pos)
+\item 
+void {\bf message\-\_\-progress\-\_\-update} (void)
+\item 
+static void {\bfseries progress\-\_\-flush} (bool finished)\label{message_8c_af97230aa03522b3ab62951353c01bebc}
+
+\item 
+void {\bf message\-\_\-progress\-\_\-end} (bool success)
+\begin{DoxyCompactList}\small\item\em Finishes the progress message if we were in verbose mode. \end{DoxyCompactList}\item 
+static void {\bfseries vmessage} (enum {\bf message\-\_\-verbosity} v, const char $\ast$fmt, va\-\_\-list ap)\label{message_8c_ad1d323d874738be89d0d9fa9e8d839d4}
+
+\item 
+void {\bfseries message} (enum {\bf message\-\_\-verbosity} v, const char $\ast$fmt,...)\label{message_8c_a6b59e56e08adf8ef999414f8bb35866c}
+
+\item 
+void {\bfseries message\-\_\-warning} (const char $\ast$fmt,...)\label{message_8c_a9398872aacc9a1d67e9552e723c097e1}
+
+\item 
+void {\bfseries message\-\_\-error} (const char $\ast$fmt,...)\label{message_8c_a9381ee8465ae5c2a74c60eb709a2f7b3}
+
+\item 
+void {\bfseries message\-\_\-fatal} (const char $\ast$fmt,...)\label{message_8c_aebf0b51aea7b04e007012b6fdc6d97da}
+
+\item 
+void {\bf message\-\_\-bug} (void)
+\item 
+void {\bf message\-\_\-signal\-\_\-handler} (void)
+\item 
+const char $\ast$ {\bf message\-\_\-strm} ({\bf lzma\-\_\-ret} code)
+\begin{DoxyCompactList}\small\item\em Convert lzma\-\_\-ret to a string. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-mem\-\_\-needed} (enum {\bf message\-\_\-verbosity} v, uint64\-\_\-t memusage)
+\begin{DoxyCompactList}\small\item\em Display how much memory was needed and how much the limit was. \end{DoxyCompactList}\item 
+static const char $\ast$ {\bf uint32\-\_\-to\-\_\-optstr} (uint32\-\_\-t num)
+\begin{DoxyCompactList}\small\item\em Convert uint32\-\_\-t to a nice string for --lzma[12]=dict=S\-I\-Z\-E. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-filters\-\_\-to\-\_\-str} (char buf[{\bf F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}], const {\bf lzma\-\_\-filter} $\ast${\bf filters}, bool all\-\_\-known)
+\begin{DoxyCompactList}\small\item\em Get the filter chain as a string. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-filters\-\_\-show} (enum {\bf message\-\_\-verbosity} v, const {\bf lzma\-\_\-filter} $\ast${\bf filters})
+\begin{DoxyCompactList}\small\item\em Print the filter chain. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-try\-\_\-help} (void)
+\begin{DoxyCompactList}\small\item\em Print a message that user should try --help. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-version} (void)
+\begin{DoxyCompactList}\small\item\em Prints the version number to stdout and exits with exit status S\-U\-C\-C\-E\-S\-S. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-help} (bool long\-\_\-help)
+\begin{DoxyCompactList}\small\item\em Print the help message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned int {\bf files\-\_\-pos} = 0
+\begin{DoxyCompactList}\small\item\em Number of the current file. \end{DoxyCompactList}\item 
+static unsigned int {\bf files\-\_\-total}
+\begin{DoxyCompactList}\small\item\em Total number of input files; zero if unknown. \end{DoxyCompactList}\item 
+static enum {\bf message\-\_\-verbosity} {\bf verbosity} = {\bf V\-\_\-\-W\-A\-R\-N\-I\-N\-G}
+\begin{DoxyCompactList}\small\item\em Verbosity level. \end{DoxyCompactList}\item 
+static const char $\ast$ {\bf filename}
+\begin{DoxyCompactList}\small\item\em Filename which we will print with the verbose messages. \end{DoxyCompactList}\item 
+static bool {\bf first\-\_\-filename\-\_\-printed} = false
+\item 
+static bool {\bf current\-\_\-filename\-\_\-printed} = false
+\item 
+static bool {\bf progress\-\_\-automatic}
+\item 
+static bool {\bf progress\-\_\-started} = false
+\item 
+static bool {\bf progress\-\_\-active} = false
+\item 
+static {\bf lzma\-\_\-stream} $\ast$ {\bf progress\-\_\-strm}
+\begin{DoxyCompactList}\small\item\em Pointer to \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} used to do the encoding or decoding. \end{DoxyCompactList}\item 
+static uint64\-\_\-t {\bf expected\-\_\-in\-\_\-size}
+\item 
+static uint64\-\_\-t {\bf start\-\_\-time}
+\begin{DoxyCompactList}\small\item\em Time when we started processing the file. \end{DoxyCompactList}\item 
+static bool {\bf progress\-\_\-needs\-\_\-updating} = false
+\item 
+static uint64\-\_\-t {\bf progress\-\_\-next\-\_\-update}
+\begin{DoxyCompactList}\small\item\em Elapsed time when the next progress message update should be done. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Printing messages. 
+
+\subsection{Function Documentation}
+\index{message.\-c@{message.\-c}!my\-\_\-time@{my\-\_\-time}}
+\index{my\-\_\-time@{my\-\_\-time}!message.c@{message.\-c}}
+\subsubsection[{my\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}static uint64\-\_\-t my\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_af2a6487300612cba0f5b37778568759b}
+
+
+Get the current time as microseconds since epoch. 
+
+
+
+Referenced by message\-\_\-progress\-\_\-start(), and progress\-\_\-elapsed().
+
+\index{message.\-c@{message.\-c}!message\-\_\-init@{message\-\_\-init}}
+\index{message\-\_\-init@{message\-\_\-init}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8c_a86e2f1386f5590f52a124a84946d5bfb}
+
+
+Initializes the message functions. 
+
+If an error occurs, this function doesn't return. 
+
+References message\-\_\-progress\-\_\-sigs, message\-\_\-signal\-\_\-handler(), and progress\-\_\-automatic.
+
+\index{message.\-c@{message.\-c}!message\-\_\-verbosity\-\_\-increase@{message\-\_\-verbosity\-\_\-increase}}
+\index{message\-\_\-verbosity\-\_\-increase@{message\-\_\-verbosity\-\_\-increase}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-verbosity\-\_\-increase}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-verbosity\-\_\-increase (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8c_a26372b49d3b9e2795b20a6780cd3c440}
+
+
+Increase verbosity level by one step unless it was at maximum. 
+
+
+
+References V\-\_\-\-D\-E\-B\-U\-G, and verbosity.
+
+\index{message.\-c@{message.\-c}!message\-\_\-verbosity\-\_\-decrease@{message\-\_\-verbosity\-\_\-decrease}}
+\index{message\-\_\-verbosity\-\_\-decrease@{message\-\_\-verbosity\-\_\-decrease}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-verbosity\-\_\-decrease}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-verbosity\-\_\-decrease (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8c_a92fcace7374de86b19bd02ed1803a0a1}
+
+
+Decrease verbosity level by one step unless it was at minimum. 
+
+
+
+References V\-\_\-\-S\-I\-L\-E\-N\-T, and verbosity.
+
+\index{message.\-c@{message.\-c}!message\-\_\-verbosity\-\_\-get@{message\-\_\-verbosity\-\_\-get}}
+\index{message\-\_\-verbosity\-\_\-get@{message\-\_\-verbosity\-\_\-get}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-verbosity\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf message\-\_\-verbosity} message\-\_\-verbosity\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8c_afa4674026a909bd210c5e4dd224bf28b}
+
+
+Get the current verbosity level. 
+
+
+
+References verbosity.
+
+
+
+Referenced by hardware\-\_\-memlimit\-\_\-show(), list\-\_\-file(), and list\-\_\-totals().
+
+\index{message.\-c@{message.\-c}!message\-\_\-set\-\_\-files@{message\-\_\-set\-\_\-files}}
+\index{message\-\_\-set\-\_\-files@{message\-\_\-set\-\_\-files}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-set\-\_\-files}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-set\-\_\-files (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{files}
+\end{DoxyParamCaption}
+)}\label{message_8c_a2ef9f3e9da9028c029d577cc0958d002}
+
+
+Set the total number of files to be processed. 
+
+Standard input is counted as a file here. This is used when printing the filename via \doxyref{message\-\_\-filename()}{p.}{message_8c_a611dae7c0bc66f08de8dd064265d74c1}. 
+
+References files\-\_\-total.
+
+\index{message.\-c@{message.\-c}!print\-\_\-filename@{print\-\_\-filename}}
+\index{print\-\_\-filename@{print\-\_\-filename}!message.c@{message.\-c}}
+\subsubsection[{print\-\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}static void print\-\_\-filename (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_acbbb9eea316e38b0df1bf050d5a2feb6}
+Prints the name of the current file if it hasn't been printed already, except if we are processing exactly one stream from stdin to stdout. I think it looks nicer to not print \char`\"{}(stdin)\char`\"{} when --verbose is used in a pipe and no other files are processed. 
+
+References current\-\_\-filename\-\_\-printed, filename, files\-\_\-pos, files\-\_\-total, first\-\_\-filename\-\_\-printed, opt\-\_\-mode, signals\-\_\-block(), and signals\-\_\-unblock().
+
+
+
+Referenced by message\-\_\-filename(), and message\-\_\-progress\-\_\-update().
+
+\index{message.\-c@{message.\-c}!message\-\_\-filename@{message\-\_\-filename}}
+\index{message\-\_\-filename@{message\-\_\-filename}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-filename (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src\-\_\-name}
+\end{DoxyParamCaption}
+)}\label{message_8c_a611dae7c0bc66f08de8dd064265d74c1}
+
+
+Set the name of the current file and possibly print it too. 
+
+The name is printed immediately if --list was used or if --verbose was used and stderr is a terminal. Even when the filename isn't printed, it is stored so that it can be printed later if needed for progress messages. 
+
+References current\-\_\-filename\-\_\-printed, filename, files\-\_\-pos, opt\-\_\-mode, print\-\_\-filename(), progress\-\_\-automatic, V\-\_\-\-V\-E\-R\-B\-O\-S\-E, and verbosity.
+
+
+
+Referenced by coder\-\_\-run(), and list\-\_\-file().
+
+\index{message.\-c@{message.\-c}!message\-\_\-progress\-\_\-start@{message\-\_\-progress\-\_\-start}}
+\index{message\-\_\-progress\-\_\-start@{message\-\_\-progress\-\_\-start}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-progress\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-progress\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{uint64\-\_\-t}]{in\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{message_8c_a57e5a4299d3b2d8518ff55d7a85eca32}
+
+
+Start progress info handling. 
+
+\doxyref{message\-\_\-filename()}{p.}{message_8c_a611dae7c0bc66f08de8dd064265d74c1} must be called before this function to set the filename.
+
+This must be paired with a call to \doxyref{message\-\_\-progress\-\_\-end()}{p.}{message_8c_a01159ec580233fe9b1ebf688df3ee769} before the given $\ast$strm becomes invalid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} used for the coding. \\
+\hline
+{\em in\-\_\-size} & Size of the input file, or zero if unknown. \\
+\hline
+\end{DoxyParams}
+
+
+References expected\-\_\-in\-\_\-size, my\-\_\-time(), progress\-\_\-automatic, progress\-\_\-started, start\-\_\-time, strm, V\-\_\-\-V\-E\-R\-B\-O\-S\-E, and verbosity.
+
+
+
+Referenced by coder\-\_\-run().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-percentage@{progress\-\_\-percentage}}
+\index{progress\-\_\-percentage@{progress\-\_\-percentage}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-percentage}]{\setlength{\rightskip}{0pt plus 5cm}static const char$\ast$ progress\-\_\-percentage (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{in\-\_\-pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a0f10245a1cb1678381c20e9d6d970d17}
+
+
+Make the string indicating completion percentage. 
+
+
+
+References expected\-\_\-in\-\_\-size.
+
+
+
+Referenced by message\-\_\-progress\-\_\-update().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-sizes@{progress\-\_\-sizes}}
+\index{progress\-\_\-sizes@{progress\-\_\-sizes}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-sizes}]{\setlength{\rightskip}{0pt plus 5cm}static const char$\ast$ progress\-\_\-sizes (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{compressed\-\_\-pos, }
+\item[{uint64\-\_\-t}]{uncompressed\-\_\-pos, }
+\item[{bool}]{final}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a59105b134b42b8d500422f64423c5f52}
+Make the string containing the amount of input processed, amount of output produced, and the compression ratio. 
+
+References my\-\_\-snprintf(), and uint64\-\_\-to\-\_\-nicestr().
+
+
+
+Referenced by message\-\_\-progress\-\_\-update().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-speed@{progress\-\_\-speed}}
+\index{progress\-\_\-speed@{progress\-\_\-speed}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-speed}]{\setlength{\rightskip}{0pt plus 5cm}static const char$\ast$ progress\-\_\-speed (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{uncompressed\-\_\-pos, }
+\item[{uint64\-\_\-t}]{elapsed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a1d3d20b11e9ae2e5ec201526a06723ac}
+
+
+Make the string containing the processing speed of uncompressed data. 
+
+
+
+Referenced by message\-\_\-progress\-\_\-update().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-time@{progress\-\_\-time}}
+\index{progress\-\_\-time@{progress\-\_\-time}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}static const char$\ast$ progress\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{useconds}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_ae046bc9116d9050d176f2e985a877371}
+Make a string indicating elapsed or remaining time. The format is either M\-:S\-S or H\-:\-M\-M\-:S\-S depending on if the time is an hour or more. 
+
+Referenced by message\-\_\-progress\-\_\-update().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-remaining@{progress\-\_\-remaining}}
+\index{progress\-\_\-remaining@{progress\-\_\-remaining}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-remaining}]{\setlength{\rightskip}{0pt plus 5cm}static const char$\ast$ progress\-\_\-remaining (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{in\-\_\-pos, }
+\item[{uint64\-\_\-t}]{elapsed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_aaf39eb4fee53ac7a6505b6fde859e299}
+Return a string containing estimated remaining time when reasonably possible. 
+
+References expected\-\_\-in\-\_\-size.
+
+
+
+Referenced by message\-\_\-progress\-\_\-update().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-elapsed@{progress\-\_\-elapsed}}
+\index{progress\-\_\-elapsed@{progress\-\_\-elapsed}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-elapsed}]{\setlength{\rightskip}{0pt plus 5cm}static uint64\-\_\-t progress\-\_\-elapsed (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_aaaf82dd5fe0bc5b3b587c120f80c7ef2}
+
+
+Calculate the elapsed time as microseconds. 
+
+
+
+References my\-\_\-time(), and start\-\_\-time.
+
+
+
+Referenced by message\-\_\-progress\-\_\-update().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-pos@{progress\-\_\-pos}}
+\index{progress\-\_\-pos@{progress\-\_\-pos}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}static void progress\-\_\-pos (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t $\ast$}]{in\-\_\-pos, }
+\item[{uint64\-\_\-t $\ast$}]{compressed\-\_\-pos, }
+\item[{uint64\-\_\-t $\ast$}]{uncompressed\-\_\-pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a156f74d3ffb18df5de383831694ef01c}
+Get information about position in the stream. This is currently simple, but it will become more complicated once we have multithreading support. 
+
+References opt\-\_\-mode, lzma\-\_\-stream\-::total\-\_\-in, and lzma\-\_\-stream\-::total\-\_\-out.
+
+
+
+Referenced by message\-\_\-progress\-\_\-update().
+
+\index{message.\-c@{message.\-c}!message\-\_\-progress\-\_\-update@{message\-\_\-progress\-\_\-update}}
+\index{message\-\_\-progress\-\_\-update@{message\-\_\-progress\-\_\-update}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-progress\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-progress\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8c_abc7b1a649494177507246554d2d6d6ef}
+Update the progress info if in verbose mode and enough time has passed since the previous update. This can be called only when \doxyref{message\-\_\-progress\-\_\-start()}{p.}{message_8c_a57e5a4299d3b2d8518ff55d7a85eca32} has already been used. 
+
+References current\-\_\-filename\-\_\-printed, print\-\_\-filename(), progress\-\_\-active, progress\-\_\-automatic, progress\-\_\-elapsed(), progress\-\_\-percentage(), progress\-\_\-pos(), progress\-\_\-remaining(), progress\-\_\-sizes(), progress\-\_\-speed(), progress\-\_\-time(), signals\-\_\-block(), signals\-\_\-unblock(), V\-\_\-\-V\-E\-R\-B\-O\-S\-E, and verbosity.
+
+
+
+Referenced by coder\-\_\-normal(), and coder\-\_\-passthru().
+
+\index{message.\-c@{message.\-c}!message\-\_\-progress\-\_\-end@{message\-\_\-progress\-\_\-end}}
+\index{message\-\_\-progress\-\_\-end@{message\-\_\-progress\-\_\-end}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-progress\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-progress\-\_\-end (
+\begin{DoxyParamCaption}
+\item[{bool}]{finished}
+\end{DoxyParamCaption}
+)}\label{message_8c_a01159ec580233fe9b1ebf688df3ee769}
+
+
+Finishes the progress message if we were in verbose mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em finished} & True if the whole stream was successfully coded and output written to the output stream. \\
+\hline
+\end{DoxyParams}
+
+
+References progress\-\_\-started.
+
+
+
+Referenced by coder\-\_\-run().
+
+\index{message.\-c@{message.\-c}!message\-\_\-bug@{message\-\_\-bug}}
+\index{message\-\_\-bug@{message\-\_\-bug}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-bug}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-bug (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8c_a944f1c7e140a81cb2d1e869d1efbf7bb}
+Print an error message that an internal error occurred and exit with E\-X\-I\-T\-\_\-\-E\-R\-R\-O\-R. 
+
+References message\-\_\-fatal().
+
+
+
+Referenced by options\-\_\-lzma(), parse\-\_\-block\-\_\-header(), and parse\-\_\-indexes().
+
+\index{message.\-c@{message.\-c}!message\-\_\-signal\-\_\-handler@{message\-\_\-signal\-\_\-handler}}
+\index{message\-\_\-signal\-\_\-handler@{message\-\_\-signal\-\_\-handler}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-signal\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-signal\-\_\-handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8c_a8d931845255d94bfbcfacfd99f82b46d}
+Print a message that establishing signal handlers failed, and exit with exit status E\-R\-R\-O\-R. 
+
+References message\-\_\-fatal().
+
+
+
+Referenced by message\-\_\-init(), and signals\-\_\-init().
+
+\index{message.\-c@{message.\-c}!message\-\_\-strm@{message\-\_\-strm}}
+\index{message\-\_\-strm@{message\-\_\-strm}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-strm}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ message\-\_\-strm (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-ret}}]{code}
+\end{DoxyParamCaption}
+)}\label{message_8c_abf022fbe95ee294ef7ee78f01a4ea499}
+
+
+Convert lzma\-\_\-ret to a string. 
+
+
+
+References L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-G\-E\-T\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D, and L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K.
+
+
+
+Referenced by coder\-\_\-init(), coder\-\_\-normal(), parse\-\_\-block\-\_\-header(), and parse\-\_\-indexes().
+
+\index{message.\-c@{message.\-c}!message\-\_\-mem\-\_\-needed@{message\-\_\-mem\-\_\-needed}}
+\index{message\-\_\-mem\-\_\-needed@{message\-\_\-mem\-\_\-needed}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-mem\-\_\-needed}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-mem\-\_\-needed (
+\begin{DoxyParamCaption}
+\item[{enum {\bf message\-\_\-verbosity}}]{v, }
+\item[{uint64\-\_\-t}]{memusage}
+\end{DoxyParamCaption}
+)}\label{message_8c_a6953ba5a13ff12f32091346b5772e992}
+
+
+Display how much memory was needed and how much the limit was. 
+
+
+
+References hardware\-\_\-memlimit\-\_\-get(), message(), opt\-\_\-mode, round\-\_\-up\-\_\-to\-\_\-mib(), uint64\-\_\-to\-\_\-str(), and verbosity.
+
+
+
+Referenced by coder\-\_\-init(), coder\-\_\-normal(), and parse\-\_\-indexes().
+
+\index{message.\-c@{message.\-c}!uint32\-\_\-to\-\_\-optstr@{uint32\-\_\-to\-\_\-optstr}}
+\index{uint32\-\_\-to\-\_\-optstr@{uint32\-\_\-to\-\_\-optstr}!message.c@{message.\-c}}
+\subsubsection[{uint32\-\_\-to\-\_\-optstr}]{\setlength{\rightskip}{0pt plus 5cm}static const char$\ast$ uint32\-\_\-to\-\_\-optstr (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a3e22ae0f41b60004c2dbfc9cf0353ae3}
+
+
+Convert uint32\-\_\-t to a nice string for --lzma[12]=dict=S\-I\-Z\-E. 
+
+The idea is to use Ki\-B or Mi\-B suffix when possible. 
+
+Referenced by message\-\_\-filters\-\_\-to\-\_\-str().
+
+\index{message.\-c@{message.\-c}!message\-\_\-filters\-\_\-to\-\_\-str@{message\-\_\-filters\-\_\-to\-\_\-str}}
+\index{message\-\_\-filters\-\_\-to\-\_\-str@{message\-\_\-filters\-\_\-to\-\_\-str}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-filters\-\_\-to\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-filters\-\_\-to\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{char}]{buf[\-F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E], }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters, }
+\item[{bool}]{all\-\_\-known}
+\end{DoxyParamCaption}
+)}\label{message_8c_abb05c48d97be5905fe89b7b83b757c05}
+
+
+Get the filter chain as a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Pointer to caller allocated buffer to hold the filter chain string \\
+\hline
+{\em filters} & Pointer to the filter chain \\
+\hline
+{\em all\-\_\-known} & If true, all filter options are printed. If false, only the options that get stored into .xz headers are printed. \\
+\hline
+\end{DoxyParams}
+
+
+References lzma\-\_\-options\-\_\-lzma\-::depth, lzma\-\_\-options\-\_\-lzma\-::dict\-\_\-size, lzma\-\_\-options\-\_\-delta\-::dist, F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E, lzma\-\_\-filter\-::id, lzma\-\_\-options\-\_\-lzma\-::lc, lzma\-\_\-options\-\_\-lzma\-::lp, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-R\-M, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-R\-M\-T\-H\-U\-M\-B, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-L\-T\-A, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-I\-A64, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A1, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-P\-O\-W\-E\-R\-P\-C, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-P\-A\-R\-C, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-X86, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4, L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T, L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, lzma\-\_\-options\-\_\-lzma\-::mf, lzma\-\_\-options\-\_\-lzma\-::mode, my\-\_\-snprintf(), lzma\-\_\-options\-\_\-lzma\-::nice\-\_\-len, lzma\-\_\-filter\-::options, lzma\-\_\-options\-\_\-lzma\-::pb, lzma\-\_\-options\-\_\-bcj\-::start\-\_\-offset, and uint32\-\_\-to\-\_\-optstr().
+
+
+
+Referenced by message\-\_\-filters\-\_\-show(), and parse\-\_\-block\-\_\-header().
+
+\index{message.\-c@{message.\-c}!message\-\_\-filters\-\_\-show@{message\-\_\-filters\-\_\-show}}
+\index{message\-\_\-filters\-\_\-show@{message\-\_\-filters\-\_\-show}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-filters\-\_\-show}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-filters\-\_\-show (
+\begin{DoxyParamCaption}
+\item[{enum {\bf message\-\_\-verbosity}}]{v, }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters}
+\end{DoxyParamCaption}
+)}\label{message_8c_aaf3f7a614db304f11734e82be064791c}
+
+
+Print the filter chain. 
+
+
+
+References F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E, message\-\_\-filters\-\_\-to\-\_\-str(), and verbosity.
+
+\index{message.\-c@{message.\-c}!message\-\_\-try\-\_\-help@{message\-\_\-try\-\_\-help}}
+\index{message\-\_\-try\-\_\-help@{message\-\_\-try\-\_\-help}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-try\-\_\-help}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-try\-\_\-help (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8c_abc5ffac64565cf08bf0738e8ce8caca2}
+
+
+Print a message that user should try --help. 
+
+
+
+References message(), and V\-\_\-\-W\-A\-R\-N\-I\-N\-G.
+
+\index{message.\-c@{message.\-c}!message\-\_\-version@{message\-\_\-version}}
+\index{message\-\_\-version@{message\-\_\-version}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-version}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-version (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8c_a348282ed69dd3f8151fd13d501fa655a}
+
+
+Prints the version number to stdout and exits with exit status S\-U\-C\-C\-E\-S\-S. 
+
+
+
+References L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N, lzma\-\_\-version\-\_\-number(), L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G, lzma\-\_\-version\-\_\-string(), V\-\_\-\-S\-I\-L\-E\-N\-T, and verbosity.
+
+\index{message.\-c@{message.\-c}!message\-\_\-help@{message\-\_\-help}}
+\index{message\-\_\-help@{message\-\_\-help}!message.c@{message.\-c}}
+\subsubsection[{message\-\_\-help}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-help (
+\begin{DoxyParamCaption}
+\item[{bool}]{long\-\_\-help}
+\end{DoxyParamCaption}
+)}\label{message_8c_a0b50364e9adb3685e6fb276fedaf6e06}
+
+
+Print the help message. 
+
+
+
+References V\-\_\-\-S\-I\-L\-E\-N\-T, and verbosity.
+
+
+
+\subsection{Variable Documentation}
+\index{message.\-c@{message.\-c}!files\-\_\-pos@{files\-\_\-pos}}
+\index{files\-\_\-pos@{files\-\_\-pos}!message.c@{message.\-c}}
+\subsubsection[{files\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int files\-\_\-pos = 0\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_aafa0b310252a2ced31d170bb099c3ae5}
+
+
+Number of the current file. 
+
+
+
+Referenced by message\-\_\-filename(), and print\-\_\-filename().
+
+\index{message.\-c@{message.\-c}!files\-\_\-total@{files\-\_\-total}}
+\index{files\-\_\-total@{files\-\_\-total}!message.c@{message.\-c}}
+\subsubsection[{files\-\_\-total}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int files\-\_\-total\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a86e281a27d0da5ec3d7135182634503b}
+
+
+Total number of input files; zero if unknown. 
+
+
+
+Referenced by message\-\_\-set\-\_\-files(), and print\-\_\-filename().
+
+\index{message.\-c@{message.\-c}!verbosity@{verbosity}}
+\index{verbosity@{verbosity}!message.c@{message.\-c}}
+\subsubsection[{verbosity}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf message\-\_\-verbosity} verbosity = {\bf V\-\_\-\-W\-A\-R\-N\-I\-N\-G}\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a5cf176ef6e68fbac5ec3a6166a5e5efd}
+
+
+Verbosity level. 
+
+
+
+Referenced by message\-\_\-filename(), message\-\_\-filters\-\_\-show(), message\-\_\-help(), message\-\_\-mem\-\_\-needed(), message\-\_\-progress\-\_\-start(), message\-\_\-progress\-\_\-update(), message\-\_\-verbosity\-\_\-decrease(), message\-\_\-verbosity\-\_\-get(), message\-\_\-verbosity\-\_\-increase(), and message\-\_\-version().
+
+\index{message.\-c@{message.\-c}!filename@{filename}}
+\index{filename@{filename}!message.c@{message.\-c}}
+\subsubsection[{filename}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ filename\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a7efa5e9c7494c7d4586359300221aa5d}
+
+
+Filename which we will print with the verbose messages. 
+
+
+
+Referenced by message\-\_\-filename(), and print\-\_\-filename().
+
+\index{message.\-c@{message.\-c}!first\-\_\-filename\-\_\-printed@{first\-\_\-filename\-\_\-printed}}
+\index{first\-\_\-filename\-\_\-printed@{first\-\_\-filename\-\_\-printed}!message.c@{message.\-c}}
+\subsubsection[{first\-\_\-filename\-\_\-printed}]{\setlength{\rightskip}{0pt plus 5cm}bool first\-\_\-filename\-\_\-printed = false\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a5767bcfbf8e75a4a041ae4bf89624829}
+True once the a filename has been printed to stderr as part of progress message. If automatic progress updating isn't enabled, this becomes true after the first progress message has been printed due to user sending S\-I\-G\-I\-N\-F\-O, S\-I\-G\-U\-S\-R1, or S\-I\-G\-A\-L\-R\-M. Once this variable is true, we will print an empty line before the next filename to make the output more readable. 
+
+Referenced by print\-\_\-filename().
+
+\index{message.\-c@{message.\-c}!current\-\_\-filename\-\_\-printed@{current\-\_\-filename\-\_\-printed}}
+\index{current\-\_\-filename\-\_\-printed@{current\-\_\-filename\-\_\-printed}!message.c@{message.\-c}}
+\subsubsection[{current\-\_\-filename\-\_\-printed}]{\setlength{\rightskip}{0pt plus 5cm}bool current\-\_\-filename\-\_\-printed = false\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a3fceda033f9b6512a16abe9a173f4d9d}
+This is set to true when we have printed the current filename to stderr as part of a progress message. This variable is useful only if not updating progress automatically\-: if user sends many S\-I\-G\-I\-N\-F\-O, S\-I\-G\-U\-S\-R1, or S\-I\-G\-A\-L\-R\-M signals, we won't print the name of the same file multiple times. 
+
+Referenced by message\-\_\-filename(), message\-\_\-progress\-\_\-update(), and print\-\_\-filename().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-automatic@{progress\-\_\-automatic}}
+\index{progress\-\_\-automatic@{progress\-\_\-automatic}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-automatic}]{\setlength{\rightskip}{0pt plus 5cm}bool progress\-\_\-automatic\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a52b7a1a90a711430d867530d6ac1c9e5}
+True if we should print progress indicator and update it automatically if also verbose $>$= V\-\_\-\-V\-E\-R\-B\-O\-S\-E. 
+
+Referenced by message\-\_\-filename(), message\-\_\-init(), message\-\_\-progress\-\_\-start(), and message\-\_\-progress\-\_\-update().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-started@{progress\-\_\-started}}
+\index{progress\-\_\-started@{progress\-\_\-started}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-started}]{\setlength{\rightskip}{0pt plus 5cm}bool progress\-\_\-started = false\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_ac0169f9a58c1edffd39c53223fda391d}
+True if \doxyref{message\-\_\-progress\-\_\-start()}{p.}{message_8c_a57e5a4299d3b2d8518ff55d7a85eca32} has been called but \doxyref{message\-\_\-progress\-\_\-end()}{p.}{message_8c_a01159ec580233fe9b1ebf688df3ee769} hasn't been called yet. 
+
+Referenced by message\-\_\-progress\-\_\-end(), and message\-\_\-progress\-\_\-start().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-active@{progress\-\_\-active}}
+\index{progress\-\_\-active@{progress\-\_\-active}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-active}]{\setlength{\rightskip}{0pt plus 5cm}bool progress\-\_\-active = false\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a2f9da8ac912c53f2291b052c36b09c5d}
+This is true when a progress message was printed and the cursor is still on the same line with the progress message. In that case, a newline has to be printed before any error messages. 
+
+Referenced by message\-\_\-progress\-\_\-update().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-strm@{progress\-\_\-strm}}
+\index{progress\-\_\-strm@{progress\-\_\-strm}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-strm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-stream}$\ast$ progress\-\_\-strm\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_aecd67b98a4e80e4f1a1a09a8986acf10}
+
+
+Pointer to \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} used to do the encoding or decoding. 
+
+\index{message.\-c@{message.\-c}!expected\-\_\-in\-\_\-size@{expected\-\_\-in\-\_\-size}}
+\index{expected\-\_\-in\-\_\-size@{expected\-\_\-in\-\_\-size}!message.c@{message.\-c}}
+\subsubsection[{expected\-\_\-in\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t expected\-\_\-in\-\_\-size\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_af09aa2eef496a53ac17dc3f3e3bfc016}
+Expected size of the input stream is needed to show completion percentage and estimate remaining time. 
+
+Referenced by message\-\_\-progress\-\_\-start(), progress\-\_\-percentage(), and progress\-\_\-remaining().
+
+\index{message.\-c@{message.\-c}!start\-\_\-time@{start\-\_\-time}}
+\index{start\-\_\-time@{start\-\_\-time}!message.c@{message.\-c}}
+\subsubsection[{start\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t start\-\_\-time\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a5b11efea935978e9f1913e964a5e5396}
+
+
+Time when we started processing the file. 
+
+
+
+Referenced by message\-\_\-progress\-\_\-start(), and progress\-\_\-elapsed().
+
+\index{message.\-c@{message.\-c}!progress\-\_\-needs\-\_\-updating@{progress\-\_\-needs\-\_\-updating}}
+\index{progress\-\_\-needs\-\_\-updating@{progress\-\_\-needs\-\_\-updating}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-needs\-\_\-updating}]{\setlength{\rightskip}{0pt plus 5cm}bool progress\-\_\-needs\-\_\-updating = false\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_ab48a28d98e134a371bcf080f967dae41}
+This is true when progress message printing is wanted. Using the same variable name as above to avoid some ifdefs. \index{message.\-c@{message.\-c}!progress\-\_\-next\-\_\-update@{progress\-\_\-next\-\_\-update}}
+\index{progress\-\_\-next\-\_\-update@{progress\-\_\-next\-\_\-update}!message.c@{message.\-c}}
+\subsubsection[{progress\-\_\-next\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t progress\-\_\-next\-\_\-update\hspace{0.3cm}{\ttfamily [static]}}\label{message_8c_a5ec148277d1165425c5fa0c7dc61db70}
+
+
+Elapsed time when the next progress message update should be done. 
+

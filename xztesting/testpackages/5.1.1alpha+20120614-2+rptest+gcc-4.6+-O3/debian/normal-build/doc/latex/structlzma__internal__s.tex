@@ -1,0 +1,86 @@
+\section{lzma\-\_\-internal\-\_\-s Struct Reference}
+\label{structlzma__internal__s}\index{lzma\-\_\-internal\-\_\-s@{lzma\-\_\-internal\-\_\-s}}
+
+
+{\ttfamily \#include $<$common.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \\*
+{\bfseries I\-S\-E\-Q\-\_\-\-R\-U\-N}, 
+{\bfseries I\-S\-E\-Q\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H}, 
+{\bfseries I\-S\-E\-Q\-\_\-\-F\-U\-L\-L\-\_\-\-F\-L\-U\-S\-H}, 
+{\bfseries I\-S\-E\-Q\-\_\-\-F\-I\-N\-I\-S\-H}, 
+\\*
+{\bfseries I\-S\-E\-Q\-\_\-\-E\-N\-D}, 
+{\bfseries I\-S\-E\-Q\-\_\-\-E\-R\-R\-O\-R}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-next\-\_\-coder} {\bf next}
+\begin{DoxyCompactList}\small\item\em The actual coder that should do something useful. \end{DoxyCompactList}\item 
+enum lzma\-\_\-internal\-\_\-s\-:: \{ ... \}  {\bf sequence}
+\item 
+size\-\_\-t {\bf avail\-\_\-in}
+\item 
+bool {\bf supported\-\_\-actions} [4]
+\begin{DoxyCompactList}\small\item\em Indicates which lzma\-\_\-action values are allowed by next.\-code. \end{DoxyCompactList}\item 
+bool {\bf allow\-\_\-buf\-\_\-error}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Internal data for lzma\-\_\-strm\-\_\-init, lzma\-\_\-code, and lzma\-\_\-end. A pointer to this is stored in \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream}. 
+
+\subsection{Member Enumeration Documentation}
+\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{structlzma__internal__s_a00b5a7abec207f08f4e2881bced339c1}
+Track the state of the coder. This is used to validate arguments so that the actual coders can rely on e.\-g. that L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H is used on every call to lzma\-\_\-code until next.\-code has returned L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D. 
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-internal\-\_\-s@{lzma\-\_\-internal\-\_\-s}!next@{next}}
+\index{next@{next}!lzma_internal_s@{lzma\-\_\-internal\-\_\-s}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-next\-\_\-coder} lzma\-\_\-internal\-\_\-s\-::next}\label{structlzma__internal__s_a5bdb142bf9982fbbc7f5c29156ccab43}
+
+
+The actual coder that should do something useful. 
+
+
+
+Referenced by lzma\-\_\-strm\-\_\-init().
+
+\index{lzma\-\_\-internal\-\_\-s@{lzma\-\_\-internal\-\_\-s}!sequence@{sequence}}
+\index{sequence@{sequence}!lzma_internal_s@{lzma\-\_\-internal\-\_\-s}}
+\subsubsection[{sequence}]{\setlength{\rightskip}{0pt plus 5cm}enum \{ ... \}   lzma\-\_\-internal\-\_\-s\-::sequence}\label{structlzma__internal__s_a5cabfc95cdd0bf68f3b5de76ce44170e}
+Track the state of the coder. This is used to validate arguments so that the actual coders can rely on e.\-g. that L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H is used on every call to lzma\-\_\-code until next.\-code has returned L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D. 
+
+Referenced by lzma\-\_\-strm\-\_\-init().
+
+\index{lzma\-\_\-internal\-\_\-s@{lzma\-\_\-internal\-\_\-s}!avail\-\_\-in@{avail\-\_\-in}}
+\index{avail\-\_\-in@{avail\-\_\-in}!lzma_internal_s@{lzma\-\_\-internal\-\_\-s}}
+\subsubsection[{avail\-\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-internal\-\_\-s\-::avail\-\_\-in}\label{structlzma__internal__s_adddfeca67cf34f4a6fb8e3b219d7450c}
+A copy of \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} avail\-\_\-in. This is used to verify that the amount of input doesn't change once e.\-g. L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H has been used. \index{lzma\-\_\-internal\-\_\-s@{lzma\-\_\-internal\-\_\-s}!supported\-\_\-actions@{supported\-\_\-actions}}
+\index{supported\-\_\-actions@{supported\-\_\-actions}!lzma_internal_s@{lzma\-\_\-internal\-\_\-s}}
+\subsubsection[{supported\-\_\-actions}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-internal\-\_\-s\-::supported\-\_\-actions[4]}\label{structlzma__internal__s_a439e9d7a00f163303f3b40fcef66f955}
+
+
+Indicates which lzma\-\_\-action values are allowed by next.\-code. 
+
+
+
+Referenced by lzma\-\_\-strm\-\_\-init().
+
+\index{lzma\-\_\-internal\-\_\-s@{lzma\-\_\-internal\-\_\-s}!allow\-\_\-buf\-\_\-error@{allow\-\_\-buf\-\_\-error}}
+\index{allow\-\_\-buf\-\_\-error@{allow\-\_\-buf\-\_\-error}!lzma_internal_s@{lzma\-\_\-internal\-\_\-s}}
+\subsubsection[{allow\-\_\-buf\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-internal\-\_\-s\-::allow\-\_\-buf\-\_\-error}\label{structlzma__internal__s_aba6238182edce9baab1a9b3af63e073b}
+If true, lzma\-\_\-code will return L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R if no progress was made (no input consumed and no output produced by next.\-code). 
+
+Referenced by lzma\-\_\-strm\-\_\-init().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/{\bf common.\-h}\end{DoxyCompactItemize}

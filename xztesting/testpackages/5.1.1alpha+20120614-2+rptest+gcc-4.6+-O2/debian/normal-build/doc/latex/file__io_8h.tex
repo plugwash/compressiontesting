@@ -1,0 +1,268 @@
+\section{xz/file\-\_\-io.h File Reference}
+\label{file__io_8h}\index{xz/file\-\_\-io.\-h@{xz/file\-\_\-io.\-h}}
+
+
+I/\-O types and functions.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union {\bf io\-\_\-buf}
+\item 
+struct {\bf file\-\_\-pair}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries I\-O\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~8192\label{file__io_8h_abe5d3c90538920357e5f36e108e5dcaa}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf io\-\_\-init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the I/\-O module. \end{DoxyCompactList}\item 
+void {\bf io\-\_\-no\-\_\-sparse} (void)
+\begin{DoxyCompactList}\small\item\em Disable creation of sparse files when decompressing. \end{DoxyCompactList}\item 
+{\bf file\-\_\-pair} $\ast$ {\bf io\-\_\-open\-\_\-src} (const char $\ast$src\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Open the source file. \end{DoxyCompactList}\item 
+bool {\bf io\-\_\-open\-\_\-dest} ({\bf file\-\_\-pair} $\ast$pair)
+\begin{DoxyCompactList}\small\item\em Open the destination file. \end{DoxyCompactList}\item 
+void {\bf io\-\_\-close} ({\bf file\-\_\-pair} $\ast$pair, bool success)
+\begin{DoxyCompactList}\small\item\em Closes the file descriptors and frees possible allocated memory. \end{DoxyCompactList}\item 
+size\-\_\-t {\bf io\-\_\-read} ({\bf file\-\_\-pair} $\ast$pair, {\bf io\-\_\-buf} $\ast$buf, size\-\_\-t size)
+\begin{DoxyCompactList}\small\item\em Reads from the source file to a buffer. \end{DoxyCompactList}\item 
+void {\bf io\-\_\-fix\-\_\-src\-\_\-pos} ({\bf file\-\_\-pair} $\ast$pair, size\-\_\-t rewind\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Fix the position in src\-\_\-fd. \end{DoxyCompactList}\item 
+bool {\bf io\-\_\-pread} ({\bf file\-\_\-pair} $\ast$pair, {\bf io\-\_\-buf} $\ast$buf, size\-\_\-t size, off\-\_\-t pos)
+\begin{DoxyCompactList}\small\item\em Read from source file from given offset to a buffer. \end{DoxyCompactList}\item 
+bool {\bf io\-\_\-write} ({\bf file\-\_\-pair} $\ast$pair, const {\bf io\-\_\-buf} $\ast$buf, size\-\_\-t size)
+\begin{DoxyCompactList}\small\item\em Writes a buffer to the destination file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+I/\-O types and functions. 
+
+\subsection{Function Documentation}
+\index{file\-\_\-io.\-h@{file\-\_\-io.\-h}!io\-\_\-init@{io\-\_\-init}}
+\index{io\-\_\-init@{io\-\_\-init}!file_io.h@{file\-\_\-io.\-h}}
+\subsubsection[{io\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void io\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{file__io_8h_a43bba613ce0efd6af387cd04458ede8d}
+
+
+Initialize the I/\-O module. 
+
+\index{file\-\_\-io.\-h@{file\-\_\-io.\-h}!io\-\_\-no\-\_\-sparse@{io\-\_\-no\-\_\-sparse}}
+\index{io\-\_\-no\-\_\-sparse@{io\-\_\-no\-\_\-sparse}!file_io.h@{file\-\_\-io.\-h}}
+\subsubsection[{io\-\_\-no\-\_\-sparse}]{\setlength{\rightskip}{0pt plus 5cm}void io\-\_\-no\-\_\-sparse (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{file__io_8h_a26350b70a7ef7ae45e57f04157ade2aa}
+
+
+Disable creation of sparse files when decompressing. 
+
+
+
+References try\-\_\-sparse.
+
+\index{file\-\_\-io.\-h@{file\-\_\-io.\-h}!io\-\_\-open\-\_\-src@{io\-\_\-open\-\_\-src}}
+\index{io\-\_\-open\-\_\-src@{io\-\_\-open\-\_\-src}!file_io.h@{file\-\_\-io.\-h}}
+\subsubsection[{io\-\_\-open\-\_\-src}]{\setlength{\rightskip}{0pt plus 5cm}{\bf file\-\_\-pair}$\ast$ io\-\_\-open\-\_\-src (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src\-\_\-name}
+\end{DoxyParamCaption}
+)}\label{file__io_8h_ac4fb03f340ee03676cbde913682a3719}
+
+
+Open the source file. 
+
+
+
+References io\-\_\-open\-\_\-src\-\_\-real(), is\-\_\-empty\-\_\-filename(), signals\-\_\-block(), signals\-\_\-unblock(), and file\-\_\-pair\-::src\-\_\-name.
+
+
+
+Referenced by coder\-\_\-run(), and list\-\_\-file().
+
+\index{file\-\_\-io.\-h@{file\-\_\-io.\-h}!io\-\_\-open\-\_\-dest@{io\-\_\-open\-\_\-dest}}
+\index{io\-\_\-open\-\_\-dest@{io\-\_\-open\-\_\-dest}!file_io.h@{file\-\_\-io.\-h}}
+\subsubsection[{io\-\_\-open\-\_\-dest}]{\setlength{\rightskip}{0pt plus 5cm}bool io\-\_\-open\-\_\-dest (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair}
+\end{DoxyParamCaption}
+)}\label{file__io_8h_a51c7b0ad8b7829773a69972565b7d08d}
+
+
+Open the destination file. 
+
+
+
+References signals\-\_\-block(), and signals\-\_\-unblock().
+
+
+
+Referenced by coder\-\_\-run().
+
+\index{file\-\_\-io.\-h@{file\-\_\-io.\-h}!io\-\_\-close@{io\-\_\-close}}
+\index{io\-\_\-close@{io\-\_\-close}!file_io.h@{file\-\_\-io.\-h}}
+\subsubsection[{io\-\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}void io\-\_\-close (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{bool}]{success}
+\end{DoxyParamCaption}
+)}\label{file__io_8h_a8dcc56461111f392398385820ad9c1d9}
+
+
+Closes the file descriptors and frees possible allocated memory. 
+
+The success argument determines if source or destination file gets unlinked\-:
+\begin{DoxyItemize}
+\item false\-: The destination file is unlinked.
+\item true\-: The source file is unlinked unless writing to stdout or --keep was used. 
+\end{DoxyItemize}
+
+References file\-\_\-pair\-::dest\-\_\-fd, file\-\_\-pair\-::dest\-\_\-name, file\-\_\-pair\-::dest\-\_\-pending\-\_\-sparse, file\-\_\-pair\-::dest\-\_\-try\-\_\-sparse, io\-\_\-close\-\_\-dest(), io\-\_\-close\-\_\-src(), io\-\_\-copy\-\_\-attrs(), message\-\_\-error(), signals\-\_\-block(), and signals\-\_\-unblock().
+
+
+
+Referenced by coder\-\_\-run(), and list\-\_\-file().
+
+\index{file\-\_\-io.\-h@{file\-\_\-io.\-h}!io\-\_\-read@{io\-\_\-read}}
+\index{io\-\_\-read@{io\-\_\-read}!file_io.h@{file\-\_\-io.\-h}}
+\subsubsection[{io\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t io\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{{\bf io\-\_\-buf} $\ast$}]{buf, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}\label{file__io_8h_aeda6fa2567b1b96603abbae64217e2f8}
+
+
+Reads from the source file to a buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & File pair having the source file open for reading \\
+\hline
+{\em buf} & Destination buffer to hold the read data \\
+\hline
+{\em size} & Size of the buffer; assumed be smaller than S\-S\-I\-Z\-E\-\_\-\-M\-A\-X\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, number of bytes read is returned. On end of file zero is returned and pair-\/$>$src\-\_\-eof set to true. On error, S\-I\-Z\-E\-\_\-\-M\-A\-X is returned and error message printed. 
+\end{DoxyReturn}
+
+
+References message\-\_\-error(), file\-\_\-pair\-::src\-\_\-eof, file\-\_\-pair\-::src\-\_\-fd, file\-\_\-pair\-::src\-\_\-name, and user\-\_\-abort.
+
+
+
+Referenced by coder\-\_\-normal(), coder\-\_\-passthru(), coder\-\_\-run(), and io\-\_\-pread().
+
+\index{file\-\_\-io.\-h@{file\-\_\-io.\-h}!io\-\_\-fix\-\_\-src\-\_\-pos@{io\-\_\-fix\-\_\-src\-\_\-pos}}
+\index{io\-\_\-fix\-\_\-src\-\_\-pos@{io\-\_\-fix\-\_\-src\-\_\-pos}!file_io.h@{file\-\_\-io.\-h}}
+\subsubsection[{io\-\_\-fix\-\_\-src\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}void io\-\_\-fix\-\_\-src\-\_\-pos (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{size\-\_\-t}]{rewind\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{file__io_8h_aa06dd4cd771d5a19bc191ff334f0623a}
+
+
+Fix the position in src\-\_\-fd. 
+
+This is used when --single-\/thream has been specified and decompression is successful. If the input file descriptor supports seeking, this function fixes the input position to point to the next byte after the decompressed stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & File pair having the source file open for reading \\
+\hline
+{\em rewind\-\_\-size} & How many bytes of extra have been read i.\-e. how much to seek backwards. \\
+\hline
+\end{DoxyParams}
+
+
+References file\-\_\-pair\-::src\-\_\-fd.
+
+
+
+Referenced by coder\-\_\-normal().
+
+\index{file\-\_\-io.\-h@{file\-\_\-io.\-h}!io\-\_\-pread@{io\-\_\-pread}}
+\index{io\-\_\-pread@{io\-\_\-pread}!file_io.h@{file\-\_\-io.\-h}}
+\subsubsection[{io\-\_\-pread}]{\setlength{\rightskip}{0pt plus 5cm}bool io\-\_\-pread (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{{\bf io\-\_\-buf} $\ast$}]{buf, }
+\item[{size\-\_\-t}]{size, }
+\item[{off\-\_\-t}]{pos}
+\end{DoxyParamCaption}
+)}\label{file__io_8h_af0781545c818796c48a4ee8dadd2c2a7}
+
+
+Read from source file from given offset to a buffer. 
+
+This is remotely similar to standard pread(). This uses lseek() though, so the read offset is changed on each call.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & Seekable source file \\
+\hline
+{\em buf} & Destination buffer \\
+\hline
+{\em size} & Amount of data to read \\
+\hline
+{\em pos} & Offset relative to the beginning of the file, from which the data should be read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, false is returned. On error, error message is printed and true is returned. 
+\end{DoxyReturn}
+
+
+References io\-\_\-read(), message\-\_\-error(), file\-\_\-pair\-::src\-\_\-fd, and file\-\_\-pair\-::src\-\_\-name.
+
+
+
+Referenced by parse\-\_\-block\-\_\-header(), parse\-\_\-check\-\_\-value(), and parse\-\_\-indexes().
+
+\index{file\-\_\-io.\-h@{file\-\_\-io.\-h}!io\-\_\-write@{io\-\_\-write}}
+\index{io\-\_\-write@{io\-\_\-write}!file_io.h@{file\-\_\-io.\-h}}
+\subsubsection[{io\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}bool io\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{{\bf file\-\_\-pair} $\ast$}]{pair, }
+\item[{const {\bf io\-\_\-buf} $\ast$}]{buf, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}\label{file__io_8h_a42ccfb816386ca04e622762bad58ef6f}
+
+
+Writes a buffer to the destination file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pair} & File pair having the destination file open for writing \\
+\hline
+{\em buf} & Buffer containing the data to be written \\
+\hline
+{\em size} & Size of the buffer; assumed be smaller than S\-S\-I\-Z\-E\-\_\-\-M\-A\-X\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, zero is returned. On error, -\/1 is returned and error message printed. 
+\end{DoxyReturn}
+
+
+References file\-\_\-pair\-::dest\-\_\-fd, file\-\_\-pair\-::dest\-\_\-name, file\-\_\-pair\-::dest\-\_\-pending\-\_\-sparse, file\-\_\-pair\-::dest\-\_\-try\-\_\-sparse, and message\-\_\-error().
+
+
+
+Referenced by coder\-\_\-normal(), and coder\-\_\-passthru().
+

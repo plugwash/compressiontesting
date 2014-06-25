@@ -1,0 +1,65 @@
+\section{index\-\_\-tree Struct Reference}
+\label{structindex__tree}\index{index\-\_\-tree@{index\-\_\-tree}}
+
+
+A\-V\-L tree to hold \doxyref{index\-\_\-stream}{p.}{structindex__stream} or \doxyref{index\-\_\-group}{p.}{structindex__group} structures.  
+
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf index\-\_\-tree\-\_\-node} $\ast$ {\bf root}
+\begin{DoxyCompactList}\small\item\em Root node. \end{DoxyCompactList}\item 
+{\bf index\-\_\-tree\-\_\-node} $\ast$ {\bf leftmost}
+\item 
+{\bf index\-\_\-tree\-\_\-node} $\ast$ {\bf rightmost}
+\item 
+uint32\-\_\-t {\bf count}
+\begin{DoxyCompactList}\small\item\em Number of nodes in the tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A\-V\-L tree to hold \doxyref{index\-\_\-stream}{p.}{structindex__stream} or \doxyref{index\-\_\-group}{p.}{structindex__group} structures. 
+
+\subsection{Field Documentation}
+\index{index\-\_\-tree@{index\-\_\-tree}!root@{root}}
+\index{root@{root}!index_tree@{index\-\_\-tree}}
+\subsubsection[{root}]{\setlength{\rightskip}{0pt plus 5cm}{\bf index\-\_\-tree\-\_\-node}$\ast$ index\-\_\-tree\-::root}\label{structindex__tree_ab2ae1f4d920234d6c9e458707c79cfb4}
+
+
+Root node. 
+
+
+
+Referenced by index\-\_\-tree\-\_\-append(), index\-\_\-tree\-\_\-end(), and index\-\_\-tree\-\_\-locate().
+
+\index{index\-\_\-tree@{index\-\_\-tree}!leftmost@{leftmost}}
+\index{leftmost@{leftmost}!index_tree@{index\-\_\-tree}}
+\subsubsection[{leftmost}]{\setlength{\rightskip}{0pt plus 5cm}{\bf index\-\_\-tree\-\_\-node}$\ast$ index\-\_\-tree\-::leftmost}\label{structindex__tree_a89caf3c87135b5b5643e97e7d3725e21}
+Leftmost node. Since the tree will be filled sequentially, this won't change after the first node has been added to the tree. 
+
+Referenced by index\-\_\-dup\-\_\-stream(), index\-\_\-tree\-\_\-append(), index\-\_\-tree\-\_\-locate(), and lzma\-\_\-index\-\_\-iter\-\_\-next().
+
+\index{index\-\_\-tree@{index\-\_\-tree}!rightmost@{rightmost}}
+\index{rightmost@{rightmost}!index_tree@{index\-\_\-tree}}
+\subsubsection[{rightmost}]{\setlength{\rightskip}{0pt plus 5cm}{\bf index\-\_\-tree\-\_\-node}$\ast$ index\-\_\-tree\-::rightmost}\label{structindex__tree_a05f2ab2260c8b193e122f2be4b0298d4}
+The rightmost node in the tree. Since the tree is filled sequentially, this is always the node where to add the new data. 
+
+Referenced by index\-\_\-tree\-\_\-append(), lzma\-\_\-index\-\_\-append(), and lzma\-\_\-index\-\_\-file\-\_\-size().
+
+\index{index\-\_\-tree@{index\-\_\-tree}!count@{count}}
+\index{count@{count}!index_tree@{index\-\_\-tree}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t index\-\_\-tree\-::count}\label{structindex__tree_a2d179c6d1bd9b27954ec9deef213e3a4}
+
+
+Number of nodes in the tree. 
+
+
+
+Referenced by index\-\_\-tree\-\_\-append().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/{\bf index.\-c}\end{DoxyCompactItemize}

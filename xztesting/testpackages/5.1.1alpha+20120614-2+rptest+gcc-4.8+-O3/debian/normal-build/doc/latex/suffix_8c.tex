@@ -1,0 +1,191 @@
+\section{xz/suffix.c File Reference}
+\label{suffix_8c}\index{xz/suffix.\-c@{xz/suffix.\-c}}
+
+
+Checks filename suffix and creates the destination filename.  
+
+
+{\ttfamily \#include \char`\"{}private.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool {\bf is\-\_\-dir\-\_\-sep} (char c)
+\begin{DoxyCompactList}\small\item\em Test if the char is a directory separator. \end{DoxyCompactList}\item 
+static bool {\bf has\-\_\-dir\-\_\-sep} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Test if the string contains a directory separator. \end{DoxyCompactList}\item 
+static size\-\_\-t {\bf test\-\_\-suffix} (const char $\ast$suffix, const char $\ast$src\-\_\-name, size\-\_\-t src\-\_\-len)
+\begin{DoxyCompactList}\small\item\em Checks if src\-\_\-name has given compressed\-\_\-suffix. \end{DoxyCompactList}\item 
+static char $\ast$ {\bf uncompressed\-\_\-name} (const char $\ast$src\-\_\-name, const size\-\_\-t src\-\_\-len)
+\begin{DoxyCompactList}\small\item\em Removes the filename suffix of the compressed file. \end{DoxyCompactList}\item 
+static void {\bf msg\-\_\-suffix} (const char $\ast$src\-\_\-name, const char $\ast$suffix)
+\item 
+static char $\ast$ {\bf compressed\-\_\-name} (const char $\ast$src\-\_\-name, size\-\_\-t src\-\_\-len)
+\begin{DoxyCompactList}\small\item\em Appends suffix to src\-\_\-name. \end{DoxyCompactList}\item 
+char $\ast$ {\bf suffix\-\_\-get\-\_\-dest\-\_\-name} (const char $\ast$src\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Get the name of the destination file. \end{DoxyCompactList}\item 
+void {\bf suffix\-\_\-set} (const char $\ast$suffix)
+\begin{DoxyCompactList}\small\item\em Set a custom filename suffix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ {\bfseries custom\-\_\-suffix} = N\-U\-L\-L\label{suffix_8c_a3660fe30983959154dc91ab8a78c74ab}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Checks filename suffix and creates the destination filename. 
+
+\subsection{Function Documentation}
+\index{suffix.\-c@{suffix.\-c}!is\-\_\-dir\-\_\-sep@{is\-\_\-dir\-\_\-sep}}
+\index{is\-\_\-dir\-\_\-sep@{is\-\_\-dir\-\_\-sep}!suffix.c@{suffix.\-c}}
+\subsubsection[{is\-\_\-dir\-\_\-sep}]{\setlength{\rightskip}{0pt plus 5cm}static bool is\-\_\-dir\-\_\-sep (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{suffix_8c_abdcb889ff949d18ed88c930ed061db44}
+
+
+Test if the char is a directory separator. 
+
+
+
+Referenced by test\-\_\-suffix().
+
+\index{suffix.\-c@{suffix.\-c}!has\-\_\-dir\-\_\-sep@{has\-\_\-dir\-\_\-sep}}
+\index{has\-\_\-dir\-\_\-sep@{has\-\_\-dir\-\_\-sep}!suffix.c@{suffix.\-c}}
+\subsubsection[{has\-\_\-dir\-\_\-sep}]{\setlength{\rightskip}{0pt plus 5cm}static bool has\-\_\-dir\-\_\-sep (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{suffix_8c_aac192477468016c425e6a0057d38203a}
+
+
+Test if the string contains a directory separator. 
+
+
+
+Referenced by compressed\-\_\-name(), and suffix\-\_\-set().
+
+\index{suffix.\-c@{suffix.\-c}!test\-\_\-suffix@{test\-\_\-suffix}}
+\index{test\-\_\-suffix@{test\-\_\-suffix}!suffix.c@{suffix.\-c}}
+\subsubsection[{test\-\_\-suffix}]{\setlength{\rightskip}{0pt plus 5cm}static size\-\_\-t test\-\_\-suffix (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{suffix, }
+\item[{const char $\ast$}]{src\-\_\-name, }
+\item[{size\-\_\-t}]{src\-\_\-len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{suffix_8c_abb61f16b0f6970c0d18aee7d9f778f34}
+
+
+Checks if src\-\_\-name has given compressed\-\_\-suffix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em suffix} & Filename suffix to look for \\
+\hline
+{\em src\-\_\-name} & Input filename \\
+\hline
+{\em src\-\_\-len} & strlen(src\-\_\-name)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If src\-\_\-name has the suffix, src\-\_\-len -\/ strlen(suffix) is returned. It's always a positive integer. Otherwise zero is returned. 
+\end{DoxyReturn}
+
+
+References is\-\_\-dir\-\_\-sep().
+
+
+
+Referenced by compressed\-\_\-name(), and uncompressed\-\_\-name().
+
+\index{suffix.\-c@{suffix.\-c}!uncompressed\-\_\-name@{uncompressed\-\_\-name}}
+\index{uncompressed\-\_\-name@{uncompressed\-\_\-name}!suffix.c@{suffix.\-c}}
+\subsubsection[{uncompressed\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}static char$\ast$ uncompressed\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src\-\_\-name, }
+\item[{const size\-\_\-t}]{src\-\_\-len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{suffix_8c_ad079d499b2fe1cdbba345998711a8fc0}
+
+
+Removes the filename suffix of the compressed file. 
+
+\begin{DoxyReturn}{Returns}
+Name of the uncompressed file, or N\-U\-L\-L if file has unknown suffix. 
+\end{DoxyReturn}
+
+
+References message\-\_\-error(), message\-\_\-warning(), opt\-\_\-format, test\-\_\-suffix(), and xmalloc.
+
+
+
+Referenced by suffix\-\_\-get\-\_\-dest\-\_\-name().
+
+\index{suffix.\-c@{suffix.\-c}!msg\-\_\-suffix@{msg\-\_\-suffix}}
+\index{msg\-\_\-suffix@{msg\-\_\-suffix}!suffix.c@{suffix.\-c}}
+\subsubsection[{msg\-\_\-suffix}]{\setlength{\rightskip}{0pt plus 5cm}static void msg\-\_\-suffix (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src\-\_\-name, }
+\item[{const char $\ast$}]{suffix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{suffix_8c_aab6429343a51adabf1c9b62aa1cf7b50}
+This message is needed in multiple places in \doxyref{compressed\-\_\-name()}{p.}{suffix_8c_a2ad0f107f38f2223f3f797e0f11a47a5}, so the message has been put into its own function. 
+
+References message\-\_\-warning().
+
+
+
+Referenced by compressed\-\_\-name().
+
+\index{suffix.\-c@{suffix.\-c}!compressed\-\_\-name@{compressed\-\_\-name}}
+\index{compressed\-\_\-name@{compressed\-\_\-name}!suffix.c@{suffix.\-c}}
+\subsubsection[{compressed\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}static char$\ast$ compressed\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src\-\_\-name, }
+\item[{size\-\_\-t}]{src\-\_\-len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{suffix_8c_a2ad0f107f38f2223f3f797e0f11a47a5}
+
+
+Appends suffix to src\-\_\-name. 
+
+In contrast to \doxyref{uncompressed\-\_\-name()}{p.}{suffix_8c_ad079d499b2fe1cdbba345998711a8fc0}, we check only suffixes that are valid for the specified file format. 
+
+References has\-\_\-dir\-\_\-sep(), message\-\_\-error(), msg\-\_\-suffix(), opt\-\_\-format, test\-\_\-suffix(), and xmalloc.
+
+
+
+Referenced by suffix\-\_\-get\-\_\-dest\-\_\-name().
+
+\index{suffix.\-c@{suffix.\-c}!suffix\-\_\-get\-\_\-dest\-\_\-name@{suffix\-\_\-get\-\_\-dest\-\_\-name}}
+\index{suffix\-\_\-get\-\_\-dest\-\_\-name@{suffix\-\_\-get\-\_\-dest\-\_\-name}!suffix.c@{suffix.\-c}}
+\subsubsection[{suffix\-\_\-get\-\_\-dest\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ suffix\-\_\-get\-\_\-dest\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src\-\_\-name}
+\end{DoxyParamCaption}
+)}\label{suffix_8c_abdb170ea5ed537b62854a65c3e5d5b89}
+
+
+Get the name of the destination file. 
+
+Depending on the global variable opt\-\_\-mode, this tries to find a matching counterpart for src\-\_\-name. If the name can be constructed, it is allocated and returned (caller must free it). On error, a message is printed and N\-U\-L\-L is returned. 
+
+References compressed\-\_\-name(), opt\-\_\-mode, and uncompressed\-\_\-name().
+
+\index{suffix.\-c@{suffix.\-c}!suffix\-\_\-set@{suffix\-\_\-set}}
+\index{suffix\-\_\-set@{suffix\-\_\-set}!suffix.c@{suffix.\-c}}
+\subsubsection[{suffix\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}void suffix\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{suffix}
+\end{DoxyParamCaption}
+)}\label{suffix_8c_a73ac0221028e731bba6ce634da639ab2}
+
+
+Set a custom filename suffix. 
+
+This function calls \doxyref{xstrdup()}{p.}{util_8c_a401dd8b99774c03e2dafe25f57d259e8} for the given suffix, thus the caller doesn't need to keep the memory allocated. There can be only one custom suffix, thus if this is called multiple times, the old suffixes are freed and forgotten. 
+
+References has\-\_\-dir\-\_\-sep(), message\-\_\-fatal(), and xstrdup().
+

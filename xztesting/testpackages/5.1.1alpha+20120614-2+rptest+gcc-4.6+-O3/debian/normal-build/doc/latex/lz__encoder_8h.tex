@@ -1,0 +1,208 @@
+\section{liblzma/lz/lz\-\_\-encoder.h File Reference}
+\label{lz__encoder_8h}\index{liblzma/lz/lz\-\_\-encoder.\-h@{liblzma/lz/lz\-\_\-encoder.\-h}}
+
+
+L\-Z in window and match finder A\-P\-I.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-match}
+\item 
+struct {\bf lzma\-\_\-mf\-\_\-s}
+\item 
+struct {\bf lzma\-\_\-lz\-\_\-options}
+\item 
+struct {\bf lzma\-\_\-lz\-\_\-encoder}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf mf\-\_\-find}~{\bf lzma\-\_\-mf\-\_\-find}
+\begin{DoxyCompactList}\small\item\em Since everything else begins with mf\-\_\-, use it also for \doxyref{lzma\-\_\-mf\-\_\-find()}{p.}{lz__encoder_8h_a94c058f8f247353725b76b60113205a6}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf lzma\-\_\-mf\-\_\-s} {\bfseries lzma\-\_\-mf}\label{lz__encoder_8h_a77b66d89179c12c2e98b0275cd9e4579}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const uint8\-\_\-t $\ast$ {\bf mf\-\_\-ptr} (const {\bf lzma\-\_\-mf} $\ast$mf)
+\begin{DoxyCompactList}\small\item\em Get pointer to the first byte not ran through the match finder. \end{DoxyCompactList}\item 
+static uint32\-\_\-t {\bf mf\-\_\-avail} (const {\bf lzma\-\_\-mf} $\ast$mf)
+\begin{DoxyCompactList}\small\item\em Get the number of bytes that haven't been ran through the match finder yet. \end{DoxyCompactList}\item 
+static uint32\-\_\-t {\bf mf\-\_\-unencoded} (const {\bf lzma\-\_\-mf} $\ast$mf)
+\item 
+static uint32\-\_\-t {\bf mf\-\_\-position} (const {\bf lzma\-\_\-mf} $\ast$mf)
+\item 
+static void {\bf mf\-\_\-skip} ({\bf lzma\-\_\-mf} $\ast$mf, uint32\-\_\-t amount)
+\item 
+static void {\bf mf\-\_\-read} ({\bf lzma\-\_\-mf} $\ast$mf, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size, size\-\_\-t $\ast$left)
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-lz\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters}, {\bf lzma\-\_\-ret}($\ast$lz\-\_\-init)({\bf lzma\-\_\-lz\-\_\-encoder} $\ast$lz, {\bf lzma\-\_\-allocator} $\ast$allocator, const void $\ast$options, {\bf lzma\-\_\-lz\-\_\-options} $\ast$lz\-\_\-options))\label{lz__encoder_8h_ad974ad121f8a230f0a24714f15c113f3}
+
+\item 
+uint64\-\_\-t {\bfseries lzma\-\_\-lz\-\_\-encoder\-\_\-memusage} (const {\bf lzma\-\_\-lz\-\_\-options} $\ast$lz\-\_\-options)\label{lz__encoder_8h_aa3748d94a78e951b0a2f3e38c21e8049}
+
+\item 
+uint32\-\_\-t {\bf lzma\-\_\-mf\-\_\-find} ({\bf lzma\-\_\-mf} $\ast$mf, uint32\-\_\-t $\ast$count, {\bf lzma\-\_\-match} $\ast$matches)
+\begin{DoxyCompactList}\small\item\em Find matches starting from the current byte. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bfseries lzma\-\_\-mf\-\_\-hc3\-\_\-find} ({\bf lzma\-\_\-mf} $\ast$dict, {\bf lzma\-\_\-match} $\ast$matches)\label{lz__encoder_8h_a3fb62a4ab6883d4bb729240ceb774f1b}
+
+\item 
+void {\bfseries lzma\-\_\-mf\-\_\-hc3\-\_\-skip} ({\bf lzma\-\_\-mf} $\ast$dict, uint32\-\_\-t amount)\label{lz__encoder_8h_ad73b673d924913dd949ac78097c888f0}
+
+\item 
+uint32\-\_\-t {\bfseries lzma\-\_\-mf\-\_\-hc4\-\_\-find} ({\bf lzma\-\_\-mf} $\ast$dict, {\bf lzma\-\_\-match} $\ast$matches)\label{lz__encoder_8h_afd98a808ff8cf1fca89d5be9efb2ccdc}
+
+\item 
+void {\bfseries lzma\-\_\-mf\-\_\-hc4\-\_\-skip} ({\bf lzma\-\_\-mf} $\ast$dict, uint32\-\_\-t amount)\label{lz__encoder_8h_a0988f9094375966b3ba1c898297da241}
+
+\item 
+uint32\-\_\-t {\bfseries lzma\-\_\-mf\-\_\-bt2\-\_\-find} ({\bf lzma\-\_\-mf} $\ast$dict, {\bf lzma\-\_\-match} $\ast$matches)\label{lz__encoder_8h_a444566f6bd5f5b1dd5e71db5d5677ddc}
+
+\item 
+void {\bfseries lzma\-\_\-mf\-\_\-bt2\-\_\-skip} ({\bf lzma\-\_\-mf} $\ast$dict, uint32\-\_\-t amount)\label{lz__encoder_8h_a9e7a11b14e39efcf4ed922c86e53b7b7}
+
+\item 
+uint32\-\_\-t {\bfseries lzma\-\_\-mf\-\_\-bt3\-\_\-find} ({\bf lzma\-\_\-mf} $\ast$dict, {\bf lzma\-\_\-match} $\ast$matches)\label{lz__encoder_8h_a49577b6aa73885b36432060a04a289b3}
+
+\item 
+void {\bfseries lzma\-\_\-mf\-\_\-bt3\-\_\-skip} ({\bf lzma\-\_\-mf} $\ast$dict, uint32\-\_\-t amount)\label{lz__encoder_8h_aaa8944f13690fda0aa17122d0523c390}
+
+\item 
+uint32\-\_\-t {\bfseries lzma\-\_\-mf\-\_\-bt4\-\_\-find} ({\bf lzma\-\_\-mf} $\ast$dict, {\bf lzma\-\_\-match} $\ast$matches)\label{lz__encoder_8h_a9d877fe64fceff4cd2b47c3d4c2ae344}
+
+\item 
+void {\bfseries lzma\-\_\-mf\-\_\-bt4\-\_\-skip} ({\bf lzma\-\_\-mf} $\ast$dict, uint32\-\_\-t amount)\label{lz__encoder_8h_ae1c2feb136860f6116a34c8e893791b6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\-Z in window and match finder A\-P\-I. 
+
+\subsection{Macro Definition Documentation}
+\index{lz\-\_\-encoder.\-h@{lz\-\_\-encoder.\-h}!mf\-\_\-find@{mf\-\_\-find}}
+\index{mf\-\_\-find@{mf\-\_\-find}!lz_encoder.h@{lz\-\_\-encoder.\-h}}
+\subsubsection[{mf\-\_\-find}]{\setlength{\rightskip}{0pt plus 5cm}\#define mf\-\_\-find~{\bf lzma\-\_\-mf\-\_\-find}}\label{lz__encoder_8h_aeb83884211ce1f2177f7b86c5323cfca}
+
+
+Since everything else begins with mf\-\_\-, use it also for \doxyref{lzma\-\_\-mf\-\_\-find()}{p.}{lz__encoder_8h_a94c058f8f247353725b76b60113205a6}. 
+
+
+
+\subsection{Function Documentation}
+\index{lz\-\_\-encoder.\-h@{lz\-\_\-encoder.\-h}!mf\-\_\-ptr@{mf\-\_\-ptr}}
+\index{mf\-\_\-ptr@{mf\-\_\-ptr}!lz_encoder.h@{lz\-\_\-encoder.\-h}}
+\subsubsection[{mf\-\_\-ptr}]{\setlength{\rightskip}{0pt plus 5cm}static const uint8\-\_\-t$\ast$ mf\-\_\-ptr (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-mf} $\ast$}]{mf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__encoder_8h_a6e013d2ce6aa381e26fb6579cbd9ddae}
+
+
+Get pointer to the first byte not ran through the match finder. 
+
+
+
+References lzma\-\_\-mf\-\_\-s\-::buffer, and lzma\-\_\-mf\-\_\-s\-::read\-\_\-pos.
+
+
+
+Referenced by lzma\-\_\-mf\-\_\-find().
+
+\index{lz\-\_\-encoder.\-h@{lz\-\_\-encoder.\-h}!mf\-\_\-avail@{mf\-\_\-avail}}
+\index{mf\-\_\-avail@{mf\-\_\-avail}!lz_encoder.h@{lz\-\_\-encoder.\-h}}
+\subsubsection[{mf\-\_\-avail}]{\setlength{\rightskip}{0pt plus 5cm}static uint32\-\_\-t mf\-\_\-avail (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-mf} $\ast$}]{mf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__encoder_8h_a448bea3aca15ae451c69e197bb6720f9}
+
+
+Get the number of bytes that haven't been ran through the match finder yet. 
+
+
+
+References lzma\-\_\-mf\-\_\-s\-::read\-\_\-pos, and lzma\-\_\-mf\-\_\-s\-::write\-\_\-pos.
+
+
+
+Referenced by lzma\-\_\-mf\-\_\-find().
+
+\index{lz\-\_\-encoder.\-h@{lz\-\_\-encoder.\-h}!mf\-\_\-unencoded@{mf\-\_\-unencoded}}
+\index{mf\-\_\-unencoded@{mf\-\_\-unencoded}!lz_encoder.h@{lz\-\_\-encoder.\-h}}
+\subsubsection[{mf\-\_\-unencoded}]{\setlength{\rightskip}{0pt plus 5cm}static uint32\-\_\-t mf\-\_\-unencoded (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-mf} $\ast$}]{mf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__encoder_8h_a6717f912a22853a6edf564af281c3a87}
+Get the number of bytes that haven't been encoded yet (some of these bytes may have been ran through the match finder though). 
+
+References lzma\-\_\-mf\-\_\-s\-::read\-\_\-ahead, lzma\-\_\-mf\-\_\-s\-::read\-\_\-pos, and lzma\-\_\-mf\-\_\-s\-::write\-\_\-pos.
+
+\index{lz\-\_\-encoder.\-h@{lz\-\_\-encoder.\-h}!mf\-\_\-position@{mf\-\_\-position}}
+\index{mf\-\_\-position@{mf\-\_\-position}!lz_encoder.h@{lz\-\_\-encoder.\-h}}
+\subsubsection[{mf\-\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}static uint32\-\_\-t mf\-\_\-position (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-mf} $\ast$}]{mf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__encoder_8h_aa73979e568b7af6a6485fafe90d7fe43}
+Calculate the absolute offset from the beginning of the most recent dictionary reset. Only the lowest four bits are important, so there's no problem that we don't know the 64-\/bit size of the data encoded so far.
+
+N\-O\-T\-E\-: When moving the input window, we need to do it so that the lowest bits of dict-\/$>$read\-\_\-pos are not modified to keep this macro working as intended. 
+
+References lzma\-\_\-mf\-\_\-s\-::read\-\_\-ahead, and lzma\-\_\-mf\-\_\-s\-::read\-\_\-pos.
+
+\index{lz\-\_\-encoder.\-h@{lz\-\_\-encoder.\-h}!mf\-\_\-skip@{mf\-\_\-skip}}
+\index{mf\-\_\-skip@{mf\-\_\-skip}!lz_encoder.h@{lz\-\_\-encoder.\-h}}
+\subsubsection[{mf\-\_\-skip}]{\setlength{\rightskip}{0pt plus 5cm}static void mf\-\_\-skip (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-mf} $\ast$}]{mf, }
+\item[{uint32\-\_\-t}]{amount}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__encoder_8h_acc33d04d1238a208efb8bae432085e8a}
+Skip the given number of bytes. This is used when a good match was found. For example, if \doxyref{mf\-\_\-find()}{p.}{lz__encoder_8h_aeb83884211ce1f2177f7b86c5323cfca} finds a match of 200 bytes long, the first byte of that match was already consumed by \doxyref{mf\-\_\-find()}{p.}{lz__encoder_8h_aeb83884211ce1f2177f7b86c5323cfca}, and the rest 199 bytes have to be skipped with mf\-\_\-skip(mf, 199). 
+
+References lzma\-\_\-mf\-\_\-s\-::read\-\_\-ahead, and lzma\-\_\-mf\-\_\-s\-::skip.
+
+\index{lz\-\_\-encoder.\-h@{lz\-\_\-encoder.\-h}!mf\-\_\-read@{mf\-\_\-read}}
+\index{mf\-\_\-read@{mf\-\_\-read}!lz_encoder.h@{lz\-\_\-encoder.\-h}}
+\subsubsection[{mf\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}static void mf\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-mf} $\ast$}]{mf, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size, }
+\item[{size\-\_\-t $\ast$}]{left}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{lz__encoder_8h_a0186bba86b6e5e772f882799f1c1ec96}
+Copies at most $\ast$left number of bytes from the history buffer to out[]. This is needed by L\-Z\-M\-A2 to encode uncompressed chunks. 
+
+References lzma\-\_\-mf\-\_\-s\-::buffer, lzma\-\_\-mf\-\_\-s\-::read\-\_\-ahead, and lzma\-\_\-mf\-\_\-s\-::read\-\_\-pos.
+
+\index{lz\-\_\-encoder.\-h@{lz\-\_\-encoder.\-h}!lzma\-\_\-mf\-\_\-find@{lzma\-\_\-mf\-\_\-find}}
+\index{lzma\-\_\-mf\-\_\-find@{lzma\-\_\-mf\-\_\-find}!lz_encoder.h@{lz\-\_\-encoder.\-h}}
+\subsubsection[{lzma\-\_\-mf\-\_\-find}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-mf\-\_\-find (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-mf} $\ast$}]{mf, }
+\item[{uint32\-\_\-t $\ast$}]{count\-\_\-ptr, }
+\item[{{\bf lzma\-\_\-match} $\ast$}]{matches}
+\end{DoxyParamCaption}
+)}\label{lz__encoder_8h_a94c058f8f247353725b76b60113205a6}
+
+
+Find matches starting from the current byte. 
+
+\begin{DoxyReturn}{Returns}
+The length of the longest match found 
+\end{DoxyReturn}
+
+
+References lzma\-\_\-mf\-\_\-s\-::find, lzma\-\_\-mf\-\_\-s\-::match\-\_\-len\-\_\-max, mf\-\_\-avail(), mf\-\_\-ptr(), lzma\-\_\-mf\-\_\-s\-::nice\-\_\-len, and lzma\-\_\-mf\-\_\-s\-::read\-\_\-ahead.
+

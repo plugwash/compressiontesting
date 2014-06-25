@@ -1,0 +1,1020 @@
+\section{lzma\-\_\-coder\-\_\-s Struct Reference}
+\label{structlzma__coder__s}\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \\*
+{\bfseries S\-E\-Q\-\_\-\-P\-R\-O\-P\-E\-R\-T\-I\-E\-S}, 
+{\bfseries S\-E\-Q\-\_\-\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-S\-I\-Z\-E}, 
+{\bfseries S\-E\-Q\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-S\-I\-Z\-E}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}, 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-D\-E}
+ \}
+\item 
+enum \{ {\bfseries S\-E\-Q\-\_\-\-H\-E\-A\-D\-E\-R}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-D\-E}
+ \}
+\item 
+enum \{ {\bfseries S\-E\-Q\-\_\-\-I\-N\-I\-T}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-D\-E}, 
+{\bfseries S\-E\-Q\-\_\-\-F\-I\-N\-I\-S\-H}
+ \}
+\item 
+enum \{ {\bfseries S\-E\-Q\-\_\-\-C\-O\-D\-E}, 
+{\bfseries S\-E\-Q\-\_\-\-P\-A\-D\-D\-I\-N\-G}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-H\-E\-C\-K}
+ \}
+\item 
+enum \{ {\bfseries S\-E\-Q\-\_\-\-C\-O\-D\-E}, 
+{\bfseries S\-E\-Q\-\_\-\-P\-A\-D\-D\-I\-N\-G}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-H\-E\-C\-K}
+ \}
+\item 
+enum \{ \\*
+{\bfseries S\-E\-Q\-\_\-\-I\-N\-D\-I\-C\-A\-T\-O\-R}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-U\-N\-T}, 
+{\bfseries S\-E\-Q\-\_\-\-M\-E\-M\-U\-S\-A\-G\-E}, 
+{\bfseries S\-E\-Q\-\_\-\-U\-N\-P\-A\-D\-D\-E\-D}, 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D}, 
+{\bfseries S\-E\-Q\-\_\-\-P\-A\-D\-D\-I\-N\-G\-\_\-\-I\-N\-I\-T}, 
+{\bfseries S\-E\-Q\-\_\-\-P\-A\-D\-D\-I\-N\-G}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-R\-C32}
+ \}
+\item 
+enum \{ \\*
+{\bfseries S\-E\-Q\-\_\-\-I\-N\-D\-I\-C\-A\-T\-O\-R}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-U\-N\-T}, 
+{\bfseries S\-E\-Q\-\_\-\-U\-N\-P\-A\-D\-D\-E\-D}, 
+{\bfseries S\-E\-Q\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D}, 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-N\-E\-X\-T}, 
+{\bfseries S\-E\-Q\-\_\-\-P\-A\-D\-D\-I\-N\-G}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-R\-C32}
+ \}
+\item 
+enum \{ \\*
+{\bfseries S\-E\-Q\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R}, 
+{\bfseries S\-E\-Q\-\_\-\-B\-L\-O\-C\-K\-\_\-\-H\-E\-A\-D\-E\-R}, 
+{\bfseries S\-E\-Q\-\_\-\-B\-L\-O\-C\-K}, 
+{\bfseries S\-E\-Q\-\_\-\-I\-N\-D\-E\-X}, 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-F\-O\-O\-T\-E\-R}, 
+{\bfseries S\-E\-Q\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-P\-A\-D\-D\-I\-N\-G}
+ \}
+\item 
+enum \{ \\*
+{\bfseries S\-E\-Q\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R}, 
+{\bfseries S\-E\-Q\-\_\-\-B\-L\-O\-C\-K\-\_\-\-I\-N\-I\-T}, 
+{\bfseries S\-E\-Q\-\_\-\-B\-L\-O\-C\-K\-\_\-\-H\-E\-A\-D\-E\-R}, 
+{\bfseries S\-E\-Q\-\_\-\-B\-L\-O\-C\-K\-\_\-\-E\-N\-C\-O\-D\-E}, 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-I\-N\-D\-E\-X\-\_\-\-E\-N\-C\-O\-D\-E}, 
+{\bfseries S\-E\-Q\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-F\-O\-O\-T\-E\-R}
+ \}
+\item 
+enum {\bfseries sequence} \{ \\*
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-N\-T\-R\-O\-L}, 
+{\bfseries S\-E\-Q\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-1}, 
+{\bfseries S\-E\-Q\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-2}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-0}, 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-1}, 
+{\bfseries S\-E\-Q\-\_\-\-P\-R\-O\-P\-E\-R\-T\-I\-E\-S}, 
+{\bfseries S\-E\-Q\-\_\-\-L\-Z\-M\-A}, 
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-P\-Y}
+ \}
+\item 
+enum \{ \\*
+{\bfseries S\-E\-Q\-\_\-\-I\-N\-I\-T}, 
+{\bfseries S\-E\-Q\-\_\-\-L\-Z\-M\-A\-\_\-\-E\-N\-C\-O\-D\-E}, 
+{\bfseries S\-E\-Q\-\_\-\-L\-Z\-M\-A\-\_\-\-C\-O\-P\-Y}, 
+{\bfseries S\-E\-Q\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-H\-E\-A\-D\-E\-R}, 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-C\-O\-P\-Y}
+ \}
+\item 
+enum \{ \\*
+{\bfseries S\-E\-Q\-\_\-\-N\-O\-R\-M\-A\-L\-I\-Z\-E}, 
+{\bfseries S\-E\-Q\-\_\-\-I\-S\-\_\-\-M\-A\-T\-C\-H}, 
+{\bfseries seq\-\_\-8} = (S\-E\-Q\-\_\-\-L\-I\-T\-E\-R\-A\-L), 
+{\bfseries seq\-\_\-8} = (S\-E\-Q\-\_\-\-L\-I\-T\-E\-R\-A\-L), 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-L\-I\-T\-E\-R\-A\-L\-\_\-\-W\-R\-I\-T\-E}, 
+{\bfseries S\-E\-Q\-\_\-\-I\-S\-\_\-\-R\-E\-P}, 
+{\bfseries seq\-\_\-len} = (S\-E\-Q\-\_\-\-M\-A\-T\-C\-H\-\_\-\-L\-E\-N), 
+{\bfseries seq\-\_\-6} = (S\-E\-Q\-\_\-\-D\-I\-S\-T\-\_\-\-S\-L\-O\-T), 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-D\-I\-S\-T\-\_\-\-M\-O\-D\-E\-L}, 
+{\bfseries S\-E\-Q\-\_\-\-D\-I\-R\-E\-C\-T}, 
+{\bfseries seq\-\_\-4} = (S\-E\-Q\-\_\-\-A\-L\-I\-G\-N), 
+{\bfseries S\-E\-Q\-\_\-\-E\-O\-P\-M}, 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-I\-S\-\_\-\-R\-E\-P0}, 
+{\bfseries S\-E\-Q\-\_\-\-S\-H\-O\-R\-T\-R\-E\-P}, 
+{\bfseries S\-E\-Q\-\_\-\-I\-S\-\_\-\-R\-E\-P0\-\_\-\-L\-O\-N\-G}, 
+{\bfseries S\-E\-Q\-\_\-\-I\-S\-\_\-\-R\-E\-P1}, 
+\\*
+{\bfseries S\-E\-Q\-\_\-\-I\-S\-\_\-\-R\-E\-P2}, 
+{\bfseries seq\-\_\-len} = (S\-E\-Q\-\_\-\-M\-A\-T\-C\-H\-\_\-\-L\-E\-N), 
+{\bfseries S\-E\-Q\-\_\-\-C\-O\-P\-Y}
+ \}
+\begin{DoxyCompactList}\small\item\em Position where to continue the decoder loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-next\-\_\-coder} {\bf next}
+\begin{DoxyCompactList}\small\item\em Stream decoder or L\-Z\-M\-A\-\_\-\-Alone decoder. \end{DoxyCompactList}\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bfseries sequence}\label{structlzma__coder__s_a22d3dd0da325b58ccdf4691a183e03c2}
+
+\item 
+size\-\_\-t {\bf pos}
+\begin{DoxyCompactList}\small\item\em Position in the header fields. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf uncompressed\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Uncompressed size decoded from the header. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bf memlimit}
+\begin{DoxyCompactList}\small\item\em Memory usage limit. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bf memusage}
+\begin{DoxyCompactList}\small\item\em Amount of memory actually needed (only an estimate) \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-options\-\_\-lzma} {\bf options}
+\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bfseries sequence}\label{structlzma__coder__s_aa29d6f0076ad412d57f6f71fad531423}
+
+\item 
+size\-\_\-t {\bfseries header\-\_\-pos}\label{structlzma__coder__s_a4c910d93d4167a0bc3e93fde5d2aa9ba}
+
+\item 
+uint8\-\_\-t {\bfseries header} [A\-L\-O\-N\-E\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E]\label{structlzma__coder__s_a58217b7ef558ce8849a3da2744c9fad5}
+
+\item 
+uint32\-\_\-t {\bfseries flags}\label{structlzma__coder__s_a177fe66ec576ab3e694f742313165a17}
+
+\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bfseries sequence}\label{structlzma__coder__s_a1665ebb405056fe0d4a49de2e021d980}
+
+\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bfseries sequence}\label{structlzma__coder__s_a05119be19eceb10412ad19c0c7d3b457}
+
+\item 
+{\bf lzma\-\_\-block} $\ast$ {\bf block}
+\item 
+{\bf lzma\-\_\-vli} {\bf compressed\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Compressed Size calculated while decoding. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf compressed\-\_\-limit}
+\item 
+size\-\_\-t {\bf check\-\_\-pos}
+\begin{DoxyCompactList}\small\item\em Position when reading the Check field. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-check\-\_\-state} {\bf check}
+\begin{DoxyCompactList}\small\item\em Check of the uncompressed data. \end{DoxyCompactList}\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bfseries sequence}\label{structlzma__coder__s_a2b840b351e6a07eabe6dc7810be81ef6}
+
+\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bfseries sequence}\label{structlzma__coder__s_a35641bf1a270a34b3de3c6a70f71732b}
+
+\item 
+{\bf lzma\-\_\-index} $\ast$ {\bf index}
+\begin{DoxyCompactList}\small\item\em Target Index. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-index} $\ast$$\ast$ {\bf index\-\_\-ptr}
+\item 
+{\bf lzma\-\_\-vli} {\bf count}
+\begin{DoxyCompactList}\small\item\em Number of Records left to decode. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf unpadded\-\_\-size}
+\begin{DoxyCompactList}\small\item\em The most recent Unpadded Size field. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf crc32}
+\begin{DoxyCompactList}\small\item\em C\-R\-C32 of the List of Records field. \end{DoxyCompactList}\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bfseries sequence}\label{structlzma__coder__s_ab56a23b0af0bd0c9cf093058fd5edd8a}
+
+\item 
+const {\bf lzma\-\_\-index} $\ast$ {\bf index}
+\begin{DoxyCompactList}\small\item\em Index being encoded. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-index\-\_\-iter} {\bf iter}
+\begin{DoxyCompactList}\small\item\em Iterator for the Index being encoded. \end{DoxyCompactList}\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bfseries sequence}\label{structlzma__coder__s_a5cd20d64c3b87b098d7490bada065b37}
+
+\item 
+{\bf lzma\-\_\-next\-\_\-coder} {\bf block\-\_\-decoder}
+\item 
+{\bf lzma\-\_\-block} {\bf block\-\_\-options}
+\begin{DoxyCompactList}\small\item\em Options for the Block encoder. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-stream\-\_\-flags} {\bf stream\-\_\-flags}
+\begin{DoxyCompactList}\small\item\em Stream Flags from Stream Header. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-index\-\_\-hash} $\ast$ {\bf index\-\_\-hash}
+\item 
+bool {\bf tell\-\_\-no\-\_\-check}
+\item 
+bool {\bf tell\-\_\-unsupported\-\_\-check}
+\item 
+bool {\bf tell\-\_\-any\-\_\-check}
+\begin{DoxyCompactList}\small\item\em If true, L\-Z\-M\-A\-\_\-\-G\-E\-T\-\_\-\-C\-H\-E\-C\-K is returned after decoding Stream Header. \end{DoxyCompactList}\item 
+bool {\bf concatenated}
+\item 
+bool {\bf first\-\_\-stream}
+\item 
+uint8\-\_\-t {\bf buffer} [L\-Z\-M\-A\-\_\-\-B\-L\-O\-C\-K\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E\-\_\-\-M\-A\-X]
+\begin{DoxyCompactList}\small\item\em Temporary buffer. \end{DoxyCompactList}\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bfseries sequence}\label{structlzma__coder__s_ad596128a7093253b76d85425bc29ef83}
+
+\item 
+bool {\bf block\-\_\-encoder\-\_\-is\-\_\-initialized}
+\item 
+{\bf lzma\-\_\-next\-\_\-coder} {\bf block\-\_\-encoder}
+\begin{DoxyCompactList}\small\item\em Block. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-filter} {\bf filters} [{\bf L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X}+1]
+\begin{DoxyCompactList}\small\item\em The filter chain currently in use. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-next\-\_\-coder} {\bf index\-\_\-encoder}
+\item 
+size\-\_\-t {\bf buffer\-\_\-pos}
+\begin{DoxyCompactList}\small\item\em Read position in buffer[]. \end{DoxyCompactList}\item 
+size\-\_\-t {\bf buffer\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Total number of bytes in buffer[]. \end{DoxyCompactList}\item 
+size\-\_\-t {\bf distance}
+\begin{DoxyCompactList}\small\item\em Delta distance. \end{DoxyCompactList}\item 
+uint8\-\_\-t {\bf pos}
+\begin{DoxyCompactList}\small\item\em Position in history[]. \end{DoxyCompactList}\item 
+uint8\-\_\-t {\bf history} [L\-Z\-M\-A\-\_\-\-D\-E\-L\-T\-A\-\_\-\-D\-I\-S\-T\-\_\-\-M\-A\-X]
+\begin{DoxyCompactList}\small\item\em Buffer to hold history of the original data. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-dict} {\bf dict}
+\begin{DoxyCompactList}\small\item\em Dictionary (history buffer) \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-lz\-\_\-decoder} {\bf lz}
+\begin{DoxyCompactList}\small\item\em The actual L\-Z-\/based decoder e.\-g. L\-Z\-M\-A. \end{DoxyCompactList}\item 
+bool {\bf next\-\_\-finished}
+\begin{DoxyCompactList}\small\item\em True if the next filter in the chain has returned L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D. \end{DoxyCompactList}\item 
+bool {\bf this\-\_\-finished}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>size\_t {\bfseries pos}\\
+\>size\_t {\bfseries size}\\
+\>uint8\_t {\bfseries buffer} [{\bf LZMA\_BUFFER\_SIZE}]\\
+\} {\bf temp}\\
+
+\end{tabbing}\item 
+{\bf lzma\-\_\-lz\-\_\-encoder} {\bf lz}
+\begin{DoxyCompactList}\small\item\em L\-Z-\/based encoder e.\-g. L\-Z\-M\-A. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-mf} {\bf mf}
+\begin{DoxyCompactList}\small\item\em History buffer and match finder. \end{DoxyCompactList}\item 
+enum lzma\-\_\-coder\-\_\-s\-::sequence {\bfseries sequence}\label{structlzma__coder__s_a727abe5eea431079d14a7ab6d38e0e37}
+
+\item 
+enum sequence {\bf next\-\_\-sequence}
+\begin{DoxyCompactList}\small\item\em Sequence after the size fields have been decoded. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-lz\-\_\-decoder} {\bf lzma}
+\begin{DoxyCompactList}\small\item\em L\-Z\-M\-A decoder. \end{DoxyCompactList}\item 
+size\-\_\-t {\bf uncompressed\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Uncompressed size of L\-Z\-M\-A chunk. \end{DoxyCompactList}\item 
+size\-\_\-t {\bf compressed\-\_\-size}
+\item 
+bool {\bf need\-\_\-properties}
+\item 
+bool {\bf need\-\_\-dictionary\-\_\-reset}
+\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bfseries sequence}\label{structlzma__coder__s_ae6044832ae6f926c336766490bde7c1a}
+
+\item 
+{\bf lzma\-\_\-coder} $\ast$ {\bf lzma}
+\begin{DoxyCompactList}\small\item\em L\-Z\-M\-A encoder. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-options\-\_\-lzma} {\bf opt\-\_\-cur}
+\begin{DoxyCompactList}\small\item\em L\-Z\-M\-A options currently in use. \end{DoxyCompactList}\item 
+bool {\bfseries need\-\_\-state\-\_\-reset}\label{structlzma__coder__s_ac9494db1386f574574ff963a2063149e}
+
+\item 
+size\-\_\-t {\bf buf\-\_\-pos}
+\begin{DoxyCompactList}\small\item\em Read position in buf[]. \end{DoxyCompactList}\item 
+uint8\-\_\-t {\bf buf} [{\bf L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-M\-A\-X}+{\bf L\-Z\-M\-A2\-\_\-\-C\-H\-U\-N\-K\-\_\-\-M\-A\-X}]
+\begin{DoxyCompactList}\small\item\em Buffer to hold the chunk header and L\-Z\-M\-A compressed data. \end{DoxyCompactList}\item 
+{\bf probability} {\bf literal} [{\bf L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-S\-\_\-\-M\-A\-X}][{\bf L\-I\-T\-E\-R\-A\-L\-\_\-\-C\-O\-D\-E\-R\-\_\-\-S\-I\-Z\-E}]
+\begin{DoxyCompactList}\small\item\em Literals; see comments in \doxyref{lzma\-\_\-common.\-h}{p.}{lzma__common_8h}. \end{DoxyCompactList}\item 
+{\bf probability} {\bf is\-\_\-match} [{\bf S\-T\-A\-T\-E\-S}][{\bf P\-O\-S\-\_\-\-S\-T\-A\-T\-E\-S\-\_\-\-M\-A\-X}]
+\begin{DoxyCompactList}\small\item\em If 1, it's a match. Otherwise it's a single 8-\/bit literal. \end{DoxyCompactList}\item 
+{\bf probability} {\bf is\-\_\-rep} [{\bf S\-T\-A\-T\-E\-S}]
+\begin{DoxyCompactList}\small\item\em If 1, it's a repeated match. The distance is one of rep0 .. rep3. \end{DoxyCompactList}\item 
+{\bf probability} {\bf is\-\_\-rep0} [{\bf S\-T\-A\-T\-E\-S}]
+\item 
+{\bf probability} {\bf is\-\_\-rep1} [{\bf S\-T\-A\-T\-E\-S}]
+\item 
+{\bf probability} {\bf is\-\_\-rep2} [{\bf S\-T\-A\-T\-E\-S}]
+\begin{DoxyCompactList}\small\item\em If 0, distance of a repeated match is rep2. Otherwise it is rep3. \end{DoxyCompactList}\item 
+{\bf probability} {\bf is\-\_\-rep0\-\_\-long} [{\bf S\-T\-A\-T\-E\-S}][{\bf P\-O\-S\-\_\-\-S\-T\-A\-T\-E\-S\-\_\-\-M\-A\-X}]
+\item 
+{\bf probability} {\bf dist\-\_\-slot} [D\-I\-S\-T\-\_\-\-S\-T\-A\-T\-E\-S][D\-I\-S\-T\-\_\-\-S\-L\-O\-T\-S]
+\item 
+{\bf probability} {\bf pos\-\_\-special} [F\-U\-L\-L\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-S-\/D\-I\-S\-T\-\_\-\-M\-O\-D\-E\-L\-\_\-\-E\-N\-D]
+\item 
+{\bf probability} {\bf pos\-\_\-align} [A\-L\-I\-G\-N\-\_\-\-S\-I\-Z\-E]
+\item 
+{\bf lzma\-\_\-length\-\_\-decoder} {\bf match\-\_\-len\-\_\-decoder}
+\begin{DoxyCompactList}\small\item\em Length of a normal match. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-length\-\_\-decoder} {\bf rep\-\_\-len\-\_\-decoder}
+\begin{DoxyCompactList}\small\item\em Length of a repeated match. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-range\-\_\-decoder} {\bfseries rc}\label{structlzma__coder__s_ac26ef7796f355ff72b83fbb2e3660f94}
+
+\item 
+{\bf lzma\-\_\-lzma\-\_\-state} {\bf state}
+\begin{DoxyCompactList}\small\item\em State. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf rep0}
+\begin{DoxyCompactList}\small\item\em Distance of the latest match. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf rep1}
+\begin{DoxyCompactList}\small\item\em Distance of second latest match. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf rep2}
+\begin{DoxyCompactList}\small\item\em Distance of third latest match. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf rep3}
+\begin{DoxyCompactList}\small\item\em Distance of fourth latest match. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf pos\-\_\-mask}
+\begin{DoxyCompactList}\small\item\em (1 $<$$<$ pos\-\_\-bits) -\/ 1 \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bfseries literal\-\_\-context\-\_\-bits}\label{structlzma__coder__s_a8d44f4f2351063bb5b4c71b18c5426c3}
+
+\item 
+uint32\-\_\-t {\bfseries literal\-\_\-pos\-\_\-mask}\label{structlzma__coder__s_ac6a05854afed901923a35e24c4198a39}
+
+\item 
+enum lzma\-\_\-coder\-\_\-s\-:: \{ ... \}  {\bf sequence}
+\begin{DoxyCompactList}\small\item\em Position where to continue the decoder loop. \end{DoxyCompactList}\item 
+{\bf probability} $\ast$ {\bf probs}
+\begin{DoxyCompactList}\small\item\em Base of the current probability tree. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf symbol}
+\item 
+uint32\-\_\-t {\bf limit}
+\item 
+uint32\-\_\-t {\bf offset}
+\item 
+uint32\-\_\-t {\bf len}
+\item 
+{\bf lzma\-\_\-range\-\_\-encoder} {\bf rc}
+\begin{DoxyCompactList}\small\item\em Range encoder. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf reps} [R\-E\-P\-S]
+\begin{DoxyCompactList}\small\item\em The four most recent match distances. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-match} {\bf matches} [M\-A\-T\-C\-H\-\_\-\-L\-E\-N\-\_\-\-M\-A\-X+1]
+\begin{DoxyCompactList}\small\item\em Array of match candidates. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf matches\-\_\-count}
+\begin{DoxyCompactList}\small\item\em Number of match candidates in matches[]. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf longest\-\_\-match\-\_\-length}
+\item 
+bool {\bf fast\-\_\-mode}
+\begin{DoxyCompactList}\small\item\em True if using getoptimumfast. \end{DoxyCompactList}\item 
+bool {\bf is\-\_\-initialized}
+\item 
+bool {\bf is\-\_\-flushed}
+\item 
+{\bf probability} {\bfseries dist\-\_\-special} [F\-U\-L\-L\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-S-\/D\-I\-S\-T\-\_\-\-M\-O\-D\-E\-L\-\_\-\-E\-N\-D]\label{structlzma__coder__s_a390bbcaf23ea0fbcea77bb557e2367ac}
+
+\item 
+{\bf probability} {\bfseries dist\-\_\-align} [A\-L\-I\-G\-N\-\_\-\-S\-I\-Z\-E]\label{structlzma__coder__s_ad91051994b96c5bc035e6b8fc40acb8d}
+
+\item 
+{\bf lzma\-\_\-length\-\_\-encoder} {\bfseries match\-\_\-len\-\_\-encoder}\label{structlzma__coder__s_aaf726d7aaa991be4bd3ae4ffa3f83b43}
+
+\item 
+{\bf lzma\-\_\-length\-\_\-encoder} {\bfseries rep\-\_\-len\-\_\-encoder}\label{structlzma__coder__s_a482680e5c9cc0354077bf5d8993a371a}
+
+\item 
+uint32\-\_\-t {\bfseries dist\-\_\-slot\-\_\-prices} [D\-I\-S\-T\-\_\-\-S\-T\-A\-T\-E\-S][D\-I\-S\-T\-\_\-\-S\-L\-O\-T\-S]\label{structlzma__coder__s_af2a4efe180abf62198c546fdaca0b671}
+
+\item 
+uint32\-\_\-t {\bfseries dist\-\_\-prices} [D\-I\-S\-T\-\_\-\-S\-T\-A\-T\-E\-S][F\-U\-L\-L\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-S]\label{structlzma__coder__s_a5549dba9c976905bd0e1c334c160f8f5}
+
+\item 
+uint32\-\_\-t {\bfseries dist\-\_\-table\-\_\-size}\label{structlzma__coder__s_a9a476ce324f83368e28f5cf5c6dc5174}
+
+\item 
+uint32\-\_\-t {\bfseries match\-\_\-price\-\_\-count}\label{structlzma__coder__s_a3c69d79ebfd8ae7d94e507b0e97e80d0}
+
+\item 
+uint32\-\_\-t {\bfseries align\-\_\-prices} [A\-L\-I\-G\-N\-\_\-\-S\-I\-Z\-E]\label{structlzma__coder__s_a78e7c12bcfe857ab7e30d061227b88de}
+
+\item 
+uint32\-\_\-t {\bfseries align\-\_\-price\-\_\-count}\label{structlzma__coder__s_a8867ec5e368b2a0cb498c15e55bc327f}
+
+\item 
+uint32\-\_\-t {\bfseries opts\-\_\-end\-\_\-index}\label{structlzma__coder__s_a20eea53eab557925d21b84959b49a2a4}
+
+\item 
+uint32\-\_\-t {\bfseries opts\-\_\-current\-\_\-index}\label{structlzma__coder__s_a6cf3101b65567cd76997252ceb70d822}
+
+\item 
+{\bf lzma\-\_\-optimal} {\bfseries opts} [O\-P\-T\-S]\label{structlzma__coder__s_a714c0aa55721572ce2e3f8a6b6e4c990}
+
+\item 
+bool {\bf end\-\_\-was\-\_\-reached}
+\begin{DoxyCompactList}\small\item\em True if the next coder in the chain has returned L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D. \end{DoxyCompactList}\item 
+bool {\bf is\-\_\-encoder}
+\item 
+size\-\_\-t($\ast$ {\bf filter} )({\bf lzma\-\_\-simple} $\ast${\bf simple}, uint32\-\_\-t {\bf now\-\_\-pos}, bool {\bf is\-\_\-encoder}, uint8\-\_\-t $\ast${\bf buffer}, size\-\_\-t {\bf size})
+\item 
+{\bf lzma\-\_\-simple} $\ast$ {\bf simple}
+\item 
+uint32\-\_\-t {\bf now\-\_\-pos}
+\item 
+size\-\_\-t {\bf allocated}
+\begin{DoxyCompactList}\small\item\em Size of the memory allocated for the buffer. \end{DoxyCompactList}\item 
+size\-\_\-t {\bf filtered}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{structlzma__coder__s_aed31c1b12e38453640a549610f6c5853}
+
+
+Position where to continue the decoder loop. 
+
+
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!next@{next}}
+\index{next@{next}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-next\-\_\-coder} lzma\-\_\-coder\-\_\-s\-::next}\label{structlzma__coder__s_ae9544e7991d6e1590af64fe75204f3b1}
+
+
+Stream decoder or L\-Z\-M\-A\-\_\-\-Alone decoder. 
+
+Next filter in the chain.
+
+Next coder in the chain.
+
+The filters in the chain; initialized with lzma\-\_\-raw\-\_\-decoder\-\_\-init().
+
+Next filter in the chain, if any. Note that L\-Z\-M\-A and L\-Z\-M\-A2 are only allowed as the last filter, but the long-\/range filter in future can be in the middle of the chain. 
+
+Referenced by copy\-\_\-or\-\_\-code(), and fill\-\_\-window().
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!pos@{pos}}
+\index{pos@{pos}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{pos}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::pos}\label{structlzma__coder__s_aec9ca2276cf24e0231223979ecb02064}
+
+
+Position in the header fields. 
+
+Write position in buffer[] and position in Stream Padding.
+
+Position in integers.
+
+Position in the Check field.
+
+Flushing position in the temporary buffer. buffer[pos] is the next byte to be copied to out[]. 
+
+Referenced by copy\-\_\-and\-\_\-encode(), and encode\-\_\-in\-\_\-place().
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!uncompressed\-\_\-size@{uncompressed\-\_\-size}}
+\index{uncompressed\-\_\-size@{uncompressed\-\_\-size}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{uncompressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-coder\-\_\-s\-::uncompressed\-\_\-size}\label{structlzma__coder__s_a4ec43f70b3409eac74687c2217fb9a45}
+
+
+Uncompressed size decoded from the header. 
+
+Uncompressed size of a chunk.
+
+The most recent Uncompressed Size field.
+
+Uncompressed Size calculated while encoding.
+
+Uncompressed Size calculated while decoding.
+
+Uncompressed size as bytes, or L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N if end of payload marker is expected. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!memlimit@{memlimit}}
+\index{memlimit@{memlimit}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{memlimit}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-coder\-\_\-s\-::memlimit}\label{structlzma__coder__s_aece2b0c739bde236851c363c808ca861}
+
+
+Memory usage limit. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!memusage@{memusage}}
+\index{memusage@{memusage}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-coder\-\_\-s\-::memusage}\label{structlzma__coder__s_aa01fa7f2b9b16bb65e4b878d3164c460}
+
+
+Amount of memory actually needed (only an estimate) 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!options@{options}}
+\index{options@{options}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{options}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-options\-\_\-lzma} lzma\-\_\-coder\-\_\-s\-::options}\label{structlzma__coder__s_a5824c3e4c7569360ed4ab34dc71ad7c1}
+Options decoded from the header needed to initialize the L\-Z\-M\-A decoder \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!block@{block}}
+\index{block@{block}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{block}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-block} $\ast$ lzma\-\_\-coder\-\_\-s\-::block}\label{structlzma__coder__s_a02301a2a8320cf85c60acac2c0574d59}
+Decoding options; we also write Compressed Size and Uncompressed Size back to this structure when the decoding has been finished.
+
+Encoding options; we also write Unpadded Size, Compressed Size, and Uncompressed Size back to this structure when the encoding has been finished. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!compressed\-\_\-size@{compressed\-\_\-size}}
+\index{compressed\-\_\-size@{compressed\-\_\-size}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{compressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::compressed\-\_\-size}\label{structlzma__coder__s_ae2a6054d55b0092854c709ba8b0b2424}
+
+
+Compressed Size calculated while decoding. 
+
+Compressed Size calculated while encoding.
+
+Compressed size of a chunk (excluding headers); this is also used to indicate the end of buf[] in S\-E\-Q\-\_\-\-L\-Z\-M\-A\-\_\-\-C\-O\-P\-Y. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!compressed\-\_\-limit@{compressed\-\_\-limit}}
+\index{compressed\-\_\-limit@{compressed\-\_\-limit}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{compressed\-\_\-limit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-coder\-\_\-s\-::compressed\-\_\-limit}\label{structlzma__coder__s_a6c7ea9011022b89ff784a716abfaa87a}
+Maximum allowed Compressed Size; this takes into account the size of the Block Header and Check fields when Compressed Size is unknown. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!check\-\_\-pos@{check\-\_\-pos}}
+\index{check\-\_\-pos@{check\-\_\-pos}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{check\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::check\-\_\-pos}\label{structlzma__coder__s_a77a9a633583ebb40c684f13396859c1d}
+
+
+Position when reading the Check field. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!check@{check}}
+\index{check@{check}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-check\-\_\-state} lzma\-\_\-coder\-\_\-s\-::check}\label{structlzma__coder__s_a3efbd863755bf90f888943d608af3157}
+
+
+Check of the uncompressed data. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!index@{index}}
+\index{index@{index}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-index} $\ast$ lzma\-\_\-coder\-\_\-s\-::index}\label{structlzma__coder__s_a70b88e1a79013879cc05a500da061bf5}
+
+
+Target Index. 
+
+Index to hold sizes of the Blocks. 
+
+Referenced by lzma\-\_\-index\-\_\-buffer\-\_\-decode().
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!index\-\_\-ptr@{index\-\_\-ptr}}
+\index{index\-\_\-ptr@{index\-\_\-ptr}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{index\-\_\-ptr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-index}$\ast$$\ast$ lzma\-\_\-coder\-\_\-s\-::index\-\_\-ptr}\label{structlzma__coder__s_a68e247f90f4aba2793081830ea307ab9}
+Pointer give by the application, which is set after successful decoding. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!count@{count}}
+\index{count@{count}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-coder\-\_\-s\-::count}\label{structlzma__coder__s_af8069bed41aaf41b3c381f12531df065}
+
+
+Number of Records left to decode. 
+
+
+
+Referenced by lzma\-\_\-index\-\_\-buffer\-\_\-decode().
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!unpadded\-\_\-size@{unpadded\-\_\-size}}
+\index{unpadded\-\_\-size@{unpadded\-\_\-size}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{unpadded\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-coder\-\_\-s\-::unpadded\-\_\-size}\label{structlzma__coder__s_a28dd15b7981f811996b178a51941878c}
+
+
+The most recent Unpadded Size field. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!crc32@{crc32}}
+\index{crc32@{crc32}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{crc32}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::crc32}\label{structlzma__coder__s_ab0f4ab0b3744139fa1220b769a2ad5fb}
+
+
+C\-R\-C32 of the List of Records field. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!index@{index}}
+\index{index@{index}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf lzma\-\_\-index}$\ast$ lzma\-\_\-coder\-\_\-s\-::index}\label{structlzma__coder__s_ac5dc102eb9ab22928daf0c8f37f82207}
+
+
+Index being encoded. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!iter@{iter}}
+\index{iter@{iter}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{iter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-index\-\_\-iter} lzma\-\_\-coder\-\_\-s\-::iter}\label{structlzma__coder__s_a8803a22884c6ebaeb3fbad1a0dcf2a47}
+
+
+Iterator for the Index being encoded. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!block\-\_\-decoder@{block\-\_\-decoder}}
+\index{block\-\_\-decoder@{block\-\_\-decoder}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{block\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-next\-\_\-coder} lzma\-\_\-coder\-\_\-s\-::block\-\_\-decoder}\label{structlzma__coder__s_aa1b846202b09a8d858e76f203428ec67}
+Block or Metadata decoder. This takes little memory and the same data structure can be used to decode every Block Header, so it's a good idea to have a separate lzma\-\_\-next\-\_\-coder structure for it. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!block\-\_\-options@{block\-\_\-options}}
+\index{block\-\_\-options@{block\-\_\-options}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{block\-\_\-options}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-block} lzma\-\_\-coder\-\_\-s\-::block\-\_\-options}\label{structlzma__coder__s_ad0077e1c466920b2a49f290d9990f2ea}
+
+
+Options for the Block encoder. 
+
+Block options decoded by the Block Header decoder and used by the Block decoder. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!stream\-\_\-flags@{stream\-\_\-flags}}
+\index{stream\-\_\-flags@{stream\-\_\-flags}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{stream\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-stream\-\_\-flags} lzma\-\_\-coder\-\_\-s\-::stream\-\_\-flags}\label{structlzma__coder__s_ac10ff5340efdab9d370461317f68743a}
+
+
+Stream Flags from Stream Header. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!index\-\_\-hash@{index\-\_\-hash}}
+\index{index\-\_\-hash@{index\-\_\-hash}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{index\-\_\-hash}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-index\-\_\-hash}$\ast$ lzma\-\_\-coder\-\_\-s\-::index\-\_\-hash}\label{structlzma__coder__s_ac96693c2a66b7c9c91effefcf110a8f5}
+Index is hashed so that it can be compared to the sizes of Blocks with O(1) memory usage. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!tell\-\_\-no\-\_\-check@{tell\-\_\-no\-\_\-check}}
+\index{tell\-\_\-no\-\_\-check@{tell\-\_\-no\-\_\-check}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{tell\-\_\-no\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::tell\-\_\-no\-\_\-check}\label{structlzma__coder__s_a557568bd8fcd864c1a56931d1a3a4762}
+If true, L\-Z\-M\-A\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K is returned if the Stream has no integrity check. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!tell\-\_\-unsupported\-\_\-check@{tell\-\_\-unsupported\-\_\-check}}
+\index{tell\-\_\-unsupported\-\_\-check@{tell\-\_\-unsupported\-\_\-check}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{tell\-\_\-unsupported\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::tell\-\_\-unsupported\-\_\-check}\label{structlzma__coder__s_a221ffca0016e98814e82651f68ef2457}
+If true, L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K is returned if the Stream has an integrity check that isn't supported by this liblzma build. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!tell\-\_\-any\-\_\-check@{tell\-\_\-any\-\_\-check}}
+\index{tell\-\_\-any\-\_\-check@{tell\-\_\-any\-\_\-check}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{tell\-\_\-any\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::tell\-\_\-any\-\_\-check}\label{structlzma__coder__s_a2c778cf6a565d259c39b624800f194b5}
+
+
+If true, L\-Z\-M\-A\-\_\-\-G\-E\-T\-\_\-\-C\-H\-E\-C\-K is returned after decoding Stream Header. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!concatenated@{concatenated}}
+\index{concatenated@{concatenated}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{concatenated}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::concatenated}\label{structlzma__coder__s_af313ddb8d30a629ec36e51ec17316656}
+If true, we will decode concatenated Streams that possibly have Stream Padding between or after them. L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D is returned once the application isn't giving us any new input, and we aren't in the middle of a Stream, and possible Stream Padding is a multiple of four bytes. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!first\-\_\-stream@{first\-\_\-stream}}
+\index{first\-\_\-stream@{first\-\_\-stream}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{first\-\_\-stream}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::first\-\_\-stream}\label{structlzma__coder__s_a0411b09812fe70b2357f847e511ff647}
+When decoding concatenated Streams, this is true as long as we are decoding the first Stream. This is needed to avoid misleading L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R in case the later Streams don't have valid magic bytes. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!buffer@{buffer}}
+\index{buffer@{buffer}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t lzma\-\_\-coder\-\_\-s\-::buffer}\label{structlzma__coder__s_a3ba792c4c58656a437eef0f033ac978d}
+
+
+Temporary buffer. 
+
+Buffer to hold Stream Header, Block Header, and Stream Footer. Block Header has biggest maximum size. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!block\-\_\-encoder\-\_\-is\-\_\-initialized@{block\-\_\-encoder\-\_\-is\-\_\-initialized}}
+\index{block\-\_\-encoder\-\_\-is\-\_\-initialized@{block\-\_\-encoder\-\_\-is\-\_\-initialized}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{block\-\_\-encoder\-\_\-is\-\_\-initialized}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::block\-\_\-encoder\-\_\-is\-\_\-initialized}\label{structlzma__coder__s_a24b6da6211ff048e1c8e7f904d2a8f05}
+True if Block encoder has been initialized by stream\-\_\-encoder\-\_\-init() or stream\-\_\-encoder\-\_\-update() and thus doesn't need to be initialized in stream\-\_\-encode(). \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!block\-\_\-encoder@{block\-\_\-encoder}}
+\index{block\-\_\-encoder@{block\-\_\-encoder}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{block\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-next\-\_\-coder} lzma\-\_\-coder\-\_\-s\-::block\-\_\-encoder}\label{structlzma__coder__s_a70e4a95d65a71165d3bd3598554db8d1}
+
+
+Block. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!filters@{filters}}
+\index{filters@{filters}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{filters}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-filter} lzma\-\_\-coder\-\_\-s\-::filters[{\bf L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X}+1]}\label{structlzma__coder__s_ab71b022f5ba22481ccc34250a3281d0e}
+
+
+The filter chain currently in use. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!index\-\_\-encoder@{index\-\_\-encoder}}
+\index{index\-\_\-encoder@{index\-\_\-encoder}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{index\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-next\-\_\-coder} lzma\-\_\-coder\-\_\-s\-::index\-\_\-encoder}\label{structlzma__coder__s_a4f3ac34d1963e5b1e1649475a2f94c96}
+Index encoder. This is separate from Block encoder, because this doesn't take much memory, and when encoding multiple Streams with the same encoding options we avoid reallocating memory. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!buffer\-\_\-pos@{buffer\-\_\-pos}}
+\index{buffer\-\_\-pos@{buffer\-\_\-pos}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{buffer\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::buffer\-\_\-pos}\label{structlzma__coder__s_a899a8d70db41e08212df4360a629478d}
+
+
+Read position in buffer[]. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!buffer\-\_\-size@{buffer\-\_\-size}}
+\index{buffer\-\_\-size@{buffer\-\_\-size}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{buffer\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::buffer\-\_\-size}\label{structlzma__coder__s_a4f36384e796ff910b875225f4e06f468}
+
+
+Total number of bytes in buffer[]. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!distance@{distance}}
+\index{distance@{distance}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::distance}\label{structlzma__coder__s_ad8c78039a925debdd1fee69a5ef6b8e3}
+
+
+Delta distance. 
+
+
+
+Referenced by copy\-\_\-and\-\_\-encode(), and encode\-\_\-in\-\_\-place().
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!pos@{pos}}
+\index{pos@{pos}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{pos}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t lzma\-\_\-coder\-\_\-s\-::pos}\label{structlzma__coder__s_a45c761ab2c046e1e369a7ed1363833b6}
+
+
+Position in history[]. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!history@{history}}
+\index{history@{history}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{history}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t lzma\-\_\-coder\-\_\-s\-::history[L\-Z\-M\-A\-\_\-\-D\-E\-L\-T\-A\-\_\-\-D\-I\-S\-T\-\_\-\-M\-A\-X]}\label{structlzma__coder__s_ae9d3b08e8800b6f7ed073966fc006d28}
+
+
+Buffer to hold history of the original data. 
+
+
+
+Referenced by copy\-\_\-and\-\_\-encode(), and encode\-\_\-in\-\_\-place().
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!dict@{dict}}
+\index{dict@{dict}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{dict}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-dict} lzma\-\_\-coder\-\_\-s\-::dict}\label{structlzma__coder__s_a86de52a7653672af6741252ac8615917}
+
+
+Dictionary (history buffer) 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!lz@{lz}}
+\index{lz@{lz}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{lz}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-lz\-\_\-decoder} lzma\-\_\-coder\-\_\-s\-::lz}\label{structlzma__coder__s_a4d97cdf05c6a7c42b4810d374901b3bf}
+
+
+The actual L\-Z-\/based decoder e.\-g. L\-Z\-M\-A. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!next\-\_\-finished@{next\-\_\-finished}}
+\index{next\-\_\-finished@{next\-\_\-finished}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{next\-\_\-finished}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::next\-\_\-finished}\label{structlzma__coder__s_a70b93b5b1ff16901ac7003a9f4dd4984}
+
+
+True if the next filter in the chain has returned L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!this\-\_\-finished@{this\-\_\-finished}}
+\index{this\-\_\-finished@{this\-\_\-finished}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{this\-\_\-finished}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::this\-\_\-finished}\label{structlzma__coder__s_a8461ba5b3185a2e8ec690e9757a27596}
+True if the L\-Z decoder (e.\-g. L\-Z\-M\-A) has detected end of payload marker. This may become true before next\-\_\-finished becomes true. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!size@{size}}
+\index{size@{size}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::size}\label{structlzma__coder__s_a923143d90bee77848265a7e8caaaeea7}
+Total number of bytes (both filtered and unfiltered) currently in the temporary buffer. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!temp@{temp}}
+\index{temp@{temp}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{temp}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   lzma\-\_\-coder\-\_\-s\-::temp}\label{structlzma__coder__s_a4a9c3e7e4d7c4345615e3d61ce853f6c}
+Temporary buffer needed when the L\-Z-\/based filter is not the last filter in the chain. The output of the next filter is first decoded into buffer[], which is then used as input for the actual L\-Z-\/based decoder. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!lz@{lz}}
+\index{lz@{lz}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{lz}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-lz\-\_\-encoder} lzma\-\_\-coder\-\_\-s\-::lz}\label{structlzma__coder__s_a753801a4c45709d99be38c2cefbeb050}
+
+
+L\-Z-\/based encoder e.\-g. L\-Z\-M\-A. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!mf@{mf}}
+\index{mf@{mf}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{mf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-mf} lzma\-\_\-coder\-\_\-s\-::mf}\label{structlzma__coder__s_abee9d87f9f7f48ac6dc7a92ec9d1b5f6}
+
+
+History buffer and match finder. 
+
+
+
+Referenced by fill\-\_\-window().
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!next\-\_\-sequence@{next\-\_\-sequence}}
+\index{next\-\_\-sequence@{next\-\_\-sequence}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{next\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}enum sequence lzma\-\_\-coder\-\_\-s\-::next\-\_\-sequence}\label{structlzma__coder__s_a22663a90ad71eae76e08bda9c785c403}
+
+
+Sequence after the size fields have been decoded. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!lzma@{lzma}}
+\index{lzma@{lzma}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{lzma}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-lz\-\_\-decoder} lzma\-\_\-coder\-\_\-s\-::lzma}\label{structlzma__coder__s_a3592a93a5348d71ff1cdf3fa651dad05}
+
+
+L\-Z\-M\-A decoder. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!uncompressed\-\_\-size@{uncompressed\-\_\-size}}
+\index{uncompressed\-\_\-size@{uncompressed\-\_\-size}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{uncompressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::uncompressed\-\_\-size}\label{structlzma__coder__s_a587b26315cf6f13c4e1bbc637e9877a5}
+
+
+Uncompressed size of L\-Z\-M\-A chunk. 
+
+Uncompressed size of a chunk. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!compressed\-\_\-size@{compressed\-\_\-size}}
+\index{compressed\-\_\-size@{compressed\-\_\-size}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{compressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::compressed\-\_\-size}\label{structlzma__coder__s_ae2a6054d55b0092854c709ba8b0b2424}
+Compressed size of the chunk (naturally equals to uncompressed size of uncompressed chunk)
+
+Compressed size of a chunk (excluding headers); this is also used to indicate the end of buf[] in S\-E\-Q\-\_\-\-L\-Z\-M\-A\-\_\-\-C\-O\-P\-Y. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!need\-\_\-properties@{need\-\_\-properties}}
+\index{need\-\_\-properties@{need\-\_\-properties}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{need\-\_\-properties}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::need\-\_\-properties}\label{structlzma__coder__s_aab7515f03f47a8eb8b41c829ec70e2c6}
+True if properties are needed. This is false before the first L\-Z\-M\-A chunk. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!need\-\_\-dictionary\-\_\-reset@{need\-\_\-dictionary\-\_\-reset}}
+\index{need\-\_\-dictionary\-\_\-reset@{need\-\_\-dictionary\-\_\-reset}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{need\-\_\-dictionary\-\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::need\-\_\-dictionary\-\_\-reset}\label{structlzma__coder__s_a6e1a0c91aa57a84e98751fbd6bc2d4d4}
+True if dictionary reset is needed. This is false before the first chunk (L\-Z\-M\-A or uncompressed). \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!lzma@{lzma}}
+\index{lzma@{lzma}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{lzma}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-coder}$\ast$ lzma\-\_\-coder\-\_\-s\-::lzma}\label{structlzma__coder__s_afa7b642d3c9c7a14c6a13634ba87df9a}
+
+
+L\-Z\-M\-A encoder. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!opt\-\_\-cur@{opt\-\_\-cur}}
+\index{opt\-\_\-cur@{opt\-\_\-cur}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{opt\-\_\-cur}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-options\-\_\-lzma} lzma\-\_\-coder\-\_\-s\-::opt\-\_\-cur}\label{structlzma__coder__s_a1afb73d3819108b11db2cf4fe2e07e6e}
+
+
+L\-Z\-M\-A options currently in use. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!buf\-\_\-pos@{buf\-\_\-pos}}
+\index{buf\-\_\-pos@{buf\-\_\-pos}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{buf\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::buf\-\_\-pos}\label{structlzma__coder__s_a6d9272084cbf6cbbf174d7e5e00014c3}
+
+
+Read position in buf[]. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!buf@{buf}}
+\index{buf@{buf}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{buf}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t lzma\-\_\-coder\-\_\-s\-::buf[{\bf L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-M\-A\-X}+{\bf L\-Z\-M\-A2\-\_\-\-C\-H\-U\-N\-K\-\_\-\-M\-A\-X}]}\label{structlzma__coder__s_a47adf0819be2571d4ba213f383d6e069}
+
+
+Buffer to hold the chunk header and L\-Z\-M\-A compressed data. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!literal@{literal}}
+\index{literal@{literal}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{literal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability} lzma\-\_\-coder\-\_\-s\-::literal}\label{structlzma__coder__s_a6a0c931b33086466dd19e9bd6a729ad4}
+
+
+Literals; see comments in \doxyref{lzma\-\_\-common.\-h}{p.}{lzma__common_8h}. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!is\-\_\-match@{is\-\_\-match}}
+\index{is\-\_\-match@{is\-\_\-match}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{is\-\_\-match}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability} lzma\-\_\-coder\-\_\-s\-::is\-\_\-match}\label{structlzma__coder__s_a184d4af9fac283548fbc4ce4431ca579}
+
+
+If 1, it's a match. Otherwise it's a single 8-\/bit literal. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!is\-\_\-rep@{is\-\_\-rep}}
+\index{is\-\_\-rep@{is\-\_\-rep}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{is\-\_\-rep}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability} lzma\-\_\-coder\-\_\-s\-::is\-\_\-rep}\label{structlzma__coder__s_a0469b77e72efb1a4a11b48c386583d9b}
+
+
+If 1, it's a repeated match. The distance is one of rep0 .. rep3. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!is\-\_\-rep0@{is\-\_\-rep0}}
+\index{is\-\_\-rep0@{is\-\_\-rep0}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{is\-\_\-rep0}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability} lzma\-\_\-coder\-\_\-s\-::is\-\_\-rep0}\label{structlzma__coder__s_a58177656d331e045cd17b2f5afa4ed9a}
+If 0, distance of a repeated match is rep0. Otherwise check is\-\_\-rep1. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!is\-\_\-rep1@{is\-\_\-rep1}}
+\index{is\-\_\-rep1@{is\-\_\-rep1}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{is\-\_\-rep1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability} lzma\-\_\-coder\-\_\-s\-::is\-\_\-rep1}\label{structlzma__coder__s_a0b1b734b0764abc9c3b6d2659f246d0c}
+If 0, distance of a repeated match is rep1. Otherwise check is\-\_\-rep2. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!is\-\_\-rep2@{is\-\_\-rep2}}
+\index{is\-\_\-rep2@{is\-\_\-rep2}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{is\-\_\-rep2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability} lzma\-\_\-coder\-\_\-s\-::is\-\_\-rep2}\label{structlzma__coder__s_ab1b118075da11b4a15b3724dbcdef5bd}
+
+
+If 0, distance of a repeated match is rep2. Otherwise it is rep3. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!is\-\_\-rep0\-\_\-long@{is\-\_\-rep0\-\_\-long}}
+\index{is\-\_\-rep0\-\_\-long@{is\-\_\-rep0\-\_\-long}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{is\-\_\-rep0\-\_\-long}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability} lzma\-\_\-coder\-\_\-s\-::is\-\_\-rep0\-\_\-long}\label{structlzma__coder__s_a390784e28645a87051478edb0362c352}
+If 1, the repeated match has length of one byte. Otherwise the length is decoded from rep\-\_\-len\-\_\-decoder. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!dist\-\_\-slot@{dist\-\_\-slot}}
+\index{dist\-\_\-slot@{dist\-\_\-slot}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{dist\-\_\-slot}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability} lzma\-\_\-coder\-\_\-s\-::dist\-\_\-slot}\label{structlzma__coder__s_a4f1dd6d5616ab3dad3a26df7df79a277}
+Probability tree for the highest two bits of the match distance. There is a separate probability tree for match lengths of 2 (i.\-e. M\-A\-T\-C\-H\-\_\-\-L\-E\-N\-\_\-\-M\-I\-N), 3, 4, and [5, 273]. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!pos\-\_\-special@{pos\-\_\-special}}
+\index{pos\-\_\-special@{pos\-\_\-special}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{pos\-\_\-special}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability} lzma\-\_\-coder\-\_\-s\-::pos\-\_\-special[F\-U\-L\-L\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-S-\/D\-I\-S\-T\-\_\-\-M\-O\-D\-E\-L\-\_\-\-E\-N\-D]}\label{structlzma__coder__s_a74d7758336f4d55630ddebdb69b13790}
+Probability trees for additional bits for match distance when the distance is in the range [4, 127]. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!pos\-\_\-align@{pos\-\_\-align}}
+\index{pos\-\_\-align@{pos\-\_\-align}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{pos\-\_\-align}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability} lzma\-\_\-coder\-\_\-s\-::pos\-\_\-align[A\-L\-I\-G\-N\-\_\-\-S\-I\-Z\-E]}\label{structlzma__coder__s_a80d6f5b49ac3140daaaa70b947654f51}
+Probability tree for the lowest four bits of a match distance that is equal to or greater than 128. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!match\-\_\-len\-\_\-decoder@{match\-\_\-len\-\_\-decoder}}
+\index{match\-\_\-len\-\_\-decoder@{match\-\_\-len\-\_\-decoder}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{match\-\_\-len\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-length\-\_\-decoder} lzma\-\_\-coder\-\_\-s\-::match\-\_\-len\-\_\-decoder}\label{structlzma__coder__s_a679158ae73ca790d8db8cc5a44b3885c}
+
+
+Length of a normal match. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!rep\-\_\-len\-\_\-decoder@{rep\-\_\-len\-\_\-decoder}}
+\index{rep\-\_\-len\-\_\-decoder@{rep\-\_\-len\-\_\-decoder}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{rep\-\_\-len\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-length\-\_\-decoder} lzma\-\_\-coder\-\_\-s\-::rep\-\_\-len\-\_\-decoder}\label{structlzma__coder__s_a26ddee0c9ae3e8eef25646159d7990f4}
+
+
+Length of a repeated match. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!state@{state}}
+\index{state@{state}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-lzma\-\_\-state} lzma\-\_\-coder\-\_\-s\-::state}\label{structlzma__coder__s_a2957b4ed6e3bd1c9be3d2f628c0700a9}
+
+
+State. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!rep0@{rep0}}
+\index{rep0@{rep0}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{rep0}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::rep0}\label{structlzma__coder__s_a9c0a9f85816802c950186fb343d70cdb}
+
+
+Distance of the latest match. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!rep1@{rep1}}
+\index{rep1@{rep1}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{rep1}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::rep1}\label{structlzma__coder__s_ae9da01f75fbfb40081ce5acb1c5a69af}
+
+
+Distance of second latest match. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!rep2@{rep2}}
+\index{rep2@{rep2}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{rep2}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::rep2}\label{structlzma__coder__s_a4712801a6be47ed45904c08e4e877f3e}
+
+
+Distance of third latest match. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!rep3@{rep3}}
+\index{rep3@{rep3}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{rep3}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::rep3}\label{structlzma__coder__s_ac9d68e7ada144cd530f0a3c6086ebc91}
+
+
+Distance of fourth latest match. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!pos\-\_\-mask@{pos\-\_\-mask}}
+\index{pos\-\_\-mask@{pos\-\_\-mask}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{pos\-\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::pos\-\_\-mask}\label{structlzma__coder__s_a03948f88fcae8d6dc0a299f886477322}
+
+
+(1 $<$$<$ pos\-\_\-bits) -\/ 1 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!sequence@{sequence}}
+\index{sequence@{sequence}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{sequence}]{\setlength{\rightskip}{0pt plus 5cm}enum \{ ... \}   lzma\-\_\-coder\-\_\-s\-::sequence}\label{structlzma__coder__s_ad50b8f652a5cf62a48665a9d0789d6b1}
+
+
+Position where to continue the decoder loop. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!probs@{probs}}
+\index{probs@{probs}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{probs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability}$\ast$ lzma\-\_\-coder\-\_\-s\-::probs}\label{structlzma__coder__s_a15647483964b948297a86eb3a93a8a52}
+
+
+Base of the current probability tree. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!symbol@{symbol}}
+\index{symbol@{symbol}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{symbol}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::symbol}\label{structlzma__coder__s_a66565c64666a4e7daadc63f386574eff}
+Symbol being decoded. This is also used as an index variable in bittree decoders\-: probs[symbol] \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!limit@{limit}}
+\index{limit@{limit}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{limit}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::limit}\label{structlzma__coder__s_acad4c2f9bfed9c4ae2ea3e589446ff12}
+Used as a loop termination condition on bittree decoders and direct bits decoder. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!offset@{offset}}
+\index{offset@{offset}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{offset}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::offset}\label{structlzma__coder__s_a3db460ca277ffd83e94a33294db8f63c}
+Matched literal decoder\-: 0x100 or 0 to help avoiding branches. Bittree reverse decoders\-: Offset of the next bit\-: 1 $<$$<$ offset \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!len@{len}}
+\index{len@{len}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{len}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::len}\label{structlzma__coder__s_ab365e3867c5ffc0afa3280810ff4d1b7}
+If decoding a literal\-: match byte. If decoding a match\-: length of the match. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!rc@{rc}}
+\index{rc@{rc}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{rc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-range\-\_\-encoder} lzma\-\_\-coder\-\_\-s\-::rc}\label{structlzma__coder__s_af23821e50fe38646e20e847224b59a75}
+
+
+Range encoder. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!reps@{reps}}
+\index{reps@{reps}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{reps}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::reps[R\-E\-P\-S]}\label{structlzma__coder__s_aa94ce09441b42844e6f38c7a83016b5d}
+
+
+The four most recent match distances. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!matches@{matches}}
+\index{matches@{matches}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{matches}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-match} lzma\-\_\-coder\-\_\-s\-::matches[M\-A\-T\-C\-H\-\_\-\-L\-E\-N\-\_\-\-M\-A\-X+1]}\label{structlzma__coder__s_acb6e2908223c6b435807551fdf670d17}
+
+
+Array of match candidates. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!matches\-\_\-count@{matches\-\_\-count}}
+\index{matches\-\_\-count@{matches\-\_\-count}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{matches\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::matches\-\_\-count}\label{structlzma__coder__s_a8d4d5463450b911ba521c2295e8a4291}
+
+
+Number of match candidates in matches[]. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!longest\-\_\-match\-\_\-length@{longest\-\_\-match\-\_\-length}}
+\index{longest\-\_\-match\-\_\-length@{longest\-\_\-match\-\_\-length}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{longest\-\_\-match\-\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::longest\-\_\-match\-\_\-length}\label{structlzma__coder__s_a58925d2337ee667763a6aa89337b0f07}
+Variable to hold the length of the longest match between calls to lzma\-\_\-lzma\-\_\-optimum\-\_\-$\ast$(). \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!fast\-\_\-mode@{fast\-\_\-mode}}
+\index{fast\-\_\-mode@{fast\-\_\-mode}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{fast\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::fast\-\_\-mode}\label{structlzma__coder__s_a19610bc6e0dfb3437cd1f64e05bceec7}
+
+
+True if using getoptimumfast. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!is\-\_\-initialized@{is\-\_\-initialized}}
+\index{is\-\_\-initialized@{is\-\_\-initialized}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{is\-\_\-initialized}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::is\-\_\-initialized}\label{structlzma__coder__s_a368f812050b7e760a849bab0059efae9}
+True if the encoder has been initialized by encoding the first byte as a literal. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!is\-\_\-flushed@{is\-\_\-flushed}}
+\index{is\-\_\-flushed@{is\-\_\-flushed}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{is\-\_\-flushed}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::is\-\_\-flushed}\label{structlzma__coder__s_a7a53779f0567d10794cbfc072b55dabe}
+True if the range encoder has been flushed, but not all bytes have been written to the output buffer yet. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!end\-\_\-was\-\_\-reached@{end\-\_\-was\-\_\-reached}}
+\index{end\-\_\-was\-\_\-reached@{end\-\_\-was\-\_\-reached}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{end\-\_\-was\-\_\-reached}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::end\-\_\-was\-\_\-reached}\label{structlzma__coder__s_a9c1d30c7d03ffb503a8766ac4ac9d72a}
+
+
+True if the next coder in the chain has returned L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D. 
+
+
+
+Referenced by copy\-\_\-or\-\_\-code().
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!is\-\_\-encoder@{is\-\_\-encoder}}
+\index{is\-\_\-encoder@{is\-\_\-encoder}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{is\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-coder\-\_\-s\-::is\-\_\-encoder}\label{structlzma__coder__s_a748eb6120e98fb6aa47f0979c71bc94c}
+True if \doxyref{filter()}{p.}{structlzma__coder__s_a9443efa9dfa47e91ad05d38a81f4500d} should encode the data; false to decode. Currently all simple filters use the same function for encoding and decoding, because the difference between encoders and decoders is very small. 
+
+Referenced by copy\-\_\-or\-\_\-code().
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!filter@{filter}}
+\index{filter@{filter}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t($\ast$ lzma\-\_\-coder\-\_\-s\-::filter)({\bf lzma\-\_\-simple} $\ast${\bf simple}, uint32\-\_\-t {\bf now\-\_\-pos}, bool {\bf is\-\_\-encoder}, uint8\-\_\-t $\ast${\bf buffer}, size\-\_\-t {\bf size})}\label{structlzma__coder__s_a9443efa9dfa47e91ad05d38a81f4500d}
+Pointer to filter-\/specific function, which does the actual filtering. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!simple@{simple}}
+\index{simple@{simple}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{simple}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-simple}$\ast$ lzma\-\_\-coder\-\_\-s\-::simple}\label{structlzma__coder__s_af9dd0c28506e7e23658e367096db4580}
+Pointer to filter-\/specific data, or N\-U\-L\-L if filter doesn't need any extra data. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!now\-\_\-pos@{now\-\_\-pos}}
+\index{now\-\_\-pos@{now\-\_\-pos}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{now\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-coder\-\_\-s\-::now\-\_\-pos}\label{structlzma__coder__s_ac61ba39b745f68ad028bc894e22ba440}
+The lowest 32 bits of the current position in the data. Most filters need this to do conversions between absolute and relative addresses. \index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!allocated@{allocated}}
+\index{allocated@{allocated}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{allocated}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::allocated}\label{structlzma__coder__s_ae6b47602e153ab62f38f5663681ba5fe}
+
+
+Size of the memory allocated for the buffer. 
+
+\index{lzma\-\_\-coder\-\_\-s@{lzma\-\_\-coder\-\_\-s}!filtered@{filtered}}
+\index{filtered@{filtered}!lzma_coder_s@{lzma\-\_\-coder\-\_\-s}}
+\subsubsection[{filtered}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-coder\-\_\-s\-::filtered}\label{structlzma__coder__s_a6dfa9ec23fd5f1bcb8581bfedc9ff367}
+buffer[filtered] is the first unfiltered byte. When pos is smaller than filtered, there is unflushed filtered data in the buffer. 
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/{\bf alone\-\_\-decoder.\-c}\item 
+liblzma/common/alone\-\_\-encoder.\-c\item 
+liblzma/common/{\bf auto\-\_\-decoder.\-c}\item 
+liblzma/common/{\bf block\-\_\-decoder.\-c}\item 
+liblzma/common/{\bf block\-\_\-encoder.\-c}\item 
+liblzma/common/{\bf index\-\_\-decoder.\-c}\item 
+liblzma/common/{\bf index\-\_\-encoder.\-c}\item 
+liblzma/common/{\bf stream\-\_\-decoder.\-c}\item 
+liblzma/common/{\bf stream\-\_\-encoder.\-c}\item 
+liblzma/lzma/{\bf lzma2\-\_\-decoder.\-c}\item 
+liblzma/lzma/{\bf lzma2\-\_\-encoder.\-c}\item 
+liblzma/lzma/{\bf lzma\-\_\-decoder.\-c}\item 
+liblzma/delta/{\bf delta\-\_\-private.\-h}\item 
+liblzma/lz/{\bf lz\-\_\-decoder.\-c}\item 
+liblzma/lz/{\bf lz\-\_\-encoder.\-c}\item 
+liblzma/lzma/{\bf lzma\-\_\-encoder\-\_\-private.\-h}\item 
+liblzma/simple/{\bf simple\-\_\-private.\-h}\end{DoxyCompactItemize}

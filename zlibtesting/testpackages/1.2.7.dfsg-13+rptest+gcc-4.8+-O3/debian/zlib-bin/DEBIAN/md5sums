@@ -1,0 +1,7 @@
+2db387f1f8d518b254f0dbe97e67fb5c  usr/bin/miniunzip
+e8866cb4c4de2c11e1b26b3e3b764981  usr/bin/minizip
+b0e3637279718e701eb623f041a8978b  usr/share/doc/zlib-bin/changelog.Debian.gz
+5451033b0ac9c3a3511d08eaeb400e5d  usr/share/doc/zlib-bin/changelog.gz
+b864456ff86681d287ddec30166bb86c  usr/share/doc/zlib-bin/copyright
+724c72ad6e2545dc98ad28cbd79facb2  usr/share/man/man1/miniunzip.1.gz
+08a4541825b1c5cb5add812909d01692  usr/share/man/man1/minizip.1.gz

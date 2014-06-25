@@ -1,0 +1,76 @@
+\section{lzma\-\_\-lz\-\_\-options Struct Reference}
+\label{structlzma__lz__options}\index{lzma\-\_\-lz\-\_\-options@{lzma\-\_\-lz\-\_\-options}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+size\-\_\-t {\bf dict\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Size of the history buffer. \end{DoxyCompactList}\item 
+const uint8\-\_\-t $\ast$ {\bf preset\-\_\-dict}
+\begin{DoxyCompactList}\small\item\em T\-O\-D\-O\-: Comment. \end{DoxyCompactList}\item 
+size\-\_\-t {\bfseries preset\-\_\-dict\-\_\-size}\label{structlzma__lz__options_a0f3f942900114d44fcc720dd27492953}
+
+\item 
+size\-\_\-t {\bf before\-\_\-size}
+\item 
+size\-\_\-t {\bf after\-\_\-size}
+\item 
+size\-\_\-t {\bf match\-\_\-len\-\_\-max}
+\item 
+size\-\_\-t {\bf nice\-\_\-len}
+\item 
+{\bf lzma\-\_\-match\-\_\-finder} {\bf match\-\_\-finder}
+\begin{DoxyCompactList}\small\item\em Type of the match finder to use. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf depth}
+\begin{DoxyCompactList}\small\item\em Maximum search depth. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bfseries preset\-\_\-dict\-\_\-size}\label{structlzma__lz__options_adc40b285d46c70ce858d753b074c5b1f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-lz\-\_\-options@{lzma\-\_\-lz\-\_\-options}!dict\-\_\-size@{dict\-\_\-size}}
+\index{dict\-\_\-size@{dict\-\_\-size}!lzma_lz_options@{lzma\-\_\-lz\-\_\-options}}
+\subsubsection[{dict\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-lz\-\_\-options\-::dict\-\_\-size}\label{structlzma__lz__options_a72267f1a6f21d8b51c999b7a1ddc9ab4}
+
+
+Size of the history buffer. 
+
+\index{lzma\-\_\-lz\-\_\-options@{lzma\-\_\-lz\-\_\-options}!preset\-\_\-dict@{preset\-\_\-dict}}
+\index{preset\-\_\-dict@{preset\-\_\-dict}!lzma_lz_options@{lzma\-\_\-lz\-\_\-options}}
+\subsubsection[{preset\-\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}const uint8\-\_\-t $\ast$ lzma\-\_\-lz\-\_\-options\-::preset\-\_\-dict}\label{structlzma__lz__options_a01750e9cb71e4ea7fc7c9518326af3ba}
+
+
+T\-O\-D\-O\-: Comment. 
+
+\index{lzma\-\_\-lz\-\_\-options@{lzma\-\_\-lz\-\_\-options}!before\-\_\-size@{before\-\_\-size}}
+\index{before\-\_\-size@{before\-\_\-size}!lzma_lz_options@{lzma\-\_\-lz\-\_\-options}}
+\subsubsection[{before\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-lz\-\_\-options\-::before\-\_\-size}\label{structlzma__lz__options_ac9ddbac2942fdffb60512d66331cb527}
+Extra amount of data to keep available before the \char`\"{}actual\char`\"{} dictionary. \index{lzma\-\_\-lz\-\_\-options@{lzma\-\_\-lz\-\_\-options}!after\-\_\-size@{after\-\_\-size}}
+\index{after\-\_\-size@{after\-\_\-size}!lzma_lz_options@{lzma\-\_\-lz\-\_\-options}}
+\subsubsection[{after\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-lz\-\_\-options\-::after\-\_\-size}\label{structlzma__lz__options_a0d3e130ba60fab1c0b682caa7abe15a7}
+Extra amount of data to keep available after the \char`\"{}actual\char`\"{} dictionary. \index{lzma\-\_\-lz\-\_\-options@{lzma\-\_\-lz\-\_\-options}!match\-\_\-len\-\_\-max@{match\-\_\-len\-\_\-max}}
+\index{match\-\_\-len\-\_\-max@{match\-\_\-len\-\_\-max}!lzma_lz_options@{lzma\-\_\-lz\-\_\-options}}
+\subsubsection[{match\-\_\-len\-\_\-max}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-lz\-\_\-options\-::match\-\_\-len\-\_\-max}\label{structlzma__lz__options_a3923a9ac746074ec4cb3aacd8acd2771}
+Maximum length of a match that the L\-Z-\/based encoder can accept. This is used to extend matches of length nice\-\_\-len to the maximum possible length. \index{lzma\-\_\-lz\-\_\-options@{lzma\-\_\-lz\-\_\-options}!nice\-\_\-len@{nice\-\_\-len}}
+\index{nice\-\_\-len@{nice\-\_\-len}!lzma_lz_options@{lzma\-\_\-lz\-\_\-options}}
+\subsubsection[{nice\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-lz\-\_\-options\-::nice\-\_\-len}\label{structlzma__lz__options_a932c109d9bc04a2abfd710b67fd65fba}
+Match finder will search matches up to this length. This must be less than or equal to match\-\_\-len\-\_\-max. \index{lzma\-\_\-lz\-\_\-options@{lzma\-\_\-lz\-\_\-options}!match\-\_\-finder@{match\-\_\-finder}}
+\index{match\-\_\-finder@{match\-\_\-finder}!lzma_lz_options@{lzma\-\_\-lz\-\_\-options}}
+\subsubsection[{match\-\_\-finder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-match\-\_\-finder} lzma\-\_\-lz\-\_\-options\-::match\-\_\-finder}\label{structlzma__lz__options_ae68aa09d8094a22ae382a0bcf41a24d6}
+
+
+Type of the match finder to use. 
+
+\index{lzma\-\_\-lz\-\_\-options@{lzma\-\_\-lz\-\_\-options}!depth@{depth}}
+\index{depth@{depth}!lzma_lz_options@{lzma\-\_\-lz\-\_\-options}}
+\subsubsection[{depth}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-lz\-\_\-options\-::depth}\label{structlzma__lz__options_a65f36545a297e0ecf4906528453ccc4a}
+
+
+Maximum search depth. 
+
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/lz/{\bf lz\-\_\-decoder.\-h}\item 
+liblzma/lz/{\bf lz\-\_\-encoder.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+liblzma5_5.1.1alpha+20120614-2+rptest+gcc-4.6+-Os_armhf.deb libs required
+xz-utils_5.1.1alpha+20120614-2+rptest+gcc-4.6+-Os_armhf.deb utils required
+xzdec_5.1.1alpha+20120614-2+rptest+gcc-4.6+-Os_armhf.deb utils extra
+liblzma-dev_5.1.1alpha+20120614-2+rptest+gcc-4.6+-Os_armhf.deb libdevel optional
+liblzma-doc_5.1.1alpha+20120614-2+rptest+gcc-4.6+-Os_all.deb doc optional

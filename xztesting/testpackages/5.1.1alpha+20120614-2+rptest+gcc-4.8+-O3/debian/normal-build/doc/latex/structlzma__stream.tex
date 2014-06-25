@@ -1,0 +1,172 @@
+\section{lzma\-\_\-stream Struct Reference}
+\label{structlzma__stream}\index{lzma\-\_\-stream@{lzma\-\_\-stream}}
+
+
+Passing data to and from liblzma.  
+
+
+
+
+{\ttfamily \#include $<$base.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\-\_\-t $\ast$ {\bf next\-\_\-in}
+\item 
+size\-\_\-t {\bf avail\-\_\-in}
+\item 
+uint64\-\_\-t {\bf total\-\_\-in}
+\item 
+uint8\-\_\-t $\ast$ {\bf next\-\_\-out}
+\item 
+size\-\_\-t {\bf avail\-\_\-out}
+\item 
+uint64\-\_\-t {\bf total\-\_\-out}
+\item 
+{\bf lzma\-\_\-allocator} $\ast$ {\bf allocator}
+\begin{DoxyCompactList}\small\item\em Custom memory allocation functions. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-internal} $\ast$ {\bf internal}
+\item 
+void $\ast$ {\bfseries reserved\-\_\-ptr1}\label{structlzma__stream_a81fcec9c9ce275ff1fedcb9bab15a7f5}
+
+\item 
+void $\ast$ {\bfseries reserved\-\_\-ptr2}\label{structlzma__stream_ab7d7fd72ae7155eff6701c9f9ce9a6a7}
+
+\item 
+void $\ast$ {\bfseries reserved\-\_\-ptr3}\label{structlzma__stream_a09649803b9d487974c731b144819799a}
+
+\item 
+void $\ast$ {\bfseries reserved\-\_\-ptr4}\label{structlzma__stream_ade4733d119d61b363cf3242809e2c42a}
+
+\item 
+uint64\-\_\-t {\bfseries reserved\-\_\-int1}\label{structlzma__stream_a06383fc1c539abcbe7e9a4ef72516bae}
+
+\item 
+uint64\-\_\-t {\bfseries reserved\-\_\-int2}\label{structlzma__stream_ae5ceace43e0563a9e0f6f4c41efaa798}
+
+\item 
+size\-\_\-t {\bfseries reserved\-\_\-int3}\label{structlzma__stream_a20d5b98e6fa087a6b946712129df0397}
+
+\item 
+size\-\_\-t {\bfseries reserved\-\_\-int4}\label{structlzma__stream_ae08c3bd899a7d80869a70c3504f3b856}
+
+\item 
+{\bf lzma\-\_\-reserved\-\_\-enum} {\bfseries reserved\-\_\-enum1}\label{structlzma__stream_ab00d03009d667004568ad7391fd1c857}
+
+\item 
+{\bf lzma\-\_\-reserved\-\_\-enum} {\bfseries reserved\-\_\-enum2}\label{structlzma__stream_a914a4a094aa97b0c06f1ba9a692dde85}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Passing data to and from liblzma. 
+
+The \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} structure is used for
+\begin{DoxyItemize}
+\item passing pointers to input and output buffers to liblzma;
+\item defining custom memory hander functions; and
+\item holding a pointer to coder-\/specific internal data structures.
+\end{DoxyItemize}
+
+Typical usage\-:
+
+
+\begin{DoxyItemize}
+\item After allocating \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} (on stack or with malloc()), it must be initialized to L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-N\-I\-T (see L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-N\-I\-T for details).
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Initialize a coder to the \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream}, for example by using \doxyref{lzma\-\_\-easy\-\_\-encoder()}{p.}{container_8h_acbdad999c544872f0f5d242f0d1a4ed4} or \doxyref{lzma\-\_\-auto\-\_\-decoder()}{p.}{container_8h_a21cbebf2771617bb1e956385cfb353e3}. Some notes\-:
+\begin{DoxyItemize}
+\item In contrast to zlib, strm-\/$>$next\-\_\-in and strm-\/$>$next\-\_\-out are ignored by all initialization functions, thus it is safe to not initialize them yet.
+\item The initialization functions always set strm-\/$>$total\-\_\-in and strm-\/$>$total\-\_\-out to zero.
+\item If the initialization function fails, no memory is left allocated that would require freeing with \doxyref{lzma\-\_\-end()}{p.}{base_8h_a854ff37464ae1225febf14db1af43308} even if some memory was associated with the \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} structure when the initialization function was called.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Use \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} to do the actual work.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Once the coding has been finished, the existing \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} can be reused. It is O\-K to reuse \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} with different initialization function without calling \doxyref{lzma\-\_\-end()}{p.}{base_8h_a854ff37464ae1225febf14db1af43308} first. Old allocations are automatically freed.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Finally, use \doxyref{lzma\-\_\-end()}{p.}{base_8h_a854ff37464ae1225febf14db1af43308} to free the allocated memory. \doxyref{lzma\-\_\-end()}{p.}{base_8h_a854ff37464ae1225febf14db1af43308} never frees the \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} structure itself.
+\end{DoxyItemize}
+
+Application may modify the values of total\-\_\-in and total\-\_\-out as it wants. They are updated by liblzma to match the amount of data read and written, but aren't used for anything else. 
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-stream@{lzma\-\_\-stream}!next\-\_\-in@{next\-\_\-in}}
+\index{next\-\_\-in@{next\-\_\-in}!lzma_stream@{lzma\-\_\-stream}}
+\subsubsection[{next\-\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}const uint8\-\_\-t$\ast$ lzma\-\_\-stream\-::next\-\_\-in}\label{structlzma__stream_a72fdc738c793f07a5c29715aa57802cf}
+Pointer to the next input byte. 
+
+Referenced by coder\-\_\-normal(), coder\-\_\-run(), and parse\-\_\-indexes().
+
+\index{lzma\-\_\-stream@{lzma\-\_\-stream}!avail\-\_\-in@{avail\-\_\-in}}
+\index{avail\-\_\-in@{avail\-\_\-in}!lzma_stream@{lzma\-\_\-stream}}
+\subsubsection[{avail\-\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-stream\-::avail\-\_\-in}\label{structlzma__stream_abb680ecea31910cbda1d7a6ad4f191c0}
+Number of available input bytes in next\-\_\-in. 
+
+Referenced by coder\-\_\-normal(), coder\-\_\-passthru(), coder\-\_\-run(), is\-\_\-format\-\_\-lzma(), is\-\_\-format\-\_\-xz(), and parse\-\_\-indexes().
+
+\index{lzma\-\_\-stream@{lzma\-\_\-stream}!total\-\_\-in@{total\-\_\-in}}
+\index{total\-\_\-in@{total\-\_\-in}!lzma_stream@{lzma\-\_\-stream}}
+\subsubsection[{total\-\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-stream\-::total\-\_\-in}\label{structlzma__stream_a1a411e1755d6185756caefabc3932c7b}
+Total number of bytes read by liblzma. 
+
+Referenced by coder\-\_\-passthru(), lzma\-\_\-strm\-\_\-init(), and progress\-\_\-pos().
+
+\index{lzma\-\_\-stream@{lzma\-\_\-stream}!next\-\_\-out@{next\-\_\-out}}
+\index{next\-\_\-out@{next\-\_\-out}!lzma_stream@{lzma\-\_\-stream}}
+\subsubsection[{next\-\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t$\ast$ lzma\-\_\-stream\-::next\-\_\-out}\label{structlzma__stream_a14ee64ed636ddcb775edf87e2b9f42ec}
+Pointer to the next output position. 
+
+Referenced by coder\-\_\-init(), and coder\-\_\-normal().
+
+\index{lzma\-\_\-stream@{lzma\-\_\-stream}!avail\-\_\-out@{avail\-\_\-out}}
+\index{avail\-\_\-out@{avail\-\_\-out}!lzma_stream@{lzma\-\_\-stream}}
+\subsubsection[{avail\-\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-stream\-::avail\-\_\-out}\label{structlzma__stream_a5ff28ea4e39148723c19f59811627904}
+Amount of free space in next\-\_\-out. 
+
+Referenced by coder\-\_\-init(), and coder\-\_\-normal().
+
+\index{lzma\-\_\-stream@{lzma\-\_\-stream}!total\-\_\-out@{total\-\_\-out}}
+\index{total\-\_\-out@{total\-\_\-out}!lzma_stream@{lzma\-\_\-stream}}
+\subsubsection[{total\-\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-stream\-::total\-\_\-out}\label{structlzma__stream_a80d703ffdfd7661e344fe7b61ff737fa}
+Total number of bytes written by liblzma. 
+
+Referenced by coder\-\_\-passthru(), lzma\-\_\-strm\-\_\-init(), and progress\-\_\-pos().
+
+\index{lzma\-\_\-stream@{lzma\-\_\-stream}!allocator@{allocator}}
+\index{allocator@{allocator}!lzma_stream@{lzma\-\_\-stream}}
+\subsubsection[{allocator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-allocator}$\ast$ lzma\-\_\-stream\-::allocator}\label{structlzma__stream_a8caccb93bac010e5f87bbd9d5f18af27}
+
+
+Custom memory allocation functions. 
+
+In most cases this is N\-U\-L\-L which makes liblzma use the standard malloc() and free(). 
+
+Referenced by lzma\-\_\-strm\-\_\-init().
+
+\index{lzma\-\_\-stream@{lzma\-\_\-stream}!internal@{internal}}
+\index{internal@{internal}!lzma_stream@{lzma\-\_\-stream}}
+\subsubsection[{internal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-internal}$\ast$ lzma\-\_\-stream\-::internal}\label{structlzma__stream_a209da54c2fb5dea40ad011c8408300d0}
+Internal state is not visible to applications. 
+
+Referenced by lzma\-\_\-strm\-\_\-init().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/api/lzma/{\bf base.\-h}\end{DoxyCompactItemize}

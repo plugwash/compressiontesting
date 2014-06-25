@@ -1,0 +1,240 @@
+\section{liblzma/api/lzma/lzma.h File Reference}
+\label{lzma_2lzma_8h}\index{liblzma/api/lzma/lzma.\-h@{liblzma/api/lzma/lzma.\-h}}
+
+
+L\-Z\-M\-A1 and L\-Z\-M\-A2 filters.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-options\-\_\-lzma}
+\begin{DoxyCompactList}\small\item\em Options specific to the L\-Z\-M\-A1 and L\-Z\-M\-A2 filters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A1}~{\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}(0x4000000000000001)
+\begin{DoxyCompactList}\small\item\em L\-Z\-M\-A1 Filter I\-D. \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2}~{\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}(0x21)
+\begin{DoxyCompactList}\small\item\em L\-Z\-M\-A2 Filter I\-D. \end{DoxyCompactList}\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-D\-I\-C\-T\-\_\-\-S\-I\-Z\-E\-\_\-\-M\-I\-N}~U\-I\-N\-T32\-\_\-\-C(4096)\label{lzma_2lzma_8h_a221f69f8a1f604c1aa5d79ae8afec1e0}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-D\-I\-C\-T\-\_\-\-S\-I\-Z\-E\-\_\-\-D\-E\-F\-A\-U\-L\-T}~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 23)\label{lzma_2lzma_8h_abadf9a9599c106a1381756219c16f8ee}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-L\-C\-L\-P\-\_\-\-M\-I\-N}~0\label{lzma_2lzma_8h_a36552f4d49390d060692424817222d9c}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-L\-C\-L\-P\-\_\-\-M\-A\-X}~4\label{lzma_2lzma_8h_a6890226055b5069e83835af1fb804654}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-L\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T}~3\label{lzma_2lzma_8h_af3769f40103ec40516e1235c4b912d05}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-L\-P\-\_\-\-D\-E\-F\-A\-U\-L\-T}~0\label{lzma_2lzma_8h_afa8ed908b2c1a88f3a76c47610036e68}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-P\-B\-\_\-\-M\-I\-N}~0\label{lzma_2lzma_8h_a11ed595416a499021cd571f08bbd38bc}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-P\-B\-\_\-\-M\-A\-X}~4\label{lzma_2lzma_8h_a5e2661cef9dbcbb309239ec243a7c034}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-P\-B\-\_\-\-D\-E\-F\-A\-U\-L\-T}~2\label{lzma_2lzma_8h_a5072e13ce7b6abcdffdf6456da5959a1}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf lzma\-\_\-match\-\_\-finder} \{ \\*
+{\bf L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3} =  0x03, 
+{\bf L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4} =  0x04, 
+{\bf L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2} =  0x12, 
+{\bf L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3} =  0x13, 
+\\*
+{\bf L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4} =  0x14
+ \}
+\begin{DoxyCompactList}\small\item\em Match finders. \end{DoxyCompactList}\item 
+enum {\bf lzma\-\_\-mode} \{ {\bf L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T} =  1, 
+{\bf L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L} =  2
+ \}
+\begin{DoxyCompactList}\small\item\em Compression modes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-bool} {\bf lzma\-\_\-mf\-\_\-is\-\_\-supported} ({\bf lzma\-\_\-match\-\_\-finder} match\-\_\-finder) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-const
+\begin{DoxyCompactList}\small\item\em Test if given match finder is supported. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-bool} {\bf lzma\-\_\-mode\-\_\-is\-\_\-supported} ({\bf lzma\-\_\-mode} mode) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-const
+\begin{DoxyCompactList}\small\item\em Test if given compression mode is supported. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-bool} {\bf lzma\-\_\-lzma\-\_\-preset} ({\bf lzma\-\_\-options\-\_\-lzma} $\ast$options, uint32\-\_\-t preset) lzma\-\_\-nothrow
+\begin{DoxyCompactList}\small\item\em Set a compression preset to \doxyref{lzma\-\_\-options\-\_\-lzma}{p.}{structlzma__options__lzma} structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\-Z\-M\-A1 and L\-Z\-M\-A2 filters. 
+
+\subsection{Macro Definition Documentation}
+\index{lzma/lzma.\-h@{lzma/lzma.\-h}!L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A1@{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A1}}
+\index{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A1@{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A1}!lzma/lzma.h@{lzma/lzma.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A1}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A1~{\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}(0x4000000000000001)}\label{lzma_2lzma_8h_accedd16abcb758e7f748bac1102abda9}
+
+
+L\-Z\-M\-A1 Filter I\-D. 
+
+L\-Z\-M\-A1 is the very same thing as what was called just L\-Z\-M\-A in L\-Z\-M\-A Utils, 7-\/\-Zip, and L\-Z\-M\-A S\-D\-K. It's called L\-Z\-M\-A1 here to prevent developers from accidentally using L\-Z\-M\-A when they actually want L\-Z\-M\-A2.
+
+L\-Z\-M\-A1 shouldn't be used for new applications unless you {\itshape really} know what you are doing. L\-Z\-M\-A2 is almost always a better choice. 
+
+Referenced by is\-\_\-format\-\_\-lzma(), lzmainfo(), and message\-\_\-filters\-\_\-to\-\_\-str().
+
+\index{lzma/lzma.\-h@{lzma/lzma.\-h}!L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2@{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2}}
+\index{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2@{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2}!lzma/lzma.h@{lzma/lzma.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2~{\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}(0x21)}\label{lzma_2lzma_8h_a04f9d9a018a47cc99491e6e94e92f96b}
+
+
+L\-Z\-M\-A2 Filter I\-D. 
+
+Usually you want this instead of L\-Z\-M\-A1. Compared to L\-Z\-M\-A1, L\-Z\-M\-A2 adds support for L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H, uncompressed chunks (smaller expansion when trying to compress uncompressible data), possibility to change lc/lp/pb in the middle of encoding, and some other internal improvements. 
+
+Referenced by lzma\-\_\-easy\-\_\-preset(), message\-\_\-filters\-\_\-to\-\_\-str(), and parse\-\_\-block\-\_\-header().
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{lzma/lzma.\-h@{lzma/lzma.\-h}!lzma\-\_\-match\-\_\-finder@{lzma\-\_\-match\-\_\-finder}}
+\index{lzma\-\_\-match\-\_\-finder@{lzma\-\_\-match\-\_\-finder}!lzma/lzma.h@{lzma/lzma.\-h}}
+\subsubsection[{lzma\-\_\-match\-\_\-finder}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf lzma\-\_\-match\-\_\-finder}}\label{lzma_2lzma_8h_acf740075f86fa61dc408d6d0dbf8fa80}
+
+
+Match finders. 
+
+Match finder has major effect on both speed and compression ratio. Usually hash chains are faster than binary trees.
+
+If you will use L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H often, the hash chains may be a better choice, because binary trees get much higher compression ratio penalty with L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H.
+
+The memory usage formulas are only rough estimates, which are closest to reality when dict\-\_\-size is a power of two. The formulas are more complex in reality, and can also change a little between liblzma versions. Use \doxyref{lzma\-\_\-raw\-\_\-encoder\-\_\-memusage()}{p.}{filter_8h_a730f9391e85a5979bcd1b32643ae7176} to get more accurate estimate of memory usage. \begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3@{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3}!lzma/lzma.\-h@{lzma/lzma.\-h}}\index{lzma/lzma.\-h@{lzma/lzma.\-h}!L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3@{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3}}\item[{\em 
+L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3\label{lzma_2lzma_8h_acf740075f86fa61dc408d6d0dbf8fa80a6eb38f634021a192cada8a978b5de93b}
+}]Hash Chain with 2-\/ and 3-\/byte hashing. Minimum nice\-\_\-len\-: 3
+
+Memory usage\-:
+\begin{DoxyItemize}
+\item dict\-\_\-size $<$= 16 Mi\-B\-: dict\-\_\-size $\ast$ 7.\-5
+\item dict\-\_\-size $>$ 16 Mi\-B\-: dict\-\_\-size $\ast$ 5.\-5 + 64 Mi\-B 
+\end{DoxyItemize}\index{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4@{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4}!lzma/lzma.\-h@{lzma/lzma.\-h}}\index{lzma/lzma.\-h@{lzma/lzma.\-h}!L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4@{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4}}\item[{\em 
+L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4\label{lzma_2lzma_8h_acf740075f86fa61dc408d6d0dbf8fa80a0944620f4949289c2ebde613cae12b04}
+}]Hash Chain with 2-\/, 3-\/, and 4-\/byte hashing. Minimum nice\-\_\-len\-: 4
+
+Memory usage\-:
+\begin{DoxyItemize}
+\item dict\-\_\-size $<$= 32 Mi\-B\-: dict\-\_\-size $\ast$ 7.\-5
+\item dict\-\_\-size $>$ 32 Mi\-B\-: dict\-\_\-size $\ast$ 6.\-5 
+\end{DoxyItemize}\index{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2@{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2}!lzma/lzma.\-h@{lzma/lzma.\-h}}\index{lzma/lzma.\-h@{lzma/lzma.\-h}!L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2@{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2}}\item[{\em 
+L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2\label{lzma_2lzma_8h_acf740075f86fa61dc408d6d0dbf8fa80a7ab212446c3f6520f5c33ccfa4b3386a}
+}]Binary Tree with 2-\/byte hashing. Minimum nice\-\_\-len\-: 2
+
+Memory usage\-: dict\-\_\-size $\ast$ 9.\-5 \index{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3@{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3}!lzma/lzma.\-h@{lzma/lzma.\-h}}\index{lzma/lzma.\-h@{lzma/lzma.\-h}!L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3@{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3}}\item[{\em 
+L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3\label{lzma_2lzma_8h_acf740075f86fa61dc408d6d0dbf8fa80a983ecc59bf3e07a7c43fea551ea11865}
+}]Binary Tree with 2-\/ and 3-\/byte hashing. Minimum nice\-\_\-len\-: 3
+
+Memory usage\-:
+\begin{DoxyItemize}
+\item dict\-\_\-size $<$= 16 Mi\-B\-: dict\-\_\-size $\ast$ 11.\-5
+\item dict\-\_\-size $>$ 16 Mi\-B\-: dict\-\_\-size $\ast$ 9.\-5 + 64 Mi\-B 
+\end{DoxyItemize}\index{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4@{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4}!lzma/lzma.\-h@{lzma/lzma.\-h}}\index{lzma/lzma.\-h@{lzma/lzma.\-h}!L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4@{L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4}}\item[{\em 
+L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4\label{lzma_2lzma_8h_acf740075f86fa61dc408d6d0dbf8fa80a468c32cdea9861d1ff98478364e6c547}
+}]Binary Tree with 2-\/, 3-\/, and 4-\/byte hashing. Minimum nice\-\_\-len\-: 4
+
+Memory usage\-:
+\begin{DoxyItemize}
+\item dict\-\_\-size $<$= 32 Mi\-B\-: dict\-\_\-size $\ast$ 11.\-5
+\item dict\-\_\-size $>$ 32 Mi\-B\-: dict\-\_\-size $\ast$ 10.\-5 
+\end{DoxyItemize}\end{description}
+\end{Desc}
+
+\index{lzma/lzma.\-h@{lzma/lzma.\-h}!lzma\-\_\-mode@{lzma\-\_\-mode}}
+\index{lzma\-\_\-mode@{lzma\-\_\-mode}!lzma/lzma.h@{lzma/lzma.\-h}}
+\subsubsection[{lzma\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf lzma\-\_\-mode}}\label{lzma_2lzma_8h_a1032316e3075c2c8086fb17104b91866}
+
+
+Compression modes. 
+
+This selects the function used to analyze the data produced by the match finder. \begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T@{L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T}!lzma/lzma.\-h@{lzma/lzma.\-h}}\index{lzma/lzma.\-h@{lzma/lzma.\-h}!L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T@{L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T}}\item[{\em 
+L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T\label{lzma_2lzma_8h_a1032316e3075c2c8086fb17104b91866ac8c0926a91b4f756e11121efd30648cc}
+}]Fast compression. Fast mode is usually at its best when combined with a hash chain match finder. \index{L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L@{L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L}!lzma/lzma.\-h@{lzma/lzma.\-h}}\index{lzma/lzma.\-h@{lzma/lzma.\-h}!L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L@{L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L}}\item[{\em 
+L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L\label{lzma_2lzma_8h_a1032316e3075c2c8086fb17104b91866ad37225f30d5cd21fc8bb3eaba283bbf9}
+}]Normal compression. This is usually notably slower than fast mode. Use this together with binary tree match finders to expose the full potential of the L\-Z\-M\-A1 or L\-Z\-M\-A2 encoder. \end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\index{lzma/lzma.\-h@{lzma/lzma.\-h}!lzma\-\_\-mf\-\_\-is\-\_\-supported@{lzma\-\_\-mf\-\_\-is\-\_\-supported}}
+\index{lzma\-\_\-mf\-\_\-is\-\_\-supported@{lzma\-\_\-mf\-\_\-is\-\_\-supported}!lzma/lzma.h@{lzma/lzma.\-h}}
+\subsubsection[{lzma\-\_\-mf\-\_\-is\-\_\-supported}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-bool} lzma\-\_\-mf\-\_\-is\-\_\-supported (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-match\-\_\-finder}}]{match\-\_\-finder}
+\end{DoxyParamCaption}
+) const}\label{lzma_2lzma_8h_aefba1f7214ddcf8cd408a0702e8642b5}
+
+
+Test if given match finder is supported. 
+
+Return true if the given match finder is supported by this liblzma build. Otherwise false is returned. It is safe to call this with a value that isn't listed in lzma\-\_\-match\-\_\-finder enumeration; the return value will be false.
+
+There is no way to list which match finders are available in this particular liblzma version and build. It would be useless, because a new match finder, which the application developer wasn't aware, could require giving additional options to the encoder that the older match finders don't need. 
+
+References L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3, and L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4.
+
+\index{lzma/lzma.\-h@{lzma/lzma.\-h}!lzma\-\_\-mode\-\_\-is\-\_\-supported@{lzma\-\_\-mode\-\_\-is\-\_\-supported}}
+\index{lzma\-\_\-mode\-\_\-is\-\_\-supported@{lzma\-\_\-mode\-\_\-is\-\_\-supported}!lzma/lzma.h@{lzma/lzma.\-h}}
+\subsubsection[{lzma\-\_\-mode\-\_\-is\-\_\-supported}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-bool} lzma\-\_\-mode\-\_\-is\-\_\-supported (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-mode}}]{mode}
+\end{DoxyParamCaption}
+) const}\label{lzma_2lzma_8h_ad1add1c2600fdbb3d737e4fb3465dfcb}
+
+
+Test if given compression mode is supported. 
+
+Return true if the given compression mode is supported by this liblzma build. Otherwise false is returned. It is safe to call this with a value that isn't listed in lzma\-\_\-mode enumeration; the return value will be false.
+
+There is no way to list which modes are available in this particular liblzma version and build. It would be useless, because a new compression mode, which the application developer wasn't aware, could require giving additional options to the encoder that the older modes don't need. 
+
+References L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T, and L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L.
+
+\index{lzma/lzma.\-h@{lzma/lzma.\-h}!lzma\-\_\-lzma\-\_\-preset@{lzma\-\_\-lzma\-\_\-preset}}
+\index{lzma\-\_\-lzma\-\_\-preset@{lzma\-\_\-lzma\-\_\-preset}!lzma/lzma.h@{lzma/lzma.\-h}}
+\subsubsection[{lzma\-\_\-lzma\-\_\-preset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-bool} lzma\-\_\-lzma\-\_\-preset (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-options\-\_\-lzma} $\ast$}]{options, }
+\item[{uint32\-\_\-t}]{preset}
+\end{DoxyParamCaption}
+)}\label{lzma_2lzma_8h_aa62c28944fe3575653a4c25780400d77}
+
+
+Set a compression preset to \doxyref{lzma\-\_\-options\-\_\-lzma}{p.}{structlzma__options__lzma} structure. 
+
+0 is the fastest and 9 is the slowest. These match the switches -\/0 .. -\/9 of the xz command line tool. In addition, it is possible to bitwise-\/or flags to the preset. Currently only L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E is supported. The flags are defined in \doxyref{container.\-h}{p.}{container_8h}, because the flags are used also with \doxyref{lzma\-\_\-easy\-\_\-encoder()}{p.}{container_8h_acbdad999c544872f0f5d242f0d1a4ed4}.
+
+The preset values are subject to changes between liblzma versions.
+
+This function is available only if L\-Z\-M\-A1 or L\-Z\-M\-A2 encoder has been enabled when building liblzma.
+
+\begin{DoxyReturn}{Returns}
+On success, false is returned. If the preset is not supported, true is returned. 
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4, L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T, L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L, L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E, and L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K.
+
+
+
+Referenced by lzma\-\_\-easy\-\_\-preset(), and options\-\_\-lzma().
+

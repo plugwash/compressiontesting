@@ -1,0 +1,70 @@
+\section{lzma\-\_\-check\-\_\-state Struct Reference}
+\label{structlzma__check__state}\index{lzma\-\_\-check\-\_\-state@{lzma\-\_\-check\-\_\-state}}
+
+
+Structure to hold internal state of the check being calculated.  
+
+
+
+
+{\ttfamily \#include $<$check.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint8\_t {\bfseries u8} [64]\\
+\>uint32\_t {\bfseries u32} [16]\\
+\>uint64\_t {\bfseries u64} [8]\\
+\} {\bf buffer}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em Buffer to hold the final result and a temporary buffer for S\-H\-A256. \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint32\_t {\bfseries crc32}\\
+\>uint64\_t {\bfseries crc64}\\
+\>{\bf lzma\_sha256\_state} {\bfseries sha256}\\
+\} {\bf state}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em Check-\/specific data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure to hold internal state of the check being calculated. 
+
+\begin{DoxyNote}{Note}
+This is not in the public A\-P\-I because this structure may change in future if new integrity check algorithms are added. 
+\end{DoxyNote}
+
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-check\-\_\-state@{lzma\-\_\-check\-\_\-state}!buffer@{buffer}}
+\index{buffer@{buffer}!lzma_check_state@{lzma\-\_\-check\-\_\-state}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   lzma\-\_\-check\-\_\-state\-::buffer}\label{structlzma__check__state_a66d54715269b349088561ee800cd2356}
+
+
+Buffer to hold the final result and a temporary buffer for S\-H\-A256. 
+
+
+
+Referenced by lzma\-\_\-block\-\_\-buffer\-\_\-encode(), lzma\-\_\-check\-\_\-finish(), lzma\-\_\-sha256\-\_\-finish(), and lzma\-\_\-sha256\-\_\-update().
+
+\index{lzma\-\_\-check\-\_\-state@{lzma\-\_\-check\-\_\-state}!state@{state}}
+\index{state@{state}!lzma_check_state@{lzma\-\_\-check\-\_\-state}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   lzma\-\_\-check\-\_\-state\-::state}\label{structlzma__check__state_af30e2332a697d110c3fb2e4aa6b99178}
+
+
+Check-\/specific data. 
+
+
+
+Referenced by lzma\-\_\-check\-\_\-finish(), lzma\-\_\-check\-\_\-init(), lzma\-\_\-check\-\_\-update(), lzma\-\_\-sha256\-\_\-finish(), lzma\-\_\-sha256\-\_\-init(), and lzma\-\_\-sha256\-\_\-update().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/check/check.\-h\end{DoxyCompactItemize}

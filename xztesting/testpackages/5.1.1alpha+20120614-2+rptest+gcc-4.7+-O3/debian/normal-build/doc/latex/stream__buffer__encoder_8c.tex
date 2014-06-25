@@ -1,0 +1,125 @@
+\section{liblzma/common/stream\-\_\-buffer\-\_\-encoder.c File Reference}
+\label{stream__buffer__encoder_8c}\index{liblzma/common/stream\-\_\-buffer\-\_\-encoder.\-c@{liblzma/common/stream\-\_\-buffer\-\_\-encoder.\-c}}
+
+
+Single-\/call .xz Stream encoder.  
+
+
+{\ttfamily \#include \char`\"{}index.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf I\-N\-D\-E\-X\-\_\-\-B\-O\-U\-N\-D}~((1 + 1 + 2 $\ast$ {\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X} + 4 + 3) \& $\sim$3)
+\item 
+\#define {\bf H\-E\-A\-D\-E\-R\-S\-\_\-\-B\-O\-U\-N\-D}~(2 $\ast$ {\bf L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E} + {\bf I\-N\-D\-E\-X\-\_\-\-B\-O\-U\-N\-D})
+\begin{DoxyCompactList}\small\item\em Stream Header, Stream Footer, and Index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\-\_\-t {\bf lzma\-\_\-stream\-\_\-buffer\-\_\-bound} (size\-\_\-t uncompressed\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Calculate output buffer size for single-\/call Stream encoder. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-buffer\-\_\-encode} ({\bf lzma\-\_\-filter} $\ast${\bf filters}, {\bf lzma\-\_\-check} {\bf check}, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$in, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos\-\_\-ptr, size\-\_\-t out\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Single-\/call .xz Stream encoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Single-\/call .xz Stream encoder. 
+
+\subsection{Macro Definition Documentation}
+\index{stream\-\_\-buffer\-\_\-encoder.\-c@{stream\-\_\-buffer\-\_\-encoder.\-c}!I\-N\-D\-E\-X\-\_\-\-B\-O\-U\-N\-D@{I\-N\-D\-E\-X\-\_\-\-B\-O\-U\-N\-D}}
+\index{I\-N\-D\-E\-X\-\_\-\-B\-O\-U\-N\-D@{I\-N\-D\-E\-X\-\_\-\-B\-O\-U\-N\-D}!stream_buffer_encoder.c@{stream\-\_\-buffer\-\_\-encoder.\-c}}
+\subsubsection[{I\-N\-D\-E\-X\-\_\-\-B\-O\-U\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-D\-E\-X\-\_\-\-B\-O\-U\-N\-D~((1 + 1 + 2 $\ast$ {\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X} + 4 + 3) \& $\sim$3)}\label{stream__buffer__encoder_8c_ace1b0af8bcbc7079142ac2587b02615f}
+Maximum size of Index that has exactly one Record. Index Indicator + Number of Records + Record + C\-R\-C32 rounded up to the next multiple of four. \index{stream\-\_\-buffer\-\_\-encoder.\-c@{stream\-\_\-buffer\-\_\-encoder.\-c}!H\-E\-A\-D\-E\-R\-S\-\_\-\-B\-O\-U\-N\-D@{H\-E\-A\-D\-E\-R\-S\-\_\-\-B\-O\-U\-N\-D}}
+\index{H\-E\-A\-D\-E\-R\-S\-\_\-\-B\-O\-U\-N\-D@{H\-E\-A\-D\-E\-R\-S\-\_\-\-B\-O\-U\-N\-D}!stream_buffer_encoder.c@{stream\-\_\-buffer\-\_\-encoder.\-c}}
+\subsubsection[{H\-E\-A\-D\-E\-R\-S\-\_\-\-B\-O\-U\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-E\-A\-D\-E\-R\-S\-\_\-\-B\-O\-U\-N\-D~(2 $\ast$ {\bf L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E} + {\bf I\-N\-D\-E\-X\-\_\-\-B\-O\-U\-N\-D})}\label{stream__buffer__encoder_8c_a6cf3bc89aed406bb48c785dca58ae9da}
+
+
+Stream Header, Stream Footer, and Index. 
+
+
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-bound().
+
+
+
+\subsection{Function Documentation}
+\index{stream\-\_\-buffer\-\_\-encoder.\-c@{stream\-\_\-buffer\-\_\-encoder.\-c}!lzma\-\_\-stream\-\_\-buffer\-\_\-bound@{lzma\-\_\-stream\-\_\-buffer\-\_\-bound}}
+\index{lzma\-\_\-stream\-\_\-buffer\-\_\-bound@{lzma\-\_\-stream\-\_\-buffer\-\_\-bound}!stream_buffer_encoder.c@{stream\-\_\-buffer\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-stream\-\_\-buffer\-\_\-bound}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-stream\-\_\-buffer\-\_\-bound (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{uncompressed\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{stream__buffer__encoder_8c_a870286986caa1c0ac6ce6c4074284420}
+
+
+Calculate output buffer size for single-\/call Stream encoder. 
+
+When trying to compress uncompressible data, the encoded size will be slightly bigger than the input data. This function calculates how much output buffer space is required to be sure that \doxyref{lzma\-\_\-stream\-\_\-buffer\-\_\-encode()}{p.}{container_8h_a558683e06e092cb3b9e7edb226d6a1b8} doesn't return L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R.
+
+The calculated value is not exact, but it is guaranteed to be big enough. The actual maximum output space required may be slightly smaller (up to about 100 bytes). This should not be a problem in practice.
+
+If the calculated maximum size doesn't fit into size\-\_\-t or would make the Stream grow past L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X (which should never happen in practice), zero is returned to indicate the error.
+
+\begin{DoxyNote}{Note}
+The limit calculated by this function applies only to single-\/call encoding. Multi-\/call encoding may (and probably will) have larger maximum expansion when encoding uncompressible data. Currently there is no function to calculate the maximum expansion of multi-\/call encoding. 
+\end{DoxyNote}
+
+
+References H\-E\-A\-D\-E\-R\-S\-\_\-\-B\-O\-U\-N\-D, lzma\-\_\-block\-\_\-buffer\-\_\-bound(), and L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X.
+
+\index{stream\-\_\-buffer\-\_\-encoder.\-c@{stream\-\_\-buffer\-\_\-encoder.\-c}!lzma\-\_\-stream\-\_\-buffer\-\_\-encode@{lzma\-\_\-stream\-\_\-buffer\-\_\-encode}}
+\index{lzma\-\_\-stream\-\_\-buffer\-\_\-encode@{lzma\-\_\-stream\-\_\-buffer\-\_\-encode}!stream_buffer_encoder.c@{stream\-\_\-buffer\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-stream\-\_\-buffer\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-buffer\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-filter} $\ast$}]{filters, }
+\item[{{\bf lzma\-\_\-check}}]{check, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{stream__buffer__encoder_8c_a932a602de4f44d8525687698e51ce93d}
+
+
+Single-\/call .xz Stream encoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filters} & Array of filters. This must be terminated with filters[n].id = L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N. See \doxyref{filter.\-h}{p.}{filter_8h} for more information. \\
+\hline
+{\em check} & Type of the integrity check to calculate from uncompressed data. \\
+\hline
+{\em allocator} & \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\-U\-L\-L to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\-\_\-size} & Size of the input buffer \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\-\_\-pos} & The next byte will be written to out[$\ast$out\-\_\-pos]. $\ast$out\-\_\-pos is updated only if encoding succeeds. \\
+\hline
+{\em out\-\_\-size} & Size of the out buffer; the first byte into which no data is written to is out[out\-\_\-size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Encoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: Not enough output buffer space.
+\item L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-stream\-\_\-flags\-::backward\-\_\-size, check, filters, lzma\-\_\-block\-\_\-buffer\-\_\-encode(), lzma\-\_\-block\-\_\-unpadded\-\_\-size(), L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-I\-D\-\_\-\-M\-A\-X, lzma\-\_\-check\-\_\-is\-\_\-supported(), lzma\-\_\-index\-\_\-append(), lzma\-\_\-index\-\_\-buffer\-\_\-encode(), lzma\-\_\-index\-\_\-end(), lzma\-\_\-index\-\_\-init(), lzma\-\_\-index\-\_\-size(), L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-stream\-\_\-footer\-\_\-encode(), lzma\-\_\-stream\-\_\-header\-\_\-encode(), L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E, L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K, return\-\_\-if\-\_\-error, lzma\-\_\-block\-::uncompressed\-\_\-size, lzma\-\_\-block\-::version, and lzma\-\_\-stream\-\_\-flags\-::version.
+
+
+
+Referenced by lzma\-\_\-easy\-\_\-buffer\-\_\-encode().
+

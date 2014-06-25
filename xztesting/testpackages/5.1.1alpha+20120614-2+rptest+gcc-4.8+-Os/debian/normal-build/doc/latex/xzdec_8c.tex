@@ -1,0 +1,76 @@
+\section{xzdec/xzdec.c File Reference}
+\label{xzdec_8c}\index{xzdec/xzdec.\-c@{xzdec/xzdec.\-c}}
+
+
+Simple single-\/threaded tool to uncompress .xz or .lzma files.  
+
+
+{\ttfamily \#include \char`\"{}sysdefs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lzma.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}getopt.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tuklib\-\_\-progname.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tuklib\-\_\-exit.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries T\-O\-O\-L\-\_\-\-F\-O\-R\-M\-A\-T}~\char`\"{}xz\char`\"{}\label{xzdec_8c_aeb6169de58908cc8d54b70e9caba325c}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries lzma\-\_\-attribute} ((\-\_\-\-\_\-format\-\_\-\-\_\-(\-\_\-\-\_\-printf\-\_\-\-\_\-, 1, 2)))\label{xzdec_8c_a7407a84e0f83a82d1e7bdee869504eff}
+
+\item 
+static void {\bfseries lzma\-\_\-attribute} ((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))\label{xzdec_8c_a1957d0c8f6ec2eb4950e67226425ee7c}
+
+\item 
+static void {\bf parse\-\_\-options} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Parses command line options. \end{DoxyCompactList}\item 
+static void {\bfseries uncompress} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, F\-I\-L\-E $\ast$file, const char $\ast${\bf filename})\label{xzdec_8c_a392ba619796fa4e882d5050ee362e7d4}
+
+\item 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)\label{xzdec_8c_a3c04138a5bfe5d72780bb7e82a18e627}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned int {\bf display\-\_\-errors} = 2
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Simple single-\/threaded tool to uncompress .xz or .lzma files. 
+
+\subsection{Function Documentation}
+\index{xzdec.\-c@{xzdec.\-c}!parse\-\_\-options@{parse\-\_\-options}}
+\index{parse\-\_\-options@{parse\-\_\-options}!xzdec.c@{xzdec.\-c}}
+\subsubsection[{parse\-\_\-options}]{\setlength{\rightskip}{0pt plus 5cm}static void parse\-\_\-options (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{xzdec_8c_a0dbd116c9d7d88115a71d643de452cef}
+
+
+Parses command line options. 
+
+
+
+References display\-\_\-errors.
+
+
+
+\subsection{Variable Documentation}
+\index{xzdec.\-c@{xzdec.\-c}!display\-\_\-errors@{display\-\_\-errors}}
+\index{display\-\_\-errors@{display\-\_\-errors}!xzdec.c@{xzdec.\-c}}
+\subsubsection[{display\-\_\-errors}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int display\-\_\-errors = 2\hspace{0.3cm}{\ttfamily [static]}}\label{xzdec_8c_ae0bd7452ab2664e23b22789094a20cd5}
+Error messages are suppressed if this is zero, which is the case when --quiet has been given at least twice. 
+
+Referenced by parse\-\_\-options().
+

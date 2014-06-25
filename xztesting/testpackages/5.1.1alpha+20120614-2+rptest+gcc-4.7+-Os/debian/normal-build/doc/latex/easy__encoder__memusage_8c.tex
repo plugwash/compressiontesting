@@ -1,0 +1,44 @@
+\section{liblzma/common/easy\-\_\-encoder\-\_\-memusage.c File Reference}
+\label{easy__encoder__memusage_8c}\index{liblzma/common/easy\-\_\-encoder\-\_\-memusage.\-c@{liblzma/common/easy\-\_\-encoder\-\_\-memusage.\-c}}
+
+
+Easy .xz Stream encoder memory usage calculation.  
+
+
+{\ttfamily \#include \char`\"{}easy\-\_\-preset.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\-\_\-t {\bf lzma\-\_\-easy\-\_\-encoder\-\_\-memusage} (uint32\-\_\-t preset)
+\begin{DoxyCompactList}\small\item\em Calculate approximate memory usage of easy encoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Easy .xz Stream encoder memory usage calculation. 
+
+\subsection{Function Documentation}
+\index{easy\-\_\-encoder\-\_\-memusage.\-c@{easy\-\_\-encoder\-\_\-memusage.\-c}!lzma\-\_\-easy\-\_\-encoder\-\_\-memusage@{lzma\-\_\-easy\-\_\-encoder\-\_\-memusage}}
+\index{lzma\-\_\-easy\-\_\-encoder\-\_\-memusage@{lzma\-\_\-easy\-\_\-encoder\-\_\-memusage}!easy_encoder_memusage.c@{easy\-\_\-encoder\-\_\-memusage.\-c}}
+\subsubsection[{lzma\-\_\-easy\-\_\-encoder\-\_\-memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-easy\-\_\-encoder\-\_\-memusage (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{preset}
+\end{DoxyParamCaption}
+)}\label{easy__encoder__memusage_8c_a48e0943898f0b9b83f3070b101620df5}
+
+
+Calculate approximate memory usage of easy encoder. 
+
+This function is a wrapper for \doxyref{lzma\-\_\-raw\-\_\-encoder\-\_\-memusage()}{p.}{filter_8h_a730f9391e85a5979bcd1b32643ae7176}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em preset} & Compression preset (level and possible flags)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes of memory required for the given preset when encoding. If an error occurs, for example due to unsupported preset, U\-I\-N\-T64\-\_\-\-M\-A\-X is returned. 
+\end{DoxyReturn}
+
+
+References lzma\-\_\-options\-\_\-easy\-::filters, lzma\-\_\-easy\-\_\-preset(), and lzma\-\_\-raw\-\_\-encoder\-\_\-memusage().
+

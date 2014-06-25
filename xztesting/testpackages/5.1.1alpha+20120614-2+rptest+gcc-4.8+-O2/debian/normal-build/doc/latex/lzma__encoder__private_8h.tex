@@ -1,0 +1,42 @@
+\section{liblzma/lzma/lzma\-\_\-encoder\-\_\-private.h File Reference}
+\label{lzma__encoder__private_8h}\index{liblzma/lzma/lzma\-\_\-encoder\-\_\-private.\-h@{liblzma/lzma/lzma\-\_\-encoder\-\_\-private.\-h}}
+
+
+Private definitions for L\-Z\-M\-A encoder.  
+
+
+{\ttfamily \#include \char`\"{}lz\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}range\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lzma\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lzma\-\_\-encoder.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-length\-\_\-encoder}
+\item 
+struct {\bf lzma\-\_\-optimal}
+\item 
+struct {\bf lzma\-\_\-coder\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries not\-\_\-equal\-\_\-16}(a, b)~((a)[0] != (b)[0] $|$$|$ (a)[1] != (b)[1])\label{lzma__encoder__private_8h_a9e791f02547e7aa0572e899bba218a3f}
+
+\item 
+\#define {\bfseries O\-P\-T\-S}~(1 $<$$<$ 12)\label{lzma__encoder__private_8h_a1e3bf8c87fd72574fee33e7bf0482892}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries lzma\-\_\-lzma\-\_\-optimum\-\_\-fast} ({\bf lzma\-\_\-coder} $\ast$restrict coder, {\bf lzma\-\_\-mf} $\ast$restrict mf, uint32\-\_\-t $\ast$restrict back\-\_\-res, uint32\-\_\-t $\ast$restrict len\-\_\-res)\label{lzma__encoder__private_8h_a0fd48fee67afb38e259dd0393b998d95}
+
+\item 
+void {\bfseries lzma\-\_\-lzma\-\_\-optimum\-\_\-normal} ({\bf lzma\-\_\-coder} $\ast$restrict coder, {\bf lzma\-\_\-mf} $\ast$restrict mf, uint32\-\_\-t $\ast$restrict back\-\_\-res, uint32\-\_\-t $\ast$restrict len\-\_\-res, uint32\-\_\-t position)\label{lzma__encoder__private_8h_ac60616f163a672ef8aed2ce1434f9bb6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Private definitions for L\-Z\-M\-A encoder. 

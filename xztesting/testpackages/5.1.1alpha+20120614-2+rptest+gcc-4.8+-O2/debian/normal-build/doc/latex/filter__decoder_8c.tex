@@ -1,0 +1,155 @@
+\section{liblzma/common/filter\-\_\-decoder.c File Reference}
+\label{filter__decoder_8c}\index{liblzma/common/filter\-\_\-decoder.\-c@{liblzma/common/filter\-\_\-decoder.\-c}}
+
+
+Filter I\-D mapping to filter-\/specific functions.  
+
+
+{\ttfamily \#include \char`\"{}filter\-\_\-decoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}filter\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lzma\-\_\-decoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lzma2\-\_\-decoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}simple\-\_\-decoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}delta\-\_\-decoder.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-filter\-\_\-decoder}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const {\bf lzma\-\_\-filter\-\_\-decoder} $\ast$ {\bfseries decoder\-\_\-find} ({\bf lzma\-\_\-vli} {\bf id})\label{filter__decoder_8c_afbf0bd59d92526737af9e077759de3ae}
+
+\item 
+{\bf lzma\-\_\-bool} {\bf lzma\-\_\-filter\-\_\-decoder\-\_\-is\-\_\-supported} ({\bf lzma\-\_\-vli} {\bf id})
+\begin{DoxyCompactList}\small\item\em Test if the given Filter I\-D is supported for decoding. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-raw\-\_\-decoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast$options)\label{filter__decoder_8c_a087de1f7162c5810d5622e412aaaf5ee}
+
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-raw\-\_\-decoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, const {\bf lzma\-\_\-filter} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Initialize raw decoder. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bf lzma\-\_\-raw\-\_\-decoder\-\_\-memusage} (const {\bf lzma\-\_\-filter} $\ast${\bf filters})
+\begin{DoxyCompactList}\small\item\em Calculate approximate memory requirements for raw decoder. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-properties\-\_\-decode} ({\bf lzma\-\_\-filter} $\ast$filter, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$props, size\-\_\-t props\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Decode the Filter Properties field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const {\bf lzma\-\_\-filter\-\_\-decoder} {\bfseries decoders} [$\,$]\label{filter__decoder_8c_a21d3250423ab7f69d47731bfede5e1c8}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Filter I\-D mapping to filter-\/specific functions. 
+
+\subsection{Function Documentation}
+\index{filter\-\_\-decoder.\-c@{filter\-\_\-decoder.\-c}!lzma\-\_\-filter\-\_\-decoder\-\_\-is\-\_\-supported@{lzma\-\_\-filter\-\_\-decoder\-\_\-is\-\_\-supported}}
+\index{lzma\-\_\-filter\-\_\-decoder\-\_\-is\-\_\-supported@{lzma\-\_\-filter\-\_\-decoder\-\_\-is\-\_\-supported}!filter_decoder.c@{filter\-\_\-decoder.\-c}}
+\subsubsection[{lzma\-\_\-filter\-\_\-decoder\-\_\-is\-\_\-supported}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-bool} lzma\-\_\-filter\-\_\-decoder\-\_\-is\-\_\-supported (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-vli}}]{id}
+\end{DoxyParamCaption}
+) const}\label{filter__decoder_8c_ad930583b7cd35258f837218ed08ad519}
+
+
+Test if the given Filter I\-D is supported for decoding. 
+
+Return true if the give Filter I\-D is supported for decoding by this liblzma build. Otherwise false is returned. \index{filter\-\_\-decoder.\-c@{filter\-\_\-decoder.\-c}!lzma\-\_\-raw\-\_\-decoder@{lzma\-\_\-raw\-\_\-decoder}}
+\index{lzma\-\_\-raw\-\_\-decoder@{lzma\-\_\-raw\-\_\-decoder}!filter_decoder.c@{filter\-\_\-decoder.\-c}}
+\subsubsection[{lzma\-\_\-raw\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-raw\-\_\-decoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters}
+\end{DoxyParamCaption}
+)}\label{filter__decoder_8c_a387ecaa6c881a89021cf577d719490bb}
+
+
+Initialize raw decoder. 
+
+The initialization of raw decoder goes similarly to raw encoder.
+
+The `action' with \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} can be L\-Z\-M\-A\-\_\-\-R\-U\-N or L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H. Using L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H is not required, it is supported just for convenience.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-R\-U\-N.
+
+
+
+Referenced by coder\-\_\-init().
+
+\index{filter\-\_\-decoder.\-c@{filter\-\_\-decoder.\-c}!lzma\-\_\-raw\-\_\-decoder\-\_\-memusage@{lzma\-\_\-raw\-\_\-decoder\-\_\-memusage}}
+\index{lzma\-\_\-raw\-\_\-decoder\-\_\-memusage@{lzma\-\_\-raw\-\_\-decoder\-\_\-memusage}!filter_decoder.c@{filter\-\_\-decoder.\-c}}
+\subsubsection[{lzma\-\_\-raw\-\_\-decoder\-\_\-memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-raw\-\_\-decoder\-\_\-memusage (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters}
+\end{DoxyParamCaption}
+)}\label{filter__decoder_8c_aeb9d987a56f532c873031a259933780a}
+
+
+Calculate approximate memory requirements for raw decoder. 
+
+This function can be used to calculate the memory requirements for Block and Stream decoders too because Block and Stream decoders don't need significantly more memory than raw decoder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filters} & Array of filters terminated with .id == L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes of memory required for the given filter chain when decoding. If an error occurs, for example due to unsupported filter chain, U\-I\-N\-T64\-\_\-\-M\-A\-X is returned. 
+\end{DoxyReturn}
+
+
+Referenced by lzma\-\_\-easy\-\_\-decoder\-\_\-memusage(), and parse\-\_\-block\-\_\-header().
+
+\index{filter\-\_\-decoder.\-c@{filter\-\_\-decoder.\-c}!lzma\-\_\-properties\-\_\-decode@{lzma\-\_\-properties\-\_\-decode}}
+\index{lzma\-\_\-properties\-\_\-decode@{lzma\-\_\-properties\-\_\-decode}!filter_decoder.c@{filter\-\_\-decoder.\-c}}
+\subsubsection[{lzma\-\_\-properties\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-properties\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-filter} $\ast$}]{filter, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{props, }
+\item[{size\-\_\-t}]{props\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{filter__decoder_8c_ae3a6ec3975717014d4d8ffe32f21e5fa}
+
+
+Decode the Filter Properties field. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filter} & filter-\/$>$id must have been set to the correct Filter I\-D. filter-\/$>$options doesn't need to be initialized (it's not freed by this function). The decoded options will be stored to filter-\/$>$options. filter-\/$>$options is set to N\-U\-L\-L if there are no properties or if an error occurs. \\
+\hline
+{\em allocator} & Custom memory allocator used to allocate the options. Set to N\-U\-L\-L to use the default malloc(), and in case of an error, also free(). \\
+\hline
+{\em props} & Input buffer containing the properties. \\
+\hline
+{\em props\-\_\-size} & Size of the properties. This must be the exact size; giving too much or too little input will return L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, and lzma\-\_\-filter\-\_\-decoder\-::props\-\_\-decode.
+
+
+
+Referenced by is\-\_\-format\-\_\-lzma(), lzma\-\_\-filter\-\_\-flags\-\_\-decode(), and lzmainfo().
+

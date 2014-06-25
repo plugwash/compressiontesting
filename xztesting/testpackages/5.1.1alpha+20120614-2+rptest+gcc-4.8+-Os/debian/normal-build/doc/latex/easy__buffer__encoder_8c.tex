@@ -1,0 +1,73 @@
+\section{liblzma/common/easy\-\_\-buffer\-\_\-encoder.c File Reference}
+\label{easy__buffer__encoder_8c}\index{liblzma/common/easy\-\_\-buffer\-\_\-encoder.\-c@{liblzma/common/easy\-\_\-buffer\-\_\-encoder.\-c}}
+
+
+Easy single-\/call .xz Stream encoder.  
+
+
+{\ttfamily \#include \char`\"{}easy\-\_\-preset.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-easy\-\_\-buffer\-\_\-encode} (uint32\-\_\-t preset, {\bf lzma\-\_\-check} {\bf check}, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$in, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Single-\/call .xz Stream encoding using a preset number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Easy single-\/call .xz Stream encoder. 
+
+\subsection{Function Documentation}
+\index{easy\-\_\-buffer\-\_\-encoder.\-c@{easy\-\_\-buffer\-\_\-encoder.\-c}!lzma\-\_\-easy\-\_\-buffer\-\_\-encode@{lzma\-\_\-easy\-\_\-buffer\-\_\-encode}}
+\index{lzma\-\_\-easy\-\_\-buffer\-\_\-encode@{lzma\-\_\-easy\-\_\-buffer\-\_\-encode}!easy_buffer_encoder.c@{easy\-\_\-buffer\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-easy\-\_\-buffer\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-easy\-\_\-buffer\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{preset, }
+\item[{{\bf lzma\-\_\-check}}]{check, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{easy__buffer__encoder_8c_a802ea8c78e3fe12308c79b3ea385f643}
+
+
+Single-\/call .xz Stream encoding using a preset number. 
+
+The maximum required output buffer size can be calculated with \doxyref{lzma\-\_\-stream\-\_\-buffer\-\_\-bound()}{p.}{container_8h_a66d4366a47b8332bff2a512f44f5c45e}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em preset} & Compression preset to use. See the description in \doxyref{lzma\-\_\-easy\-\_\-encoder()}{p.}{container_8h_acbdad999c544872f0f5d242f0d1a4ed4}. \\
+\hline
+{\em check} & Type of the integrity check to calculate from uncompressed data. \\
+\hline
+{\em allocator} & \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\-U\-L\-L to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\-\_\-size} & Size of the input buffer \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\-\_\-pos} & The next byte will be written to out[$\ast$out\-\_\-pos]. $\ast$out\-\_\-pos is updated only if encoding succeeds. \\
+\hline
+{\em out\-\_\-size} & Size of the out buffer; the first byte into which no data is written to is out[out\-\_\-size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Encoding was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: Not enough output buffer space.
+\item L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-options\-\_\-easy\-::filters, lzma\-\_\-easy\-\_\-preset(), L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, and lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+

@@ -1,0 +1,95 @@
+\section{xz/signals.h File Reference}
+\label{signals_8h}\index{xz/signals.\-h@{xz/signals.\-h}}
+
+
+Handling signals to abort operation.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf signals\-\_\-init} (void)
+\item 
+void {\bf signals\-\_\-block} (void)
+\item 
+void {\bf signals\-\_\-unblock} (void)
+\begin{DoxyCompactList}\small\item\em Unblock the signals blocked by \doxyref{signals\-\_\-block()}{p.}{signals_8c_a6c7cbcd4595590670a3784d393770693}. \end{DoxyCompactList}\item 
+void {\bf signals\-\_\-exit} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile sig\-\_\-atomic\-\_\-t {\bf user\-\_\-abort}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handling signals to abort operation. 
+
+\subsection{Function Documentation}
+\index{signals.\-h@{signals.\-h}!signals\-\_\-init@{signals\-\_\-init}}
+\index{signals\-\_\-init@{signals\-\_\-init}!signals.h@{signals.\-h}}
+\subsubsection[{signals\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void signals\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{signals_8h_a3719a1754f6e317bbb96770b973d453c}
+Initialize the signal handler, which will set user\-\_\-abort to true when user e.\-g. presses C-\/c. 
+
+References hooked\-\_\-signals, message\-\_\-progress\-\_\-sigs, message\-\_\-signal\-\_\-handler(), and signals\-\_\-are\-\_\-initialized.
+
+\index{signals.\-h@{signals.\-h}!signals\-\_\-block@{signals\-\_\-block}}
+\index{signals\-\_\-block@{signals\-\_\-block}!signals.h@{signals.\-h}}
+\subsubsection[{signals\-\_\-block}]{\setlength{\rightskip}{0pt plus 5cm}void signals\-\_\-block (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{signals_8h_a6c7cbcd4595590670a3784d393770693}
+Block the signals which don't have S\-A\-\_\-\-R\-E\-S\-T\-A\-R\-T and which would just set user\-\_\-abort to true. This is handy when we don't want to handle E\-I\-N\-T\-R and don't want S\-A\-\_\-\-R\-E\-S\-T\-A\-R\-T either. 
+
+References hooked\-\_\-signals, signals\-\_\-are\-\_\-initialized, and signals\-\_\-block\-\_\-count.
+
+
+
+Referenced by io\-\_\-close(), io\-\_\-open\-\_\-dest(), io\-\_\-open\-\_\-src(), io\-\_\-open\-\_\-src\-\_\-real(), message\-\_\-progress\-\_\-update(), and print\-\_\-filename().
+
+\index{signals.\-h@{signals.\-h}!signals\-\_\-unblock@{signals\-\_\-unblock}}
+\index{signals\-\_\-unblock@{signals\-\_\-unblock}!signals.h@{signals.\-h}}
+\subsubsection[{signals\-\_\-unblock}]{\setlength{\rightskip}{0pt plus 5cm}void signals\-\_\-unblock (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{signals_8h_a55ea2250ff5153a3a4daf1f5a75ea921}
+
+
+Unblock the signals blocked by \doxyref{signals\-\_\-block()}{p.}{signals_8c_a6c7cbcd4595590670a3784d393770693}. 
+
+
+
+References hooked\-\_\-signals, signals\-\_\-are\-\_\-initialized, and signals\-\_\-block\-\_\-count.
+
+
+
+Referenced by io\-\_\-close(), io\-\_\-open\-\_\-dest(), io\-\_\-open\-\_\-src(), io\-\_\-open\-\_\-src\-\_\-real(), message\-\_\-progress\-\_\-update(), and print\-\_\-filename().
+
+\index{signals.\-h@{signals.\-h}!signals\-\_\-exit@{signals\-\_\-exit}}
+\index{signals\-\_\-exit@{signals\-\_\-exit}!signals.h@{signals.\-h}}
+\subsubsection[{signals\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}void signals\-\_\-exit (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{signals_8h_abb960c3705a055f596b288b0961e135a}
+If user has sent us a signal earlier to terminate the process, re-\/raise that signal to actually terminate the process. 
+
+References exit\-\_\-signal, and set\-\_\-exit\-\_\-status().
+
+
+
+\subsection{Variable Documentation}
+\index{signals.\-h@{signals.\-h}!user\-\_\-abort@{user\-\_\-abort}}
+\index{user\-\_\-abort@{user\-\_\-abort}!signals.h@{signals.\-h}}
+\subsubsection[{user\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}volatile sig\-\_\-atomic\-\_\-t user\-\_\-abort}\label{signals_8h_a190aaf6ae9eaa75671718e1ceed999e6}
+If this is true, we will clean up the possibly incomplete output file, return to main() as soon as practical. That is, the code needs to poll this variable in various places. 
+
+Referenced by coder\-\_\-normal(), coder\-\_\-passthru(), coder\-\_\-run(), io\-\_\-open\-\_\-src\-\_\-real(), and io\-\_\-read().
+

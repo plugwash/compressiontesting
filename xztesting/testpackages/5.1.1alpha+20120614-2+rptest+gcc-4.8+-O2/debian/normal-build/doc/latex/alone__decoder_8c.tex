@@ -1,0 +1,67 @@
+\section{liblzma/common/alone\-\_\-decoder.c File Reference}
+\label{alone__decoder_8c}\index{liblzma/common/alone\-\_\-decoder.\-c@{liblzma/common/alone\-\_\-decoder.\-c}}
+
+
+Decoder for L\-Z\-M\-A\-\_\-\-Alone files.  
+
+
+{\ttfamily \#include \char`\"{}alone\-\_\-decoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lzma\-\_\-decoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lz\-\_\-decoder.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-coder\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries alone\-\_\-decode} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator lzma\-\_\-attribute((\-\_\-\-\_\-unused\-\_\-\-\_\-)), const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)\label{alone__decoder_8c_a8e3a271424b4236f54ac840b032bcb10}
+
+\item 
+static void {\bfseries alone\-\_\-decoder\-\_\-end} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{alone__decoder_8c_a96bdc574828dddb116bd6c3cf19d2ef2}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries alone\-\_\-decoder\-\_\-memconfig} ({\bf lzma\-\_\-coder} $\ast$coder, uint64\-\_\-t $\ast$memusage, uint64\-\_\-t $\ast$old\-\_\-memlimit, uint64\-\_\-t new\-\_\-memlimit)\label{alone__decoder_8c_af4b5631ad266c834708a3dc5ee9d1133}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-alone\-\_\-decoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, uint64\-\_\-t memlimit)\label{alone__decoder_8c_ad1bf4e5324cc50fe3f3190d245fc4224}
+
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-alone\-\_\-decoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, uint64\-\_\-t memlimit)
+\begin{DoxyCompactList}\small\item\em Initialize .lzma decoder (legacy file format) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Decoder for L\-Z\-M\-A\-\_\-\-Alone files. 
+
+\subsection{Function Documentation}
+\index{alone\-\_\-decoder.\-c@{alone\-\_\-decoder.\-c}!lzma\-\_\-alone\-\_\-decoder@{lzma\-\_\-alone\-\_\-decoder}}
+\index{lzma\-\_\-alone\-\_\-decoder@{lzma\-\_\-alone\-\_\-decoder}!alone_decoder.c@{alone\-\_\-decoder.\-c}}
+\subsubsection[{lzma\-\_\-alone\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-alone\-\_\-decoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{uint64\-\_\-t}]{memlimit}
+\end{DoxyParamCaption}
+)}\label{alone__decoder_8c_a557f24c908c5a192dc55f5f9e7674536}
+
+
+Initialize .lzma decoder (legacy file format) 
+
+Valid `action' arguments to \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} are L\-Z\-M\-A\-\_\-\-R\-U\-N and L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H. There is no need to use L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, but allowing it may simplify certain types of applications.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-R\-U\-N.
+
+
+
+Referenced by coder\-\_\-init().
+

@@ -1,0 +1,532 @@
+\section{xz/message.h File Reference}
+\label{message_8h}\index{xz/message.\-h@{xz/message.\-h}}
+
+
+Printing messages to stderr.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}~512
+\begin{DoxyCompactList}\small\item\em Buffer size for \doxyref{message\-\_\-filters\-\_\-to\-\_\-str()}{p.}{message_8c_abb05c48d97be5905fe89b7b83b757c05} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf message\-\_\-verbosity} \{ \\*
+{\bf V\-\_\-\-S\-I\-L\-E\-N\-T}, 
+{\bf V\-\_\-\-E\-R\-R\-O\-R}, 
+{\bf V\-\_\-\-W\-A\-R\-N\-I\-N\-G}, 
+{\bf V\-\_\-\-V\-E\-R\-B\-O\-S\-E}, 
+\\*
+{\bf V\-\_\-\-D\-E\-B\-U\-G}
+ \}
+\begin{DoxyCompactList}\small\item\em Verbosity levels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf message\-\_\-init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the message functions. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-verbosity\-\_\-increase} (void)
+\begin{DoxyCompactList}\small\item\em Increase verbosity level by one step unless it was at maximum. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-verbosity\-\_\-decrease} (void)
+\begin{DoxyCompactList}\small\item\em Decrease verbosity level by one step unless it was at minimum. \end{DoxyCompactList}\item 
+enum {\bf message\-\_\-verbosity} {\bf message\-\_\-verbosity\-\_\-get} (void)
+\begin{DoxyCompactList}\small\item\em Get the current verbosity level. \end{DoxyCompactList}\item 
+void {\bf message} (enum {\bf message\-\_\-verbosity} {\bf verbosity}, const char $\ast$fmt,...) lzma\-\_\-attribute((\-\_\-\-\_\-format\-\_\-\-\_\-(\-\_\-\-\_\-printf\-\_\-\-\_\-
+\begin{DoxyCompactList}\small\item\em Print a message if verbosity level is at least \char`\"{}verbosity\char`\"{}. \end{DoxyCompactList}\item 
+void void {\bf message\-\_\-warning} (const char $\ast$fmt,...) lzma\-\_\-attribute((\-\_\-\-\_\-format\-\_\-\-\_\-(\-\_\-\-\_\-printf\-\_\-\-\_\-
+\begin{DoxyCompactList}\small\item\em Prints a warning and possibly sets exit status. \end{DoxyCompactList}\item 
+void void void {\bf message\-\_\-error} (const char $\ast$fmt,...) lzma\-\_\-attribute((\-\_\-\-\_\-format\-\_\-\-\_\-(\-\_\-\-\_\-printf\-\_\-\-\_\-
+\begin{DoxyCompactList}\small\item\em Prints an error message and sets exit status. \end{DoxyCompactList}\item 
+void void void void {\bf message\-\_\-fatal} (const char $\ast$fmt,...) lzma\-\_\-attribute((\-\_\-\-\_\-format\-\_\-\-\_\-(\-\_\-\-\_\-printf\-\_\-\-\_\-
+\begin{DoxyCompactList}\small\item\em Prints an error message and exits with E\-X\-I\-T\-\_\-\-E\-R\-R\-O\-R. \end{DoxyCompactList}\item 
+void void void void {\bfseries lzma\-\_\-attribute} ((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))\label{message_8h_a1957d0c8f6ec2eb4950e67226425ee7c}
+
+\item 
+void {\bf message\-\_\-bug} (void) lzma\-\_\-attribute((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))
+\item 
+void {\bf message\-\_\-signal\-\_\-handler} (void) lzma\-\_\-attribute((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))
+\item 
+const char $\ast$ {\bf message\-\_\-strm} ({\bf lzma\-\_\-ret} code)
+\begin{DoxyCompactList}\small\item\em Convert lzma\-\_\-ret to a string. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-mem\-\_\-needed} (enum {\bf message\-\_\-verbosity} v, uint64\-\_\-t memusage)
+\begin{DoxyCompactList}\small\item\em Display how much memory was needed and how much the limit was. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-filters\-\_\-to\-\_\-str} (char buf[{\bf F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}], const {\bf lzma\-\_\-filter} $\ast${\bf filters}, bool all\-\_\-known)
+\begin{DoxyCompactList}\small\item\em Get the filter chain as a string. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-filters\-\_\-show} (enum {\bf message\-\_\-verbosity} v, const {\bf lzma\-\_\-filter} $\ast${\bf filters})
+\begin{DoxyCompactList}\small\item\em Print the filter chain. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-try\-\_\-help} (void)
+\begin{DoxyCompactList}\small\item\em Print a message that user should try --help. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-version} (void) lzma\-\_\-attribute((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))
+\begin{DoxyCompactList}\small\item\em Prints the version number to stdout and exits with exit status S\-U\-C\-C\-E\-S\-S. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-help} (bool long\-\_\-help) lzma\-\_\-attribute((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))
+\begin{DoxyCompactList}\small\item\em Print the help message. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-set\-\_\-files} (unsigned int files)
+\begin{DoxyCompactList}\small\item\em Set the total number of files to be processed. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-filename} (const char $\ast$src\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Set the name of the current file and possibly print it too. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-progress\-\_\-start} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, uint64\-\_\-t in\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Start progress info handling. \end{DoxyCompactList}\item 
+void {\bf message\-\_\-progress\-\_\-update} (void)
+\item 
+void {\bf message\-\_\-progress\-\_\-end} (bool finished)
+\begin{DoxyCompactList}\small\item\em Finishes the progress message if we were in verbose mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int {\bf message\-\_\-progress\-\_\-sigs} [$\,$]
+\begin{DoxyCompactList}\small\item\em Signals used for progress message handling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Printing messages to stderr. 
+
+\subsection{Macro Definition Documentation}
+\index{message.\-h@{message.\-h}!F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E@{F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}}
+\index{F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E@{F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}!message.h@{message.\-h}}
+\subsubsection[{F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E~512}\label{message_8h_afb565cb76087f681e70aaf004410205d}
+
+
+Buffer size for \doxyref{message\-\_\-filters\-\_\-to\-\_\-str()}{p.}{message_8c_abb05c48d97be5905fe89b7b83b757c05} 
+
+
+
+Referenced by message\-\_\-filters\-\_\-show(), and message\-\_\-filters\-\_\-to\-\_\-str().
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{message.\-h@{message.\-h}!message\-\_\-verbosity@{message\-\_\-verbosity}}
+\index{message\-\_\-verbosity@{message\-\_\-verbosity}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-verbosity}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf message\-\_\-verbosity}}\label{message_8h_a36bc083ed62e2e0fdcda60f1c2e1153d}
+
+
+Verbosity levels. 
+
+\begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{V\-\_\-\-S\-I\-L\-E\-N\-T@{V\-\_\-\-S\-I\-L\-E\-N\-T}!message.\-h@{message.\-h}}\index{message.\-h@{message.\-h}!V\-\_\-\-S\-I\-L\-E\-N\-T@{V\-\_\-\-S\-I\-L\-E\-N\-T}}\item[{\em 
+V\-\_\-\-S\-I\-L\-E\-N\-T\label{message_8h_a36bc083ed62e2e0fdcda60f1c2e1153dab0df7bba0caa9f37bc90395cc7cda544}
+}]No messages. \index{V\-\_\-\-E\-R\-R\-O\-R@{V\-\_\-\-E\-R\-R\-O\-R}!message.\-h@{message.\-h}}\index{message.\-h@{message.\-h}!V\-\_\-\-E\-R\-R\-O\-R@{V\-\_\-\-E\-R\-R\-O\-R}}\item[{\em 
+V\-\_\-\-E\-R\-R\-O\-R\label{message_8h_a36bc083ed62e2e0fdcda60f1c2e1153daa96a214a1aaf8f85440099c58309bb9e}
+}]Only error messages. \index{V\-\_\-\-W\-A\-R\-N\-I\-N\-G@{V\-\_\-\-W\-A\-R\-N\-I\-N\-G}!message.\-h@{message.\-h}}\index{message.\-h@{message.\-h}!V\-\_\-\-W\-A\-R\-N\-I\-N\-G@{V\-\_\-\-W\-A\-R\-N\-I\-N\-G}}\item[{\em 
+V\-\_\-\-W\-A\-R\-N\-I\-N\-G\label{message_8h_a36bc083ed62e2e0fdcda60f1c2e1153da26936100a71f7ff816f71921b117a1ce}
+}]Errors and warnings. \index{V\-\_\-\-V\-E\-R\-B\-O\-S\-E@{V\-\_\-\-V\-E\-R\-B\-O\-S\-E}!message.\-h@{message.\-h}}\index{message.\-h@{message.\-h}!V\-\_\-\-V\-E\-R\-B\-O\-S\-E@{V\-\_\-\-V\-E\-R\-B\-O\-S\-E}}\item[{\em 
+V\-\_\-\-V\-E\-R\-B\-O\-S\-E\label{message_8h_a36bc083ed62e2e0fdcda60f1c2e1153da913e751fe4256738b2fd6b58be966d97}
+}]Errors, warnings, and verbose statistics. \index{V\-\_\-\-D\-E\-B\-U\-G@{V\-\_\-\-D\-E\-B\-U\-G}!message.\-h@{message.\-h}}\index{message.\-h@{message.\-h}!V\-\_\-\-D\-E\-B\-U\-G@{V\-\_\-\-D\-E\-B\-U\-G}}\item[{\em 
+V\-\_\-\-D\-E\-B\-U\-G\label{message_8h_a36bc083ed62e2e0fdcda60f1c2e1153da12f567e052681a76bea3fbb3323fa9eb}
+}]Very verbose. \end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\index{message.\-h@{message.\-h}!message\-\_\-init@{message\-\_\-init}}
+\index{message\-\_\-init@{message\-\_\-init}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8h_a86e2f1386f5590f52a124a84946d5bfb}
+
+
+Initializes the message functions. 
+
+If an error occurs, this function doesn't return. 
+
+References message\-\_\-progress\-\_\-sigs, message\-\_\-signal\-\_\-handler(), and progress\-\_\-automatic.
+
+\index{message.\-h@{message.\-h}!message\-\_\-verbosity\-\_\-increase@{message\-\_\-verbosity\-\_\-increase}}
+\index{message\-\_\-verbosity\-\_\-increase@{message\-\_\-verbosity\-\_\-increase}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-verbosity\-\_\-increase}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-verbosity\-\_\-increase (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8h_a26372b49d3b9e2795b20a6780cd3c440}
+
+
+Increase verbosity level by one step unless it was at maximum. 
+
+
+
+References V\-\_\-\-D\-E\-B\-U\-G, and verbosity.
+
+\index{message.\-h@{message.\-h}!message\-\_\-verbosity\-\_\-decrease@{message\-\_\-verbosity\-\_\-decrease}}
+\index{message\-\_\-verbosity\-\_\-decrease@{message\-\_\-verbosity\-\_\-decrease}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-verbosity\-\_\-decrease}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-verbosity\-\_\-decrease (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8h_a92fcace7374de86b19bd02ed1803a0a1}
+
+
+Decrease verbosity level by one step unless it was at minimum. 
+
+
+
+References V\-\_\-\-S\-I\-L\-E\-N\-T, and verbosity.
+
+\index{message.\-h@{message.\-h}!message\-\_\-verbosity\-\_\-get@{message\-\_\-verbosity\-\_\-get}}
+\index{message\-\_\-verbosity\-\_\-get@{message\-\_\-verbosity\-\_\-get}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-verbosity\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf message\-\_\-verbosity} message\-\_\-verbosity\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8h_afa4674026a909bd210c5e4dd224bf28b}
+
+
+Get the current verbosity level. 
+
+
+
+References verbosity.
+
+
+
+Referenced by hardware\-\_\-memlimit\-\_\-show(), list\-\_\-file(), and list\-\_\-totals().
+
+\index{message.\-h@{message.\-h}!message@{message}}
+\index{message@{message}!message.h@{message.\-h}}
+\subsubsection[{message}]{\setlength{\rightskip}{0pt plus 5cm}void message (
+\begin{DoxyParamCaption}
+\item[{enum {\bf message\-\_\-verbosity}}]{verbosity, }
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{message_8h_a959623d4d066ba4c9d0265c16928149e}
+
+
+Print a message if verbosity level is at least \char`\"{}verbosity\char`\"{}. 
+
+This doesn't touch the exit status. 
+
+Referenced by message\-\_\-mem\-\_\-needed(), message\-\_\-try\-\_\-help(), and str\-\_\-to\-\_\-uint64().
+
+\index{message.\-h@{message.\-h}!message\-\_\-warning@{message\-\_\-warning}}
+\index{message\-\_\-warning@{message\-\_\-warning}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-warning}]{\setlength{\rightskip}{0pt plus 5cm}void void message\-\_\-warning (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{message_8h_a7b1aa271362d38242ea6c42e3d5453aa}
+
+
+Prints a warning and possibly sets exit status. 
+
+The message is printed only if verbosity level is at least V\-\_\-\-W\-A\-R\-N\-I\-N\-G. The exit status is set to W\-A\-R\-N\-I\-N\-G unless it was already at E\-R\-R\-O\-R. 
+
+Referenced by coder\-\_\-normal(), io\-\_\-copy\-\_\-attrs(), io\-\_\-open\-\_\-src\-\_\-real(), msg\-\_\-suffix(), and uncompressed\-\_\-name().
+
+\index{message.\-h@{message.\-h}!message\-\_\-error@{message\-\_\-error}}
+\index{message\-\_\-error@{message\-\_\-error}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}void void void message\-\_\-error (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{message_8h_a61c64c39e7ec889482a901fbd63f794c}
+
+
+Prints an error message and sets exit status. 
+
+The message is printed only if verbosity level is at least V\-\_\-\-E\-R\-R\-O\-R. The exit status is set to E\-R\-R\-O\-R. 
+
+Referenced by coder\-\_\-init(), coder\-\_\-normal(), compressed\-\_\-name(), io\-\_\-close(), io\-\_\-close\-\_\-dest(), io\-\_\-open\-\_\-src\-\_\-real(), io\-\_\-pread(), io\-\_\-read(), io\-\_\-unlink(), io\-\_\-write(), is\-\_\-empty\-\_\-filename(), is\-\_\-tty\-\_\-stdin(), is\-\_\-tty\-\_\-stdout(), list\-\_\-file(), parse\-\_\-block\-\_\-header(), parse\-\_\-indexes(), and uncompressed\-\_\-name().
+
+\index{message.\-h@{message.\-h}!message\-\_\-fatal@{message\-\_\-fatal}}
+\index{message\-\_\-fatal@{message\-\_\-fatal}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-fatal}]{\setlength{\rightskip}{0pt plus 5cm}void void void void message\-\_\-fatal (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{message_8h_aff3f122bb031385c3969689f471800eb}
+
+
+Prints an error message and exits with E\-X\-I\-T\-\_\-\-E\-R\-R\-O\-R. 
+
+The message is printed only if verbosity level is at least V\-\_\-\-E\-R\-R\-O\-R. 
+
+Referenced by coder\-\_\-add\-\_\-filter(), list\-\_\-file(), message\-\_\-bug(), message\-\_\-signal\-\_\-handler(), options\-\_\-lzma(), parse\-\_\-options(), str\-\_\-to\-\_\-uint64(), suffix\-\_\-set(), and xrealloc().
+
+\index{message.\-h@{message.\-h}!message\-\_\-bug@{message\-\_\-bug}}
+\index{message\-\_\-bug@{message\-\_\-bug}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-bug}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-bug (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8h_a1c1235cfdc9ce43702c31843a7b500fc}
+Print an error message that an internal error occurred and exit with E\-X\-I\-T\-\_\-\-E\-R\-R\-O\-R. 
+
+References message\-\_\-fatal().
+
+
+
+Referenced by options\-\_\-lzma(), parse\-\_\-block\-\_\-header(), and parse\-\_\-indexes().
+
+\index{message.\-h@{message.\-h}!message\-\_\-signal\-\_\-handler@{message\-\_\-signal\-\_\-handler}}
+\index{message\-\_\-signal\-\_\-handler@{message\-\_\-signal\-\_\-handler}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-signal\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-signal\-\_\-handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8h_a5a01799c247dc46182e11f32862f5981}
+Print a message that establishing signal handlers failed, and exit with exit status E\-R\-R\-O\-R. 
+
+References message\-\_\-fatal().
+
+
+
+Referenced by message\-\_\-init(), and signals\-\_\-init().
+
+\index{message.\-h@{message.\-h}!message\-\_\-strm@{message\-\_\-strm}}
+\index{message\-\_\-strm@{message\-\_\-strm}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-strm}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ message\-\_\-strm (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-ret}}]{code}
+\end{DoxyParamCaption}
+)}\label{message_8h_abf022fbe95ee294ef7ee78f01a4ea499}
+
+
+Convert lzma\-\_\-ret to a string. 
+
+
+
+References L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-G\-E\-T\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D, and L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K.
+
+
+
+Referenced by coder\-\_\-init(), coder\-\_\-normal(), parse\-\_\-block\-\_\-header(), and parse\-\_\-indexes().
+
+\index{message.\-h@{message.\-h}!message\-\_\-mem\-\_\-needed@{message\-\_\-mem\-\_\-needed}}
+\index{message\-\_\-mem\-\_\-needed@{message\-\_\-mem\-\_\-needed}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-mem\-\_\-needed}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-mem\-\_\-needed (
+\begin{DoxyParamCaption}
+\item[{enum {\bf message\-\_\-verbosity}}]{v, }
+\item[{uint64\-\_\-t}]{memusage}
+\end{DoxyParamCaption}
+)}\label{message_8h_a6953ba5a13ff12f32091346b5772e992}
+
+
+Display how much memory was needed and how much the limit was. 
+
+
+
+References hardware\-\_\-memlimit\-\_\-get(), message(), opt\-\_\-mode, round\-\_\-up\-\_\-to\-\_\-mib(), uint64\-\_\-to\-\_\-str(), and verbosity.
+
+
+
+Referenced by coder\-\_\-init(), coder\-\_\-normal(), and parse\-\_\-indexes().
+
+\index{message.\-h@{message.\-h}!message\-\_\-filters\-\_\-to\-\_\-str@{message\-\_\-filters\-\_\-to\-\_\-str}}
+\index{message\-\_\-filters\-\_\-to\-\_\-str@{message\-\_\-filters\-\_\-to\-\_\-str}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-filters\-\_\-to\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-filters\-\_\-to\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{char}]{buf[\-F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E], }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters, }
+\item[{bool}]{all\-\_\-known}
+\end{DoxyParamCaption}
+)}\label{message_8h_abb05c48d97be5905fe89b7b83b757c05}
+
+
+Get the filter chain as a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Pointer to caller allocated buffer to hold the filter chain string \\
+\hline
+{\em filters} & Pointer to the filter chain \\
+\hline
+{\em all\-\_\-known} & If true, all filter options are printed. If false, only the options that get stored into .xz headers are printed. \\
+\hline
+\end{DoxyParams}
+
+
+References lzma\-\_\-options\-\_\-lzma\-::depth, lzma\-\_\-options\-\_\-lzma\-::dict\-\_\-size, lzma\-\_\-options\-\_\-delta\-::dist, F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E, lzma\-\_\-filter\-::id, lzma\-\_\-options\-\_\-lzma\-::lc, lzma\-\_\-options\-\_\-lzma\-::lp, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-R\-M, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-R\-M\-T\-H\-U\-M\-B, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-L\-T\-A, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-I\-A64, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A1, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-P\-O\-W\-E\-R\-P\-C, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-P\-A\-R\-C, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-X86, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4, L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T, L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, lzma\-\_\-options\-\_\-lzma\-::mf, lzma\-\_\-options\-\_\-lzma\-::mode, my\-\_\-snprintf(), lzma\-\_\-options\-\_\-lzma\-::nice\-\_\-len, lzma\-\_\-filter\-::options, lzma\-\_\-options\-\_\-lzma\-::pb, lzma\-\_\-options\-\_\-bcj\-::start\-\_\-offset, and uint32\-\_\-to\-\_\-optstr().
+
+
+
+Referenced by message\-\_\-filters\-\_\-show(), and parse\-\_\-block\-\_\-header().
+
+\index{message.\-h@{message.\-h}!message\-\_\-filters\-\_\-show@{message\-\_\-filters\-\_\-show}}
+\index{message\-\_\-filters\-\_\-show@{message\-\_\-filters\-\_\-show}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-filters\-\_\-show}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-filters\-\_\-show (
+\begin{DoxyParamCaption}
+\item[{enum {\bf message\-\_\-verbosity}}]{v, }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters}
+\end{DoxyParamCaption}
+)}\label{message_8h_aaf3f7a614db304f11734e82be064791c}
+
+
+Print the filter chain. 
+
+
+
+References F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-T\-R\-\_\-\-S\-I\-Z\-E, message\-\_\-filters\-\_\-to\-\_\-str(), and verbosity.
+
+\index{message.\-h@{message.\-h}!message\-\_\-try\-\_\-help@{message\-\_\-try\-\_\-help}}
+\index{message\-\_\-try\-\_\-help@{message\-\_\-try\-\_\-help}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-try\-\_\-help}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-try\-\_\-help (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8h_abc5ffac64565cf08bf0738e8ce8caca2}
+
+
+Print a message that user should try --help. 
+
+
+
+References message(), and V\-\_\-\-W\-A\-R\-N\-I\-N\-G.
+
+\index{message.\-h@{message.\-h}!message\-\_\-version@{message\-\_\-version}}
+\index{message\-\_\-version@{message\-\_\-version}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-version}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-version (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8h_a439036a4f914908feb62469fd4bf76a6}
+
+
+Prints the version number to stdout and exits with exit status S\-U\-C\-C\-E\-S\-S. 
+
+
+
+References L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N, lzma\-\_\-version\-\_\-number(), L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G, lzma\-\_\-version\-\_\-string(), V\-\_\-\-S\-I\-L\-E\-N\-T, and verbosity.
+
+\index{message.\-h@{message.\-h}!message\-\_\-help@{message\-\_\-help}}
+\index{message\-\_\-help@{message\-\_\-help}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-help}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-help (
+\begin{DoxyParamCaption}
+\item[{bool}]{long\-\_\-help}
+\end{DoxyParamCaption}
+)}\label{message_8h_a3a25d5fdfc1d38df21213e7df943caa0}
+
+
+Print the help message. 
+
+
+
+References V\-\_\-\-S\-I\-L\-E\-N\-T, and verbosity.
+
+\index{message.\-h@{message.\-h}!message\-\_\-set\-\_\-files@{message\-\_\-set\-\_\-files}}
+\index{message\-\_\-set\-\_\-files@{message\-\_\-set\-\_\-files}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-set\-\_\-files}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-set\-\_\-files (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{files}
+\end{DoxyParamCaption}
+)}\label{message_8h_a2ef9f3e9da9028c029d577cc0958d002}
+
+
+Set the total number of files to be processed. 
+
+Standard input is counted as a file here. This is used when printing the filename via \doxyref{message\-\_\-filename()}{p.}{message_8c_a611dae7c0bc66f08de8dd064265d74c1}. 
+
+References files\-\_\-total.
+
+\index{message.\-h@{message.\-h}!message\-\_\-filename@{message\-\_\-filename}}
+\index{message\-\_\-filename@{message\-\_\-filename}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-filename (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src\-\_\-name}
+\end{DoxyParamCaption}
+)}\label{message_8h_a611dae7c0bc66f08de8dd064265d74c1}
+
+
+Set the name of the current file and possibly print it too. 
+
+The name is printed immediately if --list was used or if --verbose was used and stderr is a terminal. Even when the filename isn't printed, it is stored so that it can be printed later if needed for progress messages. 
+
+References current\-\_\-filename\-\_\-printed, filename, files\-\_\-pos, opt\-\_\-mode, print\-\_\-filename(), progress\-\_\-automatic, V\-\_\-\-V\-E\-R\-B\-O\-S\-E, and verbosity.
+
+
+
+Referenced by coder\-\_\-run(), and list\-\_\-file().
+
+\index{message.\-h@{message.\-h}!message\-\_\-progress\-\_\-start@{message\-\_\-progress\-\_\-start}}
+\index{message\-\_\-progress\-\_\-start@{message\-\_\-progress\-\_\-start}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-progress\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-progress\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{uint64\-\_\-t}]{in\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{message_8h_a57e5a4299d3b2d8518ff55d7a85eca32}
+
+
+Start progress info handling. 
+
+\doxyref{message\-\_\-filename()}{p.}{message_8c_a611dae7c0bc66f08de8dd064265d74c1} must be called before this function to set the filename.
+
+This must be paired with a call to \doxyref{message\-\_\-progress\-\_\-end()}{p.}{message_8c_a01159ec580233fe9b1ebf688df3ee769} before the given $\ast$strm becomes invalid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} used for the coding. \\
+\hline
+{\em in\-\_\-size} & Size of the input file, or zero if unknown. \\
+\hline
+\end{DoxyParams}
+
+
+References expected\-\_\-in\-\_\-size, my\-\_\-time(), progress\-\_\-automatic, progress\-\_\-started, start\-\_\-time, strm, V\-\_\-\-V\-E\-R\-B\-O\-S\-E, and verbosity.
+
+
+
+Referenced by coder\-\_\-run().
+
+\index{message.\-h@{message.\-h}!message\-\_\-progress\-\_\-update@{message\-\_\-progress\-\_\-update}}
+\index{message\-\_\-progress\-\_\-update@{message\-\_\-progress\-\_\-update}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-progress\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-progress\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{message_8h_abc7b1a649494177507246554d2d6d6ef}
+Update the progress info if in verbose mode and enough time has passed since the previous update. This can be called only when \doxyref{message\-\_\-progress\-\_\-start()}{p.}{message_8c_a57e5a4299d3b2d8518ff55d7a85eca32} has already been used. 
+
+References current\-\_\-filename\-\_\-printed, print\-\_\-filename(), progress\-\_\-active, progress\-\_\-automatic, progress\-\_\-elapsed(), progress\-\_\-percentage(), progress\-\_\-pos(), progress\-\_\-remaining(), progress\-\_\-sizes(), progress\-\_\-speed(), progress\-\_\-time(), signals\-\_\-block(), signals\-\_\-unblock(), V\-\_\-\-V\-E\-R\-B\-O\-S\-E, and verbosity.
+
+
+
+Referenced by coder\-\_\-normal(), and coder\-\_\-passthru().
+
+\index{message.\-h@{message.\-h}!message\-\_\-progress\-\_\-end@{message\-\_\-progress\-\_\-end}}
+\index{message\-\_\-progress\-\_\-end@{message\-\_\-progress\-\_\-end}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-progress\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}void message\-\_\-progress\-\_\-end (
+\begin{DoxyParamCaption}
+\item[{bool}]{finished}
+\end{DoxyParamCaption}
+)}\label{message_8h_a9d317c77add5b5234304f5bdc12cda49}
+
+
+Finishes the progress message if we were in verbose mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em finished} & True if the whole stream was successfully coded and output written to the output stream. \\
+\hline
+\end{DoxyParams}
+
+
+References progress\-\_\-started.
+
+
+
+Referenced by coder\-\_\-run().
+
+
+
+\subsection{Variable Documentation}
+\index{message.\-h@{message.\-h}!message\-\_\-progress\-\_\-sigs@{message\-\_\-progress\-\_\-sigs}}
+\index{message\-\_\-progress\-\_\-sigs@{message\-\_\-progress\-\_\-sigs}!message.h@{message.\-h}}
+\subsubsection[{message\-\_\-progress\-\_\-sigs}]{\setlength{\rightskip}{0pt plus 5cm}const int message\-\_\-progress\-\_\-sigs[$\,$]}\label{message_8h_a05228efdeb6c4e4814fa906d6f2381d6}
+
+
+Signals used for progress message handling. 
+
+
+
+Referenced by message\-\_\-init(), and signals\-\_\-init().
+

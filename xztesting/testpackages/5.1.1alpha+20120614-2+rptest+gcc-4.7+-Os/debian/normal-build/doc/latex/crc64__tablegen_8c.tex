@@ -1,0 +1,31 @@
+\section{liblzma/check/crc64\-\_\-tablegen.c File Reference}
+\label{crc64__tablegen_8c}\index{liblzma/check/crc64\-\_\-tablegen.\-c@{liblzma/check/crc64\-\_\-tablegen.\-c}}
+
+
+Generate crc64\-\_\-table\-\_\-le.\-h and crc64\-\_\-table\-\_\-be.\-h.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}../../common/tuklib\-\_\-integer.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries init\-\_\-crc64\-\_\-table} (void)\label{crc64__tablegen_8c_adabd4550ac654947bc2f19fcb756c4ae}
+
+\item 
+static void {\bfseries print\-\_\-crc64\-\_\-table} (void)\label{crc64__tablegen_8c_a5d0f4aff02ff81fdf96504f217f7f4d1}
+
+\item 
+int {\bfseries main} (void)\label{crc64__tablegen_8c_a840291bc02cba5474a4cb46a9b9566fe}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static uint64\-\_\-t {\bfseries crc64\-\_\-table} [4][256]\label{crc64__tablegen_8c_aa1ea2181f0fca8b00260bc4d6808eccd}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generate crc64\-\_\-table\-\_\-le.\-h and crc64\-\_\-table\-\_\-be.\-h. Compiling\-: gcc -\/std=c99 -\/o crc64\-\_\-tablegen \doxyref{crc64\-\_\-tablegen.\-c}{p.}{crc64__tablegen_8c} Add -\/\-D\-W\-O\-R\-D\-S\-\_\-\-B\-I\-G\-E\-N\-D\-I\-A\-N to generate big endian table. 

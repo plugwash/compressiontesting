@@ -1,0 +1,134 @@
+\section{liblzma/check/check.c File Reference}
+\label{check_8c}\index{liblzma/check/check.\-c@{liblzma/check/check.\-c}}
+
+
+Single A\-P\-I to access different integrity checks.  
+
+
+{\ttfamily \#include \char`\"{}check.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-bool} {\bf lzma\-\_\-check\-\_\-is\-\_\-supported} ({\bf lzma\-\_\-check} type)
+\begin{DoxyCompactList}\small\item\em Test if the given Check I\-D is supported. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf lzma\-\_\-check\-\_\-size} ({\bf lzma\-\_\-check} type)
+\begin{DoxyCompactList}\small\item\em Get the size of the Check field with the given Check I\-D. \end{DoxyCompactList}\item 
+void {\bf lzma\-\_\-check\-\_\-init} ({\bf lzma\-\_\-check\-\_\-state} $\ast${\bf check}, {\bf lzma\-\_\-check} type)
+\begin{DoxyCompactList}\small\item\em Initialize $\ast$check depending on type. \end{DoxyCompactList}\item 
+void {\bf lzma\-\_\-check\-\_\-update} ({\bf lzma\-\_\-check\-\_\-state} $\ast${\bf check}, {\bf lzma\-\_\-check} type, const uint8\-\_\-t $\ast$buf, size\-\_\-t size)
+\begin{DoxyCompactList}\small\item\em Update the check state. \end{DoxyCompactList}\item 
+void {\bf lzma\-\_\-check\-\_\-finish} ({\bf lzma\-\_\-check\-\_\-state} $\ast${\bf check}, {\bf lzma\-\_\-check} type)
+\begin{DoxyCompactList}\small\item\em Finish the check calculation and store the result to check-\/$>$buffer.\-u8. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Single A\-P\-I to access different integrity checks. 
+
+\subsection{Function Documentation}
+\index{check.\-c@{check.\-c}!lzma\-\_\-check\-\_\-is\-\_\-supported@{lzma\-\_\-check\-\_\-is\-\_\-supported}}
+\index{lzma\-\_\-check\-\_\-is\-\_\-supported@{lzma\-\_\-check\-\_\-is\-\_\-supported}!check.c@{check.\-c}}
+\subsubsection[{lzma\-\_\-check\-\_\-is\-\_\-supported}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-bool} lzma\-\_\-check\-\_\-is\-\_\-supported (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-check}}]{check}
+\end{DoxyParamCaption}
+) const}\label{check_8c_ad30cfdef37f0da36b908299845f63ef2}
+
+
+Test if the given Check I\-D is supported. 
+
+Return true if the given Check I\-D is supported by this liblzma build. Otherwise false is returned. It is safe to call this with a value that is not in the range [0, 15]; in that case the return value is always false.
+
+You can assume that L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-N\-O\-N\-E and L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C32 are always supported (even if liblzma is built with limited features). 
+
+References L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-I\-D\-\_\-\-M\-A\-X.
+
+
+
+Referenced by lzma\-\_\-block\-\_\-buffer\-\_\-encode(), and lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+
+\index{check.\-c@{check.\-c}!lzma\-\_\-check\-\_\-size@{lzma\-\_\-check\-\_\-size}}
+\index{lzma\-\_\-check\-\_\-size@{lzma\-\_\-check\-\_\-size}!check.c@{check.\-c}}
+\subsubsection[{lzma\-\_\-check\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-check\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-check}}]{check}
+\end{DoxyParamCaption}
+) const}\label{check_8c_a17e75c39b6cb8a0151a6eabfbe78cca9}
+
+
+Get the size of the Check field with the given Check I\-D. 
+
+Although not all Check I\-Ds have a check algorithm associated, the size of every Check is already frozen. This function returns the size (in bytes) of the Check field with the specified Check I\-D. The values are\-: \{ 0, 4, 4, 4, 8, 8, 8, 16, 16, 16, 32, 32, 32, 64, 64, 64 \}
+
+If the argument is not in the range [0, 15], U\-I\-N\-T32\-\_\-\-M\-A\-X is returned. 
+
+References L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-I\-D\-\_\-\-M\-A\-X.
+
+
+
+Referenced by lzma\-\_\-block\-\_\-buffer\-\_\-encode(), lzma\-\_\-block\-\_\-compressed\-\_\-size(), lzma\-\_\-block\-\_\-unpadded\-\_\-size(), lzma\-\_\-index\-\_\-hash\-\_\-decode(), parse\-\_\-block\-\_\-header(), and parse\-\_\-check\-\_\-value().
+
+\index{check.\-c@{check.\-c}!lzma\-\_\-check\-\_\-init@{lzma\-\_\-check\-\_\-init}}
+\index{lzma\-\_\-check\-\_\-init@{lzma\-\_\-check\-\_\-init}!check.c@{check.\-c}}
+\subsubsection[{lzma\-\_\-check\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void lzma\-\_\-check\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-check\-\_\-state} $\ast$}]{check, }
+\item[{{\bf lzma\-\_\-check}}]{type}
+\end{DoxyParamCaption}
+)}\label{check_8c_aeb14796081bbe051ca7a08952c7383e8}
+
+
+Initialize $\ast$check depending on type. 
+
+\begin{DoxyReturn}{Returns}
+L\-Z\-M\-A\-\_\-\-O\-K on success. L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K if the type is not supported by the current version or build of liblzma. L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R if type $>$ L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-I\-D\-\_\-\-M\-A\-X. 
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C32, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C64, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-N\-O\-N\-E, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-S\-H\-A256, lzma\-\_\-sha256\-\_\-init(), and lzma\-\_\-check\-\_\-state\-::state.
+
+
+
+Referenced by lzma\-\_\-block\-\_\-buffer\-\_\-encode(), and lzma\-\_\-index\-\_\-hash\-\_\-init().
+
+\index{check.\-c@{check.\-c}!lzma\-\_\-check\-\_\-update@{lzma\-\_\-check\-\_\-update}}
+\index{lzma\-\_\-check\-\_\-update@{lzma\-\_\-check\-\_\-update}!check.c@{check.\-c}}
+\subsubsection[{lzma\-\_\-check\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void lzma\-\_\-check\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-check\-\_\-state} $\ast$}]{check, }
+\item[{{\bf lzma\-\_\-check}}]{type, }
+\item[{const uint8\-\_\-t $\ast$}]{buf, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}\label{check_8c_aa5e9d54e127d31eda8e4f31cbe69e150}
+
+
+Update the check state. 
+
+
+
+References L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C32, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C64, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-S\-H\-A256, lzma\-\_\-crc32(), lzma\-\_\-crc64(), lzma\-\_\-sha256\-\_\-update(), and lzma\-\_\-check\-\_\-state\-::state.
+
+
+
+Referenced by hash\-\_\-append(), and lzma\-\_\-block\-\_\-buffer\-\_\-encode().
+
+\index{check.\-c@{check.\-c}!lzma\-\_\-check\-\_\-finish@{lzma\-\_\-check\-\_\-finish}}
+\index{lzma\-\_\-check\-\_\-finish@{lzma\-\_\-check\-\_\-finish}!check.c@{check.\-c}}
+\subsubsection[{lzma\-\_\-check\-\_\-finish}]{\setlength{\rightskip}{0pt plus 5cm}void lzma\-\_\-check\-\_\-finish (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-check\-\_\-state} $\ast$}]{check, }
+\item[{{\bf lzma\-\_\-check}}]{type}
+\end{DoxyParamCaption}
+)}\label{check_8c_a682bfef0e2be646de63dbcba0eb6a33e}
+
+
+Finish the check calculation and store the result to check-\/$>$buffer.\-u8. 
+
+
+
+References lzma\-\_\-check\-\_\-state\-::buffer, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C32, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C64, L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-S\-H\-A256, lzma\-\_\-sha256\-\_\-finish(), and lzma\-\_\-check\-\_\-state\-::state.
+
+
+
+Referenced by lzma\-\_\-block\-\_\-buffer\-\_\-encode(), and lzma\-\_\-index\-\_\-hash\-\_\-decode().
+

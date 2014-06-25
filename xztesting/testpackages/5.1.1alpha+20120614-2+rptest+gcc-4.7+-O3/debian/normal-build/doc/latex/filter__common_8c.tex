@@ -1,0 +1,113 @@
+\section{liblzma/common/filter\-\_\-common.c File Reference}
+\label{filter__common_8c}\index{liblzma/common/filter\-\_\-common.\-c@{liblzma/common/filter\-\_\-common.\-c}}
+
+
+Filter-\/specific stuff common for both encoder and decoder.  
+
+
+{\ttfamily \#include \char`\"{}filter\-\_\-common.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-filters\-\_\-copy} (const {\bf lzma\-\_\-filter} $\ast$src, {\bf lzma\-\_\-filter} $\ast$dest, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Copy the filters array. \end{DoxyCompactList}\item 
+static {\bf lzma\-\_\-ret} {\bfseries validate\-\_\-chain} (const {\bf lzma\-\_\-filter} $\ast${\bf filters}, size\-\_\-t $\ast$count)\label{filter__common_8c_a86c7af045ea6eac6133d22c110d43ca2}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-raw\-\_\-coder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast$options, lzma\-\_\-filter\-\_\-find coder\-\_\-find, bool is\-\_\-encoder)\label{filter__common_8c_a1be9cd8ce7549e35f6ed23a316984214}
+
+\item 
+uint64\-\_\-t {\bfseries lzma\-\_\-raw\-\_\-coder\-\_\-memusage} (lzma\-\_\-filter\-\_\-find coder\-\_\-find, const {\bf lzma\-\_\-filter} $\ast${\bf filters})\label{filter__common_8c_a12438a58b047ffe81f8a5496421cc28c}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>{\bf lzma\_vli} {\bf id}\\
+\>\>{\em Filter ID. }\\
+\>size\_t {\bf options\_size}\\
+\>\>{\em Size of the filter-\/specific options structure. }\\
+\>bool {\bf non\_last\_ok}\\
+\>bool {\bf last\_ok}\\
+\>bool {\bf changes\_size}\\
+\} {\bfseries features} [$\,$]\label{filter__common_8c_a94b5fee053422f22b42acc30cb9aee0a}
+\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Filter-\/specific stuff common for both encoder and decoder. 
+
+\subsection{Function Documentation}
+\index{filter\-\_\-common.\-c@{filter\-\_\-common.\-c}!lzma\-\_\-filters\-\_\-copy@{lzma\-\_\-filters\-\_\-copy}}
+\index{lzma\-\_\-filters\-\_\-copy@{lzma\-\_\-filters\-\_\-copy}!filter_common.c@{filter\-\_\-common.\-c}}
+\subsubsection[{lzma\-\_\-filters\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-filters\-\_\-copy (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{src, }
+\item[{{\bf lzma\-\_\-filter} $\ast$}]{dest, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)}\label{filter__common_8c_a81cd5593eb33e5e62a0fd5112e87d831}
+
+
+Copy the filters array. 
+
+Copy the Filter I\-Ds and filter-\/specific options from src to dest. Up to L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X filters are copied, plus the terminating .id == L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N. Thus, dest should have at least L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X + 1 elements space unless the caller knows that src is smaller than that.
+
+Unless the filter-\/specific options is N\-U\-L\-L, the Filter I\-D has to be supported by liblzma, because liblzma needs to know the size of every filter-\/specific options structure. The filter-\/specific options are not validated. If options is N\-U\-L\-L, any unsupported Filter I\-Ds are copied without returning an error.
+
+Old filter-\/specific options in dest are not freed, so dest doesn't need to be initialized by the caller in any way.
+
+If an error occurs, memory possibly already allocated by this function is always freed.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported Filter I\-D and its options is not N\-U\-L\-L.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: src or dest is N\-U\-L\-L. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-alloc(), L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X, L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, and options\-\_\-size.
+
+
+
+\subsection{Variable Documentation}
+\index{filter\-\_\-common.\-c@{filter\-\_\-common.\-c}!id@{id}}
+\index{id@{id}!filter_common.c@{filter\-\_\-common.\-c}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} id}\label{filter__common_8c_a3ee597b96b2ff619e515fac79a1ba1c5}
+
+
+Filter I\-D. 
+
+
+
+Referenced by coder\-\_\-add\-\_\-filter().
+
+\index{filter\-\_\-common.\-c@{filter\-\_\-common.\-c}!options\-\_\-size@{options\-\_\-size}}
+\index{options\-\_\-size@{options\-\_\-size}!filter_common.c@{filter\-\_\-common.\-c}}
+\subsubsection[{options\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t options\-\_\-size}\label{filter__common_8c_ae3be9ce6129a435b24496c57bc8141a6}
+
+
+Size of the filter-\/specific options structure. 
+
+
+
+Referenced by lzma\-\_\-filters\-\_\-copy().
+
+\index{filter\-\_\-common.\-c@{filter\-\_\-common.\-c}!non\-\_\-last\-\_\-ok@{non\-\_\-last\-\_\-ok}}
+\index{non\-\_\-last\-\_\-ok@{non\-\_\-last\-\_\-ok}!filter_common.c@{filter\-\_\-common.\-c}}
+\subsubsection[{non\-\_\-last\-\_\-ok}]{\setlength{\rightskip}{0pt plus 5cm}bool non\-\_\-last\-\_\-ok}\label{filter__common_8c_ad703ac63a7997112bb46bcb488bd83a5}
+True if it is O\-K to use this filter as non-\/last filter in the chain. \index{filter\-\_\-common.\-c@{filter\-\_\-common.\-c}!last\-\_\-ok@{last\-\_\-ok}}
+\index{last\-\_\-ok@{last\-\_\-ok}!filter_common.c@{filter\-\_\-common.\-c}}
+\subsubsection[{last\-\_\-ok}]{\setlength{\rightskip}{0pt plus 5cm}bool last\-\_\-ok}\label{filter__common_8c_abccb55bd90f3f71fbeca1ca96f77fa40}
+True if it is O\-K to use this filter as the last filter in the chain. \index{filter\-\_\-common.\-c@{filter\-\_\-common.\-c}!changes\-\_\-size@{changes\-\_\-size}}
+\index{changes\-\_\-size@{changes\-\_\-size}!filter_common.c@{filter\-\_\-common.\-c}}
+\subsubsection[{changes\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}bool changes\-\_\-size}\label{filter__common_8c_ab49ba4b830db7487db6793b6bae9dc16}
+True if the filter may change the size of the data (that is, the amount of encoded output can be different than the amount of uncompressed input). 

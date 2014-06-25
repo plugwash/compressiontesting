@@ -1,0 +1,76 @@
+\section{xz/options.h File Reference}
+\label{options_8h}\index{xz/options.\-h@{xz/options.\-h}}
+
+
+Parser for filter-\/specific options.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-options\-\_\-delta} $\ast$ {\bf options\-\_\-delta} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Parser for Delta options. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-options\-\_\-bcj} $\ast$ {\bf options\-\_\-bcj} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Parser for B\-C\-J options. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-options\-\_\-lzma} $\ast$ {\bf options\-\_\-lzma} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Parser for L\-Z\-M\-A options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parser for filter-\/specific options. 
+
+\subsection{Function Documentation}
+\index{options.\-h@{options.\-h}!options\-\_\-delta@{options\-\_\-delta}}
+\index{options\-\_\-delta@{options\-\_\-delta}!options.h@{options.\-h}}
+\subsubsection[{options\-\_\-delta}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-options\-\_\-delta}$\ast$ options\-\_\-delta (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{options_8h_aeb75b1d0565a4c9372b2ff3d7cbd6898}
+
+
+Parser for Delta options. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to allocated options structure. Doesn't return on error. 
+\end{DoxyReturn}
+
+
+References parse\-\_\-options(), lzma\-\_\-options\-\_\-delta\-::type, and xmalloc.
+
+\index{options.\-h@{options.\-h}!options\-\_\-bcj@{options\-\_\-bcj}}
+\index{options\-\_\-bcj@{options\-\_\-bcj}!options.h@{options.\-h}}
+\subsubsection[{options\-\_\-bcj}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-options\-\_\-bcj}$\ast$ options\-\_\-bcj (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{options_8h_a90111e8a8652cc28be7ca9763ed588d5}
+
+
+Parser for B\-C\-J options. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to allocated options structure. Doesn't return on error. 
+\end{DoxyReturn}
+
+
+References parse\-\_\-options(), lzma\-\_\-options\-\_\-bcj\-::start\-\_\-offset, and xmalloc.
+
+\index{options.\-h@{options.\-h}!options\-\_\-lzma@{options\-\_\-lzma}}
+\index{options\-\_\-lzma@{options\-\_\-lzma}!options.h@{options.\-h}}
+\subsubsection[{options\-\_\-lzma}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-options\-\_\-lzma}$\ast$ options\-\_\-lzma (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{options_8h_a80e4a9dd89d3f2fab00c48c4feb75126}
+
+
+Parser for L\-Z\-M\-A options. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to allocated options structure. Doesn't return on error. 
+\end{DoxyReturn}
+
+
+References lzma\-\_\-options\-\_\-lzma\-::lc, lzma\-\_\-options\-\_\-lzma\-::lp, lzma\-\_\-lzma\-\_\-preset(), L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T2, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T3, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-B\-T4, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C3, L\-Z\-M\-A\-\_\-\-M\-F\-\_\-\-H\-C4, L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-F\-A\-S\-T, L\-Z\-M\-A\-\_\-\-M\-O\-D\-E\-\_\-\-N\-O\-R\-M\-A\-L, L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-D\-E\-F\-A\-U\-L\-T, message\-\_\-bug(), message\-\_\-fatal(), lzma\-\_\-options\-\_\-lzma\-::mf, lzma\-\_\-options\-\_\-lzma\-::nice\-\_\-len, parse\-\_\-options(), and xmalloc.
+

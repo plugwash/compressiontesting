@@ -1,0 +1,335 @@
+\section{liblzma/common/common.h File Reference}
+\label{common_8h}\index{liblzma/common/common.\-h@{liblzma/common/common.\-h}}
+
+
+Common functions needed in many places in liblzma.  
+
+
+{\ttfamily \#include \char`\"{}sysdefs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mythread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tuklib\-\_\-integer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lzma.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-filter\-\_\-info\-\_\-s}
+\item 
+struct {\bf lzma\-\_\-next\-\_\-coder\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Hold data and function pointers of the next filter in the chain. \end{DoxyCompactList}\item 
+struct {\bf lzma\-\_\-internal\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-A\-P\-I\-\_\-\-E\-X\-P\-O\-R\-T}\label{common_8h_aea970a4daa1798994b600e03da8955d1}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-A\-P\-I}(type)~L\-Z\-M\-A\-\_\-\-A\-P\-I\-\_\-\-E\-X\-P\-O\-R\-T type L\-Z\-M\-A\-\_\-\-A\-P\-I\-\_\-\-C\-A\-L\-L\label{common_8h_abfd99ac68c941953a426e005b4af82dc}
+
+\item 
+\#define {\bfseries likely}(expr)~(expr)\label{common_8h_aa0672ea7123854cc5f51902a06c473fb}
+
+\item 
+\#define {\bfseries unlikely}(expr)~(expr)\label{common_8h_ad8700448546b3b5111404cc021061fd5}
+
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~4096
+\begin{DoxyCompactList}\small\item\em Size of temporary buffers needed in some filters. \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-M\-E\-M\-U\-S\-A\-G\-E\-\_\-\-B\-A\-S\-E}~(U\-I\-N\-T64\-\_\-\-C(1) $<$$<$ 15)
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-D\-\_\-\-S\-T\-A\-R\-T}~({\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}(1) $<$$<$ 62)
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-F\-L\-A\-G\-S}
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}
+\begin{DoxyCompactList}\small\item\em Macro to initialize lzma\-\_\-next\-\_\-coder structure. \end{DoxyCompactList}\item 
+\#define {\bf return\-\_\-if\-\_\-error}(expr)
+\begin{DoxyCompactList}\small\item\em Return if expression doesn't evaluate to L\-Z\-M\-A\-\_\-\-O\-K. \end{DoxyCompactList}\item 
+\#define {\bf lzma\-\_\-next\-\_\-coder\-\_\-init}(func, next, allocator)
+\item 
+\#define {\bf lzma\-\_\-next\-\_\-strm\-\_\-init}(func, {\bf strm},...)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf lzma\-\_\-coder\-\_\-s} {\bf lzma\-\_\-coder}
+\item 
+typedef struct {\bf lzma\-\_\-next\-\_\-coder\-\_\-s} {\bfseries lzma\-\_\-next\-\_\-coder}\label{common_8h_a734a9065645913446bd51d3a276b2c94}
+
+\item 
+typedef struct {\bf lzma\-\_\-filter\-\_\-info\-\_\-s} {\bfseries lzma\-\_\-filter\-\_\-info}\label{common_8h_afce19774e821baaff5d300663dc9e8d0}
+
+\item 
+typedef {\bf lzma\-\_\-ret}($\ast$ {\bf lzma\-\_\-init\-\_\-function} )({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters})
+\begin{DoxyCompactList}\small\item\em Type of a function used to initialize a filter encoder or decoder. \end{DoxyCompactList}\item 
+typedef {\bf lzma\-\_\-ret}($\ast$ {\bf lzma\-\_\-code\-\_\-function} )({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)
+\item 
+typedef void($\ast$ {\bf lzma\-\_\-end\-\_\-function} )({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Type of a function to free the memory allocated for the coder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ {\bf lzma\-\_\-alloc} (size\-\_\-t size, {\bf lzma\-\_\-allocator} $\ast$allocator) lzma\-\_\-attribute((\-\_\-\-\_\-malloc\-\_\-\-\_\-)) lzma\-\_\-attr\-\_\-alloc\-\_\-size(1)
+\begin{DoxyCompactList}\small\item\em Allocates memory. \end{DoxyCompactList}\item 
+void {\bf lzma\-\_\-free} (void $\ast$ptr, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Frees memory. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-strm\-\_\-init} ({\bf lzma\-\_\-stream} $\ast${\bf strm})
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-next\-\_\-filter\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters})
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-next\-\_\-filter\-\_\-update} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast$reversed\-\_\-filters)
+\item 
+void {\bf lzma\-\_\-next\-\_\-end} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\item 
+size\-\_\-t {\bf lzma\-\_\-bufcpy} (const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Common functions needed in many places in liblzma. Definitions common to the whole liblzma library.
+
+\subsection{Macro Definition Documentation}
+\index{common.\-h@{common.\-h}!L\-Z\-M\-A\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{L\-Z\-M\-A\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}}
+\index{L\-Z\-M\-A\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{L\-Z\-M\-A\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}!common.h@{common.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E~4096}\label{common_8h_a1b621fc6aec40a92c6bcef56a7994ae7}
+
+
+Size of temporary buffers needed in some filters. 
+
+\index{common.\-h@{common.\-h}!L\-Z\-M\-A\-\_\-\-M\-E\-M\-U\-S\-A\-G\-E\-\_\-\-B\-A\-S\-E@{L\-Z\-M\-A\-\_\-\-M\-E\-M\-U\-S\-A\-G\-E\-\_\-\-B\-A\-S\-E}}
+\index{L\-Z\-M\-A\-\_\-\-M\-E\-M\-U\-S\-A\-G\-E\-\_\-\-B\-A\-S\-E@{L\-Z\-M\-A\-\_\-\-M\-E\-M\-U\-S\-A\-G\-E\-\_\-\-B\-A\-S\-E}!common.h@{common.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-M\-E\-M\-U\-S\-A\-G\-E\-\_\-\-B\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-M\-E\-M\-U\-S\-A\-G\-E\-\_\-\-B\-A\-S\-E~(U\-I\-N\-T64\-\_\-\-C(1) $<$$<$ 15)}\label{common_8h_a3c4e3d305aea4ca9f30c5a05b3ad7570}
+Starting value for memory usage estimates. Instead of calculating size of {\itshape every} structure and taking into account malloc() overhead etc., we add a base size to all memory usage estimates. It's not very accurate but should be easily good enough. 
+
+Referenced by lzma\-\_\-memlimit\-\_\-set().
+
+\index{common.\-h@{common.\-h}!L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-D\-\_\-\-S\-T\-A\-R\-T@{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-D\-\_\-\-S\-T\-A\-R\-T}}
+\index{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-D\-\_\-\-S\-T\-A\-R\-T@{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-D\-\_\-\-S\-T\-A\-R\-T}!common.h@{common.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-D\-\_\-\-S\-T\-A\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-D\-\_\-\-S\-T\-A\-R\-T~({\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}(1) $<$$<$ 62)}\label{common_8h_a50d12a2d492921171aab3404ca56a55c}
+Start of internal Filter I\-D space. These I\-Ds must never be used in Streams. 
+
+Referenced by lzma\-\_\-filter\-\_\-flags\-\_\-decode(), lzma\-\_\-filter\-\_\-flags\-\_\-encode(), and lzma\-\_\-filter\-\_\-flags\-\_\-size().
+
+\index{common.\-h@{common.\-h}!L\-Z\-M\-A\-\_\-\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-F\-L\-A\-G\-S@{L\-Z\-M\-A\-\_\-\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-F\-L\-A\-G\-S}}
+\index{L\-Z\-M\-A\-\_\-\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-F\-L\-A\-G\-S@{L\-Z\-M\-A\-\_\-\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-F\-L\-A\-G\-S}!common.h@{common.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-F\-L\-A\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-F\-L\-A\-G\-S}\label{common_8h_a3469962f4605c82d5ccff2b1a8cd91a1}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+( LZMA_TELL_NO_CHECK \(\backslash\)
+        | LZMA_TELL_UNSUPPORTED_CHECK \(\backslash\)
+        | LZMA_TELL_ANY_CHECK \(\backslash\)
+        | LZMA_CONCATENATED )
+\end{DoxyCode}
+Supported flags that can be passed to \doxyref{lzma\-\_\-stream\-\_\-decoder()}{p.}{container_8h_a02b7683ef98d8049788961370a8b28c0} or \doxyref{lzma\-\_\-auto\-\_\-decoder()}{p.}{container_8h_a21cbebf2771617bb1e956385cfb353e3}. \index{common.\-h@{common.\-h}!L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T@{L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}}
+\index{L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T@{L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}!common.h@{common.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T}\label{common_8h_a1fca27f3d292f89fffbf7162d34a5bc3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(lzma_next_coder)\{ \(\backslash\)
+                .coder = NULL, \(\backslash\)
+                .init = (uintptr\_t)(NULL), \(\backslash\)
+                .id = LZMA_VLI_UNKNOWN, \(\backslash\)
+                .code = NULL, \(\backslash\)
+                .end = NULL, \(\backslash\)
+                .get\_check = NULL, \(\backslash\)
+                .memconfig = NULL, \(\backslash\)
+                .update = NULL, \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Macro to initialize lzma\-\_\-next\-\_\-coder structure. 
+
+
+
+Referenced by lzma\-\_\-block\-\_\-buffer\-\_\-decode(), lzma\-\_\-next\-\_\-end(), lzma\-\_\-raw\-\_\-buffer\-\_\-decode(), lzma\-\_\-raw\-\_\-buffer\-\_\-encode(), lzma\-\_\-stream\-\_\-buffer\-\_\-decode(), and lzma\-\_\-strm\-\_\-init().
+
+\index{common.\-h@{common.\-h}!return\-\_\-if\-\_\-error@{return\-\_\-if\-\_\-error}}
+\index{return\-\_\-if\-\_\-error@{return\-\_\-if\-\_\-error}!common.h@{common.\-h}}
+\subsubsection[{return\-\_\-if\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}\#define return\-\_\-if\-\_\-error(
+\begin{DoxyParamCaption}
+\item[{}]{expr}
+\end{DoxyParamCaption}
+)}\label{common_8h_a3e1bf9f33b917e883b886b8a10458d66}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        const lzma_ret ret\_ = (expr); \(\backslash\)
+        if (ret\_ != LZMA_OK) \(\backslash\)
+                return ret\_; \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+
+
+Return if expression doesn't evaluate to L\-Z\-M\-A\-\_\-\-O\-K. 
+
+There are several situations where we want to return immediately with the value of expr if it isn't L\-Z\-M\-A\-\_\-\-O\-K. This macro shortens the code a little. 
+
+Referenced by lzma\-\_\-block\-\_\-buffer\-\_\-encode(), lzma\-\_\-block\-\_\-header\-\_\-decode(), lzma\-\_\-block\-\_\-header\-\_\-encode(), lzma\-\_\-block\-\_\-header\-\_\-size(), lzma\-\_\-decoder\-\_\-init(), lzma\-\_\-filter\-\_\-flags\-\_\-decode(), lzma\-\_\-filter\-\_\-flags\-\_\-encode(), lzma\-\_\-filter\-\_\-flags\-\_\-size(), lzma\-\_\-index\-\_\-buffer\-\_\-decode(), lzma\-\_\-index\-\_\-hash\-\_\-append(), lzma\-\_\-index\-\_\-hash\-\_\-decode(), lzma\-\_\-index\-\_\-stream\-\_\-flags(), lzma\-\_\-raw\-\_\-buffer\-\_\-decode(), lzma\-\_\-raw\-\_\-buffer\-\_\-encode(), and lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+
+\index{common.\-h@{common.\-h}!lzma\-\_\-next\-\_\-coder\-\_\-init@{lzma\-\_\-next\-\_\-coder\-\_\-init}}
+\index{lzma\-\_\-next\-\_\-coder\-\_\-init@{lzma\-\_\-next\-\_\-coder\-\_\-init}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-next\-\_\-coder\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}\#define lzma\-\_\-next\-\_\-coder\-\_\-init(
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{next, }
+\item[{}]{allocator}
+\end{DoxyParamCaption}
+)}\label{common_8h_a4e5a35bc05ca572acdae55a294c8cc89}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        if ((uintptr\_t)(func) != (next)->init) \(\backslash\)
+                lzma\_next\_end(next, allocator); \(\backslash\)
+        (next)->init = (uintptr\_t)(func); \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+If next isn't already initialized, free the previous coder. Then mark that next is {\itshape possibly} initialized for the coder using this macro. \char`\"{}\-Possibly\char`\"{} means that if e.\-g. allocation of next-\/$>$coder fails, the structure isn't actually initialized for this coder, but leaving next-\/$>$init to func is still O\-K. 
+
+Referenced by lzma\-\_\-next\-\_\-filter\-\_\-init().
+
+\index{common.\-h@{common.\-h}!lzma\-\_\-next\-\_\-strm\-\_\-init@{lzma\-\_\-next\-\_\-strm\-\_\-init}}
+\index{lzma\-\_\-next\-\_\-strm\-\_\-init@{lzma\-\_\-next\-\_\-strm\-\_\-init}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-next\-\_\-strm\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}\#define lzma\-\_\-next\-\_\-strm\-\_\-init(
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{{\bf strm}, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{common_8h_a844da62faaaf4c19a9a297129bc30a8c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        return\_if\_error(lzma\_strm\_init(strm)); \(\backslash\)
+        const lzma_ret ret\_ = func(&(strm)->internal->next, \(\backslash\)
+                        (strm)->allocator, \_\_VA\_ARGS\_\_); \(\backslash\)
+        if (ret\_ != LZMA_OK) \{ \(\backslash\)
+                lzma\_end(strm); \(\backslash\)
+                return ret\_; \(\backslash\)
+        \} \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+Initializes lzma\-\_\-strm and calls func() to initialize strm-\/$>$internal-\/$>$next. (The function being called will use \doxyref{lzma\-\_\-next\-\_\-coder\-\_\-init()}{p.}{common_8h_a4e5a35bc05ca572acdae55a294c8cc89}). If initialization fails, memory that wasn't freed by func() is freed along strm-\/$>$internal. 
+
+Referenced by lzma\-\_\-alone\-\_\-decoder(), lzma\-\_\-alone\-\_\-encoder(), lzma\-\_\-auto\-\_\-decoder(), lzma\-\_\-block\-\_\-decoder(), lzma\-\_\-block\-\_\-encoder(), lzma\-\_\-index\-\_\-decoder(), lzma\-\_\-index\-\_\-encoder(), lzma\-\_\-raw\-\_\-decoder(), lzma\-\_\-raw\-\_\-encoder(), lzma\-\_\-stream\-\_\-decoder(), and lzma\-\_\-stream\-\_\-encoder().
+
+
+
+\subsection{Typedef Documentation}
+\index{common.\-h@{common.\-h}!lzma\-\_\-coder@{lzma\-\_\-coder}}
+\index{lzma\-\_\-coder@{lzma\-\_\-coder}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-coder}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf lzma\-\_\-coder\-\_\-s} {\bf lzma\-\_\-coder}}\label{common_8h_a4fd16c96358c705abab5da65940aa1b1}
+Type of encoder/decoder specific data; the actual structure is defined differently in different coders. \index{common.\-h@{common.\-h}!lzma\-\_\-init\-\_\-function@{lzma\-\_\-init\-\_\-function}}
+\index{lzma\-\_\-init\-\_\-function@{lzma\-\_\-init\-\_\-function}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-init\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf lzma\-\_\-ret}($\ast$ lzma\-\_\-init\-\_\-function)({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters})}\label{common_8h_a2897729ce4e6af56b4412222bdc4280f}
+
+
+Type of a function used to initialize a filter encoder or decoder. 
+
+\index{common.\-h@{common.\-h}!lzma\-\_\-code\-\_\-function@{lzma\-\_\-code\-\_\-function}}
+\index{lzma\-\_\-code\-\_\-function@{lzma\-\_\-code\-\_\-function}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-code\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf lzma\-\_\-ret}($\ast$ lzma\-\_\-code\-\_\-function)({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)}\label{common_8h_a31f6f422451d4b782091365d7f2ae29b}
+Type of a function to do some kind of coding work (filters, Stream, Block encoders/decoders etc.). Some special coders use don't use both input and output buffers, but for simplicity they still use this same function prototype. \index{common.\-h@{common.\-h}!lzma\-\_\-end\-\_\-function@{lzma\-\_\-end\-\_\-function}}
+\index{lzma\-\_\-end\-\_\-function@{lzma\-\_\-end\-\_\-function}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-end\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ lzma\-\_\-end\-\_\-function)({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)}\label{common_8h_a0aa97c452db5b3f4c5cb331337b5dbe6}
+
+
+Type of a function to free the memory allocated for the coder. 
+
+
+
+\subsection{Function Documentation}
+\index{common.\-h@{common.\-h}!lzma\-\_\-alloc@{lzma\-\_\-alloc}}
+\index{lzma\-\_\-alloc@{lzma\-\_\-alloc}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ lzma\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{size, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)}\label{common_8h_ac58f96267a4f66bb15db736968b98008}
+
+
+Allocates memory. 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), index\-\_\-stream\-\_\-init(), lzma\-\_\-filters\-\_\-copy(), lzma\-\_\-index\-\_\-append(), lzma\-\_\-index\-\_\-hash\-\_\-init(), and lzma\-\_\-strm\-\_\-init().
+
+\index{common.\-h@{common.\-h}!lzma\-\_\-free@{lzma\-\_\-free}}
+\index{lzma\-\_\-free@{lzma\-\_\-free}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void lzma\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)}\label{common_8h_a11940cc6553c7274d0cc313bebd00e6a}
+
+
+Frees memory. 
+
+
+
+References lzma\-\_\-allocator\-::free, and lzma\-\_\-allocator\-::opaque.
+
+\index{common.\-h@{common.\-h}!lzma\-\_\-strm\-\_\-init@{lzma\-\_\-strm\-\_\-init}}
+\index{lzma\-\_\-strm\-\_\-init@{lzma\-\_\-strm\-\_\-init}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-strm\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-strm\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm}
+\end{DoxyParamCaption}
+)}\label{common_8h_a83455498798efe8409f8b9f11a77b2aa}
+Allocates strm-\/$>$internal if it is N\-U\-L\-L, and initializes $\ast$strm and strm-\/$>$internal. This function is only called via lzma\-\_\-next\-\_\-strm\-\_\-init macro. 
+
+References lzma\-\_\-stream\-::allocator, lzma\-\_\-internal\-\_\-s\-::allow\-\_\-buf\-\_\-error, lzma\-\_\-stream\-::internal, lzma\-\_\-alloc(), L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-internal\-\_\-s\-::next, lzma\-\_\-internal\-\_\-s\-::sequence, lzma\-\_\-internal\-\_\-s\-::supported\-\_\-actions, lzma\-\_\-stream\-::total\-\_\-in, and lzma\-\_\-stream\-::total\-\_\-out.
+
+\index{common.\-h@{common.\-h}!lzma\-\_\-next\-\_\-filter\-\_\-init@{lzma\-\_\-next\-\_\-filter\-\_\-init}}
+\index{lzma\-\_\-next\-\_\-filter\-\_\-init@{lzma\-\_\-next\-\_\-filter\-\_\-init}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-next\-\_\-filter\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-next\-\_\-filter\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-next\-\_\-coder} $\ast$}]{next, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const {\bf lzma\-\_\-filter\-\_\-info} $\ast$}]{filters}
+\end{DoxyParamCaption}
+)}\label{common_8h_a083a413c43195aed33e19b1d2c043f88}
+Initializes the next filter in the chain, if any. This takes care of freeing the memory of previously initialized filter if it is different than the filter being initialized now. This way the actual filter initialization functions don't need to use lzma\-\_\-next\-\_\-coder\-\_\-init macro. 
+
+References lzma\-\_\-filter\-\_\-info\-\_\-s\-::id, lzma\-\_\-next\-\_\-coder\-\_\-s\-::id, lzma\-\_\-filter\-\_\-info\-\_\-s\-::init, lzma\-\_\-next\-\_\-coder\-\_\-init, and L\-Z\-M\-A\-\_\-\-O\-K.
+
+\index{common.\-h@{common.\-h}!lzma\-\_\-next\-\_\-filter\-\_\-update@{lzma\-\_\-next\-\_\-filter\-\_\-update}}
+\index{lzma\-\_\-next\-\_\-filter\-\_\-update@{lzma\-\_\-next\-\_\-filter\-\_\-update}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-next\-\_\-filter\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-next\-\_\-filter\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-next\-\_\-coder} $\ast$}]{next, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{reversed\-\_\-filters}
+\end{DoxyParamCaption}
+)}\label{common_8h_a751a67a126c4701bbac3eaa6042fe36b}
+Update the next filter in the chain, if any. This checks that the application is not trying to change the Filter I\-Ds. 
+
+References lzma\-\_\-next\-\_\-coder\-\_\-s\-::coder, lzma\-\_\-next\-\_\-coder\-\_\-s\-::id, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, and lzma\-\_\-next\-\_\-coder\-\_\-s\-::update.
+
+\index{common.\-h@{common.\-h}!lzma\-\_\-next\-\_\-end@{lzma\-\_\-next\-\_\-end}}
+\index{lzma\-\_\-next\-\_\-end@{lzma\-\_\-next\-\_\-end}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-next\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}void lzma\-\_\-next\-\_\-end (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-next\-\_\-coder} $\ast$}]{next, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)}\label{common_8h_a2ed13e809d1cd8253f04193820136e4a}
+Frees the memory allocated for next-\/$>$coder either using next-\/$>$end or, if next-\/$>$end is N\-U\-L\-L, using lzma\-\_\-free. 
+
+References lzma\-\_\-next\-\_\-coder\-\_\-s\-::coder, lzma\-\_\-next\-\_\-coder\-\_\-s\-::end, lzma\-\_\-next\-\_\-coder\-\_\-s\-::init, and L\-Z\-M\-A\-\_\-\-N\-E\-X\-T\-\_\-\-C\-O\-D\-E\-R\-\_\-\-I\-N\-I\-T.
+
+\index{common.\-h@{common.\-h}!lzma\-\_\-bufcpy@{lzma\-\_\-bufcpy}}
+\index{lzma\-\_\-bufcpy@{lzma\-\_\-bufcpy}!common.h@{common.\-h}}
+\subsubsection[{lzma\-\_\-bufcpy}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-bufcpy (
+\begin{DoxyParamCaption}
+\item[{const uint8\-\_\-t $\ast$restrict}]{in, }
+\item[{size\-\_\-t $\ast$restrict}]{in\-\_\-pos, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{uint8\-\_\-t $\ast$restrict}]{out, }
+\item[{size\-\_\-t $\ast$restrict}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{common_8h_a9ffbf0181223d38d596508a3b47488b0}
+Copy as much data as possible from in[] to out[] and update $\ast$in\-\_\-pos and $\ast$out\-\_\-pos accordingly. Returns the number of bytes copied. 

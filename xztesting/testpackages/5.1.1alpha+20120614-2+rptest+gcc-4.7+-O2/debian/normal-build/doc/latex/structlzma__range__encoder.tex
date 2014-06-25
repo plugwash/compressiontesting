@@ -1,0 +1,81 @@
+\section{lzma\-\_\-range\-\_\-encoder Struct Reference}
+\label{structlzma__range__encoder}\index{lzma\-\_\-range\-\_\-encoder@{lzma\-\_\-range\-\_\-encoder}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \\*
+{\bfseries R\-C\-\_\-\-B\-I\-T\-\_\-0}, 
+{\bfseries R\-C\-\_\-\-B\-I\-T\-\_\-1}, 
+{\bfseries R\-C\-\_\-\-D\-I\-R\-E\-C\-T\-\_\-0}, 
+{\bfseries R\-C\-\_\-\-D\-I\-R\-E\-C\-T\-\_\-1}, 
+\\*
+{\bfseries R\-C\-\_\-\-F\-L\-U\-S\-H}
+ \}
+\begin{DoxyCompactList}\small\item\em Symbols to encode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint64\-\_\-t {\bfseries low}\label{structlzma__range__encoder_aea514237688256472a39826ec6a39bec}
+
+\item 
+uint64\-\_\-t {\bfseries cache\-\_\-size}\label{structlzma__range__encoder_a2e3ea76f8de7eae04ef9f217458e2e16}
+
+\item 
+uint32\-\_\-t {\bfseries range}\label{structlzma__range__encoder_aeb5047cba8d9006ed10e5dd3700351c4}
+
+\item 
+uint8\-\_\-t {\bfseries cache}\label{structlzma__range__encoder_ac4ef8e2923b343ded1c3a1a829fc5260}
+
+\item 
+size\-\_\-t {\bf count}
+\begin{DoxyCompactList}\small\item\em Number of symbols in the tables. \end{DoxyCompactList}\item 
+size\-\_\-t {\bf pos}
+\begin{DoxyCompactList}\small\item\em rc\-\_\-encode()'s position in the tables \end{DoxyCompactList}\item 
+enum lzma\-\_\-range\-\_\-encoder\-:: \{ ... \}  {\bf symbols} [{\bf R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X}]
+\begin{DoxyCompactList}\small\item\em Symbols to encode. \end{DoxyCompactList}\item 
+{\bf probability} $\ast$ {\bf probs} [{\bf R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X}]
+\begin{DoxyCompactList}\small\item\em Probabilities associated with R\-C\-\_\-\-B\-I\-T\-\_\-0 or R\-C\-\_\-\-B\-I\-T\-\_\-1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{structlzma__range__encoder_ac1868ed1d397716e3a8b3f72c36b5b0b}
+
+
+Symbols to encode. 
+
+
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-range\-\_\-encoder@{lzma\-\_\-range\-\_\-encoder}!count@{count}}
+\index{count@{count}!lzma_range_encoder@{lzma\-\_\-range\-\_\-encoder}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-range\-\_\-encoder\-::count}\label{structlzma__range__encoder_ab1b7f905ce76607567a5823d04e98404}
+
+
+Number of symbols in the tables. 
+
+\index{lzma\-\_\-range\-\_\-encoder@{lzma\-\_\-range\-\_\-encoder}!pos@{pos}}
+\index{pos@{pos}!lzma_range_encoder@{lzma\-\_\-range\-\_\-encoder}}
+\subsubsection[{pos}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lzma\-\_\-range\-\_\-encoder\-::pos}\label{structlzma__range__encoder_af4b8146a2e4a06d6e5d3a6d7ab56dd31}
+
+
+rc\-\_\-encode()'s position in the tables 
+
+\index{lzma\-\_\-range\-\_\-encoder@{lzma\-\_\-range\-\_\-encoder}!symbols@{symbols}}
+\index{symbols@{symbols}!lzma_range_encoder@{lzma\-\_\-range\-\_\-encoder}}
+\subsubsection[{symbols}]{\setlength{\rightskip}{0pt plus 5cm}enum \{ ... \}   lzma\-\_\-range\-\_\-encoder\-::symbols[{\bf R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X}]}\label{structlzma__range__encoder_a0291de7bf4d3faebc4e583a2201bc8b1}
+
+
+Symbols to encode. 
+
+\index{lzma\-\_\-range\-\_\-encoder@{lzma\-\_\-range\-\_\-encoder}!probs@{probs}}
+\index{probs@{probs}!lzma_range_encoder@{lzma\-\_\-range\-\_\-encoder}}
+\subsubsection[{probs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf probability}$\ast$ lzma\-\_\-range\-\_\-encoder\-::probs[{\bf R\-C\-\_\-\-S\-Y\-M\-B\-O\-L\-S\-\_\-\-M\-A\-X}]}\label{structlzma__range__encoder_a9748a5417508b9cba69428f65373177b}
+
+
+Probabilities associated with R\-C\-\_\-\-B\-I\-T\-\_\-0 or R\-C\-\_\-\-B\-I\-T\-\_\-1. 
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/rangecoder/{\bf range\-\_\-encoder.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\section{liblzma/lzma/lzma2\-\_\-encoder.h File Reference}
+\label{lzma2__encoder_8h}\index{liblzma/lzma/lzma2\-\_\-encoder.\-h@{liblzma/lzma/lzma2\-\_\-encoder.\-h}}
+
+
+L\-Z\-M\-A2 encoder.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf L\-Z\-M\-A2\-\_\-\-C\-H\-U\-N\-K\-\_\-\-M\-A\-X}~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 16)
+\begin{DoxyCompactList}\small\item\em Maximum number of bytes of actual data per chunk (no headers) \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A2\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-M\-A\-X}~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 21)
+\begin{DoxyCompactList}\small\item\em Maximum uncompressed size of L\-Z\-M\-A chunk (no headers) \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-M\-A\-X}~6
+\begin{DoxyCompactList}\small\item\em Maximum size of L\-Z\-M\-A2 headers. \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D}~3
+\begin{DoxyCompactList}\small\item\em Size of a header for uncompressed chunk. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-lzma2\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters})\label{lzma2__encoder_8h_afb56adb52d38d5bd3b655056b913d915}
+
+\item 
+uint64\-\_\-t {\bfseries lzma\-\_\-lzma2\-\_\-encoder\-\_\-memusage} (const void $\ast$options)\label{lzma2__encoder_8h_afff5740f7004ed7d3c7b67c3671a30c0}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-lzma2\-\_\-props\-\_\-encode} (const void $\ast$options, uint8\-\_\-t $\ast$out)\label{lzma2__encoder_8h_aecbff0af1269d11accb87f956e2609d4}
+
+\item 
+uint64\-\_\-t {\bfseries lzma\-\_\-lzma2\-\_\-block\-\_\-size} (const void $\ast$options)\label{lzma2__encoder_8h_ae1c48f80b363367e094795c60f466624}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\-Z\-M\-A2 encoder. 
+
+\subsection{Macro Definition Documentation}
+\index{lzma2\-\_\-encoder.\-h@{lzma2\-\_\-encoder.\-h}!L\-Z\-M\-A2\-\_\-\-C\-H\-U\-N\-K\-\_\-\-M\-A\-X@{L\-Z\-M\-A2\-\_\-\-C\-H\-U\-N\-K\-\_\-\-M\-A\-X}}
+\index{L\-Z\-M\-A2\-\_\-\-C\-H\-U\-N\-K\-\_\-\-M\-A\-X@{L\-Z\-M\-A2\-\_\-\-C\-H\-U\-N\-K\-\_\-\-M\-A\-X}!lzma2_encoder.h@{lzma2\-\_\-encoder.\-h}}
+\subsubsection[{L\-Z\-M\-A2\-\_\-\-C\-H\-U\-N\-K\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A2\-\_\-\-C\-H\-U\-N\-K\-\_\-\-M\-A\-X~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 16)}\label{lzma2__encoder_8h_a8d74c156d01559e0282d9af9c6279e03}
+
+
+Maximum number of bytes of actual data per chunk (no headers) 
+
+\index{lzma2\-\_\-encoder.\-h@{lzma2\-\_\-encoder.\-h}!L\-Z\-M\-A2\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-M\-A\-X@{L\-Z\-M\-A2\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-M\-A\-X}}
+\index{L\-Z\-M\-A2\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-M\-A\-X@{L\-Z\-M\-A2\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-M\-A\-X}!lzma2_encoder.h@{lzma2\-\_\-encoder.\-h}}
+\subsubsection[{L\-Z\-M\-A2\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A2\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-M\-A\-X~(U\-I\-N\-T32\-\_\-\-C(1) $<$$<$ 21)}\label{lzma2__encoder_8h_acfae331dc7715f2cb7969fc0b3f0d6b1}
+
+
+Maximum uncompressed size of L\-Z\-M\-A chunk (no headers) 
+
+\index{lzma2\-\_\-encoder.\-h@{lzma2\-\_\-encoder.\-h}!L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-M\-A\-X@{L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-M\-A\-X}}
+\index{L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-M\-A\-X@{L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-M\-A\-X}!lzma2_encoder.h@{lzma2\-\_\-encoder.\-h}}
+\subsubsection[{L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-M\-A\-X~6}\label{lzma2__encoder_8h_aa7d048c2e2c38d280bf80f26ce435fab}
+
+
+Maximum size of L\-Z\-M\-A2 headers. 
+
+\index{lzma2\-\_\-encoder.\-h@{lzma2\-\_\-encoder.\-h}!L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D@{L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D}}
+\index{L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D@{L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D}!lzma2_encoder.h@{lzma2\-\_\-encoder.\-h}}
+\subsubsection[{L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A2\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D~3}\label{lzma2__encoder_8h_a2a5ba3f2130321a79821d91a0db9a549}
+
+
+Size of a header for uncompressed chunk. 
+

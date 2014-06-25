@@ -1,0 +1,39 @@
+\section{common/mythread.h File Reference}
+\label{mythread_8h}\index{common/mythread.\-h@{common/mythread.\-h}}
+
+
+Some threading related helper macros and functions.  
+
+
+{\ttfamily \#include \char`\"{}sysdefs.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries mythread\-\_\-sigmask}(how, set, oset)~sigprocmask(how, set, oset)\label{mythread_8h_a9e9b5a9358a317548df99ea79093aae8}
+
+\item 
+\#define {\bfseries mythread\-\_\-once}(func)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Some threading related helper macros and functions. 
+
+\subsection{Macro Definition Documentation}
+\index{mythread.\-h@{mythread.\-h}!mythread\-\_\-once@{mythread\-\_\-once}}
+\index{mythread\-\_\-once@{mythread\-\_\-once}!mythread.h@{mythread.\-h}}
+\subsubsection[{mythread\-\_\-once}]{\setlength{\rightskip}{0pt plus 5cm}\#define mythread\-\_\-once(
+\begin{DoxyParamCaption}
+\item[{}]{func}
+\end{DoxyParamCaption}
+)}\label{mythread_8h_a261f7be6500d83d7f34ae0bf33b4d4cf}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        static \textcolor{keywordtype}{bool} once\_ = \textcolor{keyword}{false}; \(\backslash\)
+        if (!once\_) \{ \(\backslash\)
+                func(); \(\backslash\)
+                once\_ = \textcolor{keyword}{true}; \(\backslash\)
+        \} \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}

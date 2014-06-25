@@ -1,0 +1,247 @@
+\section{liblzma/api/lzma/vli.h File Reference}
+\label{vli_8h}\index{liblzma/api/lzma/vli.\-h@{liblzma/api/lzma/vli.\-h}}
+
+
+Variable-\/length integer handling.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X}~(U\-I\-N\-T64\-\_\-\-M\-A\-X / 2)
+\begin{DoxyCompactList}\small\item\em Maximum supported value of a variable-\/length integer. \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N}~U\-I\-N\-T64\-\_\-\-M\-A\-X
+\begin{DoxyCompactList}\small\item\em V\-L\-I value to denote that the value is unknown. \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X}~9
+\begin{DoxyCompactList}\small\item\em Maximum supported encoded length of variable length integers. \end{DoxyCompactList}\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}(n)~U\-I\-N\-T64\-\_\-\-C(n)
+\begin{DoxyCompactList}\small\item\em V\-L\-I constant suffix. \end{DoxyCompactList}\item 
+\#define {\bf lzma\-\_\-vli\-\_\-is\-\_\-valid}(vli)~((vli) $<$= {\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X} $|$$|$ (vli) == {\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N})
+\begin{DoxyCompactList}\small\item\em Validate a variable-\/length integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint64\-\_\-t {\bf lzma\-\_\-vli}
+\begin{DoxyCompactList}\small\item\em Variable-\/length integer type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-vli\-\_\-encode} ({\bf lzma\-\_\-vli} vli, size\-\_\-t $\ast$vli\-\_\-pos, uint8\-\_\-t $\ast$out, size\-\_\-t $\ast$out\-\_\-pos, size\-\_\-t out\-\_\-size) lzma\-\_\-nothrow
+\begin{DoxyCompactList}\small\item\em Encode a variable-\/length integer. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-vli\-\_\-decode} ({\bf lzma\-\_\-vli} $\ast$vli, size\-\_\-t $\ast$vli\-\_\-pos, const uint8\-\_\-t $\ast$in, size\-\_\-t $\ast$in\-\_\-pos, size\-\_\-t in\-\_\-size) lzma\-\_\-nothrow
+\begin{DoxyCompactList}\small\item\em Decode a variable-\/length integer. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf lzma\-\_\-vli\-\_\-size} ({\bf lzma\-\_\-vli} vli) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-pure
+\begin{DoxyCompactList}\small\item\em Get the number of bytes required to encode a V\-L\-I. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Variable-\/length integer handling. In the .xz format, most integers are encoded in a variable-\/length representation, which is sometimes called little endian base-\/128 encoding. This saves space when smaller values are more likely than bigger values.
+
+The encoding scheme encodes seven bits to every byte, using minimum number of bytes required to represent the given value. Encodings that use non-\/minimum number of bytes are invalid, thus every integer has exactly one encoded representation. The maximum number of bits in a V\-L\-I is 63, thus the vli argument must be less than or equal to U\-I\-N\-T64\-\_\-\-M\-A\-X / 2. You should use L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X for clarity. 
+
+\subsection{Macro Definition Documentation}
+\index{vli.\-h@{vli.\-h}!L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X@{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X}}
+\index{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X@{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X}!vli.h@{vli.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X~(U\-I\-N\-T64\-\_\-\-M\-A\-X / 2)}\label{vli_8h_a7b782528bd1934db7c020adbedb20ec9}
+
+
+Maximum supported value of a variable-\/length integer. 
+
+
+
+Referenced by lzma\-\_\-index\-\_\-append(), lzma\-\_\-index\-\_\-hash\-\_\-append(), lzma\-\_\-index\-\_\-memusage(), lzma\-\_\-index\-\_\-stream\-\_\-padding(), lzma\-\_\-properties\-\_\-size(), lzma\-\_\-stream\-\_\-buffer\-\_\-bound(), and lzma\-\_\-vli\-\_\-size().
+
+\index{vli.\-h@{vli.\-h}!L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N@{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N}}
+\index{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N@{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N}!vli.h@{vli.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N~U\-I\-N\-T64\-\_\-\-M\-A\-X}\label{vli_8h_a5a4b28254a30c859018b896ed371d69a}
+
+
+V\-L\-I value to denote that the value is unknown. 
+
+
+
+Referenced by lzma\-\_\-block\-\_\-compressed\-\_\-size(), lzma\-\_\-block\-\_\-header\-\_\-decode(), lzma\-\_\-block\-\_\-header\-\_\-encode(), lzma\-\_\-block\-\_\-header\-\_\-size(), lzma\-\_\-block\-\_\-total\-\_\-size(), lzma\-\_\-block\-\_\-unpadded\-\_\-size(), lzma\-\_\-decoder\-\_\-init(), lzma\-\_\-easy\-\_\-preset(), lzma\-\_\-filters\-\_\-copy(), lzma\-\_\-filters\-\_\-update(), lzma\-\_\-index\-\_\-append(), lzma\-\_\-next\-\_\-filter\-\_\-update(), lzma\-\_\-stream\-\_\-flags\-\_\-compare(), lzma\-\_\-stream\-\_\-header\-\_\-decode(), message\-\_\-filters\-\_\-to\-\_\-str(), and parse\-\_\-block\-\_\-header().
+
+\index{vli.\-h@{vli.\-h}!L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X@{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X}}
+\index{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X@{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X}!vli.h@{vli.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X~9}\label{vli_8h_a063ecff4133aa2f8899b9fa3fdefd310}
+
+
+Maximum supported encoded length of variable length integers. 
+
+
+
+Referenced by lzma\-\_\-vli\-\_\-size().
+
+\index{vli.\-h@{vli.\-h}!L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C@{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}}
+\index{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C@{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}!vli.h@{vli.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~U\-I\-N\-T64\-\_\-\-C(n)}\label{vli_8h_a2d8bf5322898bfa11945848420585881}
+
+
+V\-L\-I constant suffix. 
+
+
+
+Referenced by lzma\-\_\-block\-\_\-buffer\-\_\-bound(), lzma\-\_\-index\-\_\-hash\-\_\-decode(), and lzma\-\_\-index\-\_\-padding\-\_\-size().
+
+\index{vli.\-h@{vli.\-h}!lzma\-\_\-vli\-\_\-is\-\_\-valid@{lzma\-\_\-vli\-\_\-is\-\_\-valid}}
+\index{lzma\-\_\-vli\-\_\-is\-\_\-valid@{lzma\-\_\-vli\-\_\-is\-\_\-valid}!vli.h@{vli.\-h}}
+\subsubsection[{lzma\-\_\-vli\-\_\-is\-\_\-valid}]{\setlength{\rightskip}{0pt plus 5cm}\#define lzma\-\_\-vli\-\_\-is\-\_\-valid(
+\begin{DoxyParamCaption}
+\item[{}]{vli}
+\end{DoxyParamCaption}
+)~((vli) $<$= {\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X} $|$$|$ (vli) == {\bf L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N})}\label{vli_8h_a4f67ed698215d865a2b87a95ab1320dd}
+
+
+Validate a variable-\/length integer. 
+
+This is useful to test that application has given acceptable values for example in the uncompressed\-\_\-size and compressed\-\_\-size variables.
+
+\begin{DoxyReturn}{Returns}
+True if the integer is representable as V\-L\-I or if it indicates unknown value. 
+\end{DoxyReturn}
+
+
+Referenced by lzma\-\_\-block\-\_\-header\-\_\-encode(), and lzma\-\_\-block\-\_\-unpadded\-\_\-size().
+
+
+
+\subsection{Typedef Documentation}
+\index{vli.\-h@{vli.\-h}!lzma\-\_\-vli@{lzma\-\_\-vli}}
+\index{lzma\-\_\-vli@{lzma\-\_\-vli}!vli.h@{vli.\-h}}
+\subsubsection[{lzma\-\_\-vli}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint64\-\_\-t {\bf lzma\-\_\-vli}}\label{vli_8h_a1dbc0ffc3e72748f64df8f7f71898272}
+
+
+Variable-\/length integer type. 
+
+Valid V\-L\-I values are in the range [0, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X]. Unknown value is indicated with L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, which is the maximum value of the underlaying integer type.
+
+lzma\-\_\-vli will be uint64\-\_\-t for the foreseeable future. If a bigger size is needed in the future, it is guaranteed that 2 $\ast$ L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X will not overflow lzma\-\_\-vli. This simplifies integer overflow detection. 
+
+\subsection{Function Documentation}
+\index{vli.\-h@{vli.\-h}!lzma\-\_\-vli\-\_\-encode@{lzma\-\_\-vli\-\_\-encode}}
+\index{lzma\-\_\-vli\-\_\-encode@{lzma\-\_\-vli\-\_\-encode}!vli.h@{vli.\-h}}
+\subsubsection[{lzma\-\_\-vli\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-vli\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-vli}}]{vli, }
+\item[{size\-\_\-t $\ast$}]{vli\-\_\-pos, }
+\item[{uint8\-\_\-t $\ast$}]{out, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{vli_8h_a50bbb77e9ec3b72c25586aa700c20970}
+
+
+Encode a variable-\/length integer. 
+
+This function has two modes\-: single-\/call and multi-\/call. Single-\/call mode encodes the whole integer at once; it is an error if the output buffer is too small. Multi-\/call mode saves the position in $\ast$vli\-\_\-pos, and thus it is possible to continue encoding if the buffer becomes full before the whole integer has been encoded.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vli} & Integer to be encoded \\
+\hline
+{\em vli\-\_\-pos} & How many V\-L\-I-\/encoded bytes have already been written out. When starting to encode a new integer in multi-\/call mode, $\ast$vli\-\_\-pos must be set to zero. To use single-\/call encoding, set vli\-\_\-pos to N\-U\-L\-L. \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\-\_\-pos} & The next byte will be written to out[$\ast$out\-\_\-pos]. \\
+\hline
+{\em out\-\_\-size} & Size of the out buffer; the first byte into which no data is written to is out[out\-\_\-size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Slightly different return values are used in multi-\/call and single-\/call modes.
+\end{DoxyReturn}
+Single-\/call (vli\-\_\-pos == N\-U\-L\-L)\-:
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-K\-: Integer successfully encoded.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Arguments are not sane. This can be due to too little output space; single-\/call mode doesn't use L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R, since the application should have checked the encoded size with \doxyref{lzma\-\_\-vli\-\_\-size()}{p.}{vli_8h_a8d53e0b69934b43da8721fa6f1e8cc4f}.
+\end{DoxyItemize}
+
+Multi-\/call (vli\-\_\-pos != N\-U\-L\-L)\-:
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-K\-: So far all O\-K, but the integer is not completely written out yet.
+\item L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D\-: Integer successfully encoded.
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: No output space was provided.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Arguments are not sane. 
+\end{DoxyItemize}
+
+Referenced by lzma\-\_\-block\-\_\-header\-\_\-encode(), and lzma\-\_\-filter\-\_\-flags\-\_\-encode().
+
+\index{vli.\-h@{vli.\-h}!lzma\-\_\-vli\-\_\-decode@{lzma\-\_\-vli\-\_\-decode}}
+\index{lzma\-\_\-vli\-\_\-decode@{lzma\-\_\-vli\-\_\-decode}!vli.h@{vli.\-h}}
+\subsubsection[{lzma\-\_\-vli\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-vli\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-vli} $\ast$}]{vli, }
+\item[{size\-\_\-t $\ast$}]{vli\-\_\-pos, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t $\ast$}]{in\-\_\-pos, }
+\item[{size\-\_\-t}]{in\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{vli_8h_a7b7d50e1074e0e2bcd81c29a5f7461c7}
+
+
+Decode a variable-\/length integer. 
+
+Like \doxyref{lzma\-\_\-vli\-\_\-encode()}{p.}{vli_8h_a50bbb77e9ec3b72c25586aa700c20970}, this function has single-\/call and multi-\/call modes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vli} & Pointer to decoded integer. The decoder will initialize it to zero when $\ast$vli\-\_\-pos == 0, so application isn't required to initialize $\ast$vli. \\
+\hline
+{\em vli\-\_\-pos} & How many bytes have already been decoded. When starting to decode a new integer in multi-\/call mode, $\ast$vli\-\_\-pos must be initialized to zero. To use single-\/call decoding, set vli\-\_\-pos to N\-U\-L\-L. \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\-\_\-pos} & The next byte will be read from in[$\ast$in\-\_\-pos]. \\
+\hline
+{\em in\-\_\-size} & Size of the input buffer; the first byte that won't be read is in[in\-\_\-size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Slightly different return values are used in multi-\/call and single-\/call modes.
+\end{DoxyReturn}
+Single-\/call (vli\-\_\-pos == N\-U\-L\-L)\-:
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-K\-: Integer successfully decoded.
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R\-: Integer is corrupt. This includes hitting the end of the input buffer before the whole integer was decoded; providing no input at all will use L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Arguments are not sane.
+\end{DoxyItemize}
+
+Multi-\/call (vli\-\_\-pos != N\-U\-L\-L)\-:
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-K\-: So far all O\-K, but the integer is not completely decoded yet.
+\item L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D\-: Integer successfully decoded.
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R\-: Integer is corrupt.
+\item L\-Z\-M\-A\-\_\-\-B\-U\-F\-\_\-\-E\-R\-R\-O\-R\-: No input was provided.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: Arguments are not sane. 
+\end{DoxyItemize}
+
+Referenced by lzma\-\_\-block\-\_\-header\-\_\-decode(), lzma\-\_\-filter\-\_\-flags\-\_\-decode(), and lzma\-\_\-index\-\_\-hash\-\_\-decode().
+
+\index{vli.\-h@{vli.\-h}!lzma\-\_\-vli\-\_\-size@{lzma\-\_\-vli\-\_\-size}}
+\index{lzma\-\_\-vli\-\_\-size@{lzma\-\_\-vli\-\_\-size}!vli.h@{vli.\-h}}
+\subsubsection[{lzma\-\_\-vli\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-vli\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-vli}}]{vli}
+\end{DoxyParamCaption}
+)}\label{vli_8h_a8d53e0b69934b43da8721fa6f1e8cc4f}
+
+
+Get the number of bytes required to encode a V\-L\-I. 
+
+\begin{DoxyReturn}{Returns}
+Number of bytes on success (1-\/9). If vli isn't valid, zero is returned. 
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-B\-Y\-T\-E\-S\-\_\-\-M\-A\-X, and L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X.
+
+
+
+Referenced by hash\-\_\-append(), lzma\-\_\-block\-\_\-header\-\_\-size(), lzma\-\_\-filter\-\_\-flags\-\_\-size(), and lzma\-\_\-index\-\_\-append().
+

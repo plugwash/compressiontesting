@@ -1,0 +1,50 @@
+\section{xz/suffix.h File Reference}
+\label{suffix_8h}\index{xz/suffix.\-h@{xz/suffix.\-h}}
+
+
+Checks filename suffix and creates the destination filename.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ {\bf suffix\-\_\-get\-\_\-dest\-\_\-name} (const char $\ast$src\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Get the name of the destination file. \end{DoxyCompactList}\item 
+void {\bf suffix\-\_\-set} (const char $\ast$suffix)
+\begin{DoxyCompactList}\small\item\em Set a custom filename suffix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Checks filename suffix and creates the destination filename. 
+
+\subsection{Function Documentation}
+\index{suffix.\-h@{suffix.\-h}!suffix\-\_\-get\-\_\-dest\-\_\-name@{suffix\-\_\-get\-\_\-dest\-\_\-name}}
+\index{suffix\-\_\-get\-\_\-dest\-\_\-name@{suffix\-\_\-get\-\_\-dest\-\_\-name}!suffix.h@{suffix.\-h}}
+\subsubsection[{suffix\-\_\-get\-\_\-dest\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ suffix\-\_\-get\-\_\-dest\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{src\-\_\-name}
+\end{DoxyParamCaption}
+)}\label{suffix_8h_abdb170ea5ed537b62854a65c3e5d5b89}
+
+
+Get the name of the destination file. 
+
+Depending on the global variable opt\-\_\-mode, this tries to find a matching counterpart for src\-\_\-name. If the name can be constructed, it is allocated and returned (caller must free it). On error, a message is printed and N\-U\-L\-L is returned. 
+
+References compressed\-\_\-name(), opt\-\_\-mode, and uncompressed\-\_\-name().
+
+\index{suffix.\-h@{suffix.\-h}!suffix\-\_\-set@{suffix\-\_\-set}}
+\index{suffix\-\_\-set@{suffix\-\_\-set}!suffix.h@{suffix.\-h}}
+\subsubsection[{suffix\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}void suffix\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{suffix}
+\end{DoxyParamCaption}
+)}\label{suffix_8h_a73ac0221028e731bba6ce634da639ab2}
+
+
+Set a custom filename suffix. 
+
+This function calls \doxyref{xstrdup()}{p.}{util_8c_a401dd8b99774c03e2dafe25f57d259e8} for the given suffix, thus the caller doesn't need to keep the memory allocated. There can be only one custom suffix, thus if this is called multiple times, the old suffixes are freed and forgotten. 
+
+References has\-\_\-dir\-\_\-sep(), message\-\_\-fatal(), and xstrdup().
+

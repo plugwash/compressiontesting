@@ -1,0 +1,46 @@
+Format: 1.8
+Date: Wed, 14 May 2014 16:40:36 +0000
+Source: zlib
+Binary: zlib1g zlib1g-dev zlib1g-dbg zlib-bin zlib1g-udeb lib64z1 lib64z1-dev lib32z1 lib32z1-dev libn32z1 libn32z1-dev
+Architecture: armhf
+Version: 1:1.2.7.dfsg-13+rptest+gcc-4.7+-O3
+Distribution: wheezy-test
+Urgency: low
+Maintainer: Mark Brown <broonie@debian.org>
+Changed-By: Peter Michael Green <plugwash@raspbian.org>
+Description: 
+ lib32z1    - compression library - 32 bit runtime
+ lib32z1-dev - compression library - 32 bit development
+ lib64z1    - compression library - 64 bit runtime
+ lib64z1-dev - compression library - 64 bit development
+ libn32z1   - compression library - n32 runtime
+ libn32z1-dev - compression library - n32 development
+ zlib-bin   - compression library - sample programs
+ zlib1g     - compression library - runtime
+ zlib1g-dbg - compression library - development
+ zlib1g-dev - compression library - development
+ zlib1g-udeb - compression library - runtime for Debian installer (udeb)
+Changes: 
+ zlib (1:1.2.7.dfsg-13+rptest+gcc-4.7+-O3) wheezy-test; urgency=low
+ .
+   * set optimisation to -O3 to test impact on codesize and performance.
+   * Build with gcc-4.7 to test impact on codeside and performance.
+Checksums-Sha1: 
+ debc581aa8e15fa7dc1b4c27842d44d87e0d886f 89500 zlib1g_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ 5f5f3a76332908d63572c7f09f24df22ebfc71c2 213080 zlib1g-dev_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ 9fd4b44d159a631617c623af5b6eff10e427e5ba 243818 zlib1g-dbg_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ f642eb5fd0efefc15d4b7d9a67a027f768e6ef31 67954 zlib-bin_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ 7f4d05a5eef26bf5c79da33b92581051458f5493 41912 zlib1g-udeb_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.udeb
+Checksums-Sha256: 
+ c6fe0d7bcf16df34b7358c257252160f8392309c1f501d88d1c5cd9e28a716f5 89500 zlib1g_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ 43016e4ab2c9b79426b30c4d826cd25f500d05811461f22150dca1d8e85784b3 213080 zlib1g-dev_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ 85345dc21af041135c9e6d80e8b8663ce2c3f2a1fbad88f4dda6af2a2aa63b3e 243818 zlib1g-dbg_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ bec4f393e4505d7c26c7ce75d57c8f69e714f768072068d2b30a9cf88686ad9f 67954 zlib-bin_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ cab81c26516ba43595a57494be2a618a7e8657ea175a4455ca4df1aa370fc728 41912 zlib1g-udeb_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.udeb
+Files: 
+ 0e2d6a8ea2fb868124c65823b2f38eb4 89500 libs required zlib1g_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ b3bbbdde47ffe2e1085751d052d0b5b0 213080 libdevel optional zlib1g-dev_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ a4a43c48a6c1b08fcce6eeb363be5c76 243818 debug extra zlib1g-dbg_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ c9d545a1e09778f2577ebef900fbb7c6 67954 utils optional zlib-bin_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.deb
+ b2fdf882fe154e97915e854162b12120 41912 debian-installer optional zlib1g-udeb_1.2.7.dfsg-13+rptest+gcc-4.7+-O3_armhf.udeb
+Package-Type: udeb

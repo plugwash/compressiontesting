@@ -1,0 +1,44 @@
+\section{liblzma/lzma/lzma\-\_\-encoder.h File Reference}
+\label{lzma__encoder_8h}\index{liblzma/lzma/lzma\-\_\-encoder.\-h@{liblzma/lzma/lzma\-\_\-encoder.\-h}}
+
+
+L\-Z\-M\-A encoder A\-P\-I.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-lzma\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters})\label{lzma__encoder_8h_a0cfb66fbad445488fca8aea70655e528}
+
+\item 
+uint64\-\_\-t {\bfseries lzma\-\_\-lzma\-\_\-encoder\-\_\-memusage} (const void $\ast$options)\label{lzma__encoder_8h_a69751f4a64caf8d24a2f94b0301e04c2}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-lzma\-\_\-props\-\_\-encode} (const void $\ast$options, uint8\-\_\-t $\ast$out)\label{lzma__encoder_8h_a5f00e852ffad77bfde90803a36752c24}
+
+\item 
+bool {\bf lzma\-\_\-lzma\-\_\-lclppb\-\_\-encode} (const {\bf lzma\-\_\-options\-\_\-lzma} $\ast$options, uint8\-\_\-t $\ast$byte)
+\begin{DoxyCompactList}\small\item\em Encodes lc/lp/pb into one byte. Returns false on success and true on error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\-Z\-M\-A encoder A\-P\-I. 
+
+\subsection{Function Documentation}
+\index{lzma\-\_\-encoder.\-h@{lzma\-\_\-encoder.\-h}!lzma\-\_\-lzma\-\_\-lclppb\-\_\-encode@{lzma\-\_\-lzma\-\_\-lclppb\-\_\-encode}}
+\index{lzma\-\_\-lzma\-\_\-lclppb\-\_\-encode@{lzma\-\_\-lzma\-\_\-lclppb\-\_\-encode}!lzma_encoder.h@{lzma\-\_\-encoder.\-h}}
+\subsubsection[{lzma\-\_\-lzma\-\_\-lclppb\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-lzma\-\_\-lclppb\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-options\-\_\-lzma} $\ast$}]{options, }
+\item[{uint8\-\_\-t $\ast$}]{byte}
+\end{DoxyParamCaption}
+)}\label{lzma__encoder_8h_a24e42d27f537c4382fe298c9909b1a52}
+
+
+Encodes lc/lp/pb into one byte. Returns false on success and true on error. 
+
+
+
+References is\-\_\-lclppb\-\_\-valid(), lzma\-\_\-options\-\_\-lzma\-::lc, lzma\-\_\-options\-\_\-lzma\-::lp, and lzma\-\_\-options\-\_\-lzma\-::pb.
+

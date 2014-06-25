@@ -1,0 +1,12 @@
+82d57b59d9f27da4d8159837564f5550  usr/bin/lzmadec
+3fecc5e59a37363869f1e37fc3f9692b  usr/bin/xzdec
+bcb4f889a36b8fbf7ef825fb8e9fb986  usr/share/doc/xzdec/AUTHORS
+2acbe369c946ed5f8ad771c20fc6b8a5  usr/share/doc/xzdec/NEWS.gz
+d8ac3f031ebb919a901311cae824e4e1  usr/share/doc/xzdec/README.gz
+489647124c867efeed445a8a0a7e6260  usr/share/doc/xzdec/THANKS
+3c3023e375d3f0874c860bcdffc53343  usr/share/doc/xzdec/changelog.Debian.gz
+75da11583730738e08cddff0baa6367f  usr/share/doc/xzdec/changelog.gz
+7a692fa91cb8fb6af4ef1094636a658f  usr/share/doc/xzdec/copyright
+c81bb4a700342fa0e726f8ea61be3fcb  usr/share/doc/xzdec/faq.txt.gz
+fa7fb67a800a3ba75d3391cecfffccf1  usr/share/doc/xzdec/history.txt.gz
+7472d783b2209dd8b6c55648053960ef  usr/share/man/man1/xzdec.1.gz

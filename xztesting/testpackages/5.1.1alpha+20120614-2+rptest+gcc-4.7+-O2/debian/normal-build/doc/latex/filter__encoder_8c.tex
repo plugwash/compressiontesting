@@ -1,0 +1,248 @@
+\section{liblzma/common/filter\-\_\-encoder.c File Reference}
+\label{filter__encoder_8c}\index{liblzma/common/filter\-\_\-encoder.\-c@{liblzma/common/filter\-\_\-encoder.\-c}}
+
+
+Filter I\-D mapping to filter-\/specific functions.  
+
+
+{\ttfamily \#include \char`\"{}filter\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}filter\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lzma\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lzma2\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}simple\-\_\-encoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}delta\-\_\-encoder.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-filter\-\_\-encoder}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const {\bf lzma\-\_\-filter\-\_\-encoder} $\ast$ {\bfseries encoder\-\_\-find} ({\bf lzma\-\_\-vli} {\bf id})\label{filter__encoder_8c_ad5dc226c8305a5fd6b0e0f80ab72b35a}
+
+\item 
+{\bf lzma\-\_\-bool} {\bf lzma\-\_\-filter\-\_\-encoder\-\_\-is\-\_\-supported} ({\bf lzma\-\_\-vli} {\bf id})
+\begin{DoxyCompactList}\small\item\em Test if the given Filter I\-D is supported for encoding. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-filters\-\_\-update} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, const {\bf lzma\-\_\-filter} $\ast${\bf filters})
+\begin{DoxyCompactList}\small\item\em Update the filter chain in the encoder. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-raw\-\_\-encoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast$options)\label{filter__encoder_8c_ab1a09a9d9fd67cab3488e62f155599ad}
+
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-raw\-\_\-encoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, const {\bf lzma\-\_\-filter} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Initialize raw encoder. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bf lzma\-\_\-raw\-\_\-encoder\-\_\-memusage} (const {\bf lzma\-\_\-filter} $\ast${\bf filters})
+\begin{DoxyCompactList}\small\item\em Calculate approximate memory requirements for raw encoder. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bfseries lzma\-\_\-mt\-\_\-block\-\_\-size} (const {\bf lzma\-\_\-filter} $\ast${\bf filters})\label{filter__encoder_8c_aaedc859d12a6fc09ea6d041faa48d7c1}
+
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-properties\-\_\-size} (uint32\-\_\-t $\ast$size, const {\bf lzma\-\_\-filter} $\ast$filter)
+\begin{DoxyCompactList}\small\item\em Get the size of the Filter Properties field. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-properties\-\_\-encode} (const {\bf lzma\-\_\-filter} $\ast$filter, uint8\-\_\-t $\ast$props)
+\begin{DoxyCompactList}\small\item\em Encode the Filter Properties field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const {\bf lzma\-\_\-filter\-\_\-encoder} {\bfseries encoders} [$\,$]\label{filter__encoder_8c_a0a6f06ddf54c46fdee728b762e606636}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Filter I\-D mapping to filter-\/specific functions. 
+
+\subsection{Function Documentation}
+\index{filter\-\_\-encoder.\-c@{filter\-\_\-encoder.\-c}!lzma\-\_\-filter\-\_\-encoder\-\_\-is\-\_\-supported@{lzma\-\_\-filter\-\_\-encoder\-\_\-is\-\_\-supported}}
+\index{lzma\-\_\-filter\-\_\-encoder\-\_\-is\-\_\-supported@{lzma\-\_\-filter\-\_\-encoder\-\_\-is\-\_\-supported}!filter_encoder.c@{filter\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-filter\-\_\-encoder\-\_\-is\-\_\-supported}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-bool} lzma\-\_\-filter\-\_\-encoder\-\_\-is\-\_\-supported (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-vli}}]{id}
+\end{DoxyParamCaption}
+) const}\label{filter__encoder_8c_a1600cc95c59adc4ff5fa196652142a31}
+
+
+Test if the given Filter I\-D is supported for encoding. 
+
+Return true if the give Filter I\-D is supported for encoding by this liblzma build. Otherwise false is returned.
+
+There is no way to list which filters are available in this particular liblzma version and build. It would be useless, because the application couldn't know what kind of options the filter would need. \index{filter\-\_\-encoder.\-c@{filter\-\_\-encoder.\-c}!lzma\-\_\-filters\-\_\-update@{lzma\-\_\-filters\-\_\-update}}
+\index{lzma\-\_\-filters\-\_\-update@{lzma\-\_\-filters\-\_\-update}!filter_encoder.c@{filter\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-filters\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-filters\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters}
+\end{DoxyParamCaption}
+)}\label{filter__encoder_8c_adcde5a9917d1ca033f6c1cc35c9be4fc}
+
+
+Update the filter chain in the encoder. 
+
+This function is for advanced users only. This function has two slightly different purposes\-:
+
+
+\begin{DoxyItemize}
+\item After L\-Z\-M\-A\-\_\-\-F\-U\-L\-L\-\_\-\-F\-L\-U\-S\-H when using Stream encoder\-: Set a new filter chain, which will be used starting from the next Block.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item After L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H using Raw, Block, or Stream encoder\-: Change the filter-\/specific options in the middle of encoding. The actual filters in the chain (Filter I\-Ds) cannot be changed. In the future, it might become possible to change the filter options without using L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H.
+\end{DoxyItemize}
+
+While rarely useful, this function may be called also when no data has been compressed yet. In that case, this function will behave as if L\-Z\-M\-A\-\_\-\-F\-U\-L\-L\-\_\-\-F\-L\-U\-S\-H (Stream encoder) or L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H (Raw or Block encoder) had been used right before calling this function.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-L\-I\-M\-I\-T\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\-\_\-filter\-::id, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-raw\-\_\-encoder\-\_\-memusage(), and L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N.
+
+\index{filter\-\_\-encoder.\-c@{filter\-\_\-encoder.\-c}!lzma\-\_\-raw\-\_\-encoder@{lzma\-\_\-raw\-\_\-encoder}}
+\index{lzma\-\_\-raw\-\_\-encoder@{lzma\-\_\-raw\-\_\-encoder}!filter_encoder.c@{filter\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-raw\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-raw\-\_\-encoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters}
+\end{DoxyParamCaption}
+)}\label{filter__encoder_8c_aed21808fcea4df30f742c5369627f731}
+
+
+Initialize raw encoder. 
+
+This function may be useful when implementing custom file formats.
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} \\
+\hline
+{\em filters} & Array of \doxyref{lzma\-\_\-filter}{p.}{structlzma__filter} structures. The end of the array must be marked with .id = L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N.\\
+\hline
+\end{DoxyParams}
+The `action' with \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} can be L\-Z\-M\-A\-\_\-\-R\-U\-N, L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H (if the filter chain supports it), or L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-R\-U\-N, and L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H.
+
+
+
+Referenced by coder\-\_\-init().
+
+\index{filter\-\_\-encoder.\-c@{filter\-\_\-encoder.\-c}!lzma\-\_\-raw\-\_\-encoder\-\_\-memusage@{lzma\-\_\-raw\-\_\-encoder\-\_\-memusage}}
+\index{lzma\-\_\-raw\-\_\-encoder\-\_\-memusage@{lzma\-\_\-raw\-\_\-encoder\-\_\-memusage}!filter_encoder.c@{filter\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-raw\-\_\-encoder\-\_\-memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-raw\-\_\-encoder\-\_\-memusage (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filters}
+\end{DoxyParamCaption}
+)}\label{filter__encoder_8c_a6c882f0353d7fe74157b51f0776093ae}
+
+
+Calculate approximate memory requirements for raw encoder. 
+
+This function can be used to calculate the memory requirements for Block and Stream encoders too because Block and Stream encoders don't need significantly more memory than raw encoder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filters} & Array of filters terminated with .id == L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes of memory required for the given filter chain when encoding. If an error occurs, for example due to unsupported filter chain, U\-I\-N\-T64\-\_\-\-M\-A\-X is returned. 
+\end{DoxyReturn}
+
+
+Referenced by lzma\-\_\-easy\-\_\-encoder\-\_\-memusage(), and lzma\-\_\-filters\-\_\-update().
+
+\index{filter\-\_\-encoder.\-c@{filter\-\_\-encoder.\-c}!lzma\-\_\-properties\-\_\-size@{lzma\-\_\-properties\-\_\-size}}
+\index{lzma\-\_\-properties\-\_\-size@{lzma\-\_\-properties\-\_\-size}!filter_encoder.c@{filter\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-properties\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-properties\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t $\ast$}]{size, }
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filter}
+\end{DoxyParamCaption}
+)}\label{filter__encoder_8c_a7ea8fcfdb19312ff323a78fb6d5ce908}
+
+
+Get the size of the Filter Properties field. 
+
+This function may be useful when implementing custom file formats using the raw encoder and decoder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Pointer to uint32\-\_\-t to hold the size of the properties \\
+\hline
+{\em filter} & Filter I\-D and options (the size of the properties may vary depending on the options)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function validates the Filter I\-D, but does not necessarily validate the options. Thus, it is possible that this returns L\-Z\-M\-A\-\_\-\-O\-K while the following call to \doxyref{lzma\-\_\-properties\-\_\-encode()}{p.}{filter_8h_a8e00887086df5a44084ac22e48415de3} returns L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R. 
+\end{DoxyNote}
+
+
+References L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X, and lzma\-\_\-filter\-\_\-encoder\-::props\-\_\-size\-\_\-get.
+
+
+
+Referenced by lzma\-\_\-filter\-\_\-flags\-\_\-encode(), and lzma\-\_\-filter\-\_\-flags\-\_\-size().
+
+\index{filter\-\_\-encoder.\-c@{filter\-\_\-encoder.\-c}!lzma\-\_\-properties\-\_\-encode@{lzma\-\_\-properties\-\_\-encode}}
+\index{lzma\-\_\-properties\-\_\-encode@{lzma\-\_\-properties\-\_\-encode}!filter_encoder.c@{filter\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-properties\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-properties\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-filter} $\ast$}]{filter, }
+\item[{uint8\-\_\-t $\ast$}]{props}
+\end{DoxyParamCaption}
+)}\label{filter__encoder_8c_a311b1198ed1c047fefc31071adb5600b}
+
+
+Encode the Filter Properties field. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filter} & Filter I\-D and options \\
+\hline
+{\em props} & Buffer to hold the encoded options. The size of buffer must have been already determined with \doxyref{lzma\-\_\-properties\-\_\-size()}{p.}{filter_8h_aee038818cf7bbe044c3f7a7c86998c1b}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Even this function won't validate more options than actually necessary. Thus, it is possible that encoding the properties succeeds but using the same options to initialize the encoder will fail.
+
+If \doxyref{lzma\-\_\-properties\-\_\-size()}{p.}{filter_8h_aee038818cf7bbe044c3f7a7c86998c1b} indicated that the size of the Filter Properties field is zero, calling \doxyref{lzma\-\_\-properties\-\_\-encode()}{p.}{filter_8h_a8e00887086df5a44084ac22e48415de3} is not required, but it won't do any harm either. 
+\end{DoxyNote}
+
+
+References L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, and lzma\-\_\-filter\-\_\-encoder\-::props\-\_\-encode.
+
+
+
+Referenced by lzma\-\_\-filter\-\_\-flags\-\_\-encode().
+

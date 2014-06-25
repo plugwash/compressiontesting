@@ -1,0 +1,81 @@
+\section{liblzma/common/stream\-\_\-decoder.c File Reference}
+\label{stream__decoder_8c}\index{liblzma/common/stream\-\_\-decoder.\-c@{liblzma/common/stream\-\_\-decoder.\-c}}
+
+
+Decodes .xz Streams.  
+
+
+{\ttfamily \#include \char`\"{}stream\-\_\-decoder.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}block\-\_\-decoder.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-coder\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries stream\-\_\-decoder\-\_\-reset} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{stream__decoder_8c_a98cc7221c91c4d864a1bf7f7c44b3b84}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries stream\-\_\-decode} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)\label{stream__decoder_8c_a8722d3263eeddd671a6a42c6b19ee1d5}
+
+\item 
+static void {\bfseries stream\-\_\-decoder\-\_\-end} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{stream__decoder_8c_a2a8ec9511edd62960912b28b855fabb9}
+
+\item 
+static {\bf lzma\-\_\-check} {\bfseries stream\-\_\-decoder\-\_\-get\-\_\-check} (const {\bf lzma\-\_\-coder} $\ast$coder)\label{stream__decoder_8c_a8bed3b40a0d59a3de4d2cbdbe8d5e42f}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries stream\-\_\-decoder\-\_\-memconfig} ({\bf lzma\-\_\-coder} $\ast$coder, uint64\-\_\-t $\ast$memusage, uint64\-\_\-t $\ast$old\-\_\-memlimit, uint64\-\_\-t new\-\_\-memlimit)\label{stream__decoder_8c_a771394caae837d5b1ff42f188868f160}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-stream\-\_\-decoder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, uint64\-\_\-t memlimit, uint32\-\_\-t flags)\label{stream__decoder_8c_a3d14b0018ff9d4ff14b2a14966e90500}
+
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-stream\-\_\-decoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, uint64\-\_\-t memlimit, uint32\-\_\-t flags)
+\begin{DoxyCompactList}\small\item\em Initialize .xz Stream decoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Decodes .xz Streams. 
+
+\subsection{Function Documentation}
+\index{stream\-\_\-decoder.\-c@{stream\-\_\-decoder.\-c}!lzma\-\_\-stream\-\_\-decoder@{lzma\-\_\-stream\-\_\-decoder}}
+\index{lzma\-\_\-stream\-\_\-decoder@{lzma\-\_\-stream\-\_\-decoder}!stream_decoder.c@{stream\-\_\-decoder.\-c}}
+\subsubsection[{lzma\-\_\-stream\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-stream\-\_\-decoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{uint64\-\_\-t}]{memlimit, }
+\item[{uint32\-\_\-t}]{flags}
+\end{DoxyParamCaption}
+)}\label{stream__decoder_8c_aa251bc5b49846a1096f934d774157250}
+
+
+Initialize .xz Stream decoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} \\
+\hline
+{\em memlimit} & Memory usage limit as bytes. Use U\-I\-N\-T64\-\_\-\-M\-A\-X to effectively disable the limiter. \\
+\hline
+{\em flags} & Bitwise-\/or of zero or more of the decoder flags\-: L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-N\-O\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-T\-E\-L\-L\-\_\-\-A\-N\-Y\-\_\-\-C\-H\-E\-C\-K, L\-Z\-M\-A\-\_\-\-C\-O\-N\-C\-A\-T\-E\-N\-A\-T\-E\-D\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Initialization was successful.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R\-: Cannot allocate memory.
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported flags
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, lzma\-\_\-next\-\_\-strm\-\_\-init, L\-Z\-M\-A\-\_\-\-O\-K, and L\-Z\-M\-A\-\_\-\-R\-U\-N.
+
+
+
+Referenced by coder\-\_\-init().
+

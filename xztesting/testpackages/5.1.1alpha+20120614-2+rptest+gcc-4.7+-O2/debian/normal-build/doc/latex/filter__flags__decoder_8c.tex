@@ -1,0 +1,52 @@
+\section{liblzma/common/filter\-\_\-flags\-\_\-decoder.c File Reference}
+\label{filter__flags__decoder_8c}\index{liblzma/common/filter\-\_\-flags\-\_\-decoder.\-c@{liblzma/common/filter\-\_\-flags\-\_\-decoder.\-c}}
+
+
+Decodes a Filter Flags field.  
+
+
+{\ttfamily \#include \char`\"{}filter\-\_\-decoder.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-filter\-\_\-flags\-\_\-decode} ({\bf lzma\-\_\-filter} $\ast$filter, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$in, size\-\_\-t $\ast$in\-\_\-pos, size\-\_\-t in\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Decode Filter Flags from given buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Decodes a Filter Flags field. 
+
+\subsection{Function Documentation}
+\index{filter\-\_\-flags\-\_\-decoder.\-c@{filter\-\_\-flags\-\_\-decoder.\-c}!lzma\-\_\-filter\-\_\-flags\-\_\-decode@{lzma\-\_\-filter\-\_\-flags\-\_\-decode}}
+\index{lzma\-\_\-filter\-\_\-flags\-\_\-decode@{lzma\-\_\-filter\-\_\-flags\-\_\-decode}!filter_flags_decoder.c@{filter\-\_\-flags\-\_\-decoder.\-c}}
+\subsubsection[{lzma\-\_\-filter\-\_\-flags\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-filter\-\_\-flags\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-filter} $\ast$}]{filter, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$}]{in, }
+\item[{size\-\_\-t $\ast$}]{in\-\_\-pos, }
+\item[{size\-\_\-t}]{in\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{filter__flags__decoder_8c_a9a1158f867c66ffa35a9b38c830c083c}
+
+
+Decode Filter Flags from given buffer. 
+
+The decoded result is stored into $\ast$filter. The old value of filter-\/$>$options is not free()d.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-D\-\_\-\-S\-T\-A\-R\-T, lzma\-\_\-properties\-\_\-decode(), lzma\-\_\-vli\-\_\-decode(), and return\-\_\-if\-\_\-error.
+
+
+
+Referenced by lzma\-\_\-block\-\_\-header\-\_\-decode().
+

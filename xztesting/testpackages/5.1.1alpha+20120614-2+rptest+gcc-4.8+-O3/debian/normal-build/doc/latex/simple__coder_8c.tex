@@ -1,0 +1,57 @@
+\section{liblzma/simple/simple\-\_\-coder.c File Reference}
+\label{simple__coder_8c}\index{liblzma/simple/simple\-\_\-coder.\-c@{liblzma/simple/simple\-\_\-coder.\-c}}
+
+
+Wrapper for simple filters.  
+
+
+{\ttfamily \#include \char`\"{}simple\-\_\-private.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf lzma\-\_\-ret} {\bf copy\-\_\-or\-\_\-code} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)
+\begin{DoxyCompactList}\small\item\em Copied or encodes/decodes more data to out[]. \end{DoxyCompactList}\item 
+static size\-\_\-t {\bfseries call\-\_\-filter} ({\bf lzma\-\_\-coder} $\ast$coder, uint8\-\_\-t $\ast$buffer, size\-\_\-t size)\label{simple__coder_8c_a3f130655d2df4adcb2349d873c71496a}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries simple\-\_\-code} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$restrict in, size\-\_\-t $\ast$restrict in\-\_\-pos, size\-\_\-t in\-\_\-size, uint8\-\_\-t $\ast$restrict out, size\-\_\-t $\ast$restrict out\-\_\-pos, size\-\_\-t out\-\_\-size, {\bf lzma\-\_\-action} action)\label{simple__coder_8c_ad5dde7322206b584c91f92b5d7d6885f}
+
+\item 
+static void {\bfseries simple\-\_\-coder\-\_\-end} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{simple__coder_8c_a551611edb8ad15a1940193212dd23d67}
+
+\item 
+static {\bf lzma\-\_\-ret} {\bfseries simple\-\_\-coder\-\_\-update} ({\bf lzma\-\_\-coder} $\ast$coder, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter} $\ast$filters\-\_\-null lzma\-\_\-attribute((\-\_\-\-\_\-unused\-\_\-\-\_\-)), const {\bf lzma\-\_\-filter} $\ast$reversed\-\_\-filters)\label{simple__coder_8c_a121741750585de308b07bb2b173ab019}
+
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-simple\-\_\-coder\-\_\-init} ({\bf lzma\-\_\-next\-\_\-coder} $\ast$next, {\bf lzma\-\_\-allocator} $\ast$allocator, const {\bf lzma\-\_\-filter\-\_\-info} $\ast${\bf filters}, size\-\_\-t($\ast$filter)({\bf lzma\-\_\-simple} $\ast$simple, uint32\-\_\-t now\-\_\-pos, bool is\-\_\-encoder, uint8\-\_\-t $\ast$buffer, size\-\_\-t size), size\-\_\-t simple\-\_\-size, size\-\_\-t unfiltered\-\_\-max, uint32\-\_\-t alignment, bool is\-\_\-encoder)\label{simple__coder_8c_af73e8b02551134d6e2a157c41ecea164}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wrapper for simple filters. Simple filters don't change the size of the data i.\-e. number of bytes in equals the number of bytes out. 
+
+\subsection{Function Documentation}
+\index{simple\-\_\-coder.\-c@{simple\-\_\-coder.\-c}!copy\-\_\-or\-\_\-code@{copy\-\_\-or\-\_\-code}}
+\index{copy\-\_\-or\-\_\-code@{copy\-\_\-or\-\_\-code}!simple_coder.c@{simple\-\_\-coder.\-c}}
+\subsubsection[{copy\-\_\-or\-\_\-code}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf lzma\-\_\-ret} copy\-\_\-or\-\_\-code (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-coder} $\ast$}]{coder, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{const uint8\-\_\-t $\ast$restrict}]{in, }
+\item[{size\-\_\-t $\ast$restrict}]{in\-\_\-pos, }
+\item[{size\-\_\-t}]{in\-\_\-size, }
+\item[{uint8\-\_\-t $\ast$restrict}]{out, }
+\item[{size\-\_\-t $\ast$restrict}]{out\-\_\-pos, }
+\item[{size\-\_\-t}]{out\-\_\-size, }
+\item[{{\bf lzma\-\_\-action}}]{action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{simple__coder_8c_a0584bf6928a67ce6463d625b8255fcca}
+
+
+Copied or encodes/decodes more data to out[]. 
+
+
+
+References lzma\-\_\-next\-\_\-coder\-\_\-s\-::code, lzma\-\_\-next\-\_\-coder\-\_\-s\-::coder, lzma\-\_\-coder\-\_\-s\-::end\-\_\-was\-\_\-reached, lzma\-\_\-coder\-\_\-s\-::is\-\_\-encoder, L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-E\-N\-D, and lzma\-\_\-coder\-\_\-s\-::next.
+

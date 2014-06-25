@@ -1,0 +1,34 @@
+\section{liblzma/check/crc32\-\_\-tablegen.c File Reference}
+\label{crc32__tablegen_8c}\index{liblzma/check/crc32\-\_\-tablegen.\-c@{liblzma/check/crc32\-\_\-tablegen.\-c}}
+
+
+Generate crc32\-\_\-table\-\_\-le.\-h and crc32\-\_\-table\-\_\-be.\-h.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}../../common/tuklib\-\_\-integer.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries init\-\_\-crc32\-\_\-table} (void)\label{crc32__tablegen_8c_a7b0f5b087aa1bf439849f0a83700b827}
+
+\item 
+static void {\bfseries print\-\_\-crc32\-\_\-table} (void)\label{crc32__tablegen_8c_a4326c971c1ec8d88b56e38333f60e00b}
+
+\item 
+static void {\bfseries print\-\_\-lz\-\_\-table} (void)\label{crc32__tablegen_8c_a890e9675b63e7f1534306f57178ee7c1}
+
+\item 
+int {\bfseries main} (void)\label{crc32__tablegen_8c_a840291bc02cba5474a4cb46a9b9566fe}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static uint32\-\_\-t {\bfseries crc32\-\_\-table} [8][256]\label{crc32__tablegen_8c_ac6e5263fc912894e8748bdf93c6b5fde}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generate crc32\-\_\-table\-\_\-le.\-h and crc32\-\_\-table\-\_\-be.\-h. Compiling\-: gcc -\/std=c99 -\/o crc32\-\_\-tablegen \doxyref{crc32\-\_\-tablegen.\-c}{p.}{crc32__tablegen_8c} Add -\/\-D\-W\-O\-R\-D\-S\-\_\-\-B\-I\-G\-E\-N\-D\-I\-A\-N to generate big endian table. Add -\/\-D\-L\-Z\-\_\-\-H\-A\-S\-H\-\_\-\-T\-A\-B\-L\-E to generate lz\-\_\-encoder\-\_\-hash\-\_\-table.\-h (little endian). 

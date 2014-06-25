@@ -1,0 +1,150 @@
+\section{liblzma/api/lzma/version.h File Reference}
+\label{version_8h}\index{liblzma/api/lzma/version.\-h@{liblzma/api/lzma/version.\-h}}
+
+
+Version number.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-M\-A\-J\-O\-R}~5\label{version_8h_aa0f450c9d3b0ff5f88b55888ed55701f}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-M\-I\-N\-O\-R}~1\label{version_8h_af8fd295cf8aa349b0731423ad7a56134}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-P\-A\-T\-C\-H}~0\label{version_8h_a8b550373cbff381f15d4308b852a3c2a}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-A\-B\-I\-L\-I\-T\-Y}~L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-A\-L\-P\-H\-A\label{version_8h_ae289abe5dcc203c7cda9f6a9a2f36b3a}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-C\-O\-M\-M\-I\-T}~\char`\"{}\char`\"{}\label{version_8h_a7fd6169ff15ac7f01f94970359a331ea}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-A\-L\-P\-H\-A}~0\label{version_8h_a5bc145ed7d9149eadb77e547ae8f1c5f}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-B\-E\-T\-A}~1\label{version_8h_ad53a96c53713062b4380f01fb115cd48}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-S\-T\-A\-B\-L\-E}~2\label{version_8h_a97f7ed9e90264388614837baf97a4d3b}
+
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N}
+\begin{DoxyCompactList}\small\item\em Compile-\/time version number. \end{DoxyCompactList}\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-S\-T\-R\-I\-N\-G}~\char`\"{}alpha\char`\"{}\label{version_8h_a55a97e55fedce2c148796047ddc88c96}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-C\-\_\-}(major, minor, patch, stability, commit)~\#major \char`\"{}.\char`\"{} \#minor \char`\"{}.\char`\"{} \#patch stability commit\label{version_8h_a0b89024f7a04da9b754abee2afe6df23}
+
+\item 
+\#define {\bfseries L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-C}(major, minor, patch, stability, commit)~L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-C\-\_\-(major, minor, patch, stability, commit)\label{version_8h_ad5614eaf4c2e9408a99bc2137c65ed17}
+
+\item 
+\#define {\bf L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G}
+\begin{DoxyCompactList}\small\item\em Compile-\/time version as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t {\bf lzma\-\_\-version\-\_\-number} (void) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-const
+\begin{DoxyCompactList}\small\item\em Run-\/time version number as an integer. \end{DoxyCompactList}\item 
+const char $\ast$ {\bf lzma\-\_\-version\-\_\-string} (void) lzma\-\_\-nothrow lzma\-\_\-attr\-\_\-const
+\begin{DoxyCompactList}\small\item\em Run-\/time version as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Version number. 
+
+\subsection{Macro Definition Documentation}
+\index{version.\-h@{version.\-h}!L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N@{L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N}}
+\index{L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N@{L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N}!version.h@{version.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N}\label{version_8h_a156c47ff34aa0c2b726d0daf799f10a0}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(LZMA\_VERSION\_MAJOR * UINT32\_C(10000000) \(\backslash\)
+                + LZMA\_VERSION\_MINOR * UINT32\_C(10000) \(\backslash\)
+                + LZMA\_VERSION\_PATCH * UINT32\_C(10) \(\backslash\)
+                + LZMA\_VERSION\_STABILITY)
+\end{DoxyCode}
+
+
+Compile-\/time version number. 
+
+The version number is of format xyyyzzzs where
+\begin{DoxyItemize}
+\item x = major
+\item yyy = minor
+\item zzz = revision
+\item s indicates stability\-: 0 = alpha, 1 = beta, 2 = stable
+\end{DoxyItemize}
+
+The same xyyyzzz triplet is never reused with different stability levels. For example, if 5.\-1.\-0alpha has been released, there will never be 5.\-1.\-0beta or 5.\-1.\-0 stable.
+
+\begin{DoxyNote}{Note}
+The version number of liblzma has nothing to with the version number of Igor Pavlov's L\-Z\-M\-A S\-D\-K. 
+\end{DoxyNote}
+
+
+Referenced by lzma\-\_\-version\-\_\-number(), and message\-\_\-version().
+
+\index{version.\-h@{version.\-h}!L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G@{L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G}}
+\index{L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G@{L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G}!version.h@{version.\-h}}
+\subsubsection[{L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G}\label{version_8h_a57bb143c993c305a53e9aade831a546c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+LZMA\_VERSION\_STRING\_C( \(\backslash\)
+                LZMA\_VERSION\_MAJOR, LZMA\_VERSION\_MINOR, \(\backslash\)
+                LZMA\_VERSION\_PATCH, LZMA\_VERSION\_STABILITY\_STRING, \(\backslash\)
+                LZMA\_VERSION\_COMMIT)
+\end{DoxyCode}
+
+
+Compile-\/time version as a string. 
+
+This can be for example \char`\"{}4.\-999.\-5alpha\char`\"{}, \char`\"{}4.\-999.\-8beta\char`\"{}, or \char`\"{}5.\-0.\-0\char`\"{} (stable versions don't have any \char`\"{}stable\char`\"{} suffix). In future, a snapshot built from source code repository may include an additional suffix, for example \char`\"{}4.\-999.\-8beta-\/21-\/g1d92\char`\"{}. The commit I\-D won't be available in numeric form in L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N macro. 
+
+Referenced by lzma\-\_\-version\-\_\-string(), and message\-\_\-version().
+
+
+
+\subsection{Function Documentation}
+\index{version.\-h@{version.\-h}!lzma\-\_\-version\-\_\-number@{lzma\-\_\-version\-\_\-number}}
+\index{lzma\-\_\-version\-\_\-number@{lzma\-\_\-version\-\_\-number}!version.h@{version.\-h}}
+\subsubsection[{lzma\-\_\-version\-\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-version\-\_\-number (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\label{version_8h_a72f929c9b9e8e730b790b3f8c80c3c80}
+
+
+Run-\/time version number as an integer. 
+
+Return the value of L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N macro at the compile time of liblzma. This allows the application to compare if it was built against the same, older, or newer version of liblzma that is currently running. 
+
+References L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N.
+
+
+
+Referenced by message\-\_\-version().
+
+\index{version.\-h@{version.\-h}!lzma\-\_\-version\-\_\-string@{lzma\-\_\-version\-\_\-string}}
+\index{lzma\-\_\-version\-\_\-string@{lzma\-\_\-version\-\_\-string}!version.h@{version.\-h}}
+\subsubsection[{lzma\-\_\-version\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ lzma\-\_\-version\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\label{version_8h_ac080c58f8b391c7ee14028ce785e76a3}
+
+
+Run-\/time version as a string. 
+
+This function may be useful if you want to display which version of liblzma your application is currently using. 
+
+References L\-Z\-M\-A\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-S\-T\-R\-I\-N\-G.
+
+
+
+Referenced by message\-\_\-version().
+

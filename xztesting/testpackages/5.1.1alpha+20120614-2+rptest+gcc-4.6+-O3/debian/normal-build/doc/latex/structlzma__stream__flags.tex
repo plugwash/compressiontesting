@@ -1,0 +1,112 @@
+\section{lzma\-\_\-stream\-\_\-flags Struct Reference}
+\label{structlzma__stream__flags}\index{lzma\-\_\-stream\-\_\-flags@{lzma\-\_\-stream\-\_\-flags}}
+
+
+Options for encoding/decoding Stream Header and Stream Footer.  
+
+
+
+
+{\ttfamily \#include $<$stream\-\_\-flags.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t {\bf version}
+\begin{DoxyCompactList}\small\item\em Stream Flags format version. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf backward\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Backward Size. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-check} {\bf check}
+\begin{DoxyCompactList}\small\item\em Check I\-D. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-reserved\-\_\-enum} {\bfseries reserved\-\_\-enum1}\label{structlzma__stream__flags_a08ecf1bbfdd805d529f4198766917b2a}
+
+\item 
+{\bf lzma\-\_\-reserved\-\_\-enum} {\bfseries reserved\-\_\-enum2}\label{structlzma__stream__flags_ad7b798071b24a9dcc26a2cd504bce78b}
+
+\item 
+{\bf lzma\-\_\-reserved\-\_\-enum} {\bfseries reserved\-\_\-enum3}\label{structlzma__stream__flags_ae1a5bf81d7efb8b51454e44c47281423}
+
+\item 
+{\bf lzma\-\_\-reserved\-\_\-enum} {\bfseries reserved\-\_\-enum4}\label{structlzma__stream__flags_a4eecc4e6ea5cf1ed01631ddb85ced791}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool1}\label{structlzma__stream__flags_afe041e4d1c1adf375365139a14347259}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool2}\label{structlzma__stream__flags_ac92fbc390bd1c061f47fd44a03a7c6a0}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool3}\label{structlzma__stream__flags_a9773a9dfe4344e810feb6b52be185551}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool4}\label{structlzma__stream__flags_af6955e366b69cdeca03abb8d0b44d451}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool5}\label{structlzma__stream__flags_ab6d8810fd2e540cf25f95f1aab3f9502}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool6}\label{structlzma__stream__flags_ae6b176ef1db1ba8f29398ad0f930e23f}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool7}\label{structlzma__stream__flags_a6a6443e998ad039126b78279818c99a5}
+
+\item 
+{\bf lzma\-\_\-bool} {\bfseries reserved\-\_\-bool8}\label{structlzma__stream__flags_aefb17aafdd73edf6dfdbd692b7180de6}
+
+\item 
+uint32\-\_\-t {\bfseries reserved\-\_\-int1}\label{structlzma__stream__flags_a77267f21d86a369e4c572849a3175f42}
+
+\item 
+uint32\-\_\-t {\bfseries reserved\-\_\-int2}\label{structlzma__stream__flags_a1fc27810044a24ddbfb39fd725917a3b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Options for encoding/decoding Stream Header and Stream Footer. 
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-stream\-\_\-flags@{lzma\-\_\-stream\-\_\-flags}!version@{version}}
+\index{version@{version}!lzma_stream_flags@{lzma\-\_\-stream\-\_\-flags}}
+\subsubsection[{version}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-stream\-\_\-flags\-::version}\label{structlzma__stream__flags_a61e9151869d5b77c868aaa4958e74d10}
+
+
+Stream Flags format version. 
+
+To prevent A\-P\-I and A\-B\-I breakages if new features are needed in Stream Header or Stream Footer, a version number is used to indicate which fields in this structure are in use. For now, version must always be zero. With non-\/zero version, the \doxyref{lzma\-\_\-stream\-\_\-header\-\_\-encode()}{p.}{stream__flags_8h_a2ebb8d6dff23daeb3de398913b845eff} and \doxyref{lzma\-\_\-stream\-\_\-footer\-\_\-encode()}{p.}{stream__flags_8h_a438249a75ea8da952a7474b92bfe7b7a} will return L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R.
+
+\doxyref{lzma\-\_\-stream\-\_\-header\-\_\-decode()}{p.}{stream__flags_8h_ae03198e464f0d296e601ff841e100805} and \doxyref{lzma\-\_\-stream\-\_\-footer\-\_\-decode()}{p.}{stream__flags_8h_aa92a383f85753bb79ee23227fa68186c} will always set this to the lowest value that supports all the features indicated by the Stream Flags field. The application must check that the version number set by the decoding functions is supported by the application. Otherwise it is possible that the application will decode the Stream incorrectly. 
+
+Referenced by index\-\_\-stream\-\_\-init(), lzma\-\_\-index\-\_\-checks(), and lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+
+\index{lzma\-\_\-stream\-\_\-flags@{lzma\-\_\-stream\-\_\-flags}!backward\-\_\-size@{backward\-\_\-size}}
+\index{backward\-\_\-size@{backward\-\_\-size}!lzma_stream_flags@{lzma\-\_\-stream\-\_\-flags}}
+\subsubsection[{backward\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-stream\-\_\-flags\-::backward\-\_\-size}\label{structlzma__stream__flags_aaa65ed7a55a098f829f04dba25d0f212}
+
+
+Backward Size. 
+
+Backward Size must be a multiple of four bytes. In this Stream format version, Backward Size is the size of the Index field.
+
+Backward Size isn't actually part of the Stream Flags field, but it is convenient to include in this structure anyway. Backward Size is present only in the Stream Footer. There is no need to initialize backward\-\_\-size when encoding Stream Header.
+
+\doxyref{lzma\-\_\-stream\-\_\-header\-\_\-decode()}{p.}{stream__flags_8h_ae03198e464f0d296e601ff841e100805} always sets backward\-\_\-size to L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N so that it is convenient to use \doxyref{lzma\-\_\-stream\-\_\-flags\-\_\-compare()}{p.}{stream__flags_8h_a3e25ca4205021302882a696283d45263} when both Stream Header and Stream Footer have been decoded. 
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-encode(), and parse\-\_\-indexes().
+
+\index{lzma\-\_\-stream\-\_\-flags@{lzma\-\_\-stream\-\_\-flags}!check@{check}}
+\index{check@{check}!lzma_stream_flags@{lzma\-\_\-stream\-\_\-flags}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-check} lzma\-\_\-stream\-\_\-flags\-::check}\label{structlzma__stream__flags_ab1052ea7047c8d67f127f33278166647}
+
+
+Check I\-D. 
+
+This indicates the type of the integrity check calculated from uncompressed data. 
+
+Referenced by lzma\-\_\-index\-\_\-checks(), parse\-\_\-block\-\_\-header(), and parse\-\_\-check\-\_\-value().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/api/lzma/{\bf stream\-\_\-flags.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\section{liblzma/common/easy\-\_\-encoder.c File Reference}
+\label{easy__encoder_8c}\index{liblzma/common/easy\-\_\-encoder.\-c@{liblzma/common/easy\-\_\-encoder.\-c}}
+
+
+Easy .xz Stream encoder initialization.  
+
+
+{\ttfamily \#include \char`\"{}easy\-\_\-preset.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-easy\-\_\-encoder} ({\bf lzma\-\_\-stream} $\ast${\bf strm}, uint32\-\_\-t preset, {\bf lzma\-\_\-check} {\bf check})
+\begin{DoxyCompactList}\small\item\em Initialize .xz Stream encoder using a preset number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Easy .xz Stream encoder initialization. 
+
+\subsection{Function Documentation}
+\index{easy\-\_\-encoder.\-c@{easy\-\_\-encoder.\-c}!lzma\-\_\-easy\-\_\-encoder@{lzma\-\_\-easy\-\_\-encoder}}
+\index{lzma\-\_\-easy\-\_\-encoder@{lzma\-\_\-easy\-\_\-encoder}!easy_encoder.c@{easy\-\_\-encoder.\-c}}
+\subsubsection[{lzma\-\_\-easy\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-easy\-\_\-encoder (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-stream} $\ast$}]{strm, }
+\item[{uint32\-\_\-t}]{preset, }
+\item[{{\bf lzma\-\_\-check}}]{check}
+\end{DoxyParamCaption}
+)}\label{easy__encoder_8c_a0cb362a067eb6612c44a8e03d6c50855}
+
+
+Initialize .xz Stream encoder using a preset number. 
+
+This function is intended for those who just want to use the basic features if liblzma (that is, most developers out there).
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to \doxyref{lzma\-\_\-stream}{p.}{structlzma__stream} that is at least initialized with L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-N\-I\-T. \\
+\hline
+{\em preset} & Compression preset to use. A preset consist of level number and zero or more flags. Usually flags aren't used, so preset is simply a number [0, 9] which match the options -\/0 ... -\/9 of the xz command line tool. Additional flags can be be set using bitwise-\/or with the preset level number, e.\-g. 6 $|$ L\-Z\-M\-A\-\_\-\-P\-R\-E\-S\-E\-T\-\_\-\-E\-X\-T\-R\-E\-M\-E. \\
+\hline
+{\em check} & Integrity check type to use. See check.\-h for available checks. The xz command line tool defaults to L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C64, which is a good choice if you are unsure. L\-Z\-M\-A\-\_\-\-C\-H\-E\-C\-K\-\_\-\-C\-R\-C32 is good too as long as the uncompressed file is not many gigabytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Initialization succeeded. Use \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} to encode your data.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R\-: Memory allocation failed.
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: The given compression preset is not supported by this build of liblzma.
+\item L\-Z\-M\-A\-\_\-\-U\-N\-S\-U\-P\-P\-O\-R\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K\-: The given check type is not supported by this liblzma build.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R\-: One or more of the parameters have values that will never be valid. For example, strm == N\-U\-L\-L.
+\end{DoxyItemize}
+\end{DoxyReturn}
+If initialization fails (return value is not L\-Z\-M\-A\-\_\-\-O\-K), all the memory allocated for $\ast$strm by liblzma is always freed. Thus, there is no need to call \doxyref{lzma\-\_\-end()}{p.}{base_8h_a854ff37464ae1225febf14db1af43308} after failed initialization.
+
+If initialization succeeds, use \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} to do the actual encoding. Valid values for `action' (the second argument of \doxyref{lzma\-\_\-code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}) are L\-Z\-M\-A\-\_\-\-R\-U\-N, L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H, L\-Z\-M\-A\-\_\-\-F\-U\-L\-L\-\_\-\-F\-L\-U\-S\-H, and L\-Z\-M\-A\-\_\-\-F\-I\-N\-I\-S\-H. In future, there may be compression levels or flags that don't support L\-Z\-M\-A\-\_\-\-S\-Y\-N\-C\-\_\-\-F\-L\-U\-S\-H. 
+
+References lzma\-\_\-options\-\_\-easy\-::filters, lzma\-\_\-easy\-\_\-preset(), L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R, and lzma\-\_\-stream\-\_\-encoder().
+

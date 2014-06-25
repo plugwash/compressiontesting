@@ -1,0 +1,789 @@
+\section{liblzma/common/index.c File Reference}
+\label{index_8c}\index{liblzma/common/index.\-c@{liblzma/common/index.\-c}}
+
+
+Handling of .xz Indexes and some other Stream information.  
+
+
+{\ttfamily \#include \char`\"{}index.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stream\-\_\-flags\-\_\-common.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf index\-\_\-tree\-\_\-node\-\_\-s}
+\item 
+struct {\bf index\-\_\-tree}
+\begin{DoxyCompactList}\small\item\em A\-V\-L tree to hold \doxyref{index\-\_\-stream}{p.}{structindex__stream} or \doxyref{index\-\_\-group}{p.}{structindex__group} structures. \end{DoxyCompactList}\item 
+struct {\bf index\-\_\-record}
+\item 
+struct {\bf index\-\_\-group}
+\item 
+struct {\bf index\-\_\-stream}
+\item 
+struct {\bf lzma\-\_\-index\-\_\-s}
+\item 
+struct {\bf index\-\_\-cat\-\_\-info}
+\begin{DoxyCompactList}\small\item\em Structure to pass info to \doxyref{index\-\_\-cat\-\_\-helper()}{p.}{index_8c_ae84b534588169c7490e8fe61c141b1d6} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E}~512
+\begin{DoxyCompactList}\small\item\em How many Records to allocate at once. \end{DoxyCompactList}\item 
+\#define {\bf P\-R\-E\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X}~((S\-I\-Z\-E\-\_\-\-M\-A\-X -\/ sizeof({\bf index\-\_\-group})) / sizeof({\bf index\-\_\-record}))
+\begin{DoxyCompactList}\small\item\em How many Records can be allocated at once at maximum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf index\-\_\-tree\-\_\-node\-\_\-s} {\bf index\-\_\-tree\-\_\-node}
+\begin{DoxyCompactList}\small\item\em Base structure for \doxyref{index\-\_\-stream}{p.}{structindex__stream} and \doxyref{index\-\_\-group}{p.}{structindex__group} structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \\*
+{\bfseries I\-T\-E\-R\-\_\-\-I\-N\-D\-E\-X}, 
+{\bfseries I\-T\-E\-R\-\_\-\-S\-T\-R\-E\-A\-M}, 
+{\bfseries I\-T\-E\-R\-\_\-\-G\-R\-O\-U\-P}, 
+{\bfseries I\-T\-E\-R\-\_\-\-R\-E\-C\-O\-R\-D}, 
+\\*
+{\bfseries I\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D}
+ \}
+\begin{DoxyCompactList}\small\item\em Indexing for lzma\-\_\-index\-\_\-iter.\-internal[]. \end{DoxyCompactList}\item 
+enum \{ {\bfseries I\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-N\-O\-R\-M\-A\-L}, 
+{\bfseries I\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-N\-E\-X\-T}, 
+{\bfseries I\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-L\-E\-F\-T\-M\-O\-S\-T}
+ \}
+\begin{DoxyCompactList}\small\item\em Values for lzma\-\_\-index\-\_\-iter.\-internal[I\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D].s. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries index\-\_\-tree\-\_\-init} ({\bf index\-\_\-tree} $\ast$tree)\label{index_8c_a72d173b4e1d1247064e3b002acbd0da7}
+
+\item 
+static void {\bf index\-\_\-tree\-\_\-node\-\_\-end} ({\bf index\-\_\-tree\-\_\-node} $\ast$node, {\bf lzma\-\_\-allocator} $\ast$allocator, void($\ast$free\-\_\-func)(void $\ast$node, {\bf lzma\-\_\-allocator} $\ast$allocator))
+\begin{DoxyCompactList}\small\item\em Helper for \doxyref{index\-\_\-tree\-\_\-end()}{p.}{index_8c_ad0843d99b4a243fbcd4b4a52f1758d8c} \end{DoxyCompactList}\item 
+static void {\bf index\-\_\-tree\-\_\-end} ({\bf index\-\_\-tree} $\ast$tree, {\bf lzma\-\_\-allocator} $\ast$allocator, void($\ast$free\-\_\-func)(void $\ast$node, {\bf lzma\-\_\-allocator} $\ast$allocator))
+\item 
+static void {\bf index\-\_\-tree\-\_\-append} ({\bf index\-\_\-tree} $\ast$tree, {\bf index\-\_\-tree\-\_\-node} $\ast$node)
+\item 
+static void $\ast$ {\bf index\-\_\-tree\-\_\-next} (const {\bf index\-\_\-tree\-\_\-node} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Get the next node in the tree. Return N\-U\-L\-L if there are no more nodes. \end{DoxyCompactList}\item 
+static void $\ast$ {\bf index\-\_\-tree\-\_\-locate} (const {\bf index\-\_\-tree} $\ast$tree, {\bf lzma\-\_\-vli} target)
+\item 
+static {\bf index\-\_\-stream} $\ast$ {\bf index\-\_\-stream\-\_\-init} ({\bf lzma\-\_\-vli} compressed\-\_\-base, {\bf lzma\-\_\-vli} uncompressed\-\_\-base, {\bf lzma\-\_\-vli} stream\-\_\-number, {\bf lzma\-\_\-vli} block\-\_\-number\-\_\-base, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Allocate and initialize a new Stream using the given base offsets. \end{DoxyCompactList}\item 
+static void {\bf index\-\_\-stream\-\_\-end} (void $\ast$node, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Free the memory allocated for a Stream and its Record groups. \end{DoxyCompactList}\item 
+static {\bf lzma\-\_\-index} $\ast$ {\bfseries index\-\_\-init\-\_\-plain} ({\bf lzma\-\_\-allocator} $\ast$allocator)\label{index_8c_a38513522a71c4789582d59e303ede20c}
+
+\item 
+{\bf lzma\-\_\-index} $\ast$ {\bf lzma\-\_\-index\-\_\-init} ({\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Allocate and initialize a new lzma\-\_\-index structure. \end{DoxyCompactList}\item 
+void {\bf lzma\-\_\-index\-\_\-end} ({\bf lzma\-\_\-index} $\ast$i, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Deallocate lzma\-\_\-index. \end{DoxyCompactList}\item 
+void {\bf lzma\-\_\-index\-\_\-prealloc} ({\bf lzma\-\_\-index} $\ast$i, {\bf lzma\-\_\-vli} records)
+\item 
+uint64\-\_\-t {\bf lzma\-\_\-index\-\_\-memusage} ({\bf lzma\-\_\-vli} streams, {\bf lzma\-\_\-vli} blocks)
+\begin{DoxyCompactList}\small\item\em Calculate memory usage of lzma\-\_\-index. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bf lzma\-\_\-index\-\_\-memused} (const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Calculate the memory usage of an existing lzma\-\_\-index. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf lzma\-\_\-index\-\_\-block\-\_\-count} (const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Get the number of Blocks. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf lzma\-\_\-index\-\_\-stream\-\_\-count} (const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Get the number of Streams. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf lzma\-\_\-index\-\_\-size} (const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Get the size of the Index field as bytes. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf lzma\-\_\-index\-\_\-total\-\_\-size} (const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Get the total size of the Blocks. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf lzma\-\_\-index\-\_\-stream\-\_\-size} (const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Get the total size of the Stream. \end{DoxyCompactList}\item 
+static {\bf lzma\-\_\-vli} {\bfseries index\-\_\-file\-\_\-size} ({\bf lzma\-\_\-vli} compressed\-\_\-base, {\bf lzma\-\_\-vli} unpadded\-\_\-sum, {\bf lzma\-\_\-vli} record\-\_\-count, {\bf lzma\-\_\-vli} index\-\_\-list\-\_\-size, {\bf lzma\-\_\-vli} stream\-\_\-padding)\label{index_8c_a29e41708c74af647158c72c58c35c44a}
+
+\item 
+{\bf lzma\-\_\-vli} {\bf lzma\-\_\-index\-\_\-file\-\_\-size} (const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Get the total size of the file. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-vli} {\bf lzma\-\_\-index\-\_\-uncompressed\-\_\-size} (const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Get the uncompressed size of the file. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf lzma\-\_\-index\-\_\-checks} (const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Get the types of integrity Checks. \end{DoxyCompactList}\item 
+uint32\-\_\-t {\bf lzma\-\_\-index\-\_\-padding\-\_\-size} (const {\bf lzma\-\_\-index} $\ast$i)
+\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-index\-\_\-stream\-\_\-flags} ({\bf lzma\-\_\-index} $\ast$i, const {\bf lzma\-\_\-stream\-\_\-flags} $\ast$stream\-\_\-flags)
+\begin{DoxyCompactList}\small\item\em Set the Stream Flags. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-index\-\_\-stream\-\_\-padding} ({\bf lzma\-\_\-index} $\ast$i, {\bf lzma\-\_\-vli} stream\-\_\-padding)
+\begin{DoxyCompactList}\small\item\em Set the amount of Stream Padding. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-ret} {\bf lzma\-\_\-index\-\_\-append} ({\bf lzma\-\_\-index} $\ast$i, {\bf lzma\-\_\-allocator} $\ast$allocator, {\bf lzma\-\_\-vli} unpadded\-\_\-size, {\bf lzma\-\_\-vli} uncompressed\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Add a new Block to lzma\-\_\-index. \end{DoxyCompactList}\item 
+static void {\bf index\-\_\-cat\-\_\-helper} (const {\bf index\-\_\-cat\-\_\-info} $\ast$info, {\bf index\-\_\-stream} $\ast$this)
+\item 
+{\bf lzma\-\_\-ret} {\bfseries lzma\-\_\-index\-\_\-cat} ({\bf lzma\-\_\-index} $\ast$restrict dest, {\bf lzma\-\_\-index} $\ast$restrict src, {\bf lzma\-\_\-allocator} $\ast$allocator)\label{index_8c_a9bbe4243896bcca83ee9c0aa6becb67e}
+
+\item 
+static {\bf index\-\_\-stream} $\ast$ {\bf index\-\_\-dup\-\_\-stream} (const {\bf index\-\_\-stream} $\ast$src, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Duplicate an \doxyref{index\-\_\-stream}{p.}{structindex__stream}. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-index} $\ast$ {\bf lzma\-\_\-index\-\_\-dup} (const {\bf lzma\-\_\-index} $\ast$src, {\bf lzma\-\_\-allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Duplicate lzma\-\_\-index. \end{DoxyCompactList}\item 
+static void {\bfseries iter\-\_\-set\-\_\-info} ({\bf lzma\-\_\-index\-\_\-iter} $\ast$iter)\label{index_8c_a3de1fd80cdf1acff1b75c27b7c62f1b0}
+
+\item 
+void {\bf lzma\-\_\-index\-\_\-iter\-\_\-init} ({\bf lzma\-\_\-index\-\_\-iter} $\ast$iter, const {\bf lzma\-\_\-index} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Initialize an iterator. \end{DoxyCompactList}\item 
+void {\bf lzma\-\_\-index\-\_\-iter\-\_\-rewind} ({\bf lzma\-\_\-index\-\_\-iter} $\ast$iter)
+\begin{DoxyCompactList}\small\item\em Rewind the iterator. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-bool} {\bf lzma\-\_\-index\-\_\-iter\-\_\-next} ({\bf lzma\-\_\-index\-\_\-iter} $\ast$iter, {\bf lzma\-\_\-index\-\_\-iter\-\_\-mode} mode)
+\begin{DoxyCompactList}\small\item\em Get the next Block or Stream. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-bool} {\bf lzma\-\_\-index\-\_\-iter\-\_\-locate} ({\bf lzma\-\_\-index\-\_\-iter} $\ast$iter, {\bf lzma\-\_\-vli} target)
+\begin{DoxyCompactList}\small\item\em Locate a Block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handling of .xz Indexes and some other Stream information. 
+
+\subsection{Macro Definition Documentation}
+\index{index.\-c@{index.\-c}!I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E@{I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E}}
+\index{I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E@{I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E}!index.c@{index.\-c}}
+\subsubsection[{I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E~512}\label{index_8c_a5083e2e588a600088db6cea759e07437}
+
+
+How many Records to allocate at once. 
+
+This should be big enough to avoid making lots of tiny allocations but small enough to avoid too much unused memory at once. 
+
+Referenced by lzma\-\_\-index\-\_\-append(), and lzma\-\_\-index\-\_\-memusage().
+
+\index{index.\-c@{index.\-c}!P\-R\-E\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X@{P\-R\-E\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X}}
+\index{P\-R\-E\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X@{P\-R\-E\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X}!index.c@{index.\-c}}
+\subsubsection[{P\-R\-E\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X~((S\-I\-Z\-E\-\_\-\-M\-A\-X -\/ sizeof({\bf index\-\_\-group})) / sizeof({\bf index\-\_\-record}))}\label{index_8c_a5611619fba202b1641dca31ec9b8f716}
+
+
+How many Records can be allocated at once at maximum. 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), and lzma\-\_\-index\-\_\-prealloc().
+
+
+
+\subsection{Typedef Documentation}
+\index{index.\-c@{index.\-c}!index\-\_\-tree\-\_\-node@{index\-\_\-tree\-\_\-node}}
+\index{index\-\_\-tree\-\_\-node@{index\-\_\-tree\-\_\-node}!index.c@{index.\-c}}
+\subsubsection[{index\-\_\-tree\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf index\-\_\-tree\-\_\-node\-\_\-s} {\bf index\-\_\-tree\-\_\-node}}\label{index_8c_a7d9c96f29c685f30b42c9abdd307d8a6}
+
+
+Base structure for \doxyref{index\-\_\-stream}{p.}{structindex__stream} and \doxyref{index\-\_\-group}{p.}{structindex__group} structures. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{index_8c_ac36f475ca5b446f4fde4c9b90bec77c8}
+
+
+Indexing for lzma\-\_\-index\-\_\-iter.\-internal[]. 
+
+\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{index_8c_a05589fbab0657f08285ebdfe93f5ec9e}
+
+
+Values for lzma\-\_\-index\-\_\-iter.\-internal[I\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D].s. 
+
+
+
+\subsection{Function Documentation}
+\index{index.\-c@{index.\-c}!index\-\_\-tree\-\_\-node\-\_\-end@{index\-\_\-tree\-\_\-node\-\_\-end}}
+\index{index\-\_\-tree\-\_\-node\-\_\-end@{index\-\_\-tree\-\_\-node\-\_\-end}!index.c@{index.\-c}}
+\subsubsection[{index\-\_\-tree\-\_\-node\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}static void index\-\_\-tree\-\_\-node\-\_\-end (
+\begin{DoxyParamCaption}
+\item[{{\bf index\-\_\-tree\-\_\-node} $\ast$}]{node, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{void($\ast$)(void $\ast$node, {\bf lzma\-\_\-allocator} $\ast$allocator)}]{free\-\_\-func}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{index_8c_a18e034eee97f9732b884117e0234276d}
+
+
+Helper for \doxyref{index\-\_\-tree\-\_\-end()}{p.}{index_8c_ad0843d99b4a243fbcd4b4a52f1758d8c} 
+
+
+
+Referenced by index\-\_\-tree\-\_\-end().
+
+\index{index.\-c@{index.\-c}!index\-\_\-tree\-\_\-end@{index\-\_\-tree\-\_\-end}}
+\index{index\-\_\-tree\-\_\-end@{index\-\_\-tree\-\_\-end}!index.c@{index.\-c}}
+\subsubsection[{index\-\_\-tree\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}static void index\-\_\-tree\-\_\-end (
+\begin{DoxyParamCaption}
+\item[{{\bf index\-\_\-tree} $\ast$}]{tree, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{void($\ast$)(void $\ast$node, {\bf lzma\-\_\-allocator} $\ast$allocator)}]{free\-\_\-func}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{index_8c_ad0843d99b4a243fbcd4b4a52f1758d8c}
+Free the meory allocated for a tree. If free\-\_\-func is not N\-U\-L\-L, it is called on each node before freeing the node. This is used to free the Record groups from each \doxyref{index\-\_\-stream}{p.}{structindex__stream} before freeing the \doxyref{index\-\_\-stream}{p.}{structindex__stream} itself. 
+
+References index\-\_\-tree\-\_\-node\-\_\-end(), and index\-\_\-tree\-::root.
+
+
+
+Referenced by index\-\_\-stream\-\_\-end(), and lzma\-\_\-index\-\_\-end().
+
+\index{index.\-c@{index.\-c}!index\-\_\-tree\-\_\-append@{index\-\_\-tree\-\_\-append}}
+\index{index\-\_\-tree\-\_\-append@{index\-\_\-tree\-\_\-append}!index.c@{index.\-c}}
+\subsubsection[{index\-\_\-tree\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}static void index\-\_\-tree\-\_\-append (
+\begin{DoxyParamCaption}
+\item[{{\bf index\-\_\-tree} $\ast$}]{tree, }
+\item[{{\bf index\-\_\-tree\-\_\-node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{index_8c_a8a3b2b95c1953a8cf7f9fa88316081fc}
+Add a new node to the tree. node-\/$>$uncompressed\-\_\-base and node-\/$>$compressed\-\_\-base must have been set by the caller already. 
+
+References index\-\_\-tree\-\_\-node\-\_\-s\-::compressed\-\_\-base, index\-\_\-tree\-::count, index\-\_\-tree\-::leftmost, index\-\_\-tree\-::rightmost, index\-\_\-tree\-::root, and index\-\_\-tree\-\_\-node\-\_\-s\-::uncompressed\-\_\-base.
+
+
+
+Referenced by index\-\_\-cat\-\_\-helper(), index\-\_\-dup\-\_\-stream(), lzma\-\_\-index\-\_\-append(), lzma\-\_\-index\-\_\-dup(), and lzma\-\_\-index\-\_\-init().
+
+\index{index.\-c@{index.\-c}!index\-\_\-tree\-\_\-next@{index\-\_\-tree\-\_\-next}}
+\index{index\-\_\-tree\-\_\-next@{index\-\_\-tree\-\_\-next}!index.c@{index.\-c}}
+\subsubsection[{index\-\_\-tree\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}static void$\ast$ index\-\_\-tree\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{const {\bf index\-\_\-tree\-\_\-node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{index_8c_a9043c7fea3feef371dd37abbc7db14ab}
+
+
+Get the next node in the tree. Return N\-U\-L\-L if there are no more nodes. 
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), lzma\-\_\-index\-\_\-dup(), and lzma\-\_\-index\-\_\-iter\-\_\-next().
+
+\index{index.\-c@{index.\-c}!index\-\_\-tree\-\_\-locate@{index\-\_\-tree\-\_\-locate}}
+\index{index\-\_\-tree\-\_\-locate@{index\-\_\-tree\-\_\-locate}!index.c@{index.\-c}}
+\subsubsection[{index\-\_\-tree\-\_\-locate}]{\setlength{\rightskip}{0pt plus 5cm}static void$\ast$ index\-\_\-tree\-\_\-locate (
+\begin{DoxyParamCaption}
+\item[{const {\bf index\-\_\-tree} $\ast$}]{tree, }
+\item[{{\bf lzma\-\_\-vli}}]{target}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{index_8c_ac6795607a0d3881e5fff569a82d01415}
+Locate a node that contains the given uncompressed offset. It is caller's job to check that target is not bigger than the uncompressed size of the tree (the last node would be returned in that case still). 
+
+References index\-\_\-tree\-::leftmost, index\-\_\-tree\-::root, and index\-\_\-tree\-\_\-node\-\_\-s\-::uncompressed\-\_\-base.
+
+
+
+Referenced by lzma\-\_\-index\-\_\-iter\-\_\-locate().
+
+\index{index.\-c@{index.\-c}!index\-\_\-stream\-\_\-init@{index\-\_\-stream\-\_\-init}}
+\index{index\-\_\-stream\-\_\-init@{index\-\_\-stream\-\_\-init}!index.c@{index.\-c}}
+\subsubsection[{index\-\_\-stream\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf index\-\_\-stream}$\ast$ index\-\_\-stream\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-vli}}]{compressed\-\_\-base, }
+\item[{{\bf lzma\-\_\-vli}}]{uncompressed\-\_\-base, }
+\item[{{\bf lzma\-\_\-vli}}]{stream\-\_\-number, }
+\item[{{\bf lzma\-\_\-vli}}]{block\-\_\-number\-\_\-base, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{index_8c_a2735b9fc95daaac1420cd6ebae2a2fa8}
+
+
+Allocate and initialize a new Stream using the given base offsets. 
+
+
+
+References index\-\_\-stream\-::block\-\_\-number\-\_\-base, index\-\_\-tree\-\_\-node\-\_\-s\-::compressed\-\_\-base, index\-\_\-stream\-::groups, index\-\_\-stream\-::index\-\_\-list\-\_\-size, lzma\-\_\-alloc(), index\-\_\-stream\-::node, index\-\_\-stream\-::number, index\-\_\-stream\-::record\-\_\-count, index\-\_\-stream\-::stream\-\_\-flags, index\-\_\-stream\-::stream\-\_\-padding, index\-\_\-tree\-\_\-node\-\_\-s\-::uncompressed\-\_\-base, and lzma\-\_\-stream\-\_\-flags\-::version.
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), and lzma\-\_\-index\-\_\-init().
+
+\index{index.\-c@{index.\-c}!index\-\_\-stream\-\_\-end@{index\-\_\-stream\-\_\-end}}
+\index{index\-\_\-stream\-\_\-end@{index\-\_\-stream\-\_\-end}!index.c@{index.\-c}}
+\subsubsection[{index\-\_\-stream\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}static void index\-\_\-stream\-\_\-end (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{node, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{index_8c_a0cc239b8b51d743b420293025c167eed}
+
+
+Free the memory allocated for a Stream and its Record groups. 
+
+
+
+References index\-\_\-stream\-::groups, and index\-\_\-tree\-\_\-end().
+
+
+
+Referenced by index\-\_\-dup\-\_\-stream(), and lzma\-\_\-index\-\_\-end().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-init@{lzma\-\_\-index\-\_\-init}}
+\index{lzma\-\_\-index\-\_\-init@{lzma\-\_\-index\-\_\-init}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-index}$\ast$ lzma\-\_\-index\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)}\label{index_8c_aa40bf2bf3abd7914e643cdb42edac896}
+
+
+Allocate and initialize a new lzma\-\_\-index structure. 
+
+\begin{DoxyReturn}{Returns}
+On success, a pointer to an empty initialized lzma\-\_\-index is returned. If allocation fails, N\-U\-L\-L is returned. 
+\end{DoxyReturn}
+
+
+References index\-\_\-stream\-\_\-init(), index\-\_\-tree\-\_\-append(), index\-\_\-stream\-::node, and lzma\-\_\-index\-\_\-s\-::streams.
+
+
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-end@{lzma\-\_\-index\-\_\-end}}
+\index{lzma\-\_\-index\-\_\-end@{lzma\-\_\-index\-\_\-end}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}void lzma\-\_\-index\-\_\-end (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index} $\ast$}]{i, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)}\label{index_8c_a7aade93273d56c5cf62e4fd02f10c791}
+
+
+Deallocate lzma\-\_\-index. 
+
+If i is N\-U\-L\-L, this does nothing. 
+
+References index\-\_\-stream\-\_\-end(), and index\-\_\-tree\-\_\-end().
+
+
+
+Referenced by list\-\_\-file(), lzma\-\_\-index\-\_\-buffer\-\_\-decode(), lzma\-\_\-index\-\_\-dup(), lzma\-\_\-stream\-\_\-buffer\-\_\-encode(), and parse\-\_\-indexes().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-prealloc@{lzma\-\_\-index\-\_\-prealloc}}
+\index{lzma\-\_\-index\-\_\-prealloc@{lzma\-\_\-index\-\_\-prealloc}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-prealloc}]{\setlength{\rightskip}{0pt plus 5cm}void lzma\-\_\-index\-\_\-prealloc (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index} $\ast$}]{i, }
+\item[{{\bf lzma\-\_\-vli}}]{records}
+\end{DoxyParamCaption}
+)}\label{index_8c_a017afdd81c6a8410f3148d82dca671c2}
+Set for how many Records to allocate memory the next time \doxyref{lzma\-\_\-index\-\_\-append()}{p.}{api_2lzma_2index_8h_aad24f1d4784b7c665b27ae91b52d3bd1} needs to allocate space for a new Record. This is used only by the Index decoder. 
+
+References lzma\-\_\-index\-\_\-s\-::prealloc, and P\-R\-E\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X.
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-memusage@{lzma\-\_\-index\-\_\-memusage}}
+\index{lzma\-\_\-index\-\_\-memusage@{lzma\-\_\-index\-\_\-memusage}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-index\-\_\-memusage (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-vli}}]{streams, }
+\item[{{\bf lzma\-\_\-vli}}]{blocks}
+\end{DoxyParamCaption}
+)}\label{index_8c_a520a04acfa6fedd5ea32ce8af29339ad}
+
+
+Calculate memory usage of lzma\-\_\-index. 
+
+On disk, the size of the Index field depends on both the number of Records stored and how big values the Records store (due to variable-\/length integer encoding). When the Index is kept in lzma\-\_\-index structure, the memory usage depends only on the number of Records/\-Blocks stored in the Index(es), and in case of concatenated lzma\-\_\-indexes, the number of Streams. The size in R\-A\-M is almost always significantly bigger than in the encoded form on disk.
+
+This function calculates an approximate amount of memory needed hold the given number of Streams and Blocks in lzma\-\_\-index structure. This value may vary between C\-P\-U architectures and also between liblzma versions if the internal implementation is modified. 
+
+References I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E, and L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X.
+
+
+
+Referenced by lzma\-\_\-index\-\_\-buffer\-\_\-decode(), and lzma\-\_\-index\-\_\-memused().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-memused@{lzma\-\_\-index\-\_\-memused}}
+\index{lzma\-\_\-index\-\_\-memused@{lzma\-\_\-index\-\_\-memused}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-memused}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t lzma\-\_\-index\-\_\-memused (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_ae39293600748764d3b1ee02ebb65e947}
+
+
+Calculate the memory usage of an existing lzma\-\_\-index. 
+
+This is a shorthand for lzma\-\_\-index\-\_\-memusage(lzma\-\_\-index\-\_\-stream\-\_\-count(i), lzma\-\_\-index\-\_\-block\-\_\-count(i)). 
+
+References lzma\-\_\-index\-\_\-memusage().
+
+
+
+Referenced by parse\-\_\-indexes().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-block\-\_\-count@{lzma\-\_\-index\-\_\-block\-\_\-count}}
+\index{lzma\-\_\-index\-\_\-block\-\_\-count@{lzma\-\_\-index\-\_\-block\-\_\-count}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-block\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-block\-\_\-count (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_aed1d3357be8dded98a7ec86733e86fc5}
+
+
+Get the number of Blocks. 
+
+This returns the total number of Blocks in lzma\-\_\-index. To get number of Blocks in individual Streams, use \doxyref{lzma\-\_\-index\-\_\-iter}{p.}{structlzma__index__iter}. \index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-stream\-\_\-count@{lzma\-\_\-index\-\_\-stream\-\_\-count}}
+\index{lzma\-\_\-index\-\_\-stream\-\_\-count@{lzma\-\_\-index\-\_\-stream\-\_\-count}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-stream\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-stream\-\_\-count (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_a265c5858f2a4a3c1da8ff4ab4e1ef373}
+
+
+Get the number of Streams. 
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-size@{lzma\-\_\-index\-\_\-size}}
+\index{lzma\-\_\-index\-\_\-size@{lzma\-\_\-index\-\_\-size}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_a64bd8a338f577f0aca7b79c57e4ec23a}
+
+
+Get the size of the Index field as bytes. 
+
+This is needed to verify the Backward Size field in the Stream Footer. 
+
+Referenced by lzma\-\_\-index\-\_\-buffer\-\_\-encode(), and lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-total\-\_\-size@{lzma\-\_\-index\-\_\-total\-\_\-size}}
+\index{lzma\-\_\-index\-\_\-total\-\_\-size@{lzma\-\_\-index\-\_\-total\-\_\-size}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-total\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-total\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_a4a82baf907d73223d2bd2c7e75ef7b73}
+
+
+Get the total size of the Blocks. 
+
+This doesn't include the Stream Header, Stream Footer, Stream Padding, or Index fields. 
+
+Referenced by parse\-\_\-indexes().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-stream\-\_\-size@{lzma\-\_\-index\-\_\-stream\-\_\-size}}
+\index{lzma\-\_\-index\-\_\-stream\-\_\-size@{lzma\-\_\-index\-\_\-stream\-\_\-size}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-stream\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-stream\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_aeb6ff3d3757d20496d866b531f0d92b4}
+
+
+Get the total size of the Stream. 
+
+If multiple lzma\-\_\-indexes have been combined, this works as if the Blocks were in a single Stream. This is useful if you are going to combine Blocks from multiple Streams into a single new Stream. 
+
+References L\-Z\-M\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E.
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-file\-\_\-size@{lzma\-\_\-index\-\_\-file\-\_\-size}}
+\index{lzma\-\_\-index\-\_\-file\-\_\-size@{lzma\-\_\-index\-\_\-file\-\_\-size}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-file\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-file\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_ad4d3746aadd411799d806a3dd5cbe7b2}
+
+
+Get the total size of the file. 
+
+When no lzma\-\_\-indexes have been combined with \doxyref{lzma\-\_\-index\-\_\-cat()}{p.}{api_2lzma_2index_8h_a13f17bbd42eb4702985d035336ea11d6} and there is no Stream Padding, this function is identical to \doxyref{lzma\-\_\-index\-\_\-stream\-\_\-size()}{p.}{api_2lzma_2index_8h_af3630369b43c9ccc906065d759b49663}. If multiple lzma\-\_\-indexes have been combined, this includes also the headers of each separate Stream and the possible Stream Padding fields. 
+
+References index\-\_\-tree\-\_\-node\-\_\-s\-::compressed\-\_\-base, index\-\_\-stream\-::groups, index\-\_\-stream\-::index\-\_\-list\-\_\-size, index\-\_\-group\-::last, index\-\_\-stream\-::node, index\-\_\-stream\-::record\-\_\-count, index\-\_\-group\-::records, index\-\_\-tree\-::rightmost, and index\-\_\-stream\-::stream\-\_\-padding.
+
+
+
+Referenced by lzma\-\_\-index\-\_\-stream\-\_\-padding().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-uncompressed\-\_\-size@{lzma\-\_\-index\-\_\-uncompressed\-\_\-size}}
+\index{lzma\-\_\-index\-\_\-uncompressed\-\_\-size@{lzma\-\_\-index\-\_\-uncompressed\-\_\-size}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-uncompressed\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-index\-\_\-uncompressed\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_a3d993c8e6e73717fbb2b415820f8c712}
+
+
+Get the uncompressed size of the file. 
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-checks@{lzma\-\_\-index\-\_\-checks}}
+\index{lzma\-\_\-index\-\_\-checks@{lzma\-\_\-index\-\_\-checks}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-checks}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-index\-\_\-checks (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_abc4e1a0927e07f5580c9f66dbcec3bc2}
+
+
+Get the types of integrity Checks. 
+
+If \doxyref{lzma\-\_\-index\-\_\-stream\-\_\-flags()}{p.}{api_2lzma_2index_8h_a79a19669237f19f0b11c9f3be80a62b4} is used to set the Stream Flags for every Stream, \doxyref{lzma\-\_\-index\-\_\-checks()}{p.}{api_2lzma_2index_8h_af8d6528a04241841bd0a4322b0c57eaa} can be used to get a bitmask to indicate which Check types have been used. It can be useful e.\-g. if showing the Check types to the user.
+
+The bitmask is 1 $<$$<$ check\-\_\-id, e.\-g. C\-R\-C32 is 1 $<$$<$ 1 and S\-H\-A-\/256 is 1 $<$$<$ 10. 
+
+References lzma\-\_\-stream\-\_\-flags\-::check, index\-\_\-stream\-::stream\-\_\-flags, and lzma\-\_\-stream\-\_\-flags\-::version.
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-padding\-\_\-size@{lzma\-\_\-index\-\_\-padding\-\_\-size}}
+\index{lzma\-\_\-index\-\_\-padding\-\_\-size@{lzma\-\_\-index\-\_\-padding\-\_\-size}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-padding\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-index\-\_\-padding\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_ab88435af7c81e25208df2d831fcf5b6f}
+Get the size of the Index Padding field. This is needed by Index encoder and decoder, but applications should have no use for this. 
+
+References lzma\-\_\-index\-\_\-s\-::index\-\_\-list\-\_\-size, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-C, and lzma\-\_\-index\-\_\-s\-::record\-\_\-count.
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-stream\-\_\-flags@{lzma\-\_\-index\-\_\-stream\-\_\-flags}}
+\index{lzma\-\_\-index\-\_\-stream\-\_\-flags@{lzma\-\_\-index\-\_\-stream\-\_\-flags}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-stream\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-index\-\_\-stream\-\_\-flags (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index} $\ast$}]{i, }
+\item[{const {\bf lzma\-\_\-stream\-\_\-flags} $\ast$}]{stream\-\_\-flags}
+\end{DoxyParamCaption}
+)}\label{index_8c_ad427e6894af982f7443c677bfbe4b856}
+
+
+Set the Stream Flags. 
+
+Set the Stream Flags of the last (and typically the only) Stream in lzma\-\_\-index. This can be useful when reading information from the lzma\-\_\-index, because to decode Blocks, knowing the integrity check type is needed.
+
+The given Stream Flags are copied into internal preallocated structure in the lzma\-\_\-index, thus the caller doesn't need to keep the $\ast$stream\-\_\-flags available after calling this function.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported stream\-\_\-flags-\/$>$version.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-stream\-\_\-flags\-\_\-compare(), return\-\_\-if\-\_\-error, and index\-\_\-stream\-::stream\-\_\-flags.
+
+
+
+Referenced by parse\-\_\-indexes().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-stream\-\_\-padding@{lzma\-\_\-index\-\_\-stream\-\_\-padding}}
+\index{lzma\-\_\-index\-\_\-stream\-\_\-padding@{lzma\-\_\-index\-\_\-stream\-\_\-padding}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-stream\-\_\-padding}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-index\-\_\-stream\-\_\-padding (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index} $\ast$}]{i, }
+\item[{{\bf lzma\-\_\-vli}}]{stream\-\_\-padding}
+\end{DoxyParamCaption}
+)}\label{index_8c_ad1de7c81bb1f94177dd0d1240e1ed652}
+
+
+Set the amount of Stream Padding. 
+
+Set the amount of Stream Padding of the last (and typically the only) Stream in the lzma\-\_\-index. This is needed when planning to do random-\/access reading within multiple concatenated Streams.
+
+By default, the amount of Stream Padding is assumed to be zero bytes.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R\-: The file size would grow too big.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, lzma\-\_\-index\-\_\-file\-\_\-size(), L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X, and index\-\_\-stream\-::stream\-\_\-padding.
+
+
+
+Referenced by parse\-\_\-indexes().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-append@{lzma\-\_\-index\-\_\-append}}
+\index{lzma\-\_\-index\-\_\-append@{lzma\-\_\-index\-\_\-append}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret} lzma\-\_\-index\-\_\-append (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index} $\ast$}]{i, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator, }
+\item[{{\bf lzma\-\_\-vli}}]{unpadded\-\_\-size, }
+\item[{{\bf lzma\-\_\-vli}}]{uncompressed\-\_\-size}
+\end{DoxyParamCaption}
+)}\label{index_8c_a37a3414069a2bcf3cae1baa52c455441}
+
+
+Add a new Block to lzma\-\_\-index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Pointer to a lzma\-\_\-index structure \\
+\hline
+{\em allocator} & Pointer to \doxyref{lzma\-\_\-allocator}{p.}{structlzma__allocator}, or N\-U\-L\-L to use malloc() \\
+\hline
+{\em unpadded\-\_\-size} & Unpadded Size of a Block. This can be calculated with \doxyref{lzma\-\_\-block\-\_\-unpadded\-\_\-size()}{p.}{block_8h_a412d5605280fa29befae1b89e344bf30} after encoding or decoding the Block. \\
+\hline
+{\em uncompressed\-\_\-size} & Uncompressed Size of a Block. This can be taken directly from \doxyref{lzma\-\_\-block}{p.}{structlzma__block} structure after encoding or decoding the Block.\\
+\hline
+\end{DoxyParams}
+Appending a new Block does not invalidate iterators. For example, if an iterator was pointing to the end of the lzma\-\_\-index, after \doxyref{lzma\-\_\-index\-\_\-append()}{p.}{api_2lzma_2index_8h_aad24f1d4784b7c665b27ae91b52d3bd1} it is possible to read the next Block with an existing iterator.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R
+\item L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R\-: Compressed or uncompressed size of the Stream or size of the Index field would grow too big.
+\item L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References index\-\_\-group\-::allocated, index\-\_\-tree\-\_\-node\-\_\-s\-::compressed\-\_\-base, index\-\_\-stream\-::groups, I\-N\-D\-E\-X\-\_\-\-G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E, index\-\_\-stream\-::index\-\_\-list\-\_\-size, index\-\_\-tree\-\_\-append(), index\-\_\-group\-::last, lzma\-\_\-alloc(), L\-Z\-M\-A\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-O\-K, L\-Z\-M\-A\-\_\-\-P\-R\-O\-G\-\_\-\-E\-R\-R\-O\-R, L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-M\-A\-X, lzma\-\_\-vli\-\_\-size(), L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, index\-\_\-group\-::node, index\-\_\-stream\-::node, index\-\_\-group\-::number\-\_\-base, index\-\_\-stream\-::record\-\_\-count, index\-\_\-group\-::records, index\-\_\-tree\-::rightmost, index\-\_\-stream\-::stream\-\_\-padding, and index\-\_\-tree\-\_\-node\-\_\-s\-::uncompressed\-\_\-base.
+
+
+
+Referenced by lzma\-\_\-stream\-\_\-buffer\-\_\-encode().
+
+\index{index.\-c@{index.\-c}!index\-\_\-cat\-\_\-helper@{index\-\_\-cat\-\_\-helper}}
+\index{index\-\_\-cat\-\_\-helper@{index\-\_\-cat\-\_\-helper}!index.c@{index.\-c}}
+\subsubsection[{index\-\_\-cat\-\_\-helper}]{\setlength{\rightskip}{0pt plus 5cm}static void index\-\_\-cat\-\_\-helper (
+\begin{DoxyParamCaption}
+\item[{const {\bf index\-\_\-cat\-\_\-info} $\ast$}]{info, }
+\item[{{\bf index\-\_\-stream} $\ast$}]{this}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{index_8c_ae84b534588169c7490e8fe61c141b1d6}
+Add the Stream nodes from the source index to dest using recursion. Simplest iterative traversal of the source tree wouldn't work, because we update the pointers in nodes when moving them to the destination tree. 
+
+References index\-\_\-cat\-\_\-info\-::block\-\_\-number\-\_\-add, index\-\_\-tree\-\_\-node\-\_\-s\-::compressed\-\_\-base, index\-\_\-cat\-\_\-info\-::file\-\_\-size, index\-\_\-tree\-\_\-append(), index\-\_\-cat\-\_\-info\-::stream\-\_\-number\-\_\-add, index\-\_\-cat\-\_\-info\-::streams, index\-\_\-tree\-\_\-node\-\_\-s\-::uncompressed\-\_\-base, and index\-\_\-cat\-\_\-info\-::uncompressed\-\_\-size.
+
+\index{index.\-c@{index.\-c}!index\-\_\-dup\-\_\-stream@{index\-\_\-dup\-\_\-stream}}
+\index{index\-\_\-dup\-\_\-stream@{index\-\_\-dup\-\_\-stream}!index.c@{index.\-c}}
+\subsubsection[{index\-\_\-dup\-\_\-stream}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf index\-\_\-stream}$\ast$ index\-\_\-dup\-\_\-stream (
+\begin{DoxyParamCaption}
+\item[{const {\bf index\-\_\-stream} $\ast$}]{src, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{index_8c_a2db488e0703ae8bb890202d505b1d82d}
+
+
+Duplicate an \doxyref{index\-\_\-stream}{p.}{structindex__stream}. 
+
+
+
+References index\-\_\-group\-::allocated, index\-\_\-stream\-::block\-\_\-number\-\_\-base, index\-\_\-tree\-\_\-node\-\_\-s\-::compressed\-\_\-base, index\-\_\-stream\-::groups, index\-\_\-stream\-::index\-\_\-list\-\_\-size, index\-\_\-stream\-\_\-end(), index\-\_\-stream\-\_\-init(), index\-\_\-tree\-\_\-append(), index\-\_\-tree\-\_\-next(), index\-\_\-group\-::last, index\-\_\-tree\-::leftmost, lzma\-\_\-alloc(), index\-\_\-group\-::node, index\-\_\-stream\-::node, index\-\_\-stream\-::number, index\-\_\-group\-::number\-\_\-base, P\-R\-E\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X, index\-\_\-stream\-::record\-\_\-count, index\-\_\-group\-::records, index\-\_\-stream\-::stream\-\_\-flags, index\-\_\-stream\-::stream\-\_\-padding, and index\-\_\-tree\-\_\-node\-\_\-s\-::uncompressed\-\_\-base.
+
+
+
+Referenced by lzma\-\_\-index\-\_\-dup().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-dup@{lzma\-\_\-index\-\_\-dup}}
+\index{lzma\-\_\-index\-\_\-dup@{lzma\-\_\-index\-\_\-dup}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-dup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-index}$\ast$ lzma\-\_\-index\-\_\-dup (
+\begin{DoxyParamCaption}
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i, }
+\item[{{\bf lzma\-\_\-allocator} $\ast$}]{allocator}
+\end{DoxyParamCaption}
+)}\label{index_8c_a8ac8a428e781dc92e6839cb15f7a458d}
+
+
+Duplicate lzma\-\_\-index. 
+
+\begin{DoxyReturn}{Returns}
+A copy of the lzma\-\_\-index, or N\-U\-L\-L if memory allocation failed. 
+\end{DoxyReturn}
+
+
+References index\-\_\-dup\-\_\-stream(), lzma\-\_\-index\-\_\-s\-::index\-\_\-list\-\_\-size, index\-\_\-tree\-\_\-append(), index\-\_\-tree\-\_\-next(), lzma\-\_\-index\-\_\-end(), index\-\_\-stream\-::node, lzma\-\_\-index\-\_\-s\-::record\-\_\-count, lzma\-\_\-index\-\_\-s\-::streams, lzma\-\_\-index\-\_\-s\-::total\-\_\-size, and lzma\-\_\-index\-\_\-s\-::uncompressed\-\_\-size.
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-iter\-\_\-init@{lzma\-\_\-index\-\_\-iter\-\_\-init}}
+\index{lzma\-\_\-index\-\_\-iter\-\_\-init@{lzma\-\_\-index\-\_\-iter\-\_\-init}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-iter\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void lzma\-\_\-index\-\_\-iter\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index\-\_\-iter} $\ast$}]{iter, }
+\item[{const {\bf lzma\-\_\-index} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{index_8c_a206339df8447737452aa6870d101065b}
+
+
+Initialize an iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iter} & Pointer to a \doxyref{lzma\-\_\-index\-\_\-iter}{p.}{structlzma__index__iter} structure \\
+\hline
+{\em i} & lzma\-\_\-index to which the iterator will be associated\\
+\hline
+\end{DoxyParams}
+This function associates the iterator with the given lzma\-\_\-index, and calls \doxyref{lzma\-\_\-index\-\_\-iter\-\_\-rewind()}{p.}{api_2lzma_2index_8h_ae81438be8deff4894b104e65d8acdd24} on the iterator.
+
+This function doesn't allocate any memory, thus there is no lzma\-\_\-index\-\_\-iter\-\_\-end(). The iterator is valid as long as the associated lzma\-\_\-index is valid, that is, until \doxyref{lzma\-\_\-index\-\_\-end()}{p.}{api_2lzma_2index_8h_a469f89689529ea250969bb64f80ab874} or using it as source in \doxyref{lzma\-\_\-index\-\_\-cat()}{p.}{api_2lzma_2index_8h_a13f17bbd42eb4702985d035336ea11d6}. Specifically, lzma\-\_\-index doesn't become invalid if new Blocks are added to it with \doxyref{lzma\-\_\-index\-\_\-append()}{p.}{api_2lzma_2index_8h_aad24f1d4784b7c665b27ae91b52d3bd1} or if it is used as the destination in \doxyref{lzma\-\_\-index\-\_\-cat()}{p.}{api_2lzma_2index_8h_a13f17bbd42eb4702985d035336ea11d6}.
+
+It is safe to make copies of an initialized \doxyref{lzma\-\_\-index\-\_\-iter}{p.}{structlzma__index__iter}, for example, to easily restart reading at some particular position. 
+
+References lzma\-\_\-index\-\_\-iter\-\_\-rewind().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-iter\-\_\-rewind@{lzma\-\_\-index\-\_\-iter\-\_\-rewind}}
+\index{lzma\-\_\-index\-\_\-iter\-\_\-rewind@{lzma\-\_\-index\-\_\-iter\-\_\-rewind}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-iter\-\_\-rewind}]{\setlength{\rightskip}{0pt plus 5cm}void lzma\-\_\-index\-\_\-iter\-\_\-rewind (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index\-\_\-iter} $\ast$}]{iter}
+\end{DoxyParamCaption}
+)}\label{index_8c_aed644650074bf3ee087f4f2b31b8aacd}
+
+
+Rewind the iterator. 
+
+Rewind the iterator so that next call to \doxyref{lzma\-\_\-index\-\_\-iter\-\_\-next()}{p.}{api_2lzma_2index_8h_af428522e1b3eef137c65c5a01f766e0e} will return the first Block or Stream. 
+
+Referenced by lzma\-\_\-index\-\_\-iter\-\_\-init().
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-iter\-\_\-next@{lzma\-\_\-index\-\_\-iter\-\_\-next}}
+\index{lzma\-\_\-index\-\_\-iter\-\_\-next@{lzma\-\_\-index\-\_\-iter\-\_\-next}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-iter\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-bool} lzma\-\_\-index\-\_\-iter\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index\-\_\-iter} $\ast$}]{iter, }
+\item[{{\bf lzma\-\_\-index\-\_\-iter\-\_\-mode}}]{mode}
+\end{DoxyParamCaption}
+)}\label{index_8c_a994bd6d74fc850b3a9c4154157b6e5d4}
+
+
+Get the next Block or Stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iter} & Iterator initialized with \doxyref{lzma\-\_\-index\-\_\-iter\-\_\-init()}{p.}{api_2lzma_2index_8h_aa78f02f18ed29d289a6ef37b8ea98a21} \\
+\hline
+{\em mode} & Specify what kind of information the caller wants to get. See lzma\-\_\-index\-\_\-iter\-\_\-mode for details.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If next Block or Stream matching the mode was found, $\ast$iter is updated and this function returns false. If no Block or Stream matching the mode is found, $\ast$iter is not modified and this function returns true. If mode is set to an unknown value, $\ast$iter is not modified and this function returns true. 
+\end{DoxyReturn}
+
+
+References index\-\_\-stream\-::groups, index\-\_\-tree\-\_\-next(), index\-\_\-tree\-::leftmost, L\-Z\-M\-A\-\_\-\-I\-N\-D\-E\-X\-\_\-\-I\-T\-E\-R\-\_\-\-B\-L\-O\-C\-K, L\-Z\-M\-A\-\_\-\-I\-N\-D\-E\-X\-\_\-\-I\-T\-E\-R\-\_\-\-N\-O\-N\-E\-M\-P\-T\-Y\-\_\-\-B\-L\-O\-C\-K, L\-Z\-M\-A\-\_\-\-I\-N\-D\-E\-X\-\_\-\-I\-T\-E\-R\-\_\-\-S\-T\-R\-E\-A\-M, index\-\_\-group\-::node, index\-\_\-stream\-::node, index\-\_\-group\-::records, lzma\-\_\-index\-\_\-s\-::streams, and index\-\_\-tree\-\_\-node\-\_\-s\-::uncompressed\-\_\-base.
+
+\index{index.\-c@{index.\-c}!lzma\-\_\-index\-\_\-iter\-\_\-locate@{lzma\-\_\-index\-\_\-iter\-\_\-locate}}
+\index{lzma\-\_\-index\-\_\-iter\-\_\-locate@{lzma\-\_\-index\-\_\-iter\-\_\-locate}!index.c@{index.\-c}}
+\subsubsection[{lzma\-\_\-index\-\_\-iter\-\_\-locate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-bool} lzma\-\_\-index\-\_\-iter\-\_\-locate (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-index\-\_\-iter} $\ast$}]{iter, }
+\item[{{\bf lzma\-\_\-vli}}]{target}
+\end{DoxyParamCaption}
+)}\label{index_8c_acd683a56b01af334964addb246f78349}
+
+
+Locate a Block. 
+
+If it is possible to seek in the .xz file, it is possible to parse the Index field(s) and use \doxyref{lzma\-\_\-index\-\_\-iter\-\_\-locate()}{p.}{api_2lzma_2index_8h_ac4f56df9d210712e5d7add5502c9eb93} to do random-\/access reading with granularity of Block size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em iter} & Iterator that was earlier initialized with \doxyref{lzma\-\_\-index\-\_\-iter\-\_\-init()}{p.}{api_2lzma_2index_8h_aa78f02f18ed29d289a6ef37b8ea98a21}. \\
+\hline
+{\em target} & Uncompressed target offset which the caller would like to locate from the Stream\\
+\hline
+\end{DoxyParams}
+If the target is smaller than the uncompressed size of the Stream (can be checked with \doxyref{lzma\-\_\-index\-\_\-uncompressed\-\_\-size()}{p.}{api_2lzma_2index_8h_a620fe6317f1f9d7af9cc27c748bf07d6})\-:
+\begin{DoxyItemize}
+\item Information about the Stream and Block containing the requested uncompressed offset is stored into $\ast$iter.
+\item Internal state of the iterator is adjusted so that \doxyref{lzma\-\_\-index\-\_\-iter\-\_\-next()}{p.}{api_2lzma_2index_8h_af428522e1b3eef137c65c5a01f766e0e} can be used to read subsequent Blocks or Streams.
+\item This function returns false.
+\end{DoxyItemize}
+
+If target is greater than the uncompressed size of the Stream, $\ast$iter is not modified, and this function returns true. 
+
+References index\-\_\-stream\-::groups, index\-\_\-tree\-\_\-locate(), index\-\_\-group\-::last, index\-\_\-stream\-::node, index\-\_\-group\-::records, lzma\-\_\-index\-\_\-s\-::streams, index\-\_\-tree\-\_\-node\-\_\-s\-::uncompressed\-\_\-base, and lzma\-\_\-index\-\_\-s\-::uncompressed\-\_\-size.
+

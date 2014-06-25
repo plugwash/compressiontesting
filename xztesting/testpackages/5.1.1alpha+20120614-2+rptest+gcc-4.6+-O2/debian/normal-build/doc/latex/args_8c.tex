@@ -1,0 +1,70 @@
+\section{xz/args.c File Reference}
+\label{args_8c}\index{xz/args.\-c@{xz/args.\-c}}
+
+
+Argument parsing.  
+
+
+{\ttfamily \#include \char`\"{}private.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}getopt.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf parse\-\_\-memlimit} (const char $\ast$name, const char $\ast$name\-\_\-percentage, char $\ast$str, bool set\-\_\-compress, bool set\-\_\-decompress)
+\begin{DoxyCompactList}\small\item\em Parse and set the memory usage limit for compression and/or decompression. \end{DoxyCompactList}\item 
+static void {\bfseries parse\-\_\-real} ({\bf args\-\_\-info} $\ast$args, int argc, char $\ast$$\ast$argv)\label{args_8c_a6f92e102186d8b31848c8b8852425e1c}
+
+\item 
+static void {\bfseries parse\-\_\-environment} ({\bf args\-\_\-info} $\ast$args, char $\ast$argv0, const char $\ast$varname)\label{args_8c_ac2260e5d00d9fdaeb2589cd2ffac21c4}
+
+\item 
+void {\bfseries args\-\_\-parse} ({\bf args\-\_\-info} $\ast$args, int argc, char $\ast$$\ast$argv)\label{args_8c_a05c34191dc1aba862787f62481139730}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries opt\-\_\-stdout} = false\label{args_8c_a9adffaea369e78666c7b50bfce10c764}
+
+\item 
+bool {\bfseries opt\-\_\-force} = false\label{args_8c_ae77f19014fc2e31a20d7e3e3a2224dc5}
+
+\item 
+bool {\bfseries opt\-\_\-keep\-\_\-original} = false\label{args_8c_a631cfa4029ae02603ce134e84262fa23}
+
+\item 
+bool {\bfseries opt\-\_\-robot} = false\label{args_8c_a4048d9a6b2322c886d91932f63cb7c2b}
+
+\item 
+const char {\bfseries stdin\-\_\-filename} [$\,$] = \char`\"{}(stdin)\char`\"{}\label{args_8c_a634a0202402ef35c039505443288e738}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Argument parsing. \begin{DoxyNote}{Note}
+Filter-\/specific options parsing is in \doxyref{options.\-c}{p.}{options_8c}. 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{args.\-c@{args.\-c}!parse\-\_\-memlimit@{parse\-\_\-memlimit}}
+\index{parse\-\_\-memlimit@{parse\-\_\-memlimit}!args.c@{args.\-c}}
+\subsubsection[{parse\-\_\-memlimit}]{\setlength{\rightskip}{0pt plus 5cm}static void parse\-\_\-memlimit (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name, }
+\item[{const char $\ast$}]{name\-\_\-percentage, }
+\item[{char $\ast$}]{str, }
+\item[{bool}]{set\-\_\-compress, }
+\item[{bool}]{set\-\_\-decompress}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{args_8c_a1a3fb962627ec1e052317c46a8b351ff}
+
+
+Parse and set the memory usage limit for compression and/or decompression. 
+
+
+
+References hardware\-\_\-memlimit\-\_\-set(), and str\-\_\-to\-\_\-uint64().
+

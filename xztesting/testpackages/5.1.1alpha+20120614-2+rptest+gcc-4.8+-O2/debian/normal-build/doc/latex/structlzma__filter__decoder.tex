@@ -1,0 +1,50 @@
+\section{lzma\-\_\-filter\-\_\-decoder Struct Reference}
+\label{structlzma__filter__decoder}\index{lzma\-\_\-filter\-\_\-decoder@{lzma\-\_\-filter\-\_\-decoder}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lzma\-\_\-vli} {\bf id}
+\begin{DoxyCompactList}\small\item\em Filter I\-D. \end{DoxyCompactList}\item 
+{\bf lzma\-\_\-init\-\_\-function} {\bf init}
+\item 
+uint64\-\_\-t($\ast$ {\bf memusage} )(const void $\ast$options)
+\item 
+{\bf lzma\-\_\-ret}($\ast$ {\bf props\-\_\-decode} )(void $\ast$$\ast$options, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$props, size\-\_\-t props\-\_\-size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\index{lzma\-\_\-filter\-\_\-decoder@{lzma\-\_\-filter\-\_\-decoder}!id@{id}}
+\index{id@{id}!lzma_filter_decoder@{lzma\-\_\-filter\-\_\-decoder}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-vli} lzma\-\_\-filter\-\_\-decoder\-::id}\label{structlzma__filter__decoder_a67a5fea69a066a9df16846c8c3d90912}
+
+
+Filter I\-D. 
+
+\index{lzma\-\_\-filter\-\_\-decoder@{lzma\-\_\-filter\-\_\-decoder}!init@{init}}
+\index{init@{init}!lzma_filter_decoder@{lzma\-\_\-filter\-\_\-decoder}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-init\-\_\-function} lzma\-\_\-filter\-\_\-decoder\-::init}\label{structlzma__filter__decoder_a503ba991f42f80d56cc4ddff267483ae}
+Initializes the filter encoder and calls \doxyref{lzma\-\_\-next\-\_\-filter\-\_\-init()}{p.}{common_8h_a083a413c43195aed33e19b1d2c043f88} for filters + 1. \index{lzma\-\_\-filter\-\_\-decoder@{lzma\-\_\-filter\-\_\-decoder}!memusage@{memusage}}
+\index{memusage@{memusage}!lzma_filter_decoder@{lzma\-\_\-filter\-\_\-decoder}}
+\subsubsection[{memusage}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t($\ast$ lzma\-\_\-filter\-\_\-decoder\-::memusage)(const void $\ast$options)}\label{structlzma__filter__decoder_a48ac8869fce8ed03f041616100516afc}
+Calculates memory usage of the encoder. If the options are invalid, U\-I\-N\-T64\-\_\-\-M\-A\-X is returned. \index{lzma\-\_\-filter\-\_\-decoder@{lzma\-\_\-filter\-\_\-decoder}!props\-\_\-decode@{props\-\_\-decode}}
+\index{props\-\_\-decode@{props\-\_\-decode}!lzma_filter_decoder@{lzma\-\_\-filter\-\_\-decoder}}
+\subsubsection[{props\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lzma\-\_\-ret}($\ast$ lzma\-\_\-filter\-\_\-decoder\-::props\-\_\-decode)(void $\ast$$\ast$options, {\bf lzma\-\_\-allocator} $\ast$allocator, const uint8\-\_\-t $\ast$props, size\-\_\-t props\-\_\-size)}\label{structlzma__filter__decoder_a0f93e7f50a6e6b017d9634d157274e4b}
+Decodes Filter Properties.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\-Z\-M\-A\-\_\-\-O\-K\-: Properties decoded successfully.
+\begin{DoxyItemize}
+\item L\-Z\-M\-A\-\_\-\-O\-P\-T\-I\-O\-N\-S\-\_\-\-E\-R\-R\-O\-R\-: Unsupported properties
+\item L\-Z\-M\-A\-\_\-\-M\-E\-M\-\_\-\-E\-R\-R\-O\-R\-: Memory allocation failed. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Referenced by lzma\-\_\-properties\-\_\-decode().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/{\bf filter\-\_\-decoder.\-c}\end{DoxyCompactItemize}

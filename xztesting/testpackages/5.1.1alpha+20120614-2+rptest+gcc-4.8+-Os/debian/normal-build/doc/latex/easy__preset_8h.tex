@@ -1,0 +1,40 @@
+\section{liblzma/common/easy\-\_\-preset.h File Reference}
+\label{easy__preset_8h}\index{liblzma/common/easy\-\_\-preset.\-h@{liblzma/common/easy\-\_\-preset.\-h}}
+
+
+Preset handling for easy encoder and decoder.  
+
+
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lzma\-\_\-options\-\_\-easy}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bf lzma\-\_\-easy\-\_\-preset} ({\bf lzma\-\_\-options\-\_\-easy} $\ast$easy, uint32\-\_\-t preset)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Preset handling for easy encoder and decoder. 
+
+\subsection{Function Documentation}
+\index{easy\-\_\-preset.\-h@{easy\-\_\-preset.\-h}!lzma\-\_\-easy\-\_\-preset@{lzma\-\_\-easy\-\_\-preset}}
+\index{lzma\-\_\-easy\-\_\-preset@{lzma\-\_\-easy\-\_\-preset}!easy_preset.h@{easy\-\_\-preset.\-h}}
+\subsubsection[{lzma\-\_\-easy\-\_\-preset}]{\setlength{\rightskip}{0pt plus 5cm}bool lzma\-\_\-easy\-\_\-preset (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-options\-\_\-easy} $\ast$}]{easy, }
+\item[{uint32\-\_\-t}]{preset}
+\end{DoxyParamCaption}
+)}\label{easy__preset_8h_ae2fd3feb0515d5f984c473a7b815b02b}
+Set $\ast$easy to the settings given by the preset. Returns true on error, false on success. 
+
+References lzma\-\_\-options\-\_\-easy\-::filters, lzma\-\_\-filter\-::id, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-L\-Z\-M\-A2, lzma\-\_\-lzma\-\_\-preset(), L\-Z\-M\-A\-\_\-\-V\-L\-I\-\_\-\-U\-N\-K\-N\-O\-W\-N, lzma\-\_\-options\-\_\-easy\-::opt\-\_\-lzma, and lzma\-\_\-filter\-::options.
+
+
+
+Referenced by lzma\-\_\-easy\-\_\-buffer\-\_\-encode(), lzma\-\_\-easy\-\_\-decoder\-\_\-memusage(), lzma\-\_\-easy\-\_\-encoder(), and lzma\-\_\-easy\-\_\-encoder\-\_\-memusage().
+

@@ -1,0 +1,188 @@
+\section{xz/coder.h File Reference}
+\label{coder_8h}\index{xz/coder.\-h@{xz/coder.\-h}}
+
+
+Compresses or uncompresses a file.  
+
+
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries operation\-\_\-mode} \{ {\bfseries M\-O\-D\-E\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S}, 
+{\bfseries M\-O\-D\-E\-\_\-\-D\-E\-C\-O\-M\-P\-R\-E\-S\-S}, 
+{\bfseries M\-O\-D\-E\-\_\-\-T\-E\-S\-T}, 
+{\bfseries M\-O\-D\-E\-\_\-\-L\-I\-S\-T}
+ \}
+\item 
+enum {\bfseries format\-\_\-type} \{ {\bfseries F\-O\-R\-M\-A\-T\-\_\-\-A\-U\-T\-O}, 
+{\bfseries F\-O\-R\-M\-A\-T\-\_\-\-X\-Z}, 
+{\bfseries F\-O\-R\-M\-A\-T\-\_\-\-L\-Z\-M\-A}, 
+{\bfseries F\-O\-R\-M\-A\-T\-\_\-\-R\-A\-W}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf coder\-\_\-set\-\_\-check} ({\bf lzma\-\_\-check} {\bf check})
+\begin{DoxyCompactList}\small\item\em Set the integrity check type used when compressing. \end{DoxyCompactList}\item 
+void {\bf coder\-\_\-set\-\_\-preset} (uint32\-\_\-t new\-\_\-preset)
+\begin{DoxyCompactList}\small\item\em Set preset number. \end{DoxyCompactList}\item 
+void {\bf coder\-\_\-set\-\_\-extreme} (void)
+\begin{DoxyCompactList}\small\item\em Enable extreme mode. \end{DoxyCompactList}\item 
+void {\bf coder\-\_\-add\-\_\-filter} ({\bf lzma\-\_\-vli} {\bf id}, void $\ast$options)
+\begin{DoxyCompactList}\small\item\em Add a filter to the custom filter chain. \end{DoxyCompactList}\item 
+void {\bfseries coder\-\_\-set\-\_\-compression\-\_\-settings} (void)\label{coder_8h_a3193f23226c22454f435f2671874a507}
+
+\item 
+void {\bf coder\-\_\-run} (const char $\ast${\bf filename})
+\begin{DoxyCompactList}\small\item\em Compress or decompress the given file. \end{DoxyCompactList}\item 
+void {\bf coder\-\_\-free} (void)
+\begin{DoxyCompactList}\small\item\em Free the memory allocated for the coder and kill the worker threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+enum operation\-\_\-mode {\bf opt\-\_\-mode}
+\item 
+enum format\-\_\-type {\bf opt\-\_\-format}
+\item 
+bool {\bf opt\-\_\-auto\-\_\-adjust}
+\item 
+bool {\bf opt\-\_\-single\-\_\-stream}
+\begin{DoxyCompactList}\small\item\em If true, stop after decoding the first stream. \end{DoxyCompactList}\item 
+uint64\-\_\-t {\bf opt\-\_\-block\-\_\-size}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Compresses or uncompresses a file. 
+
+\subsection{Function Documentation}
+\index{coder.\-h@{coder.\-h}!coder\-\_\-set\-\_\-check@{coder\-\_\-set\-\_\-check}}
+\index{coder\-\_\-set\-\_\-check@{coder\-\_\-set\-\_\-check}!coder.h@{coder.\-h}}
+\subsubsection[{coder\-\_\-set\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}void coder\-\_\-set\-\_\-check (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-check}}]{check}
+\end{DoxyParamCaption}
+)}\label{coder_8h_a9536eb76947d3b4b3f6b8399b96f2b42}
+
+
+Set the integrity check type used when compressing. 
+
+
+
+References check, and check\-\_\-default.
+
+\index{coder.\-h@{coder.\-h}!coder\-\_\-set\-\_\-preset@{coder\-\_\-set\-\_\-preset}}
+\index{coder\-\_\-set\-\_\-preset@{coder\-\_\-set\-\_\-preset}!coder.h@{coder.\-h}}
+\subsubsection[{coder\-\_\-set\-\_\-preset}]{\setlength{\rightskip}{0pt plus 5cm}void coder\-\_\-set\-\_\-preset (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{new\-\_\-preset}
+\end{DoxyParamCaption}
+)}\label{coder_8h_aeacfa6d5e4a572118644c263e6bd6242}
+
+
+Set preset number. 
+
+
+
+References filters\-\_\-count, lzma\-\_\-filter\-::options, and preset\-\_\-number.
+
+\index{coder.\-h@{coder.\-h}!coder\-\_\-set\-\_\-extreme@{coder\-\_\-set\-\_\-extreme}}
+\index{coder\-\_\-set\-\_\-extreme@{coder\-\_\-set\-\_\-extreme}!coder.h@{coder.\-h}}
+\subsubsection[{coder\-\_\-set\-\_\-extreme}]{\setlength{\rightskip}{0pt plus 5cm}void coder\-\_\-set\-\_\-extreme (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{coder_8h_a260615621b13619f4e27e82ac58722dd}
+
+
+Enable extreme mode. 
+
+
+
+References preset\-\_\-extreme.
+
+\index{coder.\-h@{coder.\-h}!coder\-\_\-add\-\_\-filter@{coder\-\_\-add\-\_\-filter}}
+\index{coder\-\_\-add\-\_\-filter@{coder\-\_\-add\-\_\-filter}!coder.h@{coder.\-h}}
+\subsubsection[{coder\-\_\-add\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}void coder\-\_\-add\-\_\-filter (
+\begin{DoxyParamCaption}
+\item[{{\bf lzma\-\_\-vli}}]{id, }
+\item[{void $\ast$}]{options}
+\end{DoxyParamCaption}
+)}\label{coder_8h_a8884012fc28d467d3429070f270f7171}
+
+
+Add a filter to the custom filter chain. 
+
+
+
+References filters\-\_\-count, id, lzma\-\_\-filter\-::id, L\-Z\-M\-A\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-M\-A\-X, message\-\_\-fatal(), and lzma\-\_\-filter\-::options.
+
+\index{coder.\-h@{coder.\-h}!coder\-\_\-run@{coder\-\_\-run}}
+\index{coder\-\_\-run@{coder\-\_\-run}!coder.h@{coder.\-h}}
+\subsubsection[{coder\-\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}void coder\-\_\-run (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{coder_8h_acbe7065d22ed54ab19a1a9bb0cb808de}
+
+
+Compress or decompress the given file. 
+
+
+
+References lzma\-\_\-stream\-::avail\-\_\-in, coder\-\_\-init(), coder\-\_\-normal(), coder\-\_\-passthru(), io\-\_\-close(), io\-\_\-open\-\_\-dest(), io\-\_\-open\-\_\-src(), io\-\_\-read(), message\-\_\-filename(), message\-\_\-progress\-\_\-end(), message\-\_\-progress\-\_\-start(), lzma\-\_\-stream\-::next\-\_\-in, opt\-\_\-mode, file\-\_\-pair\-::src\-\_\-st, and user\-\_\-abort.
+
+\index{coder.\-h@{coder.\-h}!coder\-\_\-free@{coder\-\_\-free}}
+\index{coder\-\_\-free@{coder\-\_\-free}!coder.h@{coder.\-h}}
+\subsubsection[{coder\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void coder\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{coder_8h_a046610a034f1ae8d3bb152e8e2bde7c7}
+
+
+Free the memory allocated for the coder and kill the worker threads. 
+
+
+
+References lzma\-\_\-end().
+
+
+
+\subsection{Variable Documentation}
+\index{coder.\-h@{coder.\-h}!opt\-\_\-mode@{opt\-\_\-mode}}
+\index{opt\-\_\-mode@{opt\-\_\-mode}!coder.h@{coder.\-h}}
+\subsubsection[{opt\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}enum operation\-\_\-mode opt\-\_\-mode}\label{coder_8h_aed58b2945b6b414405af58615ca823b6}
+Operation mode of the command line tool. This is set in \doxyref{args.\-c}{p.}{args_8c} and read in several files. 
+
+Referenced by coder\-\_\-init(), coder\-\_\-normal(), coder\-\_\-run(), message\-\_\-filename(), message\-\_\-mem\-\_\-needed(), print\-\_\-filename(), progress\-\_\-pos(), and suffix\-\_\-get\-\_\-dest\-\_\-name().
+
+\index{coder.\-h@{coder.\-h}!opt\-\_\-format@{opt\-\_\-format}}
+\index{opt\-\_\-format@{opt\-\_\-format}!coder.h@{coder.\-h}}
+\subsubsection[{opt\-\_\-format}]{\setlength{\rightskip}{0pt plus 5cm}enum format\-\_\-type opt\-\_\-format}\label{coder_8h_a86110016dfb55682abf8a2b25927c3fc}
+File format to use when encoding or what format(s) to accept when decoding. This is a global because it's needed also in \doxyref{suffix.\-c}{p.}{suffix_8c}. This is set in \doxyref{args.\-c}{p.}{args_8c}. 
+
+Referenced by coder\-\_\-init(), coder\-\_\-normal(), compressed\-\_\-name(), list\-\_\-file(), and uncompressed\-\_\-name().
+
+\index{coder.\-h@{coder.\-h}!opt\-\_\-auto\-\_\-adjust@{opt\-\_\-auto\-\_\-adjust}}
+\index{opt\-\_\-auto\-\_\-adjust@{opt\-\_\-auto\-\_\-adjust}!coder.h@{coder.\-h}}
+\subsubsection[{opt\-\_\-auto\-\_\-adjust}]{\setlength{\rightskip}{0pt plus 5cm}bool opt\-\_\-auto\-\_\-adjust}\label{coder_8h_ad6884beb1efb0650651a2d29b31aa486}
+If true, the compression settings are automatically adjusted down if they exceed the memory usage limit. \index{coder.\-h@{coder.\-h}!opt\-\_\-single\-\_\-stream@{opt\-\_\-single\-\_\-stream}}
+\index{opt\-\_\-single\-\_\-stream@{opt\-\_\-single\-\_\-stream}!coder.h@{coder.\-h}}
+\subsubsection[{opt\-\_\-single\-\_\-stream}]{\setlength{\rightskip}{0pt plus 5cm}bool opt\-\_\-single\-\_\-stream}\label{coder_8h_acd019d002c1904bffdeca838b422235a}
+
+
+If true, stop after decoding the first stream. 
+
+
+
+Referenced by coder\-\_\-init(), and coder\-\_\-normal().
+
+\index{coder.\-h@{coder.\-h}!opt\-\_\-block\-\_\-size@{opt\-\_\-block\-\_\-size}}
+\index{opt\-\_\-block\-\_\-size@{opt\-\_\-block\-\_\-size}!coder.h@{coder.\-h}}
+\subsubsection[{opt\-\_\-block\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t opt\-\_\-block\-\_\-size}\label{coder_8h_ae2cc49eea149f63558415d0883339595}
+If non-\/zero, start a new .xz Block after every opt\-\_\-block\-\_\-size bytes of input. This has an effect only when compressing to the .xz format. 
+
+Referenced by coder\-\_\-normal().
+

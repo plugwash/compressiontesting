@@ -1,0 +1,75 @@
+\section{liblzma/check/crc32\-\_\-small.c File Reference}
+\label{crc32__small_8c}\index{liblzma/check/crc32\-\_\-small.\-c@{liblzma/check/crc32\-\_\-small.\-c}}
+
+
+C\-R\-C32 calculation (size-\/optimized)  
+
+
+{\ttfamily \#include \char`\"{}check.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries crc32\-\_\-init} (void)\label{crc32__small_8c_abe10d610947fad29dc7da8dd5c9102cd}
+
+\item 
+void {\bfseries lzma\-\_\-crc32\-\_\-init} (void)\label{crc32__small_8c_a2fe7980f21bc514b3ebf54930b04741a}
+
+\item 
+uint32\-\_\-t {\bf lzma\-\_\-crc32} (const uint8\-\_\-t $\ast$buf, size\-\_\-t size, uint32\-\_\-t crc)
+\begin{DoxyCompactList}\small\item\em Calculate C\-R\-C32. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t {\bf lzma\-\_\-crc32\-\_\-table} [1][256]
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\-R\-C32 calculation (size-\/optimized) 
+
+\subsection{Function Documentation}
+\index{crc32\-\_\-small.\-c@{crc32\-\_\-small.\-c}!lzma\-\_\-crc32@{lzma\-\_\-crc32}}
+\index{lzma\-\_\-crc32@{lzma\-\_\-crc32}!crc32_small.c@{crc32\-\_\-small.\-c}}
+\subsubsection[{lzma\-\_\-crc32}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-crc32 (
+\begin{DoxyParamCaption}
+\item[{const uint8\-\_\-t $\ast$}]{buf, }
+\item[{size\-\_\-t}]{size, }
+\item[{uint32\-\_\-t}]{crc}
+\end{DoxyParamCaption}
+)}\label{crc32__small_8c_a2e0f93b47fb4e0111c6c18b86a5eaff8}
+
+
+Calculate C\-R\-C32. 
+
+Calculate C\-R\-C32 using the polynomial from the I\-E\-E\-E 802.\-3 standard.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Pointer to the input buffer \\
+\hline
+{\em size} & Size of the input buffer \\
+\hline
+{\em crc} & Previously returned C\-R\-C value. This is used to calculate the C\-R\-C of a big buffer in smaller chunks. Set to zero when starting a new calculation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Updated C\-R\-C value, which can be passed to this function again to continue C\-R\-C calculation. 
+\end{DoxyReturn}
+
+
+References lzma\-\_\-crc32\-\_\-table.
+
+
+
+Referenced by lzma\-\_\-block\-\_\-header\-\_\-decode(), lzma\-\_\-block\-\_\-header\-\_\-encode(), lzma\-\_\-check\-\_\-update(), lzma\-\_\-index\-\_\-hash\-\_\-decode(), lzma\-\_\-stream\-\_\-footer\-\_\-decode(), lzma\-\_\-stream\-\_\-footer\-\_\-encode(), lzma\-\_\-stream\-\_\-header\-\_\-decode(), and lzma\-\_\-stream\-\_\-header\-\_\-encode().
+
+
+
+\subsection{Variable Documentation}
+\index{crc32\-\_\-small.\-c@{crc32\-\_\-small.\-c}!lzma\-\_\-crc32\-\_\-table@{lzma\-\_\-crc32\-\_\-table}}
+\index{lzma\-\_\-crc32\-\_\-table@{lzma\-\_\-crc32\-\_\-table}!crc32_small.c@{crc32\-\_\-small.\-c}}
+\subsubsection[{lzma\-\_\-crc32\-\_\-table}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t lzma\-\_\-crc32\-\_\-table[1][256]}\label{crc32__small_8c_af3e8fde4a67d5ed85d3fecb17f0b7b5c}
+lzma\-\_\-crc32\-\_\-table[0] is needed by L\-Z encoder so we need to keep the array two-\/dimensional. 
+
+Referenced by lzma\-\_\-crc32().
+
